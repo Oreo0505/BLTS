@@ -13,6 +13,7 @@ class Document extends Model
         'title',
         'date',
         'number',
+        'type',
         'action',
         'author',
         'sponsor',
