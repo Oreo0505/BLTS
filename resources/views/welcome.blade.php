@@ -229,7 +229,7 @@
                 <p class="text-base font-bold text-black/60">
                     Sponsor | Hon. Clarence S. Madrigal
                 </p>
-                <div class="flex flex-col space-y-2 items-end md:flex-row md:justify-between">
+                <div class="flex flex-col items-end md:flex-row md:justify-between">
                     <p class="text-base font-bold text-black/60">
                         Co-Sponsor | Hon. Jepthe M. Laderas & Hon. Arrianne R. Umali
                     </p>
@@ -268,7 +268,7 @@
                 <p class="text-base font-bold text-black/60">
                     Sponsor | Hon. Clarence S. Madrigal
                 </p>
-                <div class="flex flex-col space-y-2 items-end md:flex-row md:justify-between">
+                <div class="flex flex-col items-end md:flex-row md:justify-between">
                     <p class="text-base font-bold text-black/60">
                         Co-Sponsor | Hon. Jepthe M. Laderas & Hon. Arrianne R. Umali
                     </p>
@@ -307,7 +307,7 @@
                 <p class="text-base font-bold text-black/60">
                     Sponsor | Hon. Clarence S. Madrigal
                 </p>
-                <div class="flex flex-col space-y-2 items-end md:flex-row md:justify-between">
+                <div class="flex flex-col items-end md:flex-row md:justify-between">
                     <p class="text-base font-bold text-black/60">
                         Co-Sponsor | Hon. Jepthe M. Laderas & Hon. Arrianne R. Umali
                     </p>
@@ -346,7 +346,7 @@
                 <p class="text-base font-bold text-black/60">
                     Sponsor | Hon. Clarence S. Madrigal
                 </p>
-                <div class="flex flex-col space-y-2 items-end md:flex-row md:justify-between">
+                <div class="flex flex-col items-end md:flex-row md:justify-between">
                     <p class="text-base font-bold text-black/60">
                         Co-Sponsor | Hon. Jepthe M. Laderas & Hon. Arrianne R. Umali
                     </p>
@@ -385,7 +385,7 @@
                 <p class="text-base font-bold text-black/60">
                     Sponsor | Hon. Clarence S. Madrigal
                 </p>
-                <div class="flex flex-col space-y-2 items-end md:flex-row md:justify-between">
+                <div class="flex flex-col items-end md:flex-row md:justify-between">
                     <p class="text-base font-bold text-black/60">
                         Co-Sponsor | Hon. Jepthe M. Laderas & Hon. Arrianne R. Umali
                     </p>
