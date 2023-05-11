@@ -9,12 +9,16 @@
     <title>Homepage</title>
 </head>
 <body>
-    <nav class="flex flex-row h-10 bg-[#425B71] justify-between items-center sticky top-0 px-4">
+
+    {{-- Navigation Bar --}}
+    <nav class="flex flex-row h-10 bg-[#425B71] justify-between items-center sticky top-0 z-20 px-4">
         <svg id="open-drawer" width="48" height="48" class="flex h-10 cursor-pointer hover:stroke-neutral-500 hover:fill-neutral-500" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M15 30H33V28H15V30ZM15 25H33V23H15V25ZM15 18V20H33V18H15Z" fill="white"/>
         </svg>
         <p id="time-counter" class="my-auto font-sans font-medium text-xl text-white">May 10, 2023 | 11:00 AM</p>
     </nav>
+
+    {{-- Category Drawer --}}
     <div id="drawer" class="hidden fixed top-0 left-0 z-40 h-screen w-80 p-6 bg-[#363636] overflow-y-auto transition-transform -transform-x-full ease-in-out">
         <div class="flex flex-col">
             <div id="close-drawer" class="group flex flex-row shrink self-end items-center space-x-2">
@@ -73,6 +77,8 @@
             </div>
         </div>
     </div>
+
+    {{-- Filter Modal --}}
     <div id="filter-overlay" class="hidden fixed w-full h-100 inset-0 z-10 overflow-hidden flex justify-center items-center backdrop-blur-sm animated faster">
     </div>
     <div id="filter" class="hidden fixed inset-0 flex flex-col space-y-6 border drop-shadow-md shadow-lg modal-container bg-white h-96 w-1/2 mx-auto my-auto rounded z-50 overflow-y-auto p-6 animated faster">
@@ -176,12 +182,16 @@
             </button>
         </div>
     </div>
+
+    {{-- Upload FAB --}}
     <button title="Upload" class="fixed z-90 bottom-10 right-8 bg-[#425B71] w-[72px] h-[72px] overflow-clip rounded-full drop-shadow-lg flex justify-center items-center text-white text-4xl hover:bg-[#346A90] hover:drop-shadow-2xl">
         <img src="{{ asset('/images/upload.svg') }}" alt="" class="h-9 w-9 translate-x-[18px]">
         <svg width="68" height="44" viewBox="0 0 68 44" fill="none" xmlns="http://www.w3.org/2000/svg" class="scale-150 translate-x-1 translate-y-3">
             <path d="M80 7.22399V49C80 52.866 77.3303 56 74.0371 56H0C3.63886 24.3779 26.7231 0 54.6576 0C63.7941 0 72.4118 2.60782 80 7.22399Z" fill="#797979" fill-opacity="0.34"/>
         </svg>
     </button>
+
+    {{-- Hero --}}
     <div id="hero" class="h-48">
         <img src="{{ asset('images/hero.svg') }}" alt="" class="mt-4 mx-auto">
     </div>
@@ -192,66 +202,53 @@
             <img src="/images/filter.svg" id="show-filter" class="absolute end-0 h-6 mr-6 cursor-pointer" alt="Filter Icon" />
         </div>
     </div>
+
+    {{-- Recent Upload Titleholder --}}
     <div class="div flex flex-row mt-9 justify-between items-center">
-        <p class="ml-14 text-xl text-[#181313] text-base font-sans">Recent Uploads</p>
+        <p class="mx-auto text-xl text-[#181313] font-bold font-sans md:ml-54">Recent Uploads</p>
     </div>
-    <div class="flex flex-wrap justify-center mx-auto pt-6 px-14 space-y-2 md:justify-start md:gap-8">
-        <div class="flex flex-col w-4/5 h-40 mt-2 border-b shadow justify-center px-2 space-y-2 md:w-[30%]">
-            <div class="flex flex-row w-full space-x-2 items-center">
-                <img src="{{ asset('/images/filter.svg') }}" alt="" class="h-9">
-                <p class="text-xl opacity-90 font-semibold font-sans">Memorandum 2022-195</p>
+
+    {{-- Document Cards --}}
+    <div class="flex flex-col space-y-2 items-center py-4">
+        <div class="flex-flex-col space-y-1 w-[65%] border-b drop-shadow-md shadow-lg p-4">
+            <div class="flex flex-col justify-between space-y-2 md:flex-row">
+                <div class="flex flex-row space-x-4 items-end">
+                    <img src="{{ asset('/images/approved.svg') }}" alt="" class="w-9">
+                    <p class="font-sans font-medium text-base text-left w-[210px]">Ordinance No.10, s. 2021</p>
+                </div>
+                <div class="flex flex-row space-x-4 items-end justify-center md:justify-end">
+                    <a href="#" class="h-9 bg-[#9C27B0] rounded-full p-2 font-sans font-normal text-sm text-white whitespace-nowrap">Waste Sched</a>
+                    <a href="#" class="h-9 bg-[#0288D1] rounded-full p-2 font-sans font-normal text-sm text-white whitespace-nowrap">Kalikasan</a>
+                    <a href="#" class="h-9 bg-[#2E7D32] rounded-full p-2 font-sans font-normal text-sm text-white whitespace-nowrap">Solid Waste</a>
+                </div>
             </div>
-            <div class="flex p-1">
-                <p class="text-gray-500 text-sm text-underline">
-                    It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.
+            <p class="text-base font-normal uppercase text-black/60">
+                AN ORDINANCE DECLARING DECEMBER 20, 2029 AND EVERT YEAR THEREATER AS THE ARAW NG BARANGAY CELEBRATION IN BARANGAY TAMPUS, BOAC, MARINDUQUE AND PROVIDING FUNDS FOR THIS PURPOSE
+            </p>
+            <div class="flex flex-col">
+                <p class="text-base font-bold text-black/60">
+                    Sponsor | Hon. Clarence S. Madrigal
                 </p>
-            </div>
-        </div>
-        <div class="flex flex-col w-4/5 h-40 mt-2 border-b shadow justify-center px-2 space-y-2 md:w-[30%]">
-            <div class="flex flex-row w-full space-x-2 items-center">
-                <img src="{{ asset('/images/filter.svg') }}" alt="" class="h-9">
-                <p class="text-xl opacity-90 font-semibold font-sans">Memorandum 2022-195</p>
-            </div>
-            <div class="flex p-1">
-                <p class="text-gray-500 text-sm text-underline">
-                    It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.
-                </p>
-            </div>
-        </div>
-        <div class="flex flex-col w-4/5 h-40 mt-2 border-b shadow justify-center px-2 space-y-2 md:w-[30%]">
-            <div class="flex flex-row w-full space-x-2 items-center">
-                <img src="{{ asset('/images/filter.svg') }}" alt="" class="h-9">
-                <p class="text-xl opacity-90 font-semibold font-sans">Memorandum 2022-195</p>
-            </div>
-            <div class="flex p-1">
-                <p class="text-gray-500 text-sm text-underline">
-                    It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.
-                </p>
-            </div>
-        </div>
-        <div class="flex flex-col w-4/5 h-40 mt-2 border-b shadow justify-center px-2 space-y-2 md:w-[30%]">
-            <div class="flex flex-row w-full space-x-2 items-center">
-                <img src="{{ asset('/images/filter.svg') }}" alt="" class="h-9">
-                <p class="text-xl opacity-90 font-semibold font-sans">Memorandum 2022-195</p>
-            </div>
-            <div class="flex p-1">
-                <p class="text-gray-500 text-sm text-underline">
-                    It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.
-                </p>
-            </div>
-        </div>
-        <div class="flex flex-col w-4/5 h-40 mt-2 border-b shadow justify-center px-2 space-y-2 md:w-[30%]">
-            <div class="flex flex-row w-full space-x-2 items-center">
-                <img src="{{ asset('/images/filter.svg') }}" alt="" class="h-9">
-                <p class="text-xl opacity-90 font-semibold font-sans">Memorandum 2022-195</p>
-            </div>
-            <div class="flex p-1">
-                <p class="text-gray-500 text-sm text-underline">
-                    It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.
-                </p>
+                <div class="flex flex-col space-y-2 items-end md:flex-row md:justify-between">
+                    <p class="text-base font-bold text-black/60">
+                        Co-Sponsor | Hon. Jepthe M. Laderas & Hon. Arrianne R. Umali
+                    </p>
+                    <div class="flex flex-row justify-end items-end space-x-4">
+                        <a href="#" class="rounded-sm hover:bg-[#9ED6E7] hover:border hover:border-gray-100 hover:scale-150">
+                            <img src="{{ asset('/images/download.svg') }}" alt="">
+                        </a>
+                        <a href="#" class="rounded-sm hover:bg-[#9ED6E7] hover:border hover:border-gray-100 hover:scale-150">
+                            <img src="{{ asset('/images/open.svg') }}" alt="">
+                        </a>
+                        <a href="#" class="rounded-sm hover:bg-[#9ED6E7] hover:border hover:border-gray-100 hover:scale-150">
+                            <img src="{{ asset('/images/delete.svg') }}" alt="">
+                        </a>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
+
     <script>
         const drawer = document.getElementById('drawer');
         const openDrawerButton = document.getElementById('open-drawer');
