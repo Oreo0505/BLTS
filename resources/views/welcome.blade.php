@@ -13,7 +13,7 @@
         <svg id="open-drawer" width="48" height="48" class="flex h-10 cursor-pointer hover:stroke-neutral-500 hover:fill-neutral-500" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M15 30H33V28H15V30ZM15 25H33V23H15V25ZM15 18V20H33V18H15Z" fill="white"/>
         </svg>
-        <p class="my-auto font-sans font-medium text-xl text-white">May 10, 2023 | 11:00 AM</p>
+        <p id="time-counter" class="my-auto font-sans font-medium text-xl text-white">May 10, 2023 | 11:00 AM</p>
     </nav>
     <div id="drawer" class="hidden fixed top-0 left-0 z-40 h-screen w-80 p-6 bg-[#363636] overflow-y-auto transition-transform -transform-x-full ease-in-out">
         <div class="flex flex-col">
@@ -193,7 +193,7 @@
         </div>
     </div>
     <div class="div flex flex-row mt-9 justify-between items-center">
-        <p class="ml-14 text-2xl text-[#181313] text-base font-sans">Recent Uploads</p>
+        <p class="ml-14 text-xl text-[#181313] text-base font-sans">Recent Uploads</p>
     </div>
     <div class="flex flex-wrap justify-center mx-auto pt-6 px-14 space-y-2 md:justify-start md:gap-8">
         <div class="flex flex-col w-4/5 h-40 mt-2 border-b shadow justify-center px-2 space-y-2 md:w-[30%]">
@@ -253,17 +253,8 @@
         </div>
     </div>
     <script>
+        const drawer = document.getElementById('drawer');
         const openDrawerButton = document.getElementById('open-drawer');
-        openDrawerButton.addEventListener('click', function(){
-            const drawer = document.getElementById('drawer');
-            drawer.classList.remove('hidden');
-        });
-        const closeDrawerButton = document.getElementById('close-drawer');
-        closeDrawerButton.addEventListener('click', function(){
-            const drawer = document.getElementById('drawer');
-            drawer.classList.add('hidden');
-        });
-
         const showFilter = document.getElementById('show-filter');
         const hideFilter = document.getElementById('hide-filter');
         const filterOverlay = document.getElementById('filter-overlay');
@@ -271,6 +262,7 @@
         const applyFilterButton = document.getElementById('apply-filter');
 
         function openFilterModal(){
+            drawer.classList.add('hidden');
             filterOverlay.classList.remove('hidden');
             filter.classList.remove('hidden','fadeOut');
             filter.classList.add('fadeIn');
@@ -284,13 +276,49 @@
             }, 1000);   
         }
 
+        openDrawerButton.addEventListener('click', function(){
+            closeFilterModal();
+            drawer.classList.remove('hidden');
+        });
+        const closeDrawerButton = document.getElementById('close-drawer');
+        closeDrawerButton.addEventListener('click', function(){
+            drawer.classList.add('hidden');
+        });
+
         showFilter.addEventListener('click', openFilterModal);
         hideFilter.addEventListener('click', closeFilterModal);
         filterOverlay.addEventListener('click', closeFilterModal);
         applyFilterButton.addEventListener('click',function(){
             // Apply filters
             closeFilterModal();
+        });
+
+        window.addEventListener('keydown', function(event){
+            if(event.key == 'Escape'){
+                closeFilterModal();
+                drawer.classList.add('hidden');
+            }
         })
+
+        const timeCounter = document.getElementById('time-counter');
+        const months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+        function getCurrentDateTime(){
+            var date = new Date();
+            var month = months[date.getMonth()];
+            var day = date.getDate();
+            var year = date.getFullYear();
+            var hour = date.getHours();
+            var minute = date.getMinutes();
+            var second =String(date.getSeconds()).padStart(2,'0');
+            var hourFormat = 'AM';
+            console.log(hour);
+            if(hour >= 12){
+                hour = hour - 12;
+                hourFormat = 'PM';
+            }
+            timeCounter.innerText= `${month} ${day}, ${year} | ${hour}:${minute}:${second} ${hourFormat}`;
+        }
+        setInterval(getCurrentDateTime, 1000);
     </script>
 </body>
 </html>
