@@ -1,8 +1,10 @@
 const uploadFAB = document.getElementById('upload-fab');
 const uploadOverlay = document.getElementById('upload-overlay');
 const uploadModal = document.getElementById('upload');
+const uploadForm = document.getElementById('upload-form');
 const uploadExitButton = document.getElementById('upload-exit');
 const uploadCancelButton = document.getElementById('upload-cancel');
+const uploadSubmitButton = document.getElementById('upload-submit');
 const titleField = document.getElementById('upload-title');
 const typeField = document.getElementById('upload-type');
 const numberField = document.getElementById('upload-number');
@@ -59,6 +61,44 @@ uploadCancelButton.addEventListener('click', function(){
     closeUploadModal();
 });
 
+uploadSubmitButton.addEventListener('click', function(){
+    if(titleField.value.length < 3){
+        alert('Title should be 3 or more character long');
+        return;
+    }
+    if(typeField.value == 'null'){
+        alert('Please select document type');
+        return;
+    }
+    if(numberField.value.length <= 0){
+        alert('Please enter document number');
+        return;
+    }
+    if(!/^\d+\.\d+$/.test(numberField.value)){
+        alert('Number field can only contain digits');
+        return;
+    }
+    if(actionField.value == 'null'){
+        alert('Please select action taken');
+        return;
+    }
+    if(dateField.value.length <= 0){
+        alert('Please select document date');
+        return;
+    }
+    if(authorField.value.length <= 0){
+        alert('Please enter at least one author');
+        return;
+    }
+    if(fileField.files.length == 0){
+        alert('Please upload a file');
+        return;
+    }
+    if(sponsorField.value.length <= 0){
+        sponsorField.value = authorField.value;
+    }
+    uploadForm.submit();
+});
 
 function showUploadedLabel(filename){
     var uploadedLabel =document.getElementById('upload-label');
