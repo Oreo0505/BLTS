@@ -194,6 +194,7 @@
         </div>
         <p class="flex self-center font-sans font-bold text-lg text-[#131B21] ml-9 mb-2 md:self-start">Upload a Document</p>
         <form action="/upload" method="POST" enctype="multipart/form-data" id="upload-form">
+            @csrf
             <div class="flex flex-col space-y-4 items-center mb-5 md:flex-row md:space-x-4 md:ml-9 md:mr-9 md:mt-3 md:items-end">
                 <div class="flex flex-col w-3/5 space-y-4">
                     <div class="flex flex-col items-center relative">
