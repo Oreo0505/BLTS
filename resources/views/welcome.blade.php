@@ -90,7 +90,7 @@
         </div>
         <div class="flex flex-row justify-between md:pr-12">
             <div class="flex flex-col items-center relative w-2/5">
-                <select name="searchBy" id="searchBy" class="type peer h-full w-full rounded-[7px] border border-gray-700 border-t-transparent bg-transparent px-3 py-2.5 font-sans text-sm font-normal text-gray-700 outline outline-0 transition-all placeholder-shown:border placeholder-shown:border-gray-700 placeholder-shown:border-t-gray-700 empty:!bg-red-500 focus:border-2 focus:border-gray-700 focus:border-t-transparent focus:outline-0 disabled:border-0 disabled:bg-gray-700">
+                <select name="filter-searchBy" id="filter-searchBy" class="type peer h-full w-full rounded-[7px] border border-gray-700 border-t-transparent bg-transparent px-3 py-2.5 font-sans text-sm font-normal text-gray-700 outline outline-0 transition-all placeholder-shown:border placeholder-shown:border-gray-700 placeholder-shown:border-t-gray-700 empty:!bg-red-500 focus:border-2 focus:border-gray-700 focus:border-t-transparent focus:outline-0 disabled:border-0 disabled:bg-gray-700">
                     <option value="title" class="text-sm">Title</option>
                     <option value="author" class="text-sm">Author</option>
                     <option value="tag" class="text-sm">Tags</option>
@@ -100,7 +100,7 @@
                 </label>
             </div>
             <div class="flex flex-col items-center relative w-2/5">
-                <select name="year" id="year" class="type peer h-full w-full rounded-[7px] border border-gray-700 border-t-transparent bg-transparent px-3 py-2.5 font-sans text-sm font-normal text-gray-700 outline outline-0 transition-all placeholder-shown:border placeholder-shown:border-gray-700 placeholder-shown:border-t-gray-700 empty:!bg-red-500 focus:border-2 focus:border-gray-700 focus:border-t-transparent focus:outline-0 disabled:border-0 disabled:bg-gray-700">
+                <select name="filter-year" id="filter-year" class="type peer h-full w-full rounded-[7px] border border-gray-700 border-t-transparent bg-transparent px-3 py-2.5 font-sans text-sm font-normal text-gray-700 outline outline-0 transition-all placeholder-shown:border placeholder-shown:border-gray-700 placeholder-shown:border-t-gray-700 empty:!bg-red-500 focus:border-2 focus:border-gray-700 focus:border-t-transparent focus:outline-0 disabled:border-0 disabled:bg-gray-700">
                     <option value="all" class="text-sm">All Year</option>
                     <option value="2018" class="text-sm">2018</option>
                     <option value="2019" class="text-sm">2019</option>
@@ -121,19 +121,19 @@
             </div>
             <div class="flex flex-wrap md:flex-row">
                 <div class="flex flex-row items-center w-[23%] mr-7">
-                    <input type="checkbox" id="submitted" name="submitted" value="submitted" class="attachment w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500">
+                    <input type="checkbox" id="filter-submitted" name="filter-submitted" class="attachment w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500">
                     <label for="submitted" class="ml-2 text-sm font-base text-gray-700 cursor-pointer hover:text-gray-500">Submitted</label>
                 </div>
                 <div class="flex flex-row items-center w-[23%] mr-1">
-                    <input type="checkbox" id="endorsed" name="endorsed" value="" class="attachment w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500">
+                    <input type="checkbox" id="filter-endorsed" name="filter-endorsed" class="attachment w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500">
                     <label for="endorsed" class="ml-2 text-sm font-base text-gray-700 cursor-pointer hover:text-gray-500">Endorsed</label>
                 </div>
                 <div class="flex flex-row items-center w-[23%] mr-1">
-                    <input type="checkbox" id="enacted" name="enacted" value="enacted" class="attachment w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500">
+                    <input type="checkbox" id="filter-enacted" name="filter-enacted" class="attachment w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500">
                     <label for="enacted" class="ml-2 text-sm font-base text-gray-700 cursor-pointer hover:text-gray-500">Enacted</label>
                 </div>
                 <div class="flex flex-row items-center w-[23%]">
-                    <input type="checkbox" id="adopted" name="adopted" value="adopted" class="attachment w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500">
+                    <input type="checkbox" id="filter-adopted" name="filter-adopted" class="attachment w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500">
                     <label for="adopted" class="ml-2 text-sm font-base text-gray-700 cursor-pointer hover:text-gray-500">Adopted</label>
                 </div>
             </div>
@@ -145,33 +145,33 @@
             </div>
             <div class="flex flex-wrap md:flex-row">
                 <div class="flex flex-row items-center w-[23%] mr-7">
-                    <input type="checkbox" id="code_of_ordinance" name="code_of_ordinance" value="code_of_ordinance" class="attachment w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500">
+                    <input type="checkbox" id="filter-code_of_ordinance" name="filter-code_of_ordinance" class="attachment w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500">
                     <label for="code_of_ordinance" class="ml-2 text-sm font-base text-gray-700 cursor-pointer hover:text-gray-500">Code of Ordinance</label>
                 </div>
                 <div class="flex flex-row items-center w-[23%] mr-1">
-                    <input type="checkbox" id="endorsement" name="endorsement" value="endorsement" class="attachment w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500">
+                    <input type="checkbox" id="filter-endorsement" name="filter-endorsement" class="attachment w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500">
                     <label for="endorsement" class="ml-2 text-sm font-base text-gray-700 cursor-pointer hover:text-gray-500">Endorsement</label>
                 </div>
                 <div class="flex flex-row items-center w-[23%] mr-1">
-                    <input type="checkbox" id="ordinance" name="ordinance" value="ordinance" class="attachment w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500">
+                    <input type="checkbox" id="filter-ordinance" name="filter-ordinance" class="attachment w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500">
                     <label for="ordinance" class="ml-2 text-sm font-base text-gray-700 cursor-pointer hover:text-gray-500">Ordinance</label>
                 </div>
                 <div class="flex flex-row items-center w-[23%]">
-                    <input type="checkbox" id="petition" name="petition" value="petition" class="attachment w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500">
+                    <input type="checkbox" id="filter-petition" name="filter-petition" class="attachment w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500">
                     <label for="petition" class="ml-2 text-sm font-base text-gray-700 cursor-pointer hover:text-gray-500">Petition</label>
                 </div>
             </div>
             <div class="flex flex-wrap md:flex-row">
                 <div class="flex flex-row items-center w-[23%] mr-7">
-                    <input type="checkbox" id="proposal" name="proposal" value="proposal" class="attachment w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500">
+                    <input type="checkbox" id="filter-proposal" name="filter-proposal" class="attachment w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500">
                     <label for="proposal" class="ml-2 text-sm font-base text-gray-700 cursor-pointer hover:text-gray-500">Proposal</label>
                 </div>
                 <div class="flex flex-row items-center w-[23%] mr-1">
-                    <input type="checkbox" id="resolution" name="resolution" value="resolution" class="attachment w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500">
+                    <input type="checkbox" id="filter-resolution" name="filter-resolution" class="attachment w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500">
                     <label for="resolution" class="ml-2 text-sm font-base text-gray-700 cursor-pointer hover:text-gray-500">Resolution</label>
                 </div>
                 <div class="flex flex-row items-center w-[23%] mr-1">
-                    <input type="checkbox" id="others" name="others" value="others" class="attachment w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500">
+                    <input type="checkbox" id="filter-others" name="filter-others" class="attachment w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500">
                     <label for="others" class="ml-2 text-sm font-base text-gray-700 cursor-pointer hover:text-gray-500">Others</label>
                 </div>
             </div>
@@ -184,11 +184,11 @@
     </div>
 
     {{-- Upload Modal --}}
-    <div id="upload-overlay" class="fixed w-full h-100 inset-0 z-10 overflow-hidden flex justify-center items-center backdrop-blur-sm animated faster">
+    <div id="upload-overlay" class="hidden fixed w-full h-100 inset-0 z-10 overflow-hidden flex justify-center items-center backdrop-blur-sm animated faster">
     </div>
-    <div id="upload" class="fixed inset-0 flex flex-col items-center border drop-shadow-md shadow-lg modal-container bg-white h-[490px] w-1/2 mx-auto my-auto rounded z-50 animated faster md:h-[390px]">
+    <div id="upload" class="hidden fixed inset-0 flex flex-col items-center border drop-shadow-md shadow-lg modal-container bg-white h-[490px] w-1/2 mx-auto my-auto rounded z-50 animated faster md:h-[390px]">
         <div class="flex flex-col self-end items-end ml-9 mr-2.5 mt-2.5">
-            <svg width="15" height="15" viewBox="0 0 15 15" xmlns="http://www.w3.org/2000/svg" class="flex justify-end fill-[#757575] cursor-pointer">
+            <svg id="upload-exit" width="15" height="15" viewBox="0 0 15 15" xmlns="http://www.w3.org/2000/svg" class="flex justify-end fill-[#757575] cursor-pointer">
                 <path d="M4 11.875L3.125 11L6.625 7.5L3.125 4L4 3.125L7.5 6.625L11 3.125L11.875 4L8.375 7.5L11.875 11L11 11.875L7.5 8.375L4 11.875Z"/>
             </svg>
         </div>
@@ -196,14 +196,14 @@
         <div class="flex flex-col space-y-4 items-center mb-5 md:flex-row md:space-x-4 md:ml-9 md:mr-9 md:mt-3 md:items-end">
             <div class="flex flex-col w-3/5 space-y-4">
                 <div class="flex flex-col items-center relative">
-                    <input name="title" id="searchBy" class="type peer h-full w-full rounded-[7px] border border-gray-700 border-t-transparent bg-transparent px-3 py-2.5 font-sans text-sm font-normal text-gray-700 outline outline-0 transition-all placeholder-shown:border placeholder-shown:border-gray-700 placeholder-shown:border-t-gray-700 focus:border-2 focus:border-gray-700 focus:border-t-transparent focus:outline-0 disabled:border-0 disabled:bg-gray-700">
+                    <input type="text" id="upload-title" name="upload-title" class="type peer h-full w-full rounded-[7px] border border-gray-700 border-t-transparent bg-transparent px-3 py-2.5 font-sans text-sm font-normal text-gray-700 outline outline-0 transition-all placeholder-shown:border placeholder-shown:border-gray-700 placeholder-shown:border-t-gray-700 focus:border-2 focus:border-gray-700 focus:border-t-transparent focus:outline-0 disabled:border-0 disabled:bg-gray-700">
                     <label class="before:content[\' \'] after:content[\' \'] pointer-events-none absolute left-0 -top-1.5 flex h-full w-full select-none text-[11px] font-normal leading-tight text-gray-700 transition-all before:pointer-events-none before:mt-[6.5px] before:mr-1 before:box-border before:block before:h-1.5 before:w-2.5 before:rounded-tl-md before:border-t before:border-l before:border-gray-700 before:transition-all after:pointer-events-none after:mt-[6.5px] after:ml-1 after:box-border after:block after:h-1.5 after:w-2.5 after:flex-grow after:rounded-tr-md after:border-t after:border-r after:border-gray-700 after:transition-all peer-placeholder-shown:text-sm peer-placeholder-shown:leading-[3.75] peer-placeholder-shown:text-gray-700 peer-placeholder-shown:before:border-transparent peer-placeholder-shown:after:border-transparent peer-focus:text-[11px] peer-focus:leading-tight peer-focus:text-gray-700 peer-focus:before:border-t-2 peer-focus:before:border-l-2 peer-focus:before:border-gray-700 peer-focus:after:border-t-2 peer-focus:after:border-r-2 peer-focus:after:border-gray-700 peer-disabled:text-transparent peer-disabled:before:border-transparent peer-disabled:after:border-transparent peer-disabled:peer-placeholder-shown:text-gray-700">
                         Title
                     </label>
                 </div>
                 <div class="flex flex-row space-x-2">
                     <div class="flex flex-col items-center relative w-1/2">
-                        <select name="type" id="type" class="type peer h-full w-full rounded-[7px] border border-gray-700 border-t-transparent bg-transparent px-3 py-2.5 font-sans text-sm font-normal text-gray-700 outline outline-0 transition-all placeholder-shown:border placeholder-shown:border-gray-700 placeholder-shown:border-t-gray-700 focus:border-2 focus:border-gray-700 focus:border-t-transparent focus:outline-0 disabled:border-0 disabled:bg-gray-700">
+                        <select id="upload-type" name="upload-type" class="type peer h-full w-full rounded-[7px] border border-gray-700 border-t-transparent bg-transparent px-3 py-2.5 font-sans text-sm font-normal text-gray-700 outline outline-0 transition-all placeholder-shown:border placeholder-shown:border-gray-700 placeholder-shown:border-t-gray-700 focus:border-2 focus:border-gray-700 focus:border-t-transparent focus:outline-0 disabled:border-0 disabled:bg-gray-700">
                             <option value="code_of_ordinance" class="text-sm">Code of Ordinance</option>
                             <option value="endorsement" class="text-sm">Endorsement</option>
                             <option value="ordinance" class="text-sm">Ordinance</option>    
@@ -217,7 +217,7 @@
                         </label>
                     </div>
                     <div class="flex flex-col items-center relative w-1/2">
-                        <input name="number" id="number" class="type peer h-full w-full rounded-[7px] border border-gray-700 border-t-transparent bg-transparent px-3 py-2.5 font-sans text-sm font-normal text-gray-700 outline outline-0 transition-all placeholder-shown:border placeholder-shown:border-gray-700 placeholder-shown:border-t-gray-700 focus:border-2 focus:border-gray-700 focus:border-t-transparent focus:outline-0 disabled:border-0 disabled:bg-gray-700">
+                        <input type="text" id="upload-number" name="upload-number" class="type peer h-full w-full rounded-[7px] border border-gray-700 border-t-transparent bg-transparent px-3 py-2.5 font-sans text-sm font-normal text-gray-700 outline outline-0 transition-all placeholder-shown:border placeholder-shown:border-gray-700 placeholder-shown:border-t-gray-700 focus:border-2 focus:border-gray-700 focus:border-t-transparent focus:outline-0 disabled:border-0 disabled:bg-gray-700">
                         <label class="before:content[\' \'] after:content[\' \'] pointer-events-none absolute left-0 -top-1.5 flex h-full w-full select-none text-[11px] font-normal leading-tight text-gray-700 transition-all before:pointer-events-none before:mt-[6.5px] before:mr-1 before:box-border before:block before:h-1.5 before:w-2.5 before:rounded-tl-md before:border-t before:border-l before:border-gray-700 before:transition-all after:pointer-events-none after:mt-[6.5px] after:ml-1 after:box-border after:block after:h-1.5 after:w-2.5 after:flex-grow after:rounded-tr-md after:border-t after:border-r after:border-gray-700 after:transition-all peer-placeholder-shown:text-sm peer-placeholder-shown:leading-[3.75] peer-placeholder-shown:text-gray-700 peer-placeholder-shown:before:border-transparent peer-placeholder-shown:after:border-transparent peer-focus:text-[11px] peer-focus:leading-tight peer-focus:text-gray-700 peer-focus:before:border-t-2 peer-focus:before:border-l-2 peer-focus:before:border-gray-700 peer-focus:after:border-t-2 peer-focus:after:border-r-2 peer-focus:after:border-gray-700 peer-disabled:text-transparent peer-disabled:before:border-transparent peer-disabled:after:border-transparent peer-disabled:peer-placeholder-shown:text-gray-700">
                             Number
                         </label>
@@ -225,7 +225,7 @@
                 </div>
                 <div class="flex flex-row space-x-2">
                     <div class="flex flex-col items-center relative w-1/2">
-                        <select name="action" id="action" class="type peer h-full w-full rounded-[7px] border border-gray-700 border-t-transparent bg-transparent px-3 py-2.5 font-sans text-sm font-normal text-gray-700 outline outline-0 transition-all placeholder-shown:border placeholder-shown:border-gray-700 placeholder-shown:border-t-gray-700 focus:border-2 focus:border-gray-700 focus:border-t-transparent focus:outline-0 disabled:border-0 disabled:bg-gray-700">
+                        <select id="upload-action" name="upload-action" class="type peer h-full w-full rounded-[7px] border border-gray-700 border-t-transparent bg-transparent px-3 py-2.5 font-sans text-sm font-normal text-gray-700 outline outline-0 transition-all placeholder-shown:border placeholder-shown:border-gray-700 placeholder-shown:border-t-gray-700 focus:border-2 focus:border-gray-700 focus:border-t-transparent focus:outline-0 disabled:border-0 disabled:bg-gray-700">
                             <option value="submitted" class="text-sm">Submitted</option>
                             <option value="endorsed" class="text-sm">Endorsed</option>
                             <option value="enacted" class="text-sm">Enacted</option>    
@@ -236,43 +236,43 @@
                         </label>
                     </div>
                     <div class="relative w-1/2">
-                        <input datepicker datepicker-autohide type="text" id="date" name="date" class="bg-gray-50 border border-gray-700 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-4 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Select date">
+                        <input datepicker datepicker-autohide type="text" id="upload-date" name="upload-date" class="bg-gray-50 border border-gray-700 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-4 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Select date">
                         <div class="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none">
                             <svg aria-hidden="true" class="w-5 h-5 text-gray-500" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clip-rule="evenodd"></path></svg>
                         </div>
                     </div>
                 </div>
                 <div class="flex flex-col items-center relative">
-                    <input name="author" id="author" class="type peer h-full w-full rounded-[7px] border border-gray-700 border-t-transparent bg-transparent px-3 py-2.5 font-sans text-sm font-normal text-gray-700 outline outline-0 transition-all placeholder-shown:border placeholder-shown:border-gray-700 placeholder-shown:border-t-gray-700 focus:border-2 focus:border-gray-700 focus:border-t-transparent focus:outline-0 disabled:border-0 disabled:bg-gray-700">
+                    <input type="text" id="upload-author" name="upload-author" class="type peer h-full w-full rounded-[7px] border border-gray-700 border-t-transparent bg-transparent px-3 py-2.5 font-sans text-sm font-normal text-gray-700 outline outline-0 transition-all placeholder-shown:border placeholder-shown:border-gray-700 placeholder-shown:border-t-gray-700 focus:border-2 focus:border-gray-700 focus:border-t-transparent focus:outline-0 disabled:border-0 disabled:bg-gray-700">
                     <label class="before:content[\' \'] after:content[\' \'] pointer-events-none absolute left-0 -top-1.5 flex h-full w-full select-none text-[11px] font-normal leading-tight text-gray-700 transition-all before:pointer-events-none before:mt-[6.5px] before:mr-1 before:box-border before:block before:h-1.5 before:w-2.5 before:rounded-tl-md before:border-t before:border-l before:border-gray-700 before:transition-all after:pointer-events-none after:mt-[6.5px] after:ml-1 after:box-border after:block after:h-1.5 after:w-2.5 after:flex-grow after:rounded-tr-md after:border-t after:border-r after:border-gray-700 after:transition-all peer-placeholder-shown:text-sm peer-placeholder-shown:leading-[3.75] peer-placeholder-shown:text-gray-700 peer-placeholder-shown:before:border-transparent peer-placeholder-shown:after:border-transparent peer-focus:text-[11px] peer-focus:leading-tight peer-focus:text-gray-700 peer-focus:before:border-t-2 peer-focus:before:border-l-2 peer-focus:before:border-gray-700 peer-focus:after:border-t-2 peer-focus:after:border-r-2 peer-focus:after:border-gray-700 peer-disabled:text-transparent peer-disabled:before:border-transparent peer-disabled:after:border-transparent peer-disabled:peer-placeholder-shown:text-gray-700">
                         Author/s
                     </label>
                 </div>
                 <div class="flex flex-col items-center relative">
-                    <input name="sponsor" id="sponsor" class="type peer h-full w-full rounded-[7px] border border-gray-700 border-t-transparent bg-transparent px-3 py-2.5 font-sans text-sm font-normal text-gray-700 outline outline-0 transition-all placeholder-shown:border placeholder-shown:border-gray-700 placeholder-shown:border-t-gray-700 focus:border-2 focus:border-gray-700 focus:border-t-transparent focus:outline-0 disabled:border-0 disabled:bg-gray-700">
+                    <input type="text" id="upload-sponsor" name="upload-sponsor" class="type peer h-full w-full rounded-[7px] border border-gray-700 border-t-transparent bg-transparent px-3 py-2.5 font-sans text-sm font-normal text-gray-700 outline outline-0 transition-all placeholder-shown:border placeholder-shown:border-gray-700 placeholder-shown:border-t-gray-700 focus:border-2 focus:border-gray-700 focus:border-t-transparent focus:outline-0 disabled:border-0 disabled:bg-gray-700">
                     <label class="before:content[\' \'] after:content[\' \'] pointer-events-none absolute left-0 -top-1.5 flex h-full w-full select-none text-[11px] font-normal leading-tight text-gray-700 transition-all before:pointer-events-none before:mt-[6.5px] before:mr-1 before:box-border before:block before:h-1.5 before:w-2.5 before:rounded-tl-md before:border-t before:border-l before:border-gray-700 before:transition-all after:pointer-events-none after:mt-[6.5px] after:ml-1 after:box-border after:block after:h-1.5 after:w-2.5 after:flex-grow after:rounded-tr-md after:border-t after:border-r after:border-gray-700 after:transition-all peer-placeholder-shown:text-sm peer-placeholder-shown:leading-[3.75] peer-placeholder-shown:text-gray-700 peer-placeholder-shown:before:border-transparent peer-placeholder-shown:after:border-transparent peer-focus:text-[11px] peer-focus:leading-tight peer-focus:text-gray-700 peer-focus:before:border-t-2 peer-focus:before:border-l-2 peer-focus:before:border-gray-700 peer-focus:after:border-t-2 peer-focus:after:border-r-2 peer-focus:after:border-gray-700 peer-disabled:text-transparent peer-disabled:before:border-transparent peer-disabled:after:border-transparent peer-disabled:peer-placeholder-shown:text-gray-700">
                         Sponsor/s
                     </label>
                 </div>
             </div>
-            <div class="flex w-4/5 justify-end items-end md:w-2/5">
-                <div class="flex flex-col space-y-2 h-24 w-11/12 justify-center items-center border-2 border-gray-300 border-dashed rounded-lg cursor-pointer px-2 py-2 md:h-1/2">
+            <div id="upload-file-container" class="flex flex-col w-4/5 justify-end items-end md:flex-col-reverse md:w-2/5">
+                <div id="dropzone" class="flex flex-col space-y-2 h-24 w-11/12 justify-center items-center border-2 border-gray-300 border-dashed rounded-lg cursor-pointer mt-3 px-2 py-2 md:h-1/2">
                     <img src="{{ asset('/images/upload_file.svg') }}" alt="" class="h-8 w-8 md:h-16 md:w-16">
                     <p class="font-sans font-normal text-sm text-black/50 whitespace-normal text-center">
                         Click here to upload file (maximum of 1 file)
                     </p>
                 </div>
-                <input type="file" id="file" name="file" class="hidden"> 
+                <input type="file" accept="application/pdf" id="upload-file" name="upload-file" class="hidden"> 
             </div>
         </div> 
         <div class="flex flex-row items-end w-full bg-[#D9D9D9] justify-end items-center space-x-2 p-2">
-            <button class="flex bg-transparent rounded-md font-sans font-normal text-sm text-[#7575757] px-4 py-1 hover:underline">Cancel</button>
-            <button class="flex bg-[#0288D1] rounded-md font-sans font-normal text-sm text-white px-4 py-1 hover:bg-[#086192] hover:text-gray-50">Submit</button>
+            <button id="upload-cancel" class="flex bg-transparent rounded-md font-sans font-normal text-sm text-[#7575757] px-4 py-1 hover:underline">Cancel</button>
+            <button id="upload-submit" class="flex bg-[#0288D1] rounded-md font-sans font-normal text-sm text-white px-4 py-1 hover:bg-[#086192] hover:text-gray-50">Submit</button>
         </div>
     </div>
 
     {{-- Upload FAB --}}
-    <button title="Upload" class="fixed z-90 bottom-10 right-8 bg-[#425B71] w-[72px] h-[72px] overflow-clip rounded-full drop-shadow-lg flex justify-center items-center text-white text-4xl hover:bg-[#346A90] hover:drop-shadow-2xl">
+    <button id="upload-fab" title="Upload" class="fixed z-90 bottom-10 right-8 bg-[#425B71] w-[72px] h-[72px] overflow-clip rounded-full drop-shadow-lg flex justify-center items-center text-white text-4xl hover:bg-[#346A90] hover:drop-shadow-2xl">
         <img src="{{ asset('/images/upload.svg') }}" alt="" class="h-9 w-9 translate-x-[18px]">
         <svg width="68" height="44" viewBox="0 0 68 44" fill="none" xmlns="http://www.w3.org/2000/svg" class="scale-150 translate-x-1 translate-y-3">
             <path d="M80 7.22399V49C80 52.866 77.3303 56 74.0371 56H0C3.63886 24.3779 26.7231 0 54.6576 0C63.7941 0 72.4118 2.60782 80 7.22399Z" fill="#797979" fill-opacity="0.34"/>
@@ -295,7 +295,7 @@
 
     {{-- Recent Upload Titleholder --}}
     <div class="div flex flex-row mt-9 justify-between items-center">
-        <p class="mx-auto text-xl text-[#181313] font-bold font-sans md:ml-54">Recent Uploads</p>
+        <p class="mx-auto text-xl text-[#181313] font-bold font-sans md:ml-60">Recent Uploads</p>
     </div>
 
     {{-- Document Cards --}}
@@ -496,106 +496,11 @@
     </div>
 
     <script src="{{ asset('/js/datepicker.js') }}"></script>
+    <script src="{{ asset('/js/datetime_counter.js') }}"></script>
+    <script src="{{ asset('/js/drawer.js') }}"></script>
+    <script src="{{ asset('/js/filter_search.js') }}"></script>
+    <script src="{{ asset('/js/upload.js') }}"></script>
     <script>
-        const drawer = document.getElementById('drawer');
-        const openDrawerButton = document.getElementById('open-drawer');
-        const showFilter = document.getElementById('show-filter');
-        const hideFilter = document.getElementById('hide-filter');
-        const filterOverlay = document.getElementById('filter-overlay');
-        const filter = document.getElementById('filter');
-        const applyFilterButton = document.getElementById('apply-filter');
-        const search = document.getElementById('search');
-        const searchByField = document.getElementById('searchBy');
-        const yearField = document.getElementById('year');
-        const submittedField = document.getElementById('submitted');
-        const endorsedField = document.getElementById('endorsed');
-        const enactedField = document.getElementById('enacted');
-        const adoptedField = document.getElementById('adopted');
-        const codeOfOrdinanceField = document.getElementById('code');
-        const endorsementField = document.getElementById('endorsement');
-        const ordinanceField = document.getElementById('ordinance');
-        const petitionField = document.getElementById('petition');
-        const proposalField = document.getElementById('proposal');
-        const resolutionField = document.getElementById('resolution');
-        const othersField = document.getElementById('others');
-
-        function openFilterModal(){
-            drawer.classList.add('hidden');
-            filterOverlay.classList.remove('hidden');
-            filter.classList.remove('hidden','fadeOut');
-            filter.classList.add('fadeIn');
-        }
-        function closeFilterModal(){
-            filterOverlay.classList.add('hidden');
-            filter.classList.remove('fadeIn');
-            filter.classList.add('fadeOut');
-            setTimeout(() => {
-                filter.classList.add('hidden');
-            }, 1000);   
-        }
-
-        openDrawerButton.addEventListener('click', function(){
-            closeFilterModal();
-            drawer.classList.remove('hidden');
-        });
-        const closeDrawerButton = document.getElementById('close-drawer');
-        closeDrawerButton.addEventListener('click', function(){
-            drawer.classList.add('hidden');
-        });
-
-        showFilter.addEventListener('click', openFilterModal);
-        hideFilter.addEventListener('click', closeFilterModal);
-        filterOverlay.addEventListener('click', closeFilterModal);
-        applyFilterButton.addEventListener('click',function(){
-            // Apply filters
-            closeFilterModal();
-        });
-
-        window.addEventListener('keydown', function(event){
-            if(event.key == 'Escape'){
-                closeFilterModal();
-                drawer.classList.add('hidden');
-            }
-        })
-
-        const timeCounter = document.getElementById('time-counter');
-        const months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
-        function getCurrentDateTime(){
-            var date = new Date();
-            var month = months[date.getMonth()];
-            var day = date.getDate();
-            var year = date.getFullYear();
-            var hour = date.getHours();
-            var minute = date.getMinutes();
-            var second =String(date.getSeconds()).padStart(2,'0');
-            var hourFormat = 'AM';
-            console.log(hour);
-            if(hour >= 12){
-                hour = hour - 12;
-                hourFormat = 'PM';
-            }
-            timeCounter.innerText= `${month} ${day}, ${year} | ${hour}:${minute}:${second} ${hourFormat}`;
-        }
-        setInterval(getCurrentDateTime, 1000);
-
-        function submitSearch(){
-            var json = {
-                "search": "",
-                "search_by": "",
-                "year": "",
-                "submitted": "",
-                "endorsed": "",
-                "enacted": "",
-                "adopted": "",
-                "code_of_ordinance": "",
-                "endorsement": "",
-                "ordinance": "",
-                "petition": "",
-                "proposal": "",
-                "resolution": "",
-                "others": ""
-            }
-        }
     </script>
 </body>
 </html>
