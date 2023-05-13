@@ -6,14 +6,43 @@ use Illuminate\Http\Request;
 use App\Models\Author;
 use App\Models\Document;
 use App\Models\Tag;
+use App\Traits\Upload;
+use Illuminate\Support\Facades\Validator;
 
 class CreateController extends Controller
 {
-    public function create(Request $request){   
+
+    use Upload;
+
+    public function create(Request $request){
+        $validator = Validator::make($request->all(),[
+            'title' => 'required',
+            'type' => 'required|different:null',
+            'number' => 'required',
+            'area' => 'required',
+            'date' => 'required|date',
+            'authors' => 'required',
+            'file' => 'required|mimes:pdf'
+        ],
+        [
+            'title.required' => 'Document title field is required',
+            'type.required' => 'Document type is required',
+            'type.different' => 'Please select a document type',
+            'number.required' => 'Document number is required',
+            'date.required' => 'Please select date of enacted or adopted',
+            'date.date' => 'Invalid date format',
+            'authors.required' => 'Please enter document author',
+            'file.required' => 'File is required',
+            'files.mimes' => 'Only pdf file is allowed'
+        ]);
+        if($validator->fails()){
+            foreach($validator->messages()->all() as $message){
+                flash()->addError($message);
+            }
+            return back->withInput();
+        }
         $author_ids = [];
-        $tag_ids = [];
-        $authors = explode(',', $request['upload-author']);
-        $tags = explode(',', $request['upload-tags']);
+        $authors = explode(',', $request->authors);
 
         foreach($authors as $author){
             $temp = Author::where('name',ucwords($author))->first();
@@ -29,30 +58,19 @@ class CreateController extends Controller
             }
         }
 
-        foreach($json['tags'] as $tag){
-            $temp = Tag::where('name',ucwords($tag))->first();
-            if($temp == null){
-                $tag_form = [
-                    'name' => ucwords($tag)
-                ];
-                $new_tag = Tag::create($tag_form);
-                array_push($tag_ids, $new_tag->id);
-            }
-            else{
-                array_push($tag_ids, $temp->id);
-            }
-        }
-
+        $file_name = $request->type.' no.'.$request->number.' Series of '.date('Y', strtotime($request->date));
+        $path = $this->UploadFile($request->file('file'), 'Documents', 'public');
         $document_form = [
-            'title' => $json['title'],
-            'date' => $json['date'],
-            'number' => $json['number'],
-            'action' => $json['action'],
-            'sponsor' => $json['sponsor'],
-            'file' =>$json['file'],
+            'title' => $request->title,
+            'type' => $request->type,
+            'number' => $request->number,
+            'area' => $request->area,
+            'date' => date("Y-m-d", strtotime($request->date)),
+            'file' =>$path,
         ];
         $document = Document::create($document_form);
         $document->authors()->attach($author_ids);
-        $document->tags()->attach($tag_ids);
+        flash()->addSuccess('Upload Success');
+        return redirect('/');
     }
 }
