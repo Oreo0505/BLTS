@@ -118,6 +118,7 @@ uploadSubmitButton.addEventListener('click', function(){
         alert('Please upload a file');
         return;
     }
+    titleField.value = titleField.value.toUpperCase();
     authorsField.value = authors.join(', ');
     uploadForm.submit();
 });
