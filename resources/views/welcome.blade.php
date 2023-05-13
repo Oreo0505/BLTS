@@ -198,26 +198,26 @@
             <div class="flex flex-col space-y-4 items-center mb-3 md:flex-row md:space-x-4 md:ml-9 md:mr-9 md:mt-3 md:items-end">
                 <div class="flex flex-col w-3/5 space-y-2">
                     <div class="flex flex-col relative">
-                        <input type="text" id="upload-title" name="upload-title" class="w-full flex border border-gray-700 rounded-[7px] outline outline-0 font-sans font-normal leading-tight text-sm text-gray-700 focus:ring-1 focus:outline-none focus:ring-gray-700 rounded-lg text-sm px-4 py-2.5 inline-flex">
+                        <input type="text" id="upload-title" name="title" class="w-full flex border border-gray-700 rounded-[7px] outline outline-0 font-sans font-normal leading-tight text-sm text-gray-700 focus:ring-1 focus:outline-none focus:ring-gray-700 rounded-lg text-sm px-4 py-2.5 inline-flex">
                         <label class="relative absolute -top-12 left-3 w-fit px-1 bg-white font-sans font-normal text-gray-700 text-[11px] leading-tight">
                             Document Title
                         </label>
                     </div>
                     <div class="flex flex-col space-y-2 md:flex-row md:space-x-2 md:space-y-0">
                         <div class="flex flex-col relative w-full md:w-1/2">
-                            <select id="upload-type" name="upload-type" class="w-full flex border border-gray-700 rounded-[7px] outline outline-0 font-sans font-normal leading-tight text-sm text-gray-700 focus:ring-1 focus:outline-none focus:ring-gray-700 rounded-lg text-sm px-4 py-2.5 inline-flex">
+                            <select id="upload-type" name="type" class="w-full flex border border-gray-700 rounded-[7px] outline outline-0 font-sans font-normal leading-tight text-sm text-gray-700 focus:ring-1 focus:outline-none focus:ring-gray-700 rounded-lg text-sm px-4 py-2.5 inline-flex">
                                 <option value="null" class="text-sm">Select document type</option>
-                                <option value="code_of_ordinance" class="text-sm">Code of Ordinance</option>
-                                <option value="ordinance" class="text-sm">Ordinance</option> 
-                                <option value="resolution" class="text-sm">Resolution</option>    
-                                <option value="others" class="text-sm">Others</option>    
+                                <option value="Code of Ordinance" class="text-sm">Code of Ordinance</option>
+                                <option value="Ordinance" class="text-sm">Ordinance</option> 
+                                <option value="Resolution" class="text-sm">Resolution</option>    
+                                <option value="Others" class="text-sm">Others</option>    
                             </select>
                             <label class="relative absolute -top-12 left-3 w-fit px-1 bg-white font-sans font-normal text-gray-700 text-[11px] leading-tight">
                                 Type of Document
                             </label>
                         </div>
                         <div class="flex flex-col relative w-full md:w-1/2">
-                            <input type="text" id="upload-number" name="upload-number" class="w-full flex border border-gray-700 rounded-[7px] outline outline-0 font-sans font-normal leading-tight text-sm text-gray-700 focus:ring-1 focus:outline-none focus:ring-gray-700 rounded-lg text-sm px-4 py-2.5 inline-flex">
+                            <input type="text" id="upload-number" name="number" class="w-full flex border border-gray-700 rounded-[7px] outline outline-0 font-sans font-normal leading-tight text-sm text-gray-700 focus:ring-1 focus:outline-none focus:ring-gray-700 rounded-lg text-sm px-4 py-2.5 inline-flex">
                             <label class="relative absolute -top-12 left-3 w-fit px-1 bg-white font-sans font-normal text-gray-700 text-[11px] leading-tight">
                                 Number
                             </label>
@@ -225,7 +225,7 @@
                     </div>
                     <div class="flex flex-col space-y-2 md:flex-row md:space-x-2 md:space-y-0">
                         <div class="flex flex-col relative w-full md:w-1/2">
-                            <select id="upload-area" name="upload-area" class="w-full flex border border-gray-700 rounded-[7px] outline outline-0 font-sans font-normal leading-tight text-sm text-gray-700 focus:ring-1 focus:outline-none focus:ring-gray-700 rounded-lg text-sm px-4 py-2.5 inline-flex">
+                            <select id="upload-area" name="area" class="w-full flex border border-gray-700 rounded-[7px] outline outline-0 font-sans font-normal leading-tight text-sm text-gray-700 focus:ring-1 focus:outline-none focus:ring-gray-700 rounded-lg text-sm px-4 py-2.5 inline-flex">
                                 <option value="null" class="text-sm">Select area</option>
                                 <option value="area_1" class="text-sm">Area 1</option>
                                 <option value="area_2" class="text-sm">Area 2</option>
@@ -239,7 +239,7 @@
                             </label>
                         </div>
                         <div class="flex flex-col relative w-full md:w-1/2">
-                            <input type="text" datepicker datepicker-autohide id="upload-date" name="upload-date" class="w-full flex border border-gray-700 rounded-[7px] outline outline-0 font-sans font-normal leading-tight text-sm text-gray-700 focus:ring-1 focus:outline-none focus:ring-gray-700 rounded-lg text-sm px-4 py-2.5 inline-flex">
+                            <input type="text" datepicker datepicker-autohide id="upload-date" name="date" class="w-full flex border border-gray-700 rounded-[7px] outline outline-0 font-sans font-normal leading-tight text-sm text-gray-700 focus:ring-1 focus:outline-none focus:ring-gray-700 rounded-lg text-sm px-4 py-2.5 inline-flex">
                             <label class="relative absolute -top-12 left-3 w-fit px-1 bg-white font-sans font-normal text-gray-700 text-[11px] leading-tight">
                                 Date
                             </label>
@@ -252,7 +252,7 @@
                     </div>
                     <div class="flex flex-col">
                         <div class="flex flex-col relative w-full">
-                            <input type="text" id="upload-authors" name="upload-authors" class="hidden">
+                            <input type="text" id="upload-authors" name="authors" class="hidden">
                             <button id="dropdownBgHoverButton" data-dropdown-toggle="dropdownBgHover" data-dropdown-placement="top" class="w-full flex justify-between border border-gray-700 rounded-[7px] outline outline-0 font-sans font-normal leading-tight text-sm text-gray-700 focus:ring-1 focus:outline-none focus:ring-gray-700 rounded-lg text-sm px-4 py-2.5 text-center inline-flex items-center" type="button">
                                 Select Authors
                                 <svg class="w-4 h-4 ml-2" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -264,20 +264,20 @@
                                 <ul class="p-3 space-y-1 text-sm text-gray-700" aria-labelledby="dropdownBgHoverButton">
                                   <li>
                                     <div class="flex items-center p-2 rounded hover:bg-gray-100">
-                                      <input id="author-1" type="checkbox" value="Author Name Long" class="upload-author w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 focus:ring-1">
-                                      <label for="author-1" class="w-full ml-2 font-sans text-sm font-normal text-gray-700 rounded">Sample Authors Long</label>
+                                      <input id="author-1" type="checkbox" value="Clarence Madrigal" class="upload-author w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 focus:ring-1">
+                                      <label for="author-1" class="w-full ml-2 font-sans text-sm font-normal text-gray-700 rounded">Clarence Madrigal</label>
                                     </div>
                                   </li>
                                   <li>
                                     <div class="flex items-center p-2 rounded hover:bg-gray-100">
-                                      <input id="author-2" type="checkbox" value="Author Name" class="upload-author w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 focus:ring-1">
-                                      <label for="author-2" class="w-full ml-2 font-sans text-sm font-normal text-gray-700 rounded">Sample Authors</label>
+                                      <input id="author-2" type="checkbox" value="Jepthe Laderas" class="upload-author w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 focus:ring-1">
+                                      <label for="author-2" class="w-full ml-2 font-sans text-sm font-normal text-gray-700 rounded">Jepthe Laderas</label>
                                     </div>
                                   </li>
                                   <li>
                                     <div class="flex items-center p-2 rounded hover:bg-gray-100">
-                                      <input id="author-3" type="checkbox" value="Author Name" class="upload-author w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 focus:ring-1">
-                                      <label for="author-3" class="w-full ml-2 font-sans text-sm font-normal text-gray-700 rounded">Sample Authors</label>
+                                      <input id="author-3" type="checkbox" value="Arrianne Umali" class="upload-author w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 focus:ring-1">
+                                      <label for="author-3" class="w-full ml-2 font-sans text-sm font-normal text-gray-700 rounded">Arrianne Umali</label>
                                     </div>
                                   </li>
                                 </ul>
@@ -292,7 +292,7 @@
                             Click here to upload file (maximum of 1 file)
                         </p>
                     </div>
-                    <input type="file" accept="application/pdf" id="upload-file" name="upload-file" class="hidden"> 
+                    <input type="file" accept="application/pdf" id="upload-file" name="file" class="hidden"> 
                 </div>
             </div> 
         </form>
