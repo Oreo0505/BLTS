@@ -8,12 +8,11 @@ use Illuminate\Support\Facades\Storage;
 
 trait Upload
 {
-    public function UploadFile(UploadedFile $file, $folder = null, $disk = 'public', $filename = null)
+    public function UploadFile(UploadedFile $file, $filename, $folder, $disk = 'public')
     {
-        $FileName = !is_null($filename) ? $filename : Str::random(10);
         return $file->storeAs(
             $folder,
-            $FileName . "." . $file->getClientOriginalExtension(),
+            $filename . "." . $file->getClientOriginalExtension(),
             $disk
         );
     }
