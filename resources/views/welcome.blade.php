@@ -348,10 +348,10 @@
                         Author/s | Hon. Jepthe M. Laderas & Hon. Arrianne R. Umali
                     </p>
                     <div class="flex flex-row justify-end items-end space-x-4">
-                        <a href="{{ asset('/storage/Documents/test.pdf') }}" target="_blank" rel="noopener noreferrer" class="rounded-sm hover:bg-[#9ED6E7] hover:border hover:border-gray-100 hover:scale-150">
+                        <a href="/download/test.pdf" target="_blank" rel="noopener noreferrer" class="rounded-sm hover:bg-[#9ED6E7] hover:border hover:border-gray-100 hover:scale-150">
                             <img src="{{ asset('/images/download.svg') }}" alt="">
                         </a>
-                        <a href="#" class="rounded-sm hover:bg-[#9ED6E7] hover:border hover:border-gray-100 hover:scale-150">
+                        <a href="/storage/Documents/test.pdf" target="_blank" rel="noopener noreferrer" class="rounded-sm hover:bg-[#9ED6E7] hover:border hover:border-gray-100 hover:scale-150">
                             <img src="{{ asset('/images/open.svg') }}" alt="">
                         </a>
                         <a href="#" class="rounded-sm hover:bg-[#9ED6E7] hover:border hover:border-gray-100 hover:scale-150">
