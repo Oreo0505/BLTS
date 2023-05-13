@@ -14,6 +14,7 @@ const authorField = document.getElementById('upload-author');
 const sponsorField = document.getElementById('upload-sponsor');
 const fileField = document.getElementById('upload-file');
 const dropzone = document.getElementById('dropzone');
+const tagFields = document.querySelectorAll('.tag');
 const uploadFileContainer = document.getElementById('upload-file-container');
 
 function openUploadModal(){
@@ -74,7 +75,7 @@ uploadSubmitButton.addEventListener('click', function(){
         alert('Please enter document number');
         return;
     }
-    if(!/^\d+\.\d+$/.test(numberField.value)){
+    if(isNaN(numberField.value)){
         alert('Number field can only contain digits');
         return;
     }
@@ -97,7 +98,14 @@ uploadSubmitButton.addEventListener('click', function(){
     if(sponsorField.value.length <= 0){
         sponsorField.value = authorField.value;
     }
-    uploadForm.submit();
+    var tags = [];
+    for(let i = 0; i < tagFields.length; i++){
+        if(tagFields[i].value > 0){
+            tags.push(tagFields[i].value);
+        }
+    }
+    console.log(tags.join(','));
+    // uploadForm.submit();
 });
 
 function showUploadedLabel(filename){
