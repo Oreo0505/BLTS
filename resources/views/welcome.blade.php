@@ -332,186 +332,23 @@
     {{-- Document Cards --}}
     <div class="flex flex-col space-y-2 items-center py-4">
         <div class="flex-flex-col space-y-1 w-[65%] border-b drop-shadow-md shadow-lg p-4">
-            <div class="flex flex-col justify-between space-y-2 md:flex-row">
-                <div class="flex flex-row space-x-4 items-end">
-                    <img src="{{ asset('/images/approved.svg') }}" alt="" class="w-9">
-                    <p class="font-sans font-medium text-base text-left w-[210px]">Ordinance No.10, s. 2021</p>
-                </div>
-                <div class="flex flex-row space-x-4 items-end justify-center md:justify-end">
-                    <a href="#" class="h-9 bg-[#9C27B0] rounded-full px-4 py-2 font-sans font-normal text-sm text-white whitespace-nowrap">Waste Sched</a>
-                    <a href="#" class="h-9 bg-[#0288D1] rounded-full px-4 py-2 font-sans font-normal text-sm text-white whitespace-nowrap">Kalikasan</a>
-                    <a href="#" class="h-9 bg-[#2E7D32] rounded-full px-4 py-2 font-sans font-normal text-sm text-white whitespace-nowrap">Solid Waste</a>
-                </div>
+            <div class="flex flex-col justify-between items-center space-y-2 md:flex-row">
+                <p class="font-sans font-medium text-base text-left">Ordinance No.10, s. 2021</p>
+                <img src="{{ asset('/images/approved.svg') }}" alt="" class="h-8 w-8">
             </div>
             <p class="text-base font-normal uppercase text-black/60">
                 AN ORDINANCE DECLARING DECEMBER 20, 2029 AND EVERT YEAR THEREATER AS THE ARAW NG BARANGAY CELEBRATION IN BARANGAY TAMPUS, BOAC, MARINDUQUE AND PROVIDING FUNDS FOR THIS PURPOSE
             </p>
             <div class="flex flex-col">
                 <p class="text-base font-bold text-black/60">
-                    Sponsor | Hon. Clarence S. Madrigal
+                    Date of Enactment | May 10, 2023
                 </p>
                 <div class="flex flex-col items-end md:flex-row md:justify-between">
                     <p class="text-base font-bold text-black/60">
-                        Co-Sponsor | Hon. Jepthe M. Laderas & Hon. Arrianne R. Umali
+                        Author/s | Hon. Jepthe M. Laderas & Hon. Arrianne R. Umali
                     </p>
                     <div class="flex flex-row justify-end items-end space-x-4">
-                        <a href="/test" class="rounded-sm hover:bg-[#9ED6E7] hover:border hover:border-gray-100 hover:scale-150">
-                            <img src="{{ asset('/images/download.svg') }}" alt="">
-                        </a>
-                        <a href="#" class="rounded-sm hover:bg-[#9ED6E7] hover:border hover:border-gray-100 hover:scale-150">
-                            <img src="{{ asset('/images/open.svg') }}" alt="">
-                        </a>
-                        <a href="#" class="rounded-sm hover:bg-[#9ED6E7] hover:border hover:border-gray-100 hover:scale-150">
-                            <img src="{{ asset('/images/delete.svg') }}" alt="">
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="flex flex-col space-y-2 items-center py-4">
-        <div class="flex-flex-col space-y-1 w-[65%] border-b drop-shadow-md shadow-lg p-4">
-            <div class="flex flex-col justify-between space-y-2 md:flex-row">
-                <div class="flex flex-row space-x-4 items-end">
-                    <img src="{{ asset('/images/approved.svg') }}" alt="" class="w-9">
-                    <p class="font-sans font-medium text-base text-left w-[210px]">Ordinance No.10, s. 2021</p>
-                </div>
-                <div class="flex flex-row space-x-4 items-end justify-center md:justify-end">
-                    <a href="#" class="h-9 bg-[#9C27B0] rounded-full px-4 py-2 font-sans font-normal text-sm text-white whitespace-nowrap">Waste Sched</a>
-                    <a href="#" class="h-9 bg-[#0288D1] rounded-full px-4 py-2 font-sans font-normal text-sm text-white whitespace-nowrap">Kalikasan</a>
-                    <a href="#" class="h-9 bg-[#2E7D32] rounded-full px-4 py-2 font-sans font-normal text-sm text-white whitespace-nowrap">Solid Waste</a>
-                </div>
-            </div>
-            <p class="text-base font-normal uppercase text-black/60">
-                AN ORDINANCE DECLARING DECEMBER 20, 2029 AND EVERT YEAR THEREATER AS THE ARAW NG BARANGAY CELEBRATION IN BARANGAY TAMPUS, BOAC, MARINDUQUE AND PROVIDING FUNDS FOR THIS PURPOSE
-            </p>
-            <div class="flex flex-col">
-                <p class="text-base font-bold text-black/60">
-                    Sponsor | Hon. Clarence S. Madrigal
-                </p>
-                <div class="flex flex-col items-end md:flex-row md:justify-between">
-                    <p class="text-base font-bold text-black/60">
-                        Co-Sponsor | Hon. Jepthe M. Laderas & Hon. Arrianne R. Umali
-                    </p>
-                    <div class="flex flex-row justify-end items-end space-x-4">
-                        <a href="#" class="rounded-sm hover:bg-[#9ED6E7] hover:border hover:border-gray-100 hover:scale-150">
-                            <img src="{{ asset('/images/download.svg') }}" alt="">
-                        </a>
-                        <a href="#" class="rounded-sm hover:bg-[#9ED6E7] hover:border hover:border-gray-100 hover:scale-150">
-                            <img src="{{ asset('/images/open.svg') }}" alt="">
-                        </a>
-                        <a href="#" class="rounded-sm hover:bg-[#9ED6E7] hover:border hover:border-gray-100 hover:scale-150">
-                            <img src="{{ asset('/images/delete.svg') }}" alt="">
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="flex flex-col space-y-2 items-center py-4">
-        <div class="flex-flex-col space-y-1 w-[65%] border-b drop-shadow-md shadow-lg p-4">
-            <div class="flex flex-col justify-between space-y-2 md:flex-row">
-                <div class="flex flex-row space-x-4 items-end">
-                    <img src="{{ asset('/images/approved.svg') }}" alt="" class="w-9">
-                    <p class="font-sans font-medium text-base text-left w-[210px]">Ordinance No.10, s. 2021</p>
-                </div>
-                <div class="flex flex-row space-x-4 items-end justify-center md:justify-end">
-                    <a href="#" class="h-9 bg-[#9C27B0] rounded-full px-4 py-2 font-sans font-normal text-sm text-white whitespace-nowrap">Waste Sched</a>
-                    <a href="#" class="h-9 bg-[#0288D1] rounded-full px-4 py-2 font-sans font-normal text-sm text-white whitespace-nowrap">Kalikasan</a>
-                    <a href="#" class="h-9 bg-[#2E7D32] rounded-full px-4 py-2 font-sans font-normal text-sm text-white whitespace-nowrap">Solid Waste</a>
-                </div>
-            </div>
-            <p class="text-base font-normal uppercase text-black/60">
-                AN ORDINANCE DECLARING DECEMBER 20, 2029 AND EVERT YEAR THEREATER AS THE ARAW NG BARANGAY CELEBRATION IN BARANGAY TAMPUS, BOAC, MARINDUQUE AND PROVIDING FUNDS FOR THIS PURPOSE
-            </p>
-            <div class="flex flex-col">
-                <p class="text-base font-bold text-black/60">
-                    Sponsor | Hon. Clarence S. Madrigal
-                </p>
-                <div class="flex flex-col items-end md:flex-row md:justify-between">
-                    <p class="text-base font-bold text-black/60">
-                        Co-Sponsor | Hon. Jepthe M. Laderas & Hon. Arrianne R. Umali
-                    </p>
-                    <div class="flex flex-row justify-end items-end space-x-4">
-                        <a href="#" class="rounded-sm hover:bg-[#9ED6E7] hover:border hover:border-gray-100 hover:scale-150">
-                            <img src="{{ asset('/images/download.svg') }}" alt="">
-                        </a>
-                        <a href="#" class="rounded-sm hover:bg-[#9ED6E7] hover:border hover:border-gray-100 hover:scale-150">
-                            <img src="{{ asset('/images/open.svg') }}" alt="">
-                        </a>
-                        <a href="#" class="rounded-sm hover:bg-[#9ED6E7] hover:border hover:border-gray-100 hover:scale-150">
-                            <img src="{{ asset('/images/delete.svg') }}" alt="">
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="flex flex-col space-y-2 items-center py-4">
-        <div class="flex-flex-col space-y-1 w-[65%] border-b drop-shadow-md shadow-lg p-4">
-            <div class="flex flex-col justify-between space-y-2 md:flex-row">
-                <div class="flex flex-row space-x-4 items-end">
-                    <img src="{{ asset('/images/approved.svg') }}" alt="" class="w-9">
-                    <p class="font-sans font-medium text-base text-left w-[210px]">Ordinance No.10, s. 2021</p>
-                </div>
-                <div class="flex flex-row space-x-4 items-end justify-center md:justify-end">
-                    <a href="#" class="h-9 bg-[#9C27B0] rounded-full px-4 py-2 font-sans font-normal text-sm text-white whitespace-nowrap">Waste Sched</a>
-                    <a href="#" class="h-9 bg-[#0288D1] rounded-full px-4 py-2 font-sans font-normal text-sm text-white whitespace-nowrap">Kalikasan</a>
-                    <a href="#" class="h-9 bg-[#2E7D32] rounded-full px-4 py-2 font-sans font-normal text-sm text-white whitespace-nowrap">Solid Waste</a>
-                </div>
-            </div>
-            <p class="text-base font-normal uppercase text-black/60">
-                AN ORDINANCE DECLARING DECEMBER 20, 2029 AND EVERT YEAR THEREATER AS THE ARAW NG BARANGAY CELEBRATION IN BARANGAY TAMPUS, BOAC, MARINDUQUE AND PROVIDING FUNDS FOR THIS PURPOSE
-            </p>
-            <div class="flex flex-col">
-                <p class="text-base font-bold text-black/60">
-                    Sponsor | Hon. Clarence S. Madrigal
-                </p>
-                <div class="flex flex-col items-end md:flex-row md:justify-between">
-                    <p class="text-base font-bold text-black/60">
-                        Co-Sponsor | Hon. Jepthe M. Laderas & Hon. Arrianne R. Umali
-                    </p>
-                    <div class="flex flex-row justify-end items-end space-x-4">
-                        <a href="#" class="rounded-sm hover:bg-[#9ED6E7] hover:border hover:border-gray-100 hover:scale-150">
-                            <img src="{{ asset('/images/download.svg') }}" alt="">
-                        </a>
-                        <a href="#" class="rounded-sm hover:bg-[#9ED6E7] hover:border hover:border-gray-100 hover:scale-150">
-                            <img src="{{ asset('/images/open.svg') }}" alt="">
-                        </a>
-                        <a href="#" class="rounded-sm hover:bg-[#9ED6E7] hover:border hover:border-gray-100 hover:scale-150">
-                            <img src="{{ asset('/images/delete.svg') }}" alt="">
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="flex flex-col space-y-2 items-center py-4">
-        <div class="flex-flex-col space-y-1 w-[65%] border-b drop-shadow-md shadow-lg p-4">
-            <div class="flex flex-col justify-between space-y-2 md:flex-row">
-                <div class="flex flex-row space-x-4 items-end">
-                    <img src="{{ asset('/images/approved.svg') }}" alt="" class="w-9">
-                    <p class="font-sans font-medium text-base text-left w-[210px]">Ordinance No.10, s. 2021</p>
-                </div>
-                <div class="flex flex-row space-x-4 items-end justify-center md:justify-end">
-                    <a href="#" class="h-9 bg-[#9C27B0] rounded-full px-4 py-2 font-sans font-normal text-sm text-white whitespace-nowrap">Waste Sched</a>
-                    <a href="#" class="h-9 bg-[#0288D1] rounded-full px-4 py-2 font-sans font-normal text-sm text-white whitespace-nowrap">Kalikasan</a>
-                    <a href="#" class="h-9 bg-[#2E7D32] rounded-full px-4 py-2 font-sans font-normal text-sm text-white whitespace-nowrap">Solid Waste</a>
-                </div>
-            </div>
-            <p class="text-base font-normal uppercase text-black/60">
-                AN ORDINANCE DECLARING DECEMBER 20, 2029 AND EVERT YEAR THEREATER AS THE ARAW NG BARANGAY CELEBRATION IN BARANGAY TAMPUS, BOAC, MARINDUQUE AND PROVIDING FUNDS FOR THIS PURPOSE
-            </p>
-            <div class="flex flex-col">
-                <p class="text-base font-bold text-black/60">
-                    Sponsor | Hon. Clarence S. Madrigal
-                </p>
-                <div class="flex flex-col items-end md:flex-row md:justify-between">
-                    <p class="text-base font-bold text-black/60">
-                        Co-Sponsor | Hon. Jepthe M. Laderas & Hon. Arrianne R. Umali
-                    </p>
-                    <div class="flex flex-row justify-end items-end space-x-4">
-                        <a href="#" class="rounded-sm hover:bg-[#9ED6E7] hover:border hover:border-gray-100 hover:scale-150">
+                        <a href="{{ asset('/storage/Documents/test.pdf') }}" target="_blank" rel="noopener noreferrer" class="rounded-sm hover:bg-[#9ED6E7] hover:border hover:border-gray-100 hover:scale-150">
                             <img src="{{ asset('/images/download.svg') }}" alt="">
                         </a>
                         <a href="#" class="rounded-sm hover:bg-[#9ED6E7] hover:border hover:border-gray-100 hover:scale-150">
