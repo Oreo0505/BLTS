@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Models\Author;
 use App\Models\Document;
@@ -57,7 +58,7 @@ class CreateController extends Controller
             }
         }
 
-        $file_name = str_replace(' ','_',$request->type).'_no.'.$request->number.'_Series_of_'.date('Y', strtotime($request->date));
+        $file_name = date('Y_m_d_H_i_s').Str::random(10);
         $path = $this->UploadFile($request->file('file'), $file_name, 'Documents', 'public');
         $document_form = [
             'title' => $request->title,
