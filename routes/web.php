@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CreateController;
+use App\Http\Controllers\DownloadController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -18,3 +19,5 @@ Route::get('/', function () {
 });
 
 Route::post('/upload', [CreateController::class, 'create']);
+
+Route::get('/download/{file_name}', [DownloadController::class, 'download']);
