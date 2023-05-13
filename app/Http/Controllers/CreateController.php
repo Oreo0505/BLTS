@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Author;
 use App\Models\Document;
-use App\Models\Tag;
 use App\Traits\Upload;
 use Illuminate\Support\Facades\Validator;
 
