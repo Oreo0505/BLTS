@@ -11,20 +11,14 @@ class Document extends Model
 
     protected $fillable = [
         'title',
-        'date',
-        'number',
         'type',
-        'action',
-        'author',
-        'sponsor',
+        'number',
+        'area',
+        'date',
         'file'
     ];
 
     public function authors(){
         return $this->belongsToMany(Author::class, 'authors_documents', 'documents_id', 'authors_id');
-    }
-
-    public function tags(){
-        return $this->belongsToMany(Tag::class, 'documents_tags', 'documents_id', 'tags_id');
     }
 }
