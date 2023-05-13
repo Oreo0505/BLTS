@@ -302,6 +302,26 @@
         </div>
     </div>
 
+    {{-- Confirm Modal --}}
+    <div id="confirm-overlay" class="hidden fixed w-full h-100 inset-0 z-10 overflow-hidden flex justify-center items-center brightness-50 backdrop-blur-sm animated faster">
+    </div>
+    <div id="confirm" class="hidden fixed inset-0 h-fit  h-fit w-2/3 flex flex-col border drop-shadow-md shadow-lg modal-container bg-white mx-auto my-auto rounded z-50 overflow-y-auto animated faster md:w-1/3">
+        <div class="flex px-6 py-4">
+            <p class="font-sans font-medium text-xl text-black/90">Do you want to delete this record?</p>
+        </div>
+        <div class="flex px-6 py-2">
+            <p class="font-sans font-normal text-base text-black/80">Deleting this record will permanently delete the file from the database.</p>
+        </div>
+        <div class="flex flex-row space-x-2 justify-end p-2">
+            <button id="delete-false" class="px-2 py-1.5 font-sans font-medium text-sm text-[#1976D2] hover:text-gray-400">NO</button>
+            <button id="delete-true" class="px-2 py-1.5 font-sans font-medium text-sm text-[#1976D2] hover:text-red-400">DELETE</button>
+        </div>
+        <form action="/delete" method="POST" id="delete-form">
+            @csrf
+            <input type="text" id="delete-id" name="id" class="hidden">
+        </form>
+    </div>
+
     {{-- Upload FAB --}}
     <button id="upload-fab" title="Upload" class="fixed z-90 bottom-10 right-8 bg-[#425B71] w-[72px] h-[72px] overflow-clip rounded-full drop-shadow-lg flex justify-center items-center text-white text-4xl hover:bg-[#346A90] hover:drop-shadow-2xl">
         <img src="{{ asset('/images/upload.svg') }}" alt="" class="h-9 w-9 translate-x-[18px]">
@@ -354,7 +374,7 @@
                         <a href="/storage/Documents/test.pdf" target="_blank" rel="noopener noreferrer" class="rounded-sm hover:bg-[#9ED6E7] hover:border hover:border-gray-100 hover:scale-150">
                             <img src="{{ asset('/images/open.svg') }}" alt="">
                         </a>
-                        <a href="#" class="rounded-sm hover:bg-[#9ED6E7] hover:border hover:border-gray-100 hover:scale-150">
+                        <a href="#" data-id="1" class="delete rounded-sm hover:bg-[#9ED6E7] hover:border hover:border-gray-100 hover:scale-150">
                             <img src="{{ asset('/images/delete.svg') }}" alt="">
                         </a>
                     </div>
@@ -369,6 +389,7 @@
     <script src="{{ asset('/js/drawer.js') }}"></script>
     <script src="{{ asset('/js/filter_search.js') }}"></script>
     <script src="{{ asset('/js/upload.js') }}"></script>
+    <script src="{{ asset('/js/delete.js') }}"></script>
     <script>
     </script>
 </body>

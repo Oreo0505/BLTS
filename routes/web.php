@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CreateController;
+use App\Http\Controllers\DeleteController;
 use App\Http\Controllers\DownloadController;
 /*
 |--------------------------------------------------------------------------
@@ -19,5 +20,7 @@ Route::get('/', function () {
 });
 
 Route::post('/upload', [CreateController::class, 'create']);
+
+Route::post('/delete', [DeleteController::class, 'delete']);
 
 Route::get('/download/{file_name}', [DownloadController::class, 'download']);
