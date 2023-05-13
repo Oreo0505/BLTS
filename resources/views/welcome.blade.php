@@ -195,80 +195,64 @@
         <p class="flex self-center font-sans font-bold text-lg text-[#131B21] ml-9 mb-2 md:self-start">Upload a Document</p>
         <form action="/upload" method="POST" enctype="multipart/form-data" id="upload-form">
             @csrf
-            <div class="flex flex-col space-y-4 items-center mb-5 md:flex-row md:space-x-4 md:ml-9 md:mr-9 md:mt-3 md:items-end">
-                <div class="flex flex-col w-3/5 space-y-4">
-                    <div class="flex flex-col items-center relative">
-                        <input type="text" id="upload-title" name="upload-title" class="type peer h-full w-full rounded-[7px] border border-gray-700 border-t-transparent bg-transparent px-3 py-2.5 font-sans text-sm font-normal text-gray-700 outline outline-0 transition-all placeholder-shown:border placeholder-shown:border-gray-700 placeholder-shown:border-t-gray-700 focus:border-2 focus:border-gray-700 focus:border-t-transparent focus:outline-0 disabled:border-0 disabled:bg-gray-700">
-                        <label class="before:content[\' \'] after:content[\' \'] pointer-events-none absolute left-0 -top-1.5 flex h-full w-full select-none text-[11px] font-normal leading-tight text-gray-700 transition-all before:pointer-events-none before:mt-[6.5px] before:mr-1 before:box-border before:block before:h-1.5 before:w-2.5 before:rounded-tl-md before:border-t before:border-l before:border-gray-700 before:transition-all after:pointer-events-none after:mt-[6.5px] after:ml-1 after:box-border after:block after:h-1.5 after:w-2.5 after:flex-grow after:rounded-tr-md after:border-t after:border-r after:border-gray-700 after:transition-all peer-placeholder-shown:text-sm peer-placeholder-shown:leading-[3.75] peer-placeholder-shown:text-gray-700 peer-placeholder-shown:before:border-transparent peer-placeholder-shown:after:border-transparent peer-focus:text-[11px] peer-focus:leading-tight peer-focus:text-gray-700 peer-focus:before:border-t-2 peer-focus:before:border-l-2 peer-focus:before:border-gray-700 peer-focus:after:border-t-2 peer-focus:after:border-r-2 peer-focus:after:border-gray-700 peer-disabled:text-transparent peer-disabled:before:border-transparent peer-disabled:after:border-transparent peer-disabled:peer-placeholder-shown:text-gray-700">
-                            Title
+            <div class="flex flex-col space-y-4 items-center mb-3 md:flex-row md:space-x-4 md:ml-9 md:mr-9 md:mt-3 md:items-end">
+                <div class="flex flex-col w-3/5 space-y-2">
+                    <div class="flex flex-col relative">
+                        <input type="text" id="upload-title" name="upload-title" class="w-full flex border border-gray-700 rounded-[7px] outline outline-0 font-sans font-normal leading-tight text-sm text-gray-700 focus:ring-1 focus:outline-none focus:ring-gray-700 rounded-lg text-sm px-4 py-2.5 inline-flex">
+                        <label class="relative absolute -top-12 left-3 w-fit px-1 bg-white font-sans font-normal text-gray-700 text-[11px] leading-tight">
+                            Document Title
                         </label>
                     </div>
-                    <div class="flex flex-row space-x-2">
-                        <div class="flex flex-col items-center relative w-1/2">
-                            <select id="upload-type" name="upload-type" class="type peer h-full w-full rounded-[7px] border border-gray-700 border-t-transparent bg-transparent px-3 py-2.5 font-sans text-sm font-normal text-gray-700 outline outline-0 transition-all placeholder-shown:border placeholder-shown:border-gray-700 placeholder-shown:border-t-gray-700 focus:border-2 focus:border-gray-700 focus:border-t-transparent focus:outline-0 disabled:border-0 disabled:bg-gray-700">
+                    <div class="flex flex-col space-y-2 md:flex-row md:space-x-2 md:space-y-0">
+                        <div class="flex flex-col relative w-full md:w-1/2">
+                            <select id="upload-type" name="upload-type" class="w-full flex border border-gray-700 rounded-[7px] outline outline-0 font-sans font-normal leading-tight text-sm text-gray-700 focus:ring-1 focus:outline-none focus:ring-gray-700 rounded-lg text-sm px-4 py-2.5 inline-flex">
                                 <option value="null" class="text-sm">Select document type</option>
                                 <option value="code_of_ordinance" class="text-sm">Code of Ordinance</option>
-                                <option value="endorsement" class="text-sm">Endorsement</option>
-                                <option value="ordinance" class="text-sm">Ordinance</option>    
-                                <option value="petition" class="text-sm">Petition</option>    
-                                <option value="proposal" class="text-sm">Proposal</option>    
-                                <option value="resolution" class="text-sm">resolution</option>    
+                                <option value="ordinance" class="text-sm">Ordinance</option> 
+                                <option value="resolution" class="text-sm">Resolution</option>    
                                 <option value="others" class="text-sm">Others</option>    
                             </select>
-                            <label class="before:content[\' \'] after:content[\' \'] pointer-events-none absolute left-0 -top-1.5 flex h-full w-full select-none text-[11px] font-normal leading-tight text-gray-700 transition-all before:pointer-events-none before:mt-[6.5px] before:mr-1 before:box-border before:block before:h-1.5 before:w-2.5 before:rounded-tl-md before:border-t before:border-l before:border-gray-700 before:transition-all after:pointer-events-none after:mt-[6.5px] after:ml-1 after:box-border after:block after:h-1.5 after:w-2.5 after:flex-grow after:rounded-tr-md after:border-t after:border-r after:border-gray-700 after:transition-all peer-placeholder-shown:text-sm peer-placeholder-shown:leading-[3.75] peer-placeholder-shown:text-gray-700 peer-placeholder-shown:before:border-transparent peer-placeholder-shown:after:border-transparent peer-focus:text-[11px] peer-focus:leading-tight peer-focus:text-gray-700 peer-focus:before:border-t-2 peer-focus:before:border-l-2 peer-focus:before:border-gray-700 peer-focus:after:border-t-2 peer-focus:after:border-r-2 peer-focus:after:border-gray-700 peer-disabled:text-transparent peer-disabled:before:border-transparent peer-disabled:after:border-transparent peer-disabled:peer-placeholder-shown:text-gray-700">
+                            <label class="relative absolute -top-12 left-3 w-fit px-1 bg-white font-sans font-normal text-gray-700 text-[11px] leading-tight">
                                 Type of Document
                             </label>
                         </div>
-                        <div class="flex flex-col items-center relative w-1/2">
-                            <input type="text" id="upload-number" name="upload-number" class="type peer h-full w-full rounded-[7px] border border-gray-700 border-t-transparent bg-transparent px-3 py-2.5 font-sans text-sm font-normal text-gray-700 outline outline-0 transition-all placeholder-shown:border placeholder-shown:border-gray-700 placeholder-shown:border-t-gray-700 focus:border-2 focus:border-gray-700 focus:border-t-transparent focus:outline-0 disabled:border-0 disabled:bg-gray-700">
-                            <label class="before:content[\' \'] after:content[\' \'] pointer-events-none absolute left-0 -top-1.5 flex h-full w-full select-none text-[11px] font-normal leading-tight text-gray-700 transition-all before:pointer-events-none before:mt-[6.5px] before:mr-1 before:box-border before:block before:h-1.5 before:w-2.5 before:rounded-tl-md before:border-t before:border-l before:border-gray-700 before:transition-all after:pointer-events-none after:mt-[6.5px] after:ml-1 after:box-border after:block after:h-1.5 after:w-2.5 after:flex-grow after:rounded-tr-md after:border-t after:border-r after:border-gray-700 after:transition-all peer-placeholder-shown:text-sm peer-placeholder-shown:leading-[3.75] peer-placeholder-shown:text-gray-700 peer-placeholder-shown:before:border-transparent peer-placeholder-shown:after:border-transparent peer-focus:text-[11px] peer-focus:leading-tight peer-focus:text-gray-700 peer-focus:before:border-t-2 peer-focus:before:border-l-2 peer-focus:before:border-gray-700 peer-focus:after:border-t-2 peer-focus:after:border-r-2 peer-focus:after:border-gray-700 peer-disabled:text-transparent peer-disabled:before:border-transparent peer-disabled:after:border-transparent peer-disabled:peer-placeholder-shown:text-gray-700">
+                        <div class="flex flex-col relative w-full md:w-1/2">
+                            <input type="text" id="upload-number" name="upload-number" class="w-full flex border border-gray-700 rounded-[7px] outline outline-0 font-sans font-normal leading-tight text-sm text-gray-700 focus:ring-1 focus:outline-none focus:ring-gray-700 rounded-lg text-sm px-4 py-2.5 inline-flex">
+                            <label class="relative absolute -top-12 left-3 w-fit px-1 bg-white font-sans font-normal text-gray-700 text-[11px] leading-tight">
                                 Number
                             </label>
                         </div>
                     </div>
-                    <div class="flex flex-row space-x-2">
-                        <div class="flex flex-col items-center relative w-1/2">
-                            <select id="upload-action" name="upload-action" class="type peer h-full w-full rounded-[7px] border border-gray-700 border-t-transparent bg-transparent px-3 py-2.5 font-sans text-sm font-normal text-gray-700 outline outline-0 transition-all placeholder-shown:border placeholder-shown:border-gray-700 placeholder-shown:border-t-gray-700 focus:border-2 focus:border-gray-700 focus:border-t-transparent focus:outline-0 disabled:border-0 disabled:bg-gray-700">
+                    <div class="flex flex-col space-y-2 md:flex-row md:space-x-2 md:space-y-0">
+                        <div class="flex flex-col relative w-full md:w-1/2">
+                            <select id="upload-area" name="upload-area" class="w-full flex border border-gray-700 rounded-[7px] outline outline-0 font-sans font-normal leading-tight text-sm text-gray-700 focus:ring-1 focus:outline-none focus:ring-gray-700 rounded-lg text-sm px-4 py-2.5 inline-flex">
                                 <option value="null" class="text-sm">Select area</option>
-                                <option value="1" class="text-sm">Area 1</option>
-                                <option value="2" class="text-sm">Area 2</option>
-                                <option value="3" class="text-sm">Area 3</option>    
-                                <option value="4" class="text-sm">Area 4</option>  
-                                <option value="5" class="text-sm">Area 5</option>  
-                                <option value="6" class="text-sm">Area 6</option>  
+                                <option value="area_1" class="text-sm">Area 1</option>
+                                <option value="area_2" class="text-sm">Area 2</option>
+                                <option value="area_3" class="text-sm">Area 3</option>    
+                                <option value="area_4" class="text-sm">Area 4</option>  
+                                <option value="area_5" class="text-sm">Area 5</option>  
+                                <option value="area_6" class="text-sm">Area 6</option>  
                             </select>
-                            <label class="before:content[\' \'] after:content[\' \'] pointer-events-none absolute left-0 -top-1.5 flex h-full w-full select-none text-[11px] font-normal leading-tight text-gray-700 transition-all before:pointer-events-none before:mt-[6.5px] before:mr-1 before:box-border before:block before:h-1.5 before:w-2.5 before:rounded-tl-md before:border-t before:border-l before:border-gray-700 before:transition-all after:pointer-events-none after:mt-[6.5px] after:ml-1 after:box-border after:block after:h-1.5 after:w-2.5 after:flex-grow after:rounded-tr-md after:border-t after:border-r after:border-gray-700 after:transition-all peer-placeholder-shown:text-sm peer-placeholder-shown:leading-[3.75] peer-placeholder-shown:text-gray-700 peer-placeholder-shown:before:border-transparent peer-placeholder-shown:after:border-transparent peer-focus:text-[11px] peer-focus:leading-tight peer-focus:text-gray-700 peer-focus:before:border-t-2 peer-focus:before:border-l-2 peer-focus:before:border-gray-700 peer-focus:after:border-t-2 peer-focus:after:border-r-2 peer-focus:after:border-gray-700 peer-disabled:text-transparent peer-disabled:before:border-transparent peer-disabled:after:border-transparent peer-disabled:peer-placeholder-shown:text-gray-700">
+                            <label class="relative absolute -top-12 left-3 w-fit px-1 bg-white font-sans font-normal text-gray-700 text-[11px] leading-tight">
                                 Area of Governance
                             </label>
                         </div>
-                        <div class="relative w-1/2">
-                            <div class="flex flex-col items-center relative">
-                                <input type="text" datepicker datepicker-autohide id="upload-date" name="upload-date" class="type peer h-full w-full rounded-[7px] border border-gray-700 border-t-transparent bg-transparent px-3 py-2.5 font-sans text-sm font-normal text-gray-700 outline outline-0 transition-all placeholder-shown:border placeholder-shown:border-gray-700 placeholder-shown:border-t-gray-700 focus:border-2 focus:border-gray-700 focus:border-t-transparent focus:outline-0 disabled:border-0 disabled:bg-gray-700">
-                                <label class="before:content[\' \'] after:content[\' \'] pointer-events-none absolute left-0 -top-1.5 flex h-full w-full select-none text-[11px] font-normal leading-tight text-gray-700 transition-all before:pointer-events-none before:mt-[6.5px] before:mr-1 before:box-border before:block before:h-1.5 before:w-2.5 before:rounded-tl-md before:border-t before:border-l before:border-gray-700 before:transition-all after:pointer-events-none after:mt-[6.5px] after:ml-1 after:box-border after:block after:h-1.5 after:w-2.5 after:flex-grow after:rounded-tr-md after:border-t after:border-r after:border-gray-700 after:transition-all peer-placeholder-shown:text-sm peer-placeholder-shown:leading-[3.75] peer-placeholder-shown:text-gray-700 peer-placeholder-shown:before:border-transparent peer-placeholder-shown:after:border-transparent peer-focus:text-[11px] peer-focus:leading-tight peer-focus:text-gray-700 peer-focus:before:border-t-2 peer-focus:before:border-l-2 peer-focus:before:border-gray-700 peer-focus:after:border-t-2 peer-focus:after:border-r-2 peer-focus:after:border-gray-700 peer-disabled:text-transparent peer-disabled:before:border-transparent peer-disabled:after:border-transparent peer-disabled:peer-placeholder-shown:text-gray-700">
-                                    Date
-                                </label>
-                                <div class="absolute inset-y-0 right-0 flex items-center pr-3 cursor-pointer">
-                                    <svg aria-hidden="true" class="w-5 h-5 text-gray-500" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clip-rule="evenodd"></path></svg>
-                                </div>
+                        <div class="flex flex-col relative w-full md:w-1/2">
+                            <input type="text" datepicker datepicker-autohide id="upload-date" name="upload-date" class="w-full flex border border-gray-700 rounded-[7px] outline outline-0 font-sans font-normal leading-tight text-sm text-gray-700 focus:ring-1 focus:outline-none focus:ring-gray-700 rounded-lg text-sm px-4 py-2.5 inline-flex">
+                            <label class="relative absolute -top-12 left-3 w-fit px-1 bg-white font-sans font-normal text-gray-700 text-[11px] leading-tight">
+                                Date
+                            </label>
+                            <div class="absolute inset-y-0 right-0 flex mt-2 pr-3 cursor-pointer">
+                                <svg id="upload-date-icon" aria-hidden="true" class="w-5 h-5 text-gray-500" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clip-rule="evenodd"></path>
+                                </svg>
                             </div>
                         </div>
                     </div>
                     <div class="flex flex-col">
-                        <div class="flex flex-col items-center relative w-full">
-                            <select id="upload-action" name="upload-action" class="type peer h-full w-full rounded-[7px] border border-gray-700 border-t-transparent bg-transparent px-3 py-2.5 font-sans text-sm font-normal text-gray-700 outline outline-0 transition-all placeholder-shown:border placeholder-shown:border-gray-700 placeholder-shown:border-t-gray-700 focus:border-2 focus:border-gray-700 focus:border-t-transparent focus:outline-0 disabled:border-0 disabled:bg-gray-700">
-                                <option value="null" class="text-sm">Authors</option>
-                                <option value="1" class="text-sm">Author 1</option>
-                                <option value="2" class="text-sm">Author 2</option>
-                                <option value="3" class="text-sm">Author 3</option>    
-                                <option value="4" class="text-sm">Author 4</option>  
-                            </select>
-                            <label class="before:content[\' \'] after:content[\' \'] pointer-events-none absolute left-0 -top-1.5 flex h-full w-full select-none text-[11px] font-normal leading-tight text-gray-700 transition-all before:pointer-events-none before:mt-[6.5px] before:mr-1 before:box-border before:block before:h-1.5 before:w-2.5 before:rounded-tl-md before:border-t before:border-l before:border-gray-700 before:transition-all after:pointer-events-none after:mt-[6.5px] after:ml-1 after:box-border after:block after:h-1.5 after:w-2.5 after:flex-grow after:rounded-tr-md after:border-t after:border-r after:border-gray-700 after:transition-all peer-placeholder-shown:text-sm peer-placeholder-shown:leading-[3.75] peer-placeholder-shown:text-gray-700 peer-placeholder-shown:before:border-transparent peer-placeholder-shown:after:border-transparent peer-focus:text-[11px] peer-focus:leading-tight peer-focus:text-gray-700 peer-focus:before:border-t-2 peer-focus:before:border-l-2 peer-focus:before:border-gray-700 peer-focus:after:border-t-2 peer-focus:after:border-r-2 peer-focus:after:border-gray-700 peer-disabled:text-transparent peer-disabled:before:border-transparent peer-disabled:after:border-transparent peer-disabled:peer-placeholder-shown:text-gray-700">
-                                Select Author/s
-                            </label>
-                        </div>
-                    </div>
-                    <div class="flex flex-col">
                         <div class="flex flex-col relative w-full">
+                            <input type="text" id="upload-authors" name="upload-authors" class="hidden">
                             <button id="dropdownBgHoverButton" data-dropdown-toggle="dropdownBgHover" data-dropdown-placement="top" class="w-full flex justify-between border border-gray-700 rounded-[7px] outline outline-0 font-sans font-normal leading-tight text-sm text-gray-700 focus:ring-1 focus:outline-none focus:ring-gray-700 rounded-lg text-sm px-4 py-2.5 text-center inline-flex items-center" type="button">
                                 Select Authors
                                 <svg class="w-4 h-4 ml-2" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -276,25 +260,24 @@
                                 </svg>
                             </button>
                             <p class="relative absolute -top-12 left-3 w-fit px-1 bg-white font-sans font-normal text-gray-700 text-[11px] leading-tight">Author/s</p>
-                            <!-- Dropdown menu -->
-                            <div id="dropdownBgHover" class="z-10 hidden w-fit bg-white rounded-lg shadow">
+                            <div id="dropdownBgHover" class="z-10 hidden w-fit border border-gray-300 bg-white rounded-md shadow">
                                 <ul class="p-3 space-y-1 text-sm text-gray-700" aria-labelledby="dropdownBgHoverButton">
                                   <li>
                                     <div class="flex items-center p-2 rounded hover:bg-gray-100">
-                                      <input id="checkbox-item-1" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 focus:ring-1">
-                                      <label for="checkbox-item-1" class="w-full ml-2 font-sans text-sm font-normal text-gray-700 rounded">Sample Authors</label>
+                                      <input id="author-1" type="checkbox" value="Author Name Long" class="upload-author w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 focus:ring-1">
+                                      <label for="author-1" class="w-full ml-2 font-sans text-sm font-normal text-gray-700 rounded">Sample Authors Long</label>
                                     </div>
                                   </li>
                                   <li>
                                     <div class="flex items-center p-2 rounded hover:bg-gray-100">
-                                      <input id="checkbox-item-2" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 focus:ring-1">
-                                      <label for="checkbox-item-2" class="w-full ml-2 font-sans text-sm font-normal text-gray-700 rounded">Sample Authors</label>
+                                      <input id="author-2" type="checkbox" value="Author Name" class="upload-author w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 focus:ring-1">
+                                      <label for="author-2" class="w-full ml-2 font-sans text-sm font-normal text-gray-700 rounded">Sample Authors</label>
                                     </div>
                                   </li>
                                   <li>
                                     <div class="flex items-center p-2 rounded hover:bg-gray-100">
-                                      <input id="checkbox-item-3" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 focus:ring-1">
-                                      <label for="checkbox-item-3" class="w-full ml-2 font-sans text-sm font-normal text-gray-700 rounded">Sample Authors</label>
+                                      <input id="author-3" type="checkbox" value="Author Name" class="upload-author w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 focus:ring-1">
+                                      <label for="author-3" class="w-full ml-2 font-sans text-sm font-normal text-gray-700 rounded">Sample Authors</label>
                                     </div>
                                   </li>
                                 </ul>
@@ -302,7 +285,7 @@
                         </div>
                     </div>
                 </div>
-                <div id="upload-file-container" class="flex flex-col w-4/5 justify-end items-end md:flex-col-reverse md:w-2/5">
+                <div id="upload-file-container" class="flex flex-col w-4/5 justify-end items-end pb-3 md:flex-col-reverse md:w-2/5">
                     <div id="dropzone" class="flex flex-col space-y-2 h-24 w-11/12 justify-center items-center border-2 border-gray-300 border-dashed rounded-lg cursor-pointer mt-3 px-2 py-2 md:h-1/2">
                         <img src="{{ asset('/images/upload_file.svg') }}" alt="" class="h-8 w-8 md:h-16 md:w-16">
                         <p class="font-sans font-normal text-sm text-black/50 whitespace-normal text-center">

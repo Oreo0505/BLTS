@@ -8,36 +8,54 @@ const uploadSubmitButton = document.getElementById('upload-submit');
 const titleField = document.getElementById('upload-title');
 const typeField = document.getElementById('upload-type');
 const numberField = document.getElementById('upload-number');
-const actionField = document.getElementById('upload-action');
+const areaField = document.getElementById('upload-area');
 const dateField = document.getElementById('upload-date');
-const authorField = document.getElementById('upload-author');
-const sponsorField = document.getElementById('upload-sponsor');
+const dateIcon = document.getElementById('upload-date-icon');
+const authorDropdown = document.getElementById('dropdownBgHoverButton');
+const authorOptions = document.querySelectorAll('.upload-author');
+const authorsField = document.getElementById('upload-authors');
 const fileField = document.getElementById('upload-file');
 const dropzone = document.getElementById('dropzone');
-const tagFields = document.querySelectorAll('.tag');
 const uploadFileContainer = document.getElementById('upload-file-container');
 
+var uploadModalOpened = false;
 function openUploadModal(){
-    uploadOverlay.classList.remove('hidden');
-    uploadModal.classList.remove('hidden','fadeOut');
-    uploadModal.classList.add('fadeIn');
+    if(!uploadModalOpened){
+        uploadOverlay.classList.remove('hidden');
+        uploadModal.classList.remove('hidden','fadeOut');
+        uploadModal.classList.add('fadeIn');
+        setTimeout(() => {
+            if(uploadModal.classList.contains('hidden')){
+                uploadModal.classList.remove('hidden');
+            }
+        }, 1000);
+        uploadModalOpened = true;
+    }
 }
 
 function closeUploadModal(){
-    uploadOverlay.classList.add('hidden');
-    uploadModal.classList.remove('fadeIn');
-    uploadModal.classList.add('fadeOut');
-    setTimeout(() => {
-        uploadModal.classList.add('hidden');
-    }, 1000);   
+    if(uploadModalOpened){
+        uploadOverlay.classList.add('hidden');
+        uploadModal.classList.remove('fadeIn');
+        uploadModal.classList.add('fadeOut');
+        setTimeout(() => {
+            uploadModal.classList.add('hidden');
+        }, 1000);
+        uploadModalOpened = false;    
+    }
 }
 
 uploadFAB.addEventListener('click', openUploadModal);
 uploadExitButton.addEventListener('click', closeUploadModal);
+uploadOverlay.addEventListener('click',closeUploadModal);
 window.addEventListener('keydown', function(event){
     if(event.key == 'Escape'){
         closeUploadModal();
     }
+})
+
+dateIcon.addEventListener('click', function(){
+    dateField.focus();
 })
 
 dropzone.addEventListener('click', function(){
@@ -52,10 +70,9 @@ uploadCancelButton.addEventListener('click', function(){
     titleField.value = '';
     typeField.selectedIndex = 0;
     numberField.value = '';
-    actionField.selectedIndex = 0;
+    areaField.selectedIndex = 0;
     dateField.value = '';
-    authorField.value = '';
-    sponsorField.value = '';
+    authorOptions.selectedIndex = 0;
     fileField.value = '';
     var dataTransfer = new DataTransfer();
     fileField.files = dataTransfer.files;
@@ -79,33 +96,30 @@ uploadSubmitButton.addEventListener('click', function(){
         alert('Number field can only contain digits');
         return;
     }
-    if(actionField.value == 'null'){
-        alert('Please select action taken');
+    if(areaField.value == 'null'){
+        alert('Please select area of governance');
         return;
     }
     if(dateField.value.length <= 0){
         alert('Please select document date');
         return;
     }
-    if(authorField.value.length <= 0){
-        alert('Please enter at least one author');
+    var authors = []
+    for(let i = 0; i < authorOptions.length; i++){
+        if(authorOptions[i].checked){
+            authors.push(authorOptions[i].value);
+        }
+    }
+    if(authors.length <= 0){
+        alert('Please select at least one author');
         return;
     }
     if(fileField.files.length == 0){
         alert('Please upload a file');
         return;
     }
-    if(sponsorField.value.length <= 0){
-        sponsorField.value = authorField.value;
-    }
-    var tags = [];
-    for(let i = 0; i < tagFields.length; i++){
-        if(tagFields[i].value > 0){
-            tags.push(tagFields[i].value);
-        }
-    }
-    console.log(tags.join(','));
-    // uploadForm.submit();
+    authorsField.value = authors.join(', ');
+    uploadForm.submit();
 });
 
 function showUploadedLabel(filename){
