@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\RedirectController;
 use App\Http\Controllers\CreateController;
 use App\Http\Controllers\DeleteController;
 use App\Http\Controllers\DownloadController;
@@ -15,9 +16,7 @@ use App\Http\Controllers\DownloadController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [RedirectController::class, 'redirectToHomepage']);
 
 Route::post('/upload', [CreateController::class, 'create']);
 
