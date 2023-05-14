@@ -71,6 +71,6 @@ class CreateController extends Controller
         $document = Document::create($document_form);
         $document->authors()->attach($author_ids);
         flash()->addSuccess('Upload Success');
-        return redirect('/');
+        return back();
     }
 }
