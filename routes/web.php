@@ -5,6 +5,7 @@ use App\Http\Controllers\RedirectController;
 use App\Http\Controllers\CreateController;
 use App\Http\Controllers\DeleteController;
 use App\Http\Controllers\DownloadController;
+use App\Http\Controllers\UpdateController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -21,5 +22,9 @@ Route::get('/', [RedirectController::class, 'redirectToHomepage']);
 Route::post('/upload', [CreateController::class, 'create']);
 
 Route::post('/delete', [DeleteController::class, 'delete']);
+
+Route::get('/getData', [UpdateController::class, 'getData']);
+
+Route::post('/update', [UpdateController::class, 'update']);
 
 Route::get('/download/{file_name}', [DownloadController::class, 'download']);
