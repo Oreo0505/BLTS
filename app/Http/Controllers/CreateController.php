@@ -33,13 +33,13 @@ class CreateController extends Controller
             'date.date' => 'Invalid date format',
             'authors.required' => 'Please enter document author',
             'file.required' => 'File is required',
-            'files.mimes' => 'Only pdf file is allowed'
+            'file.mimes' => 'Only pdf file is allowed'
         ]);
         if($validator->fails()){
             foreach($validator->messages()->all() as $message){
                 flash()->addError($message);
             }
-            return back->withInput();
+            return back()->withInput();
         }
         $author_ids = [];
         $authors = explode(',', $request->authors);
