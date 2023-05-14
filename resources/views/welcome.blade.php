@@ -387,7 +387,7 @@
                                 <a href={{'/download'.'/'.substr($document->file, 10)}} target="_blank" rel="noopener noreferrer" class="rounded-sm hover:bg-[#9ED6E7] hover:border hover:border-gray-100 hover:scale-150">
                                     <img src="{{ asset('/images/download.svg') }}" alt="">
                                 </a>
-                                <a href="/storage/Documents/test.pdf" target="_blank" rel="noopener noreferrer" class="rounded-sm hover:bg-[#9ED6E7] hover:border hover:border-gray-100 hover:scale-150">
+                                <a href="/storage/{{$document->file}}" target="_blank" rel="noopener noreferrer" class="rounded-sm hover:bg-[#9ED6E7] hover:border hover:border-gray-100 hover:scale-150">
                                     <img src="{{ asset('/images/open.svg') }}" alt="">
                                 </a>
                                 <a href="#" data-id="{{$document->id}}" class="delete rounded-sm hover:bg-[#9ED6E7] hover:border hover:border-gray-100 hover:scale-150">
