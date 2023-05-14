@@ -80,7 +80,7 @@ class UpdateController extends Controller
         $document->type = $request->type;
         $document->number = $request->number;
         $document->area = $request->area;
-        $document->date = $request->date;
+        $document->date = date("Y-m-d", strtotime($request->date));
         if(strcmp($document->file, 'Documents/'.$request->file->getClientOriginalName()) != 0){
             $this->deleteFile($document->file);
             $file_name = date('Y_m_d_H_i_s').Str::random(10);
