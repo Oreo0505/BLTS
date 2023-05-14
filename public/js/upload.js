@@ -5,17 +5,17 @@ const uploadForm = document.getElementById('upload-form');
 const uploadExitButton = document.getElementById('upload-exit');
 const uploadCancelButton = document.getElementById('upload-cancel');
 const uploadSubmitButton = document.getElementById('upload-submit');
-const titleField = document.getElementById('upload-title');
-const typeField = document.getElementById('upload-type');
-const numberField = document.getElementById('upload-number');
-const areaField = document.getElementById('upload-area');
-const dateField = document.getElementById('upload-date');
-const dateIcon = document.getElementById('upload-date-icon');
-const authorDropdown = document.getElementById('dropdownBgHoverButton');
-const authorOptions = document.querySelectorAll('.upload-author');
-const authorsField = document.getElementById('upload-authors');
-const fileField = document.getElementById('upload-file');
-const dropzone = document.getElementById('dropzone');
+const uploadTitleField = document.getElementById('upload-title');
+const uploadTypeField = document.getElementById('upload-type');
+const uploadNumberField = document.getElementById('upload-number');
+const uploadAreaField = document.getElementById('upload-area');
+const uploadDateField = document.getElementById('upload-date');
+const uploadDateIcon = document.getElementById('upload-date-icon');
+const uploadAuthorDropdown = document.getElementById('dropdownBgHoverButton');
+const uploadAuthorOptions = document.querySelectorAll('.upload-author');
+const uploadAuthorsField = document.getElementById('upload-authors');
+const uploadFileField = document.getElementById('upload-file');
+const uploadDropzone = document.getElementById('upload-dropzone');
 const uploadFileContainer = document.getElementById('upload-file-container');
 
 var uploadModalOpened = false;
@@ -54,72 +54,72 @@ window.addEventListener('keydown', function(event){
     }
 })
 
-dateIcon.addEventListener('click', function(){
-    dateField.focus();
+uploadDateIcon.addEventListener('click', function(){
+    uploadDateField.focus();
 })
 
-dropzone.addEventListener('click', function(){
-    fileField.click();
+uploadDropzone.addEventListener('click', function(){
+    uploadFileField.click();
 });
 
-fileField.addEventListener('change', function(){
-    showUploadedLabel(fileField.files[0].name);
+uploadFileField.addEventListener('change', function(){
+    showUploadedLabel(uploadFileField.files[0].name);
 });
 
 uploadCancelButton.addEventListener('click', function(){
-    titleField.value = '';
-    typeField.selectedIndex = 0;
-    numberField.value = '';
-    areaField.selectedIndex = 0;
-    dateField.value = '';
-    authorOptions.selectedIndex = 0;
-    fileField.value = '';
+    uploadTitleField.value = '';
+    uploadTypeField.selectedIndex = 0;
+    uploadNumberField.value = '';
+    uploadAreaField.selectedIndex = 0;
+    uploadDateField.value = '';
+    uploadAuthorOptions.selectedIndex = 0;
+    uploadFileField.value = '';
     var dataTransfer = new DataTransfer();
-    fileField.files = dataTransfer.files;
+    uploadFileField.files = dataTransfer.files;
     closeUploadModal();
 });
 
 uploadSubmitButton.addEventListener('click', function(){
-    if(titleField.value.length < 3){
+    if(uploadTitleField.value.length < 3){
         alert('Title should be 3 or more character long');
         return;
     }
-    if(typeField.value == 'null'){
+    if(uploadTypeField.value == 'null'){
         alert('Please select document type');
         return;
     }
-    if(numberField.value.length <= 0){
+    if(uploadNumberField.value.length <= 0){
         alert('Please enter document number');
         return;
     }
-    if(isNaN(numberField.value)){
+    if(isNaN(uploadNumberField.value)){
         alert('Number field can only contain digits');
         return;
     }
-    if(areaField.value == 'null'){
+    if(uploadAreaField.value == 'null'){
         alert('Please select area of governance');
         return;
     }
-    if(dateField.value.length <= 0){
+    if(uploadDateField.value.length <= 0){
         alert('Please select document date');
         return;
     }
     var authors = []
-    for(let i = 0; i < authorOptions.length; i++){
-        if(authorOptions[i].checked){
-            authors.push(authorOptions[i].value);
+    for(let i = 0; i < uploadAuthorOptions.length; i++){
+        if(uploadAuthorOptions[i].checked){
+            authors.push(uploadAuthorOptions[i].value);
         }
     }
     if(authors.length <= 0){
         alert('Please select at least one author');
         return;
     }
-    if(fileField.files.length == 0){
+    if(uploadFileField.files.length == 0){
         alert('Please upload a file');
         return;
     }
-    titleField.value = titleField.value.toUpperCase();
-    authorsField.value = authors.join(', ');
+    uploadTitleField.value = uploadTitleField.value.toUpperCase();
+    uploadAuthorsField.value = authors.join(', ');
     uploadForm.submit();
 });
 
@@ -139,8 +139,8 @@ function showUploadedLabel(filename){
     uploadedLabelRemoveButton.classList.add('p-1','rounded-full','bg-red-500','cursor-pointer');
     uploadedLabelRemoveButton.addEventListener('click', function(){
         var dataTransfer = new DataTransfer();
-        fileField.value = '';
-        fileField.files = dataTransfer.files;
+        uploadFileField.value = '';
+        uploadFileField.files = dataTransfer.files;
         var uploadedLabel = document.getElementById('upload-label');
         uploadFileContainer.removeChild(uploadedLabel);
     });
