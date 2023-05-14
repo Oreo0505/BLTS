@@ -19,6 +19,8 @@
     </nav>
 
     {{-- Category Drawer --}}
+    <div id="drawer-overlay" class="hidden fixed w-full h-100 inset-0 z-10 overflow-hidden flex justify-center items-center brightness-50 backdrop-blur-sm animated faster">
+    </div>
     <div id="drawer" class="hidden fixed top-0 left-0 z-40 h-screen w-80 p-6 bg-[#363636] overflow-y-auto transition-transform -transform-x-full ease-in-out">
         <div class="flex flex-col">
             <div id="close-drawer" class="group flex flex-row shrink self-end items-center space-x-2">
