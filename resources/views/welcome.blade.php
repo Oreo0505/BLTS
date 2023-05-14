@@ -95,7 +95,7 @@
                     <option value="author" class="text-sm">Author</option>
                     <option value="tag" class="text-sm">Tags</option>
                 </select>
-                <label class="before:content[\' \'] after:content[\' \'] pointer-events-none absolute left-0 -top-1.5 flex h-full w-full select-none text-[11px] font-normal leading-tight text-gray-700 transition-all before:pointer-events-none before:mt-[6.5px] before:mr-1 before:box-border before:block before:h-1.5 before:w-2.5 before:rounded-tl-md before:border-t before:border-l before:border-gray-700 before:transition-all after:pointer-events-none after:mt-[6.5px] after:ml-1 after:box-border after:block after:h-1.5 after:w-2.5 after:flex-grow after:rounded-tr-md after:border-t after:border-r after:border-gray-700 after:transition-all peer-placeholder-shown:text-sm peer-placeholder-shown:leading-[3.75] peer-placeholder-shown:text-gray-700 peer-placeholder-shown:before:border-transparent peer-placeholder-shown:after:border-transparent peer-focus:text-[11px] peer-focus:leading-tight peer-focus:text-gray-700 peer-focus:before:border-t-2 peer-focus:before:border-l-2 peer-focus:before:border-gray-700 peer-focus:after:border-t-2 peer-focus:after:border-r-2 peer-focus:after:border-gray-700 peer-disabled:text-transparent peer-disabled:before:border-transparent peer-disabled:after:border-transparent peer-disabled:peer-placeholder-shown:text-gray-700">
+                <label for="filter-searchBy" class="before:content[\' \'] after:content[\' \'] pointer-events-none absolute left-0 -top-1.5 flex h-full w-full select-none text-[11px] font-normal leading-tight text-gray-700 transition-all before:pointer-events-none before:mt-[6.5px] before:mr-1 before:box-border before:block before:h-1.5 before:w-2.5 before:rounded-tl-md before:border-t before:border-l before:border-gray-700 before:transition-all after:pointer-events-none after:mt-[6.5px] after:ml-1 after:box-border after:block after:h-1.5 after:w-2.5 after:flex-grow after:rounded-tr-md after:border-t after:border-r after:border-gray-700 after:transition-all peer-placeholder-shown:text-sm peer-placeholder-shown:leading-[3.75] peer-placeholder-shown:text-gray-700 peer-placeholder-shown:before:border-transparent peer-placeholder-shown:after:border-transparent peer-focus:text-[11px] peer-focus:leading-tight peer-focus:text-gray-700 peer-focus:before:border-t-2 peer-focus:before:border-l-2 peer-focus:before:border-gray-700 peer-focus:after:border-t-2 peer-focus:after:border-r-2 peer-focus:after:border-gray-700 peer-disabled:text-transparent peer-disabled:before:border-transparent peer-disabled:after:border-transparent peer-disabled:peer-placeholder-shown:text-gray-700">
                     Search by...
                 </label>
             </div>
@@ -109,7 +109,7 @@
                     <option value="2022" class="text-sm">2022</option>
                     <option value="2023" class="text-sm">2023</option>
                 </select>
-                <label class="before:content[\' \'] after:content[\' \'] pointer-events-none absolute left-0 -top-1.5 flex h-full w-full select-none text-[11px] font-normal leading-tight text-gray-700 transition-all before:pointer-events-none before:mt-[6.5px] before:mr-1 before:box-border before:block before:h-1.5 before:w-2.5 before:rounded-tl-md before:border-t before:border-l before:border-gray-700 before:transition-all after:pointer-events-none after:mt-[6.5px] after:ml-1 after:box-border after:block after:h-1.5 after:w-2.5 after:flex-grow after:rounded-tr-md after:border-t after:border-r after:border-gray-700 after:transition-all peer-placeholder-shown:text-sm peer-placeholder-shown:leading-[3.75] peer-placeholder-shown:text-gray-700 peer-placeholder-shown:before:border-transparent peer-placeholder-shown:after:border-transparent peer-focus:text-[11px] peer-focus:leading-tight peer-focus:text-gray-700 peer-focus:before:border-t-2 peer-focus:before:border-l-2 peer-focus:before:border-gray-700 peer-focus:after:border-t-2 peer-focus:after:border-r-2 peer-focus:after:border-gray-700 peer-disabled:text-transparent peer-disabled:before:border-transparent peer-disabled:after:border-transparent peer-disabled:peer-placeholder-shown:text-gray-700">
+                <label for="filter-year" class="before:content[\' \'] after:content[\' \'] pointer-events-none absolute left-0 -top-1.5 flex h-full w-full select-none text-[11px] font-normal leading-tight text-gray-700 transition-all before:pointer-events-none before:mt-[6.5px] before:mr-1 before:box-border before:block before:h-1.5 before:w-2.5 before:rounded-tl-md before:border-t before:border-l before:border-gray-700 before:transition-all after:pointer-events-none after:mt-[6.5px] after:ml-1 after:box-border after:block after:h-1.5 after:w-2.5 after:flex-grow after:rounded-tr-md after:border-t after:border-r after:border-gray-700 after:transition-all peer-placeholder-shown:text-sm peer-placeholder-shown:leading-[3.75] peer-placeholder-shown:text-gray-700 peer-placeholder-shown:before:border-transparent peer-placeholder-shown:after:border-transparent peer-focus:text-[11px] peer-focus:leading-tight peer-focus:text-gray-700 peer-focus:before:border-t-2 peer-focus:before:border-l-2 peer-focus:before:border-gray-700 peer-focus:after:border-t-2 peer-focus:after:border-r-2 peer-focus:after:border-gray-700 peer-disabled:text-transparent peer-disabled:before:border-transparent peer-disabled:after:border-transparent peer-disabled:peer-placeholder-shown:text-gray-700">
                     Year
                 </label>
             </div>
@@ -122,19 +122,19 @@
             <div class="flex flex-wrap md:flex-row">
                 <div class="flex flex-row items-center w-[23%] mr-7">
                     <input type="checkbox" id="filter-submitted" name="filter-submitted" class="attachment w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500">
-                    <label for="submitted" class="ml-2 text-sm font-base text-gray-700 cursor-pointer hover:text-gray-500">Submitted</label>
+                    <label for="filter-submitted" class="ml-2 text-sm font-base text-gray-700 cursor-pointer hover:text-gray-500">Submitted</label>
                 </div>
                 <div class="flex flex-row items-center w-[23%] mr-1">
                     <input type="checkbox" id="filter-endorsed" name="filter-endorsed" class="attachment w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500">
-                    <label for="endorsed" class="ml-2 text-sm font-base text-gray-700 cursor-pointer hover:text-gray-500">Endorsed</label>
+                    <label for="filter-endorsed" class="ml-2 text-sm font-base text-gray-700 cursor-pointer hover:text-gray-500">Endorsed</label>
                 </div>
                 <div class="flex flex-row items-center w-[23%] mr-1">
                     <input type="checkbox" id="filter-enacted" name="filter-enacted" class="attachment w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500">
-                    <label for="enacted" class="ml-2 text-sm font-base text-gray-700 cursor-pointer hover:text-gray-500">Enacted</label>
+                    <label for="filter-enacted" class="ml-2 text-sm font-base text-gray-700 cursor-pointer hover:text-gray-500">Enacted</label>
                 </div>
                 <div class="flex flex-row items-center w-[23%]">
                     <input type="checkbox" id="filter-adopted" name="filter-adopted" class="attachment w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500">
-                    <label for="adopted" class="ml-2 text-sm font-base text-gray-700 cursor-pointer hover:text-gray-500">Adopted</label>
+                    <label for="filter-adopted" class="ml-2 text-sm font-base text-gray-700 cursor-pointer hover:text-gray-500">Adopted</label>
                 </div>
             </div>
         </div>
@@ -146,33 +146,33 @@
             <div class="flex flex-wrap md:flex-row">
                 <div class="flex flex-row items-center w-[23%] mr-7">
                     <input type="checkbox" id="filter-code_of_ordinance" name="filter-code_of_ordinance" class="attachment w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500">
-                    <label for="code_of_ordinance" class="ml-2 text-sm font-base text-gray-700 cursor-pointer hover:text-gray-500">Code of Ordinance</label>
+                    <label for="filter-code_of_ordinance" class="ml-2 text-sm font-base text-gray-700 cursor-pointer hover:text-gray-500">Code of Ordinance</label>
                 </div>
                 <div class="flex flex-row items-center w-[23%] mr-1">
                     <input type="checkbox" id="filter-endorsement" name="filter-endorsement" class="attachment w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500">
-                    <label for="endorsement" class="ml-2 text-sm font-base text-gray-700 cursor-pointer hover:text-gray-500">Endorsement</label>
+                    <label for="filter-endorsement" class="ml-2 text-sm font-base text-gray-700 cursor-pointer hover:text-gray-500">Endorsement</label>
                 </div>
                 <div class="flex flex-row items-center w-[23%] mr-1">
                     <input type="checkbox" id="filter-ordinance" name="filter-ordinance" class="attachment w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500">
-                    <label for="ordinance" class="ml-2 text-sm font-base text-gray-700 cursor-pointer hover:text-gray-500">Ordinance</label>
+                    <label for="filter-ordinance" class="ml-2 text-sm font-base text-gray-700 cursor-pointer hover:text-gray-500">Ordinance</label>
                 </div>
                 <div class="flex flex-row items-center w-[23%]">
                     <input type="checkbox" id="filter-petition" name="filter-petition" class="attachment w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500">
-                    <label for="petition" class="ml-2 text-sm font-base text-gray-700 cursor-pointer hover:text-gray-500">Petition</label>
+                    <label for="filter-petition" class="ml-2 text-sm font-base text-gray-700 cursor-pointer hover:text-gray-500">Petition</label>
                 </div>
             </div>
             <div class="flex flex-wrap md:flex-row">
                 <div class="flex flex-row items-center w-[23%] mr-7">
                     <input type="checkbox" id="filter-proposal" name="filter-proposal" class="attachment w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500">
-                    <label for="proposal" class="ml-2 text-sm font-base text-gray-700 cursor-pointer hover:text-gray-500">Proposal</label>
+                    <label for="filter-proposal" class="ml-2 text-sm font-base text-gray-700 cursor-pointer hover:text-gray-500">Proposal</label>
                 </div>
                 <div class="flex flex-row items-center w-[23%] mr-1">
                     <input type="checkbox" id="filter-resolution" name="filter-resolution" class="attachment w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500">
-                    <label for="resolution" class="ml-2 text-sm font-base text-gray-700 cursor-pointer hover:text-gray-500">Resolution</label>
+                    <label for="filter-resolution" class="ml-2 text-sm font-base text-gray-700 cursor-pointer hover:text-gray-500">Resolution</label>
                 </div>
                 <div class="flex flex-row items-center w-[23%] mr-1">
                     <input type="checkbox" id="filter-others" name="filter-others" class="attachment w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500">
-                    <label for="others" class="ml-2 text-sm font-base text-gray-700 cursor-pointer hover:text-gray-500">Others</label>
+                    <label for="filter-others" class="ml-2 text-sm font-base text-gray-700 cursor-pointer hover:text-gray-500">Others</label>
                 </div>
             </div>
         </div>
@@ -199,7 +199,7 @@
                 <div class="flex flex-col w-3/5 space-y-2">
                     <div class="flex flex-col relative">
                         <input type="text" id="upload-title" name="title" class="w-full flex border border-gray-700 rounded-[7px] outline outline-0 font-sans font-normal leading-tight text-sm text-gray-700 focus:ring-1 focus:outline-none focus:ring-gray-700 rounded-lg text-sm px-4 py-2.5 inline-flex">
-                        <label class="relative absolute -top-12 left-3 w-fit px-1 bg-white font-sans font-normal text-gray-700 text-[11px] leading-tight">
+                        <label for="upload-title" class="relative absolute -top-12 left-3 w-fit px-1 bg-white font-sans font-normal text-gray-700 text-[11px] leading-tight">
                             Document Title
                         </label>
                     </div>
@@ -212,13 +212,13 @@
                                 <option value="Resolution" class="text-sm">Resolution</option>    
                                 <option value="Others" class="text-sm">Others</option>    
                             </select>
-                            <label class="relative absolute -top-12 left-3 w-fit px-1 bg-white font-sans font-normal text-gray-700 text-[11px] leading-tight">
+                            <label for="upload-type" class="relative absolute -top-12 left-3 w-fit px-1 bg-white font-sans font-normal text-gray-700 text-[11px] leading-tight">
                                 Type of Document
                             </label>
                         </div>
                         <div class="flex flex-col relative w-full md:w-1/2">
                             <input type="text" id="upload-number" name="number" class="w-full flex border border-gray-700 rounded-[7px] outline outline-0 font-sans font-normal leading-tight text-sm text-gray-700 focus:ring-1 focus:outline-none focus:ring-gray-700 rounded-lg text-sm px-4 py-2.5 inline-flex">
-                            <label class="relative absolute -top-12 left-3 w-fit px-1 bg-white font-sans font-normal text-gray-700 text-[11px] leading-tight">
+                            <label for="upload-number" class="relative absolute -top-12 left-3 w-fit px-1 bg-white font-sans font-normal text-gray-700 text-[11px] leading-tight">
                                 Number
                             </label>
                         </div>
@@ -234,13 +234,13 @@
                                 <option value="area_5" class="text-sm">Area 5</option>  
                                 <option value="area_6" class="text-sm">Area 6</option>  
                             </select>
-                            <label class="relative absolute -top-12 left-3 w-fit px-1 bg-white font-sans font-normal text-gray-700 text-[11px] leading-tight">
+                            <label for="upload-area" class="relative absolute -top-12 left-3 w-fit px-1 bg-white font-sans font-normal text-gray-700 text-[11px] leading-tight">
                                 Area of Governance
                             </label>
                         </div>
                         <div class="flex flex-col relative w-full md:w-1/2">
                             <input type="text" datepicker datepicker-autohide id="upload-date" name="date" class="w-full flex border border-gray-700 rounded-[7px] outline outline-0 font-sans font-normal leading-tight text-sm text-gray-700 focus:ring-1 focus:outline-none focus:ring-gray-700 rounded-lg text-sm px-4 py-2.5 inline-flex">
-                            <label class="relative absolute -top-12 left-3 w-fit px-1 bg-white font-sans font-normal text-gray-700 text-[11px] leading-tight">
+                            <label for="upload-date" class="relative absolute -top-12 left-3 w-fit px-1 bg-white font-sans font-normal text-gray-700 text-[11px] leading-tight">
                                 Date
                             </label>
                             <div class="absolute inset-y-0 right-0 flex mt-2 pr-3 cursor-pointer">
@@ -262,24 +262,24 @@
                             <p class="relative absolute -top-12 left-3 w-fit px-1 bg-white font-sans font-normal text-gray-700 text-[11px] leading-tight">Author/s</p>
                             <div id="dropdownBgHover" class="z-10 hidden w-fit border border-gray-300 bg-white rounded-md shadow">
                                 <ul class="p-3 space-y-1 text-sm text-gray-700" aria-labelledby="dropdownBgHoverButton">
-                                  <li>
-                                    <div class="flex items-center p-2 rounded hover:bg-gray-100">
-                                      <input id="author-1" type="checkbox" value="Clarence Madrigal" class="upload-author w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 focus:ring-1">
-                                      <label for="author-1" class="w-full ml-2 font-sans text-sm font-normal text-gray-700 rounded">Clarence Madrigal</label>
-                                    </div>
-                                  </li>
-                                  <li>
-                                    <div class="flex items-center p-2 rounded hover:bg-gray-100">
-                                      <input id="author-2" type="checkbox" value="Jepthe Laderas" class="upload-author w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 focus:ring-1">
-                                      <label for="author-2" class="w-full ml-2 font-sans text-sm font-normal text-gray-700 rounded">Jepthe Laderas</label>
-                                    </div>
-                                  </li>
-                                  <li>
-                                    <div class="flex items-center p-2 rounded hover:bg-gray-100">
-                                      <input id="author-3" type="checkbox" value="Arrianne Umali" class="upload-author w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 focus:ring-1">
-                                      <label for="author-3" class="w-full ml-2 font-sans text-sm font-normal text-gray-700 rounded">Arrianne Umali</label>
-                                    </div>
-                                  </li>
+                                    <li>
+                                        <div class="flex items-center p-2 rounded hover:bg-gray-100">
+                                            <input id="upload-author-1" type="checkbox" value="Clarence Madrigal" class="upload-author w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 focus:ring-1">
+                                            <label for="upload-author-1" class="w-full ml-2 font-sans text-sm font-normal text-gray-700 rounded">Clarence Madrigal</label>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="flex items-center p-2 rounded hover:bg-gray-100">
+                                            <input id="upload-author-2" type="checkbox" value="Jepthe Laderas" class="upload-author w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 focus:ring-1">
+                                            <label for="upload-author-2" class="w-full ml-2 font-sans text-sm font-normal text-gray-700 rounded">Jepthe Laderas</label>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="flex items-center p-2 rounded hover:bg-gray-100">
+                                            <input id="upload-author-3" type="checkbox" value="Arrianne Umali" class="upload-author w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 focus:ring-1">
+                                            <label for="upload-author-3" class="w-full ml-2 font-sans text-sm font-normal text-gray-700 rounded">Arrianne Umali</label>
+                                        </div>
+                                    </li>
                                 </ul>
                             </div>
                         </div>
@@ -339,7 +339,7 @@
                 <div class="flex flex-col w-3/5 space-y-2">
                     <div class="flex flex-col relative">
                         <input type="text" id="update-title" name="title" class="w-full flex border border-gray-700 rounded-[7px] outline outline-0 font-sans font-normal leading-tight text-sm text-gray-700 focus:ring-1 focus:outline-none focus:ring-gray-700 rounded-lg text-sm px-4 py-2.5 inline-flex">
-                        <label class="relative absolute -top-12 left-3 w-fit px-1 bg-white font-sans font-normal text-gray-700 text-[11px] leading-tight">
+                        <label for="update-title" class="relative absolute -top-12 left-3 w-fit px-1 bg-white font-sans font-normal text-gray-700 text-[11px] leading-tight">
                             Document Title
                         </label>
                     </div>
@@ -352,13 +352,13 @@
                                 <option value="Resolution" class="text-sm">Resolution</option>    
                                 <option value="Others" class="text-sm">Others</option>    
                             </select>
-                            <label class="relative absolute -top-12 left-3 w-fit px-1 bg-white font-sans font-normal text-gray-700 text-[11px] leading-tight">
+                            <label for="update-type" class="relative absolute -top-12 left-3 w-fit px-1 bg-white font-sans font-normal text-gray-700 text-[11px] leading-tight">
                                 Type of Document
                             </label>
                         </div>
                         <div class="flex flex-col relative w-full md:w-1/2">
                             <input type="text" id="update-number" name="number" class="w-full flex border border-gray-700 rounded-[7px] outline outline-0 font-sans font-normal leading-tight text-sm text-gray-700 focus:ring-1 focus:outline-none focus:ring-gray-700 rounded-lg text-sm px-4 py-2.5 inline-flex">
-                            <label class="relative absolute -top-12 left-3 w-fit px-1 bg-white font-sans font-normal text-gray-700 text-[11px] leading-tight">
+                            <label for="update-number" class="relative absolute -top-12 left-3 w-fit px-1 bg-white font-sans font-normal text-gray-700 text-[11px] leading-tight">
                                 Number
                             </label>
                         </div>
@@ -374,13 +374,13 @@
                                 <option value="area_5" class="text-sm">Area 5</option>  
                                 <option value="area_6" class="text-sm">Area 6</option>  
                             </select>
-                            <label class="relative absolute -top-12 left-3 w-fit px-1 bg-white font-sans font-normal text-gray-700 text-[11px] leading-tight">
+                            <label for="update-area" class="relative absolute -top-12 left-3 w-fit px-1 bg-white font-sans font-normal text-gray-700 text-[11px] leading-tight">
                                 Area of Governance
                             </label>
                         </div>
                         <div class="flex flex-col relative w-full md:w-1/2">
                             <input type="text" datepicker datepicker-autohide id="update-date" name="date" class="w-full flex border border-gray-700 rounded-[7px] outline outline-0 font-sans font-normal leading-tight text-sm text-gray-700 focus:ring-1 focus:outline-none focus:ring-gray-700 rounded-lg text-sm px-4 py-2.5 inline-flex">
-                            <label class="relative absolute -top-12 left-3 w-fit px-1 bg-white font-sans font-normal text-gray-700 text-[11px] leading-tight">
+                            <label for="update-date" class="relative absolute -top-12 left-3 w-fit px-1 bg-white font-sans font-normal text-gray-700 text-[11px] leading-tight">
                                 Date
                             </label>
                             <div class="absolute inset-y-0 right-0 flex mt-2 pr-3 cursor-pointer">
@@ -404,20 +404,20 @@
                                 <ul class="p-3 space-y-1 text-sm text-gray-700" aria-labelledby="dropdownBgHoverButton">
                                     <li>
                                         <div class="flex items-center p-2 rounded hover:bg-gray-100">
-                                        <input id="author-1" type="checkbox" value="Clarence Madrigal" class="update-author w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 focus:ring-1">
-                                        <label for="author-1" class="w-full ml-2 font-sans text-sm font-normal text-gray-700 rounded">Clarence Madrigal</label>
+                                            <input id="update-author-1" type="checkbox" value="Clarence Madrigal" class="update-author w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 focus:ring-1">
+                                            <label for="update-author-1" class="w-full ml-2 font-sans text-sm font-normal text-gray-700 rounded">Clarence Madrigal</label>
                                         </div>
                                     </li>
                                     <li>
                                         <div class="flex items-center p-2 rounded hover:bg-gray-100">
-                                        <input id="author-2" type="checkbox" value="Jepthe Laderas" class="update-author w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 focus:ring-1">
-                                        <label for="author-2" class="w-full ml-2 font-sans text-sm font-normal text-gray-700 rounded">Jepthe Laderas</label>
+                                            <input id="update-author-2" type="checkbox" value="Jepthe Laderas" class="update-author w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 focus:ring-1">
+                                            <label for="update-author-2" class="w-full ml-2 font-sans text-sm font-normal text-gray-700 rounded">Jepthe Laderas</label>
                                         </div>
                                     </li>
                                     <li>
                                         <div class="flex items-center p-2 rounded hover:bg-gray-100">
-                                        <input id="author-3" type="checkbox" value="Arrianne Umali" class="update-author w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 focus:ring-1">
-                                        <label for="author-3" class="w-full ml-2 font-sans text-sm font-normal text-gray-700 rounded">Arrianne Umali</label>
+                                            <input id="update-author-3" type="checkbox" value="Arrianne Umali" class="update-author w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 focus:ring-1">
+                                            <label for="update-author-3" class="w-full ml-2 font-sans text-sm font-normal text-gray-700 rounded">Arrianne Umali</label>
                                         </div>
                                     </li>
                                 </ul>
