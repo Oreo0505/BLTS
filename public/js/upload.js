@@ -119,7 +119,7 @@ uploadSubmitButton.addEventListener('click', function(){
         return;
     }
     uploadTitleField.value = uploadTitleField.value.toUpperCase();
-    uploadAuthorsField.value = authors.join(', ');
+    uploadAuthorsField.value = authors.join(',');
     uploadForm.submit();
 });
 
