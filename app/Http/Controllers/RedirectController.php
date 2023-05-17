@@ -31,4 +31,8 @@ class RedirectController extends Controller
         }
         return view('setup');
     }
+
+    public function redirectToRenewPage(){
+        return view('renew');
+    }
 }

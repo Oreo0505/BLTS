@@ -34,3 +34,5 @@ Route::get('/download/{file_name}', [DownloadController::class, 'download']);
 Route::get('/setup', [RedirectController::class, 'redirectToSetupPage']);
 
 Route::post('/setup/process', [SetupController::class, 'setup']);
+
+Route::get('/renew', [RedirectController::class, 'redirectToRenewPage']);
