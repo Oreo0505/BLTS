@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="{{ asset('/css/flowbite.css') }}" rel="stylesheet">
     @vite('resources/css/app.css')
-    <title>Homepage</title>
+    <title>Setup</title>
 </head>
 <body>
     <div class="flex flex-col-reverse justify-between md:flex-row md:space-y-0">
