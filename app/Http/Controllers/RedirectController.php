@@ -17,6 +17,10 @@ class RedirectController extends Controller
         }
 
         $current_term = Term::find($config->current_term);
+        if(date('Y-m-d') > $current_term->end){
+            return redirect('/renew');
+        }
+
         $start = $current_term->start;
         $end = $current_term->end;
         $documents = Document::with('authors')->whereBetween('date',[$start, $end])->get();
@@ -37,6 +41,16 @@ class RedirectController extends Controller
     }
 
     public function redirectToRenewPage(){
+        $config = Config::first();
+        if(!$config->first_time){
+            flash()->addError('First time set-up completed');
+            return redirect('/setup');
+        }        
+        $current_term = Term::find($config->current_term);
+        if(!date('Y-m-d') > $current_term->end){
+            flash()->addError('Administrative Year / Term has not ended yet!');
+            return redirect('/');
+        }
         return view('renew');
     }
 }
