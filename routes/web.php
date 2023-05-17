@@ -6,6 +6,8 @@ use App\Http\Controllers\CreateController;
 use App\Http\Controllers\DeleteController;
 use App\Http\Controllers\DownloadController;
 use App\Http\Controllers\UpdateController;
+use App\Http\Controllers\SetupController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -28,3 +30,7 @@ Route::get('/getData', [UpdateController::class, 'getData']);
 Route::post('/update', [UpdateController::class, 'update']);
 
 Route::get('/download/{file_name}', [DownloadController::class, 'download']);
+
+Route::get('/setup', [RedirectController::class, 'redirectToSetupPage']);
+
+Route::post('/setup/process', [SetupController::class, 'setup']);

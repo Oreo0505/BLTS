@@ -14,4 +14,8 @@ class RedirectController extends Controller
             'documents' => $documents
         ]);
     }
+
+    public function redirectToSetupPage(){
+        return view('setup');
+    }
 }
