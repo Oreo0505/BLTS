@@ -42,12 +42,12 @@ class RedirectController extends Controller
 
     public function redirectToRenewPage(){
         $config = Config::first();
-        if(!$config->first_time){
-            flash()->addError('First time set-up completed');
+        if($config->first_time){
+            flash()->addError('You have to set up an account first!');
             return redirect('/setup');
         }        
         $current_term = Term::find($config->current_term);
-        if(!date('Y-m-d') > $current_term->end){
+        if(date('Y-m-d') < $current_term->end){
             flash()->addError('Administrative Year / Term has not ended yet!');
             return redirect('/');
         }
