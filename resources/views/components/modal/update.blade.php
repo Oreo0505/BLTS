@@ -42,15 +42,15 @@
                     <div class="flex flex-col relative w-full md:w-1/2">
                         <select id="update-area" name="area" class="w-full flex border border-gray-700 rounded-[7px] outline outline-0 font-sans font-normal leading-tight text-sm text-gray-700 focus:ring-1 focus:outline-none focus:ring-gray-700 rounded-lg text-sm px-4 py-2.5 inline-flex">
                             <option value="null" class="text-sm">Select area</option>
-                            <option value="area_1" class="text-sm">Area 1</option>
-                            <option value="area_2" class="text-sm">Area 2</option>
-                            <option value="area_3" class="text-sm">Area 3</option>    
-                            <option value="area_4" class="text-sm">Area 4</option>  
-                            <option value="area_5" class="text-sm">Area 5</option>  
-                            <option value="area_6" class="text-sm">Area 6</option>  
+                            <option value="Financial Administration and Sustainability" class="text-sm">Financial Administration and Sustainability</option>
+                            <option value="Disaster Preparedness" class="text-sm">Disaster Preparedness</option>
+                            <option value="Safety, Peace and Order" class="text-sm">Safety, Peace and Order</option>    
+                            <option value="Social Protection and Sensitivity" class="text-sm">Social Protection and Sensitivity</option>  
+                            <option value="Business-Friendliness and Competitiveness" class="text-sm">Business-Friendliness and Competitiveness</option>  
+                            <option value="Environmental Mannagement" class="text-sm">Environmental Mannagement</option>  
                         </select>
                         <label for="update-area" class="relative absolute -top-12 left-3 w-fit px-1 bg-white font-sans font-normal text-gray-700 text-[11px] leading-tight">
-                            Area of Governance
+                            Governance Area
                         </label>
                     </div>
                     <div class="flex flex-col relative w-full md:w-1/2">
