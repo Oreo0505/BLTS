@@ -11,7 +11,8 @@
 <body>
     <div id="overlay" class="fixed w-full h-100 inset-0 overflow-hidden flex justify-center items-center bg-gradient-215 from-[#425B71] to-[#425B71]/60">
     </div>
-    <div id="upload" class="fixed inset-0 h-[600px] w-2/5 flex flex-col border drop-shadow-md shadow-lg modal-container bg-white mx-auto my-auto rounded z-50">
+    <div id="upload" class="fixed inset-0 h-fit w-4/5 overflow-clip flex flex-col border drop-shadow-md shadow-lg modal-container bg-white mx-auto my-auto rounded z-50 pb-6 md:w-2/5">
+        <img src="{{ asset('/images/accent-1.svg') }}" alt="" class="absolute right-0 -top-16">
         <div class="flex flex-col justify-start px-8 py-6">
             <p class="w-fit font-sans font-medium text-xl bg-gradient-90 from-[#A60453] to-[#FFB144] bg-clip-text text-transparent">
                 Update Account
@@ -26,13 +27,13 @@
         <div class="flex items-center justify-center mb-4">
             <img src="{{ asset('/images/logo.svg') }}" alt="" class="h-20">
         </div>
+        <div class="flex relative justify-center">
+            <p class="mx-auto font-sans font-normal text-black/50 text-sm leading-4">Administrative Year / Term Year</p>
+        </div>
         <form action="/renew/process" method="POST" id="renew-form">
             @csrf
-            <div class="flex flex-col justify-center mx-24 ">
-                <div class="flex relative justify-center">
-                    <p class="mx-auto font-sans font-normal text-black/50 text-sm leading-4">Administrative Year / Term Year</p>
-                </div>
-                <div class="flex flex-row space-x-3 mt-4">
+            <div class="flex flex-col space-y-2 justify-center mx-12 md:space-y-0 md:mx-24">
+                <div class="flex flex-col space-y-2 md:flex-row md:space-x-3 md:space-y-0 mt-4">
                     <div class="flex flex-col relative w-full md:w-1/2">
                         <input type="text" datepicker datepicker-autohide id="from" name="from" value="{{ old('from') }}" class="w-full flex border border-gray-700 rounded-[7px] outline outline-0 font-sans font-normal leading-tight text-sm text-gray-700 focus:ring-1 focus:outline-none focus:ring-gray-700 rounded-lg text-sm px-4 py-2.5 inline-flex">
                         <label for="from" class="relative absolute -top-12 left-3 w-fit px-1 bg-white font-sans font-normal text-gray-700 text-[11px] leading-tight">
@@ -56,21 +57,21 @@
                         </div>
                     </div>
                 </div>
-                <div class="flex flex-row space-x-3">
-                    <div class="flex flex-col relative mt-1">
+                <div class="flex flex-col space-y-2 md:flex-row md:space-x-3 md:space-y-0">
+                    <div class="flex flex-col relative">
                         <input type="text" id="captain" name="captain" value="{{ old('captain') }}" class="w-full flex border border-gray-700 rounded-[7px] outline outline-0 font-sans font-normal leading-tight text-sm text-gray-700 focus:ring-1 focus:outline-none focus:ring-gray-700 rounded-lg text-sm px-4 py-2.5 inline-flex">
                         <label for="captain" class="relative absolute -top-12 left-3 w-fit px-1 bg-white font-sans font-normal text-gray-700 text-[11px] leading-tight">
                            Barangay Captain
                         </label>
                     </div>
-                    <div class="flex flex-col relative mt-1">
+                    <div class="flex flex-col relative">
                         <input type="text" id="secretary" name="secretary" value="{{ old('captain') }}" class="w-full flex border border-gray-700 rounded-[7px] outline outline-0 font-sans font-normal leading-tight text-sm text-gray-700 focus:ring-1 focus:outline-none focus:ring-gray-700 rounded-lg text-sm px-4 py-2.5 inline-flex">
                         <label for="secretary" class="relative absolute -top-12 left-3 w-fit px-1 bg-white font-sans font-normal text-gray-700 text-[11px] leading-tight">
                            Secretary
                         </label>
                     </div>
                 </div>
-                <div class="flex flex-col relative w-full -mt-2">
+                <div class="flex flex-col relative w-full -translate-y-2">
                     <p class="w-fit relative absolute top-2 left-3 px-1 font-sans font-normal text-[11px] text-gray-700 bg-white leading-tight">
                         Sangguniang Barangay Members
                     </p>
@@ -105,11 +106,11 @@
                         </div>
                     </div>
                 </div>
-                <button id="renew-button" type="button" class="mx-auto mt-6 px-16 py-3 rounded-lg bg-gradient-270 from-[#A60453] to-[#FFB144] font-sans font-bold text-xl leading-6 text-white">
-                    Update
-                </button>
             </div>        
         </form>
+        <button id="renew-button" type="button" class="mx-auto mt-6 px-16 py-3 rounded-lg bg-gradient-270 from-[#A60453] to-[#FFB144] font-sans font-bold text-xl leading-6 text-white">
+            Update
+        </button>
     </div>
 
     <script src="{{ asset('/js/renew.js') }}"></script>
