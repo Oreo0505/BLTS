@@ -76,24 +76,16 @@
                         <p class="relative absolute -top-12 left-3 w-fit px-1 bg-white font-sans font-normal text-gray-700 text-[11px] leading-tight">Author/s</p>
                         <div id="dropdownBgHover" class="z-10 hidden w-fit border border-gray-300 bg-white rounded-md shadow">
                             <ul class="p-3 space-y-1 text-sm text-gray-700" aria-labelledby="dropdownBgHoverButton">
-                                <li>
-                                    <div class="flex items-center p-2 rounded hover:bg-gray-100">
-                                        <input id="upload-author-1" type="checkbox" value="Clarence Madrigal" class="upload-author w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 focus:ring-1">
-                                        <label for="upload-author-1" class="w-full ml-2 font-sans text-sm font-normal text-gray-700 rounded">Clarence Madrigal</label>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="flex items-center p-2 rounded hover:bg-gray-100">
-                                        <input id="upload-author-2" type="checkbox" value="Jepthe Laderas" class="upload-author w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 focus:ring-1">
-                                        <label for="upload-author-2" class="w-full ml-2 font-sans text-sm font-normal text-gray-700 rounded">Jepthe Laderas</label>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="flex items-center p-2 rounded hover:bg-gray-100">
-                                        <input id="upload-author-3" type="checkbox" value="Arrianne Umali" class="upload-author w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 focus:ring-1">
-                                        <label for="upload-author-3" class="w-full ml-2 font-sans text-sm font-normal text-gray-700 rounded">Arrianne Umali</label>
-                                    </div>
-                                </li>
+
+                                @foreach($authors as $author)
+                                    <li class="">
+                                        <div class="flex items-center p-2 rounded hover:bg-gray-100">
+                                            <input id="{{ $author->name }}" type="checkbox" value="{{ $author->name }}" class="upload-author w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 focus:ring-1">
+                                            <label for="{{ $author->name }}" class="w-full ml-2 font-sans text-sm font-normal text-gray-700 rounded cursor-pointer">{{ $author->name }}</label>
+                                        </div>
+                                    </li>
+                                @endforeach
+
                             </ul>
                         </div>
                     </div>

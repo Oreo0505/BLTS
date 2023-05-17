@@ -16,8 +16,10 @@ class RedirectController extends Controller
         }
 
         $documents = Document::with('authors')->get();
+        $authors = Author::where('term_id', $config->current_term)->whereNot('position','Secretary')->get();
         return view('welcome',[
-            'documents' => $documents
+            'documents' => $documents,
+            'authors' => $authors
         ]);
     }
 
