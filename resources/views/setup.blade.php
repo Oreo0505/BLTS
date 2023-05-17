@@ -100,32 +100,32 @@
                             </p>
                             <div class="h-32 flex flex-col space-y-4 w-full border border-gray-700 rounded-[7px] p-4 overflow-x-auto">
                                 <div class="h-2 flex flex-row space-x-2 items-center">
-                                    <label for="1" class="font-sans font-normal text-sm text-gray-700 leading-tight mt-1">1.</label>
-                                    <input type="text" id="1" name="1" class="sb-member w-full mt-1 border-0 border-gray-700 font-sans font-normal px-1 py-0 text-sm text-gray-700">
+                                    <label for="sb1" class="font-sans font-normal text-sm text-gray-700 leading-tight mt-1">1.</label>
+                                    <input type="text" id="sb1" name="sb1" class="sb-member w-full mt-1 border-0 border-gray-700 font-sans font-normal px-1 py-0 text-sm text-gray-700">
                                 </div>
                                 <div class="h-2 flex flex-row space-x-2 items-center">
-                                    <label for="2" class="font-sans font-normal text-sm text-gray-700 leading-tight mt-1">2.</label>
-                                    <input type="text" id="2" name="2" class="sb-member w-full mt-1 border-0 border-gray-700 font-sans font-normal px-1 py-0 text-sm text-gray-700">
+                                    <label for="sb2" class="font-sans font-normal text-sm text-gray-700 leading-tight mt-1">2.</label>
+                                    <input type="text" id="sb2" name="sb2" class="sb-member w-full mt-1 border-0 border-gray-700 font-sans font-normal px-1 py-0 text-sm text-gray-700">
                                 </div>
                                 <div class="h-2 flex flex-row space-x-2 items-center">
-                                    <label for="3" class="font-sans font-normal text-sm text-gray-700 leading-tight mt-1">3.</label>
-                                    <input type="text" id="3" name="3" class="sb-member w-full mt-1 border-0 border-gray-700 font-sans font-normal px-1 py-0 text-sm text-gray-700">
+                                    <label for="sb3" class="font-sans font-normal text-sm text-gray-700 leading-tight mt-1">3.</label>
+                                    <input type="text" id="sb3" name="sb3" class="sb-member w-full mt-1 border-0 border-gray-700 font-sans font-normal px-1 py-0 text-sm text-gray-700">
                                 </div>
                                 <div class="h-2 flex flex-row space-x-2 items-center">
-                                    <label for="4" class="font-sans font-normal text-sm text-gray-700 leading-tight mt-1">4.</label>
-                                    <input type="text" id="4" name="4" class="sb-member w-full mt-1 border-0 border-gray-700 font-sans font-normal px-1 py-0 text-sm text-gray-700">
+                                    <label for="sb4" class="font-sans font-normal text-sm text-gray-700 leading-tight mt-1">4.</label>
+                                    <input type="text" id="sb4" name="sb4" class="sb-member w-full mt-1 border-0 border-gray-700 font-sans font-normal px-1 py-0 text-sm text-gray-700">
                                 </div>
                                 <div class="h-2 flex flex-row space-x-2 items-center">
-                                    <label for="5" class="font-sans font-normal text-sm text-gray-700 leading-tight mt-1">5.</label>
-                                    <input type="text" id="5" name="5" class="sb-member w-full mt-1 border-0 border-gray-700 font-sans font-normal px-1 py-0 text-sm text-gray-700">
+                                    <label for="sb5" class="font-sans font-normal text-sm text-gray-700 leading-tight mt-1">5.</label>
+                                    <input type="text" id="sb5" name="sb5" class="sb-member w-full mt-1 border-0 border-gray-700 font-sans font-normal px-1 py-0 text-sm text-gray-700">
                                 </div>
                                 <div class="h-2 flex flex-row space-x-2 items-center">
-                                    <label for="6" class="font-sans font-normal text-sm text-gray-700 leading-tight mt-1">6.</label>
-                                    <input type="text" id="6" name="6" class="sb-member w-full mt-1 border-0 border-gray-700 font-sans font-normal px-1 py-0 text-sm text-gray-700">
+                                    <label for="sb6" class="font-sans font-normal text-sm text-gray-700 leading-tight mt-1">6.</label>
+                                    <input type="text" id="sb6" name="sb6" class="sb-member w-full mt-1 border-0 border-gray-700 font-sans font-normal px-1 py-0 text-sm text-gray-700">
                                 </div>
                                 <div class="h-2 flex flex-row space-x-2 items-center">
-                                    <label for="7" class="font-sans font-normal text-sm text-gray-700 leading-tight mt-1">7.</label>
-                                    <input type="text" id="7" name="7" class="sb-member w-full mt-1 border-0 border-gray-700 font-sans font-normal px-1 py-0 text-sm text-gray-700">
+                                    <label for="sb7" class="font-sans font-normal text-sm text-gray-700 leading-tight mt-1">7.</label>
+                                    <input type="text" id="sb7" name="sb7" class="sb-member w-full mt-1 border-0 border-gray-700 font-sans font-normal px-1 py-0 text-sm text-gray-700">
                                 </div>
                             </div>
                         </div>
