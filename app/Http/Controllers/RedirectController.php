@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Author;
 use App\Models\Document;
+use App\Models\Term;
 use App\Models\Config;
 
 class RedirectController extends Controller
@@ -15,8 +16,11 @@ class RedirectController extends Controller
             return redirect('/setup');
         }
 
-        $documents = Document::with('authors')->get();
-        $authors = Author::where('term_id', $config->current_term)->whereNot('position','Secretary')->get();
+        $current_term = Term::find($config->current_term);
+        $start = $current_term->start;
+        $end = $current_term->end;
+        $documents = Document::with('authors')->whereBetween('date',[$start, $end])->get();
+        $authors = Author::where('term_id', $current_term->id)->whereNot('position','Secretary')->get();
         return view('welcome',[
             'documents' => $documents,
             'authors' => $authors
