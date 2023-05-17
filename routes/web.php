@@ -7,6 +7,7 @@ use App\Http\Controllers\DeleteController;
 use App\Http\Controllers\DownloadController;
 use App\Http\Controllers\UpdateController;
 use App\Http\Controllers\SetupController;
+use App\Http\Controllers\RenewController;
 
 /*
 |--------------------------------------------------------------------------
@@ -36,3 +37,5 @@ Route::get('/setup', [RedirectController::class, 'redirectToSetupPage']);
 Route::post('/setup/process', [SetupController::class, 'setup']);
 
 Route::get('/renew', [RedirectController::class, 'redirectToRenewPage']);
+
+Route::post('/renew/process', [RenewController::class, 'renew']);
