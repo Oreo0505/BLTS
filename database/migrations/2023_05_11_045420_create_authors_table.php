@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('position');
-            $table->foreignId('term');
+            $table->foreignId('term_id');
             $table->timestamps();
         });
     }
