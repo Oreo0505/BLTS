@@ -11,7 +11,7 @@
 <body>
 
     {{-- Navigation Bar --}}
-    <nav class="flex flex-row h-10 bg-[#425B71] justify-between items-center sticky top-0 z-20 px-4">
+    <nav class="flex flex-row h-12 bg-[#425B71] justify-between items-center sticky top-0 z-20 px-4 py-2">
         <svg id="open-drawer" width="48" height="48" class="flex h-10 cursor-pointer hover:stroke-neutral-500 hover:fill-neutral-500" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M15 30H33V28H15V30ZM15 25H33V23H15V25ZM15 18V20H33V18H15Z" fill="white"/>
         </svg>
