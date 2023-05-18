@@ -104,7 +104,7 @@
     </form>
     <div class="flex flex-row items-end w-full bg-[#D9D9D9] justify-end items-center space-x-2 p-2">
         <button id="upload-cancel" class="flex bg-transparent rounded-md font-sans font-normal text-sm text-[#7575757] px-4 py-1 hover:underline">Cancel</button>
-        <button id="upload-submit" class="flex bg-[#0288D1] rounded-md font-sans font-normal text-sm text-white px-4 py-1 hover:bg-[#086192] hover:text-gray-50">Upload</button>
+        <button id="upload-submit" class="flex bg-[#0288D1] rounded-full font-sans font-normal text-sm text-white px-6 py-2 hover:bg-[#086192] hover:text-gray-50">Upload</button>
     </div>
 </div>
 
