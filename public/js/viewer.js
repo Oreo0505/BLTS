@@ -8,9 +8,11 @@ for(let i = 0; i < viewButtons.length; i++){
         var source = this.getAttribute('data-file');
         viewerFrame.src = '/storage/' + source;
         viewer.classList.remove('hidden');
+        closeViewerButton.classList.remove('hidden');
     });
 }
 
 closeViewerButton.addEventListener('click', function(){
     viewer.classList.add('hidden');
+    closeViewerButton.classList.add('hidden');
 })
