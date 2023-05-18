@@ -26,6 +26,8 @@ class RedirectController extends Controller
         $documents = Document::with('authors')->whereBetween('date',[$start, $end])->get();
         $authors = Author::where('term_id', $current_term->id)->whereNot('position','Secretary')->get();
         return view('welcome',[
+            'barangay' => $config->barangay,
+            'municipality' => $config->municipality,
             'documents' => $documents,
             'authors' => $authors
         ]);

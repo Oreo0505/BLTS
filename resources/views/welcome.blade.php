@@ -11,12 +11,7 @@
 <body>
 
     {{-- Navigation Bar --}}
-    <nav class="flex flex-row h-12 bg-[#425B71] justify-between items-center sticky top-0 z-20 px-4 py-2">
-        <svg id="open-drawer" width="48" height="48" class="flex h-10 cursor-pointer hover:stroke-neutral-500 hover:fill-neutral-500" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M15 30H33V28H15V30ZM15 25H33V23H15V25ZM15 18V20H33V18H15Z" fill="white"/>
-        </svg>
-        <p id="time-counter" class="my-auto font-sans font-medium text-xl text-white">May 10, 2023 | 11:00 AM</p>
-    </nav>
+    <x-navbar :barangay="$barangay" :municipality="$municipality"/>
 
     {{-- Category Drawer --}}
     <x-drawer/>
@@ -77,8 +72,5 @@
 
     <script src="{{ asset('/js/flowbite.js') }}"></script>
     <script src="{{ asset('/js/datepicker.js') }}"></script>
-    <script src="{{ asset('/js/datetime_counter.js') }}"></script>
-    <script>
-    </script>
 </body>
 </html>
