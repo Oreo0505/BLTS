@@ -130,7 +130,7 @@ function showUploadedLabel(filename){
     }
     uploadedLabel = document.createElement('div');
     uploadedLabel.id = 'upload-label';
-    uploadedLabel.classList.add('flex','flex-row','w-48','items-center','justify-between','px-4','py-2','rounded-full','border','border-gray-500');
+    uploadedLabel.classList.add('flex','flex-row','w-48','items-center','justify-between','space-x-1','pl-4','pr-3','py-2','rounded-full','border','border-gray-500');
     var uploadedLabelName = document.createElement('p');
     uploadedLabelName.classList.add('font-sans','font-normal','text-sm','text-black/50','whitespace-nowrap','overflow-hidden','text-ellipsis');
     uploadedLabelName.innerText = filename;

@@ -92,7 +92,7 @@
                     </div>
                 </div>
             </div>
-            <div id="update-file-container" class="flex flex-col w-4/5 justify-end items-end pb-3 md:flex-col-reverse md:w-2/5">
+            <div id="update-file-container" class="flex flex-col w-4/5 justify-end items-center pb-3 md:flex-col-reverse md:w-2/5">
                 <div id="update-dropzone" class="flex flex-col space-y-2 h-24 w-11/12 justify-center items-center border-2 border-gray-300 border-dashed rounded-lg cursor-pointer mt-3 px-2 py-2 md:h-1/2">
                     <img src="{{ asset('/images/upload_file.svg') }}" alt="" class="h-8 w-8 md:h-16 md:w-16">
                     <p class="font-sans font-normal text-sm text-black/50 whitespace-normal text-center">
