@@ -9,27 +9,27 @@
     <title>Setup</title>
 </head>
 <body>
-    <div class="flex flex-col-reverse justify-between md:flex-row md:space-y-0">
-        <div class="flex flex-col w-full h-[630px] mt-3 drop-shadow bg-gradient-30 from-[#425B71] to-[#425B71]/60 rounded-r-lg p-9 md:w-3/5 md:mt-0">
+    <div class="flex flex-col-reverse justify-between overflow-clip md:flex-row md:space-y-0">
+        <div class="flex flex-col w-2/5 h-[450px] mt-3 drop-shadow bg-gradient-30 from-[#425B71] to-[#425B71]/60 rounded-r-lg p-9 md:h-[800px] md:w-3/5 md:mt-0">
             <p class="font-sans font-normal text-white text-xl tracking-[5px]">DILG MARINDUQUE</p>
-            <p class="font-sans font-extralight text-white text-base mt-28">
+            <p class="font-sans font-extralight text-white text-base mt-16 md:mt-28">
                 Barangay Legislative Tracking System (BLTS) is an offline repository platform for archiving Barangay Records. Barangay Secretaries uploads codes of ordinance, ordinances, resolutions and others.
             </p>
-            <p class="font-sans font-normal text-white text-lg tracking-[3px] mt-44">a project by</p>
+            <p class="font-sans font-normal text-white text-lg tracking-[3px] mt-8 md:mt-80">a project by</p>
             <p class="font-sans font-bold text-3xl text-white mt-10">ONE MARINDUQUE</p>
             <p class="font-sans font-bold text-3xl text-white">DILG - LGRC</p>
-            <img src="{{ asset('/images/accent-2.svg') }}" alt="" class="absolute relative -top-52 -left-8">
+            <img src="{{ asset('/images/accent-2.svg') }}" alt="" class="absolute relative -top-24 -left-8 md:-top-36">
         </div>
-        <div class="h-full flex flex-col w-full px-16">
+        <div class="h-full flex flex-col w-3/5 px-16">
             <img src="{{ asset('/images/accent-1.svg') }}" alt="" class="absolute right-0 -top-8">
-            <p class="w-fit font-sans font-medium text-3xl bg-gradient-90 from-[#A60453] to-[#FFB144] bg-clip-text text-transparent mt-6">
+            <p class="w-fit font-sans font-medium text-3xl bg-gradient-90 from-[#A60453] to-[#FFB144] bg-clip-text text-transparent mt-10">
                 Setup Account
             </p>
             <p class="font-sans font-semibold text-xl leading-6 text-[#2D2D2D]">Create Your BLTS Profile</p>
-            <img src="{{ asset('/images/logo.svg') }}" alt="" class="mx-auto mt-6 h-24">
+            <img src="{{ asset('/images/logo.svg') }}" alt="" class="mx-auto mt-20 h-24">
             <form action="/setup/process" id="setup-form" method="POST" enctype="multipart/form-data">
                 @csrf
-                <div class="flex flex-col space-y-2 w-full mt-10 md:space-y-0 md:space-x-8 md:flex-row md:ml-9">
+                <div class="flex flex-col space-y-4 justify-center w-full mt-16 px-12 md:space-y-0 md:space-x-8 md:flex-row">
                     <div class="flex flex-col w-full md:w-80">
                         <div class="flex flex-col relative">
                             <select type="text" id="municipality" name="municipality" value="{{ old('municipality') }}" class="w-full flex border border-gray-700 rounded-[7px] outline outline-0 font-sans font-normal leading-tight text-sm text-gray-700 focus:ring-1 focus:outline-none focus:ring-gray-700 rounded-lg text-sm px-4 py-2.5 inline-flex">
@@ -45,20 +45,8 @@
                                 Municipality
                             </label>
                         </div>
-                        <div class="flex flex-col relative mt-3">
-                            <input type="text" id="captain" name="captain" value="{{ old('captain') }}" class="w-full flex border border-gray-700 rounded-[7px] outline outline-0 font-sans font-normal leading-tight text-sm text-gray-700 focus:ring-1 focus:outline-none focus:ring-gray-700 rounded-lg text-sm px-4 py-2.5 inline-flex">
-                            <label for="captain" class="relative absolute -top-12 left-3 w-fit px-1 bg-white font-sans font-normal text-gray-700 text-[11px] leading-tight">
-                               Barangay Captain
-                            </label>
-                        </div>
-                        <div class="flex flex-col relative mt-3">
-                            <input type="text" id="secretary" name="secretary" value="{{ old('secretary') }}" class="w-full flex border border-gray-700 rounded-[7px] outline outline-0 font-sans font-normal leading-tight text-sm text-gray-700 focus:ring-1 focus:outline-none focus:ring-gray-700 rounded-lg text-sm px-4 py-2.5 inline-flex">
-                            <label for="secretary" class="relative absolute -top-12 left-3 w-fit px-1 bg-white font-sans font-normal text-gray-700 text-[11px] leading-tight">
-                                Barangay Secretary
-                            </label>
-                        </div>
                         <div class="flex relative justify-center">
-                            <p class="absolute -top mx-auto font-sans font-normal text-black/50 text-sm leading-4">Administrative Year / Term Year</p>
+                            <p class="absolute -top mx-auto font-sans font-normal text-gray-700 text-sm leading-tight">Administrative Year / Term Year</p>
                         </div>
                         <div class="flex flex-row space-x-2 mt-8">
                             <div class="flex flex-col relative w-full md:w-1/2">
@@ -83,6 +71,18 @@
                                     </svg>
                                 </div>
                             </div>
+                        </div>
+                        <div class="flex flex-col relative mt-3">
+                            <input type="text" id="captain" name="captain" value="{{ old('captain') }}" class="w-full flex border border-gray-700 rounded-[7px] outline outline-0 font-sans font-normal leading-tight text-sm text-gray-700 focus:ring-1 focus:outline-none focus:ring-gray-700 rounded-lg text-sm px-4 py-2.5 inline-flex">
+                            <label for="captain" class="relative absolute -top-12 left-3 w-fit px-1 bg-white font-sans font-normal text-gray-700 text-[11px] leading-tight">
+                               Barangay Captain
+                            </label>
+                        </div>
+                        <div class="flex flex-col relative mt-3">
+                            <input type="text" id="secretary" name="secretary" value="{{ old('secretary') }}" class="w-full flex border border-gray-700 rounded-[7px] outline outline-0 font-sans font-normal leading-tight text-sm text-gray-700 focus:ring-1 focus:outline-none focus:ring-gray-700 rounded-lg text-sm px-4 py-2.5 inline-flex">
+                            <label for="secretary" class="relative absolute -top-12 left-3 w-fit px-1 bg-white font-sans font-normal text-gray-700 text-[11px] leading-tight">
+                                Barangay Secretary
+                            </label>
                         </div>
                     </div>
                     <div class="flex flex-col w-full md:w-80">
@@ -144,7 +144,7 @@
                     </div>
                 </div>
             </form>
-            <button id="setup-button" type="button" class="mx-auto mt-4 px-20 py-3 rounded-lg bg-gradient-270 from-[#A60453] to-[#FFB144] font-sans font-bold text-xl leading-6 text-white">
+            <button id="setup-button" type="button" class="mx-auto mt-8 px-12 py-3 rounded-lg bg-gradient-270 from-[#A60453] to-[#FFB144] font-sans font-semibold text-xl leading-6 text-white">
                 Setup Account
             </button>
         </div>
