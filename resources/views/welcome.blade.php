@@ -29,11 +29,11 @@
 
     {{-- Hero --}}
     <div id="hero" class="h-48">
-        <img src="{{ asset('images/hero.svg') }}" alt="" class="mt-4 mx-auto">
+        <img src="{{ asset('images/hero.svg') }}" alt="" class="mt-8 mx-auto">
     </div>
 
     {{-- Search --}}
-    <div class="flex flex-col items-center justify-center mt-6">
+    <div class="flex flex-col items-center justify-center mt-2">
         <div class="w-2/3 flex items-center relative md:w-1/2">
             <img src="/images/search.svg" class="absolute start-0 h-8 ml-6" alt="Search Icon" />
             <input id="search" name="search" placeholder="Search something..." class="h-12 w-full border border-gray-400 rounded-full px-16 py-4 text-base text-[#4F4545] focus:outline-gray-400"/>
