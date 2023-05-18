@@ -66,6 +66,9 @@
         @endforeach
     @endif
 
+    {{-- PDF Viewer --}}
+    <x-modal.viewer/>
+
     {{-- Update Modal --}}
     <x-modal.update :authors="$authors"/>
 
