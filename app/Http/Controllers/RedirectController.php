@@ -28,6 +28,7 @@ class RedirectController extends Controller
         return view('welcome',[
             'barangay' => $config->barangay,
             'municipality' => $config->municipality,
+            'logo' => $config->logo,
             'documents' => $documents,
             'authors' => $authors
         ]);

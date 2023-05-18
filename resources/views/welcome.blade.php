@@ -14,7 +14,7 @@
     <x-navbar :barangay="$barangay" :municipality="$municipality"/>
 
     {{-- Category Drawer --}}
-    <x-drawer/>
+    <x-drawer :barangay="$barangay" :municipality="$municipality" :logo="$logo"/>
 
     {{-- Upload FAB --}}
     <button id="upload-fab" title="Upload" class="fixed z-90 bottom-10 right-8 bg-[#425B71] w-[72px] h-[72px] overflow-clip rounded-full drop-shadow-lg flex justify-center items-center text-white text-4xl hover:bg-[#346A90] hover:drop-shadow-2xl">
