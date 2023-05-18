@@ -336,9 +336,5 @@ setupButton.addEventListener('click', function(event){
         alert('Invalid date range. End date should be later than start date.');
         return;
     }
-    if(logoField.value == ''){
-        alert('Please upload barangay logo');
-        return;
-    }
     setupForm.submit();
 });

@@ -30,7 +30,7 @@ class SetupController extends Controller
             'sb5' => 'required|min:3',
             'sb6' => 'required|min:3',
             'sb7' => 'required|min:3',
-            'logo' => 'required|mimes:png,jpeg,jpg,bmp,svg'
+            'logo' => 'mimes:png,jpeg,jpg,bmp,svg'
         ],
         [
             'municipality.required' => 'Please select a municipality',
@@ -60,7 +60,6 @@ class SetupController extends Controller
             'sb6.min' => 'Sanggunian Member 6 name shoud contain 3 or more character',
             'sb7.required' => 'Sanggunian Member 7 is required',
             'sb7.min' => 'Sanggunian Member 7 name shoud contain 3 or more character',
-            'logo.required' => 'Barangay Logo is required',
             'logo.mimes' => 'File should be image file'
         ]);
         if($validator->fails()){
@@ -79,8 +78,10 @@ class SetupController extends Controller
         $config = Config::first();
         $config->municipality = $request->municipality;
         $config->barangay = $request->barangay;
-        $path = $this->UploadFile($request->file('logo'),'logo', 'Profile', 'public');
-        $config->logo = $path;
+        if($request->hasFile('logo')){
+            $path = $this->UploadFile($request->file('logo'),'logo', 'Profile', 'public');
+            $config->logo = $path;
+        }
         $config->first_time = false;
         $config->current_term = $current_term->id;
         $config->save();
