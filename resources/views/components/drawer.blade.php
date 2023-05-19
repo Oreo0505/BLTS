@@ -10,13 +10,13 @@
                 <p class="text-sm font-medium text-[#90CAF9] font-sans cursor-pointer group-hover:text-white/70">CLOSE</p>
             </div>
             <div class="flex items-center justify-center mt-9">
-                <img src="{{ $logo ? asset('/storage'.'/'.$logo) : asset('/images/default_logo.svg')}}" alt="" class="h-40">
+                <img src="{{ $logo ? asset('/storage'.'/'.$logo) : asset('/images/default_logo.svg')}}" alt="" class="h-36">
             </div>
             <div class="flex flex-col items-center justify-center mt-2.5">
                 <p class="font-sans font-normal text-2xl leading-9 tracking-wide text-white uppercase">{{ $barangay }}</p>
-                <p class="font-sans font-normal text-lg leading-9 tracking-wide text-white italic">{{ $municipality }}, Marinduque</p>
+                <p class="font-sans font-normal text-lg leading-9 tracking-wide text-white italic -translate-y-3">{{ $municipality }}, Marinduque</p>
             </div>
-            <div class="group flex flex-row h-11 justify-start items-center space-x-2 mb-2 hover:bg-[#508DB9]/10 mt-10">
+            <div class="group flex flex-row h-11 justify-start items-center space-x-2 mb-2 hover:bg-[#508DB9]/10 mt-6">
                 <img src="{{ asset('/images/folder.svg') }}" alt="" class="h-4 w-4">
                 <p class="font-sans text-sm font-base text-white opacity-70 cursor-pointer group-hover:text-[#90CAF9]">All</p>
             </div>
