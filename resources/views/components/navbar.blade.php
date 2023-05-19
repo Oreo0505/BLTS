@@ -8,8 +8,8 @@
         <img src="{{ asset('/images/lgrc_logo.svg') }}" alt="" class="h-9">
     </div>
     <div class="flex items-center justify-center w-full">
-        <p class="font-sans-font-semibold text-white text-2xl leading-[29px] text-center">
-            <span class="uppercase text-bold">{{ $barangay }},</span>
+        <p class="font-sans font-semibold text-white text-2xl leading-[29px] text-center">
+            <span class="uppercase font-bold">{{ $barangay }},</span>
             {{ $municipality }}, Marinduque
         </p>
     </div>
