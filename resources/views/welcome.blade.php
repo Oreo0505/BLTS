@@ -45,8 +45,13 @@
     <x-modal.filter/>
 
     {{-- Recent Upload Titleholder --}}
-    <div class="div flex flex-row mt-12 justify-between items-center">
-        <p class="mx-auto text-xl text-[#181313] font-bold font-sans md:ml-60">Documents</p>
+    <div class="relative flex flex-row mt-12 mx-36 justify-between items-center md:mx-60">
+        <div class="flex justify-start">
+            <p class="text-xl text-[#181313] font-bold font-sans ">Documents</p>
+        </div>
+        <div class="flex justify-end">
+            <x-sort/>
+        </div>
     </div>
 
     {{-- Document Cards --}}
@@ -56,9 +61,11 @@
             <p class="font-sans font-medium text-xl text-gray-400 text-center">Get Started by clicking the Upload Button</p>
         </div>
     @else
-        @foreach($documents as $document)
-            <x-card :document="$document"/>
-        @endforeach
+        <div class="flex flex-col space-y-8 items-center py-8">
+            @foreach($documents as $document)
+                <x-card :document="$document"/>
+            @endforeach
+        </div>
     @endif
 
     {{-- PDF Viewer --}}
