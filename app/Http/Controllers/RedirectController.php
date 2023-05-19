@@ -10,7 +10,7 @@ use App\Models\Config;
 
 class RedirectController extends Controller
 {
-    public function redirectToHomepage(){
+    public function redirectToHomepage(Request $request){
         $config = Config::first();
         if($config->first_time){
             return redirect('/setup');
@@ -23,7 +23,13 @@ class RedirectController extends Controller
 
         $start = $current_term->start;
         $end = $current_term->end;
-        $documents = Document::with('authors')->whereBetween('date',[$start, $end])->get();
+        if($request->has('filter')){
+            $filter = explode('-', $request->filter);
+            $documents = Document::with('authors')->whereBetween('date',[$start, $end])->orderBy($filter[0],$filter[1])->get();
+        }
+        else{
+            $documents = Document::with('authors')->whereBetween('date',[$start, $end])->latest()->get();
+        }
         $authors = Author::where('term_id', $current_term->id)->whereNot('position','Secretary')->get();
         return view('welcome',[
             'barangay' => $config->barangay,
