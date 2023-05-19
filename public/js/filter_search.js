@@ -3,22 +3,17 @@ const hideFilter = document.getElementById('hide-filter');
 const filterOverlay = document.getElementById('filter-overlay');
 const filterModal = document.getElementById('filter');
 const applyFilterButton = document.getElementById('apply-filter');
-const search = document.getElementById('search');
+const searchField = document.getElementById('search-field');
 const searchByField = document.getElementById('filter-searchBy');
-const yearField = document.getElementById('filter-year');
-const submittedField = document.getElementById('filter-submitted');
-const endorsedField = document.getElementById('filter-endorsed');
-const enactedField = document.getElementById('filter-enacted');
-const adoptedField = document.getElementById('filter-adopted');
-const codeOfOrdinanceField = document.getElementById('filter-code');
-const endorsementField = document.getElementById('filter-endorsement');
-const ordinanceField = document.getElementById('filter-ordinance');
-const petitionField = document.getElementById('filter-petition');
-const proposalField = document.getElementById('filter-proposal');
-const resolutionField = document.getElementById('filter-resolution');
-const othersField = document.getElementById('filter-others');
+const searchYear = document.getElementById('filter-year');
+const searchArea = document.getElementById('filter-area');
+const searchCheckboxes = document.querySelectorAll('.filter-checkbox');
+const searchForm = document.getElementById('search-form');
+const searchQuery = document.getElementById('search-query');
+const filterQuery = document.getElementById('filter-query');
 
 function openFilterModal(){
+    submitSearch();
     filterOverlay.classList.remove('hidden');
     filterModal.classList.remove('hidden','fadeOut');
     filterModal.classList.add('fadeIn');
@@ -48,20 +43,17 @@ window.addEventListener('keydown', function(event){
 })
 
 function submitSearch(){
-    var json = {
-        "search": "",
-        "search_by": "",
-        "year": "",
-        "submitted": "",
-        "endorsed": "",
-        "enacted": "",
-        "adopted": "",
-        "code_of_ordinance": "",
-        "endorsement": "",
-        "ordinance": "",
-        "petition": "",
-        "proposal": "",
-        "resolution": "",
-        "others": ""
+    searchQuery.value = searchField.value;
+    var query = '';
+    query += searchByField.value + ',';
+    query += searchYear.value + ',';
+    query += searchArea.value + ',';
+    var checkboxValues = [];
+    for(let i = 0; i < searchCheckboxes.length; i++){
+        if(searchCheckboxes[i].checked){
+            checkboxValues.push(searchCheckboxes[i].value);
+        }
     }
+    query += checkboxValues.join(',');
+    console.log(query);
 }

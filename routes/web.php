@@ -39,3 +39,5 @@ Route::post('/setup/process', [SetupController::class, 'setup']);
 Route::get('/renew', [RedirectController::class, 'redirectToRenewPage']);
 
 Route::post('/renew/process', [RenewController::class, 'renew']);
+
+Route::get('/search', [RedirectController::class, 'redirectToResultsPage']);

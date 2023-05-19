@@ -32,7 +32,7 @@
             </label>
         </div>
         <div class="flex flex-col items-center relative w-2/3 md:w-1/3">
-            <select name="filter-year" id="filter-year" class="type peer h-full w-full rounded-[7px] border border-gray-700 border-t-transparent bg-transparent px-3 py-2.5 font-sans text-sm font-normal text-gray-700 outline outline-0 transition-all placeholder-shown:border placeholder-shown:border-gray-700 placeholder-shown:border-t-gray-700 empty:!bg-red-500 focus:border-2 focus:border-gray-700 focus:border-t-transparent focus:outline-0 disabled:border-0 disabled:bg-gray-700">
+            <select name="filter-year" id="filter-area" class="type peer h-full w-full rounded-[7px] border border-gray-700 border-t-transparent bg-transparent px-3 py-2.5 font-sans text-sm font-normal text-gray-700 outline outline-0 transition-all placeholder-shown:border placeholder-shown:border-gray-700 placeholder-shown:border-t-gray-700 empty:!bg-red-500 focus:border-2 focus:border-gray-700 focus:border-t-transparent focus:outline-0 disabled:border-0 disabled:bg-gray-700">
                 <option value="all" class="text-sm">All Governance Areas</option>
                 <option value="Financial Administration and Sustainability" class="text-sm">Financial Administration and Sustainability</option>
                 <option value="Disaster Preparedness" class="text-sm">Disaster Preparedness</option>
@@ -47,7 +47,7 @@
         </div>
     </div>
     <div class="flex flex-row space-x-2">
-        <input type="checkbox" id="filter-older" name="filter-older" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500">
+        <input type="checkbox" id="filter-older" name="filter-older" value="older" class="filter-checkbox w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500">
         <label for="filter-older" class="ml-2 text-sm font-base text-gray-700 cursor-pointer hover:text-gray-500">Include past AY documents</label>
     </div>
     <div class="flex flex-col space-y-2">
@@ -57,19 +57,19 @@
         </div>
         <div class="flex flex-col space-y-2 md:flex-row md:space-y-0">
             <div class="flex flex-row items-center mr-7 md:w-[23%]">
-                <input type="checkbox" id="filter-code_of_ordinance" name="filter-code_of_ordinance" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500">
+                <input type="checkbox" id="filter-code_of_ordinance" name="filter-code_of_ordinance" value="code_of_ordinance" class="filter-checkbox w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500">
                 <label for="filter-code_of_ordinance" class="ml-2 text-sm font-base text-gray-700 cursor-pointer hover:text-gray-500">Code of Ordinance</label>
             </div>
             <div class="flex flex-row items-center mr-1 md:w-[23%]">
-                <input type="checkbox" id="filter-ordinance" name="filter-ordinance" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500">
+                <input type="checkbox" id="filter-ordinance" name="filter-ordinance" value="ordinance" class="filter-checkbox w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500">
                 <label for="filter-ordinance" class="ml-2 text-sm font-base text-gray-700 cursor-pointer hover:text-gray-500">Ordinance</label>
             </div>
             <div class="flex flex-row items-center mr-1 md:w-[23%]">
-                <input type="checkbox" id="filter-resolution" name="filter-resolution" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500">
+                <input type="checkbox" id="filter-resolution" name="filter-resolution" value="resolution" class="filter-checkbox w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500">
                 <label for="filter-resolution" class="ml-2 text-sm font-base text-gray-700 cursor-pointer hover:text-gray-500">Resolution</label>
             </div>
             <div class="flex flex-row items-center md:w-[23%]">
-                <input type="checkbox" id="filter-others" name="filter-others" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500">
+                <input type="checkbox" id="filter-others" name="filter-others" value="other" class="filter-checkbox w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500">
                 <label for="filter-others" class="ml-2 text-sm font-base text-gray-700 cursor-pointer hover:text-gray-500">Others</label>
             </div>
         </div>
