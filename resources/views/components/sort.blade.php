@@ -5,16 +5,16 @@
     </div>
     <div class="flex flex-col py-2">
         <div class="flex group cursor-pointer px-4 hover:bg-[#0B91FF]">
-            <a href="?filter=created_at-desc" class="font-sans font-normal text-sm group-hover:text-white">Date Uploaded (Oldest - Latest)</a>
+            <a href="?filter=created_at-asc" class="font-sans font-normal text-sm group-hover:text-white">Date Uploaded (Oldest - Latest)</a>
         </div>
         <div class="flex group cursor-pointer px-4 hover:bg-[#0B91FF]">
-            <a href="?filter=created_at-asc" class="font-sans font-normal text-sm group-hover:text-white">Date Uploaded (Latest - Oldest)</a>
+            <a href="?filter=created_at-desc" class="font-sans font-normal text-sm group-hover:text-white">Date Uploaded (Latest - Oldest)</a>
         </div>
         <div class="flex group cursor-pointer px-4 hover:bg-[#0B91FF]">
-            <a href="?filter=date-desc" class="font-sans font-normal text-sm group-hover:text-white">Date Enacted (Oldest - Latest)</a>
+            <a href="?filter=date-asc" class="font-sans font-normal text-sm group-hover:text-white">Date Enacted (Oldest - Latest)</a>
         </div>
         <div class="flex group cursor-pointer px-4 hover:bg-[#0B91FF]">
-            <a href="?filter=date-asc" class="font-sans font-normal text-sm group-hover:text-white">Date Enacted (Latest - Oldest)</a>
+            <a href="?filter=date-desc" class="font-sans font-normal text-sm group-hover:text-white">Date Enacted (Latest - Oldest)</a>
         </div>
     </div>
 </div>
