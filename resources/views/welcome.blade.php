@@ -42,7 +42,7 @@
     </div>
 
     {{-- Filter Modal --}}
-    <x-modal.filter/>
+    <x-modal.filter :terms="$terms"/>
 
     {{-- Recent Upload Titleholder --}}
     <div class="relative flex flex-row mt-12 mx-36 justify-between items-center md:mx-60">
