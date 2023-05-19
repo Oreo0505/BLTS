@@ -1,8 +1,6 @@
-<nav class="flex flex-row h-12 bg-[#425B71] sticky top-0 z-20 px-4 py-2">
-    <div class="flex flex-row space-x-2 items-center justify-self-start w-1/4">
-        <svg id="open-drawer" width="48" height="48" class="flex h-10 cursor-pointer hover:stroke-neutral-500 hover:fill-neutral-500" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M15 30H33V28H15V30ZM15 25H33V23H15V25ZM15 18V20H33V18H15Z" fill="white"/>
-        </svg>
+<nav class="flex flex-col h-fit bg-[#425B71] sticky top-0 z-20 px-4 py-2 md:h-12 md:flex-row">
+    <div class="flex flex-row space-x-2 items-center justify-center w-full md:w-1/4 md:justify-start">
+        <img src="{{ asset('/images/hamburger.svg') }}" id="open-drawer" alt="" class="h-9 cursor-pointer hover:stroke-neutral-500 hover:fill-neutral-500">
         <img src="{{ asset('/images/dilg_logo.svg') }}" alt="" class="h-9">
         <img src="{{ asset('/images/om_logo.svg') }}" alt="" class="h-9">
         <img src="{{ asset('/images/lgrc_logo.svg') }}" alt="" class="h-9">
@@ -13,7 +11,7 @@
             {{ $municipality }}, Marinduque
         </p>
     </div>
-    <div class="flex items-center mr-3 justify-end w-1/4 space-x-6">
+    <div class="hidden items-center mr-3 justify-end w-1/4 space-x-6 md:flex">
         <img id="enter-fullscreen" src="{{ asset('/images/enter_fullscreen.svg') }}" alt="" class="h-6 cursor-pointer">
         <img id="exit-fullscreen" src="{{ asset('/images/exit_fullscreen.svg') }}" alt="" class="h-6 cursor-pointer hidden">
         <svg id="close-viewer" width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="hidden fill-white h-6 scale-150 cursor-pointer">

@@ -1,6 +1,6 @@
 <div class="flex flex-col space-y-2 items-center py-4">
     <div class="flex-flex-col space-y-1 w-[65%] border-b drop-shadow-md shadow-lg p-4">
-        <div class="flex flex-col justify-between items-center space-y-2 md:flex-row">
+        <div class="flex flex-row justify-between items-center">
             <p class="font-sans font-medium text-base text-left">{{$document->type}} No.{{$document->number}}, s. {{date('Y', strtotime($document->date))}}</p>
             <img src="{{ asset('/images/approved.svg') }}" alt="" class="h-8 w-8">
         </div>
@@ -11,7 +11,7 @@
             <p class="text-base font-bold text-black/60">
                 Date of Enactment | {{date('M d, Y', strtotime($document->date))}}
             </p>
-            <div class="flex flex-col items-end md:flex-row md:justify-between">
+            <div class="flex flex-col justify-start items-end md:flex-row md:justify-between">
                 <p class="text-base font-bold text-black/60">
                     Author/s | 
                         @php
