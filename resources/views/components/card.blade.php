@@ -28,15 +28,15 @@
                     <a href={{'/download'.'/'.substr($document->file, 10)}} target="_blank" rel="noopener noreferrer" class="rounded-sm hover:bg-[#9ED6E7] hover:border hover:border-gray-100 hover:scale-150">
                         <img src="{{ asset('/images/download.svg') }}" alt="">
                     </a>
-                    <a href="#" data-file="{{ $document->file}}" class="view rounded-sm hover:bg-[#9ED6E7] hover:border hover:border-gray-100 hover:scale-150">
+                    <button type="button" data-file="{{ $document->file}}" class="view rounded-sm hover:bg-[#9ED6E7] hover:border hover:border-gray-100 hover:scale-150">
                         <img src="{{ asset('/images/open.svg') }}" alt="">
-                    </a>
-                    <a href="#" data-id="{{$document->id}}" class="update rounded-sm hover:bg-[#9ED6E7] hover:border hover:border-gray-100 hover:scale-150">
+                    </button>
+                    <button type="button" data-id="{{$document->id}}" class="update rounded-sm hover:bg-[#9ED6E7] hover:border hover:border-gray-100 hover:scale-150">
                         <img src="{{ asset('/images/sync.svg') }}" alt="">
                     </a>
-                    <a href="#" data-id="{{$document->id}}" class="delete rounded-sm hover:bg-[#9ED6E7] hover:border hover:border-gray-100 hover:scale-150">
+                    <button type="button" data-id="{{$document->id}}" class="delete rounded-sm hover:bg-[#9ED6E7] hover:border hover:border-gray-100 hover:scale-150">
                         <img src="{{ asset('/images/delete.svg') }}" alt="">
-                    </a>
+                    </button>
                 </div>
             </div>
         </div>
