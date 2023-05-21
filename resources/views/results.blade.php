@@ -43,8 +43,7 @@
     {{-- Document Cards --}}
     @if(count($documents) == 0)
         <div class="div flex flex-col mt-9 mx-4 justify-center items-center space-y-6">
-            <p class="font-sans font-bold text-5xl text-gray-600 text-center">No Documents Uploaded Yet</p>
-            <p class="font-sans font-medium text-xl text-gray-400 text-center">Get Started by clicking the Upload Button</p>
+            <p class="font-sans font-bold text-5xl text-gray-600 text-center">No Documents Found</p>
         </div>
     @else
         <div class="flex flex-col space-y-8 items-center py-8">
