@@ -8,6 +8,7 @@ use App\Http\Controllers\DownloadController;
 use App\Http\Controllers\UpdateController;
 use App\Http\Controllers\SetupController;
 use App\Http\Controllers\RenewController;
+use App\Http\Controllers\SearchController;
 
 /*
 |--------------------------------------------------------------------------
@@ -40,4 +41,4 @@ Route::get('/renew', [RedirectController::class, 'redirectToRenewPage']);
 
 Route::post('/renew/process', [RenewController::class, 'renew']);
 
-Route::get('/search', [RedirectController::class, 'redirectToResultsPage']);
+Route::get('/search', [SearchController::class, 'search']);

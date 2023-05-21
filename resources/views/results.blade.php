@@ -28,16 +28,7 @@
     <x-modal.upload :authors="$authors"/>
 
     {{-- Search --}}
-    <div class="flex flex-col items-center justify-center mt-8">
-        <div class="w-2/3 flex items-center relative md:w-1/2">
-            <img src="/images/search.svg" class="absolute start-0 h-8 ml-6" alt="Search Icon" />
-            <input id="search" name="search" placeholder="Search something..." class="h-12 w-full border border-gray-400 rounded-full px-16 py-4 text-base text-[#4F4545] focus:outline-gray-400"/>
-            <img src="/images/filter.svg" id="show-filter" class="absolute end-0 h-6 mr-6 cursor-pointer" alt="Filter Icon" />
-        </div>
-    </div>
-
-    {{-- Filter Modal --}}
-    <x-modal.filter :terms="$terms"/>
+    <x-search class="mt-16" :terms="$terms"/>
 
     {{-- Titleholder --}}
     <div class="relative flex flex-row mt-12 mx-36 justify-between items-center md:mx-60">
