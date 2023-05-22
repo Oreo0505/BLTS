@@ -110,10 +110,6 @@ uploadSubmitButton.addEventListener('click', function(){
             authors.push(uploadAuthorOptions[i].value);
         }
     }
-    if(authors.length <= 0){
-        alert('Please select at least one author');
-        return;
-    }
     if(uploadFileField.files.length == 0){
         alert('Please upload a file');
         return;

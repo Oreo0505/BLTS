@@ -22,6 +22,11 @@
                         @endphp
                     @endforeach
                     {{join(", ", $authors)}}
+                    @php
+                        if(count($authors) <= 0){
+                            echo "No author";
+                        }
+                    @endphp
             </p>
             <div class="flex flex-row justify-end items-end space-x-4">
                 <a href={{'/download'.'/'.substr($document->file, 10)}} target="_blank" rel="noopener noreferrer" class="rounded-sm hover:bg-[#F5F5F5] hover:scale-150">

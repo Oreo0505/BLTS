@@ -35,7 +35,6 @@ class UpdateController extends Controller
             'number' => 'required',
             'area' => 'required',
             'date' => 'required|date',
-            'authors' => 'required',
             'file' => 'required|mimes:pdf'
         ],
         [
@@ -47,7 +46,6 @@ class UpdateController extends Controller
             'number.required' => 'Document number is required',
             'date.required' => 'Please select date of enacted or adopted',
             'date.date' => 'Invalid date format',
-            'authors.required' => 'Please enter document author',
             'file.required' => 'File is required',
             'file.mimes' => 'Only pdf file is allowed'
         ]);
@@ -59,19 +57,20 @@ class UpdateController extends Controller
         }
 
         $author_ids = [];
-        $authors = explode(',', $request->authors);
-
-        foreach($authors as $author){
-            $temp = Author::where('name',ucwords($author))->first();
-            if($temp == null){
-                $author_form = [
-                    'name' => ucwords($author)
-                ];
-                $new_author = Author::create($author_form);
-                array_push($author_ids, $new_author->id);
-            }
-            else{
-                array_push($author_ids, $temp->id);
+        if($request->authors != null){
+            $authors = explode(',', $request->authors);
+            foreach($authors as $author){
+                $temp = Author::where('name',ucwords($author))->first();
+                if($temp == null){
+                    $author_form = [
+                        'name' => ucwords($author)
+                    ];
+                    $new_author = Author::create($author_form);
+                    array_push($author_ids, $new_author->id);
+                }
+                else{
+                    array_push($author_ids, $temp->id);
+                }
             }
         }
 
