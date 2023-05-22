@@ -87,7 +87,7 @@ function showFileLabel(filename){
     fileLabelName.innerText = filename;
     var fileLabelRemoveButton = document.createElement('img');
     fileLabelRemoveButton.src = "/images/exit.svg"
-    fileLabelRemoveButton.classList.add('p-1','rounded-full','bg-red-500','cursor-pointer');
+    fileLabelRemoveButton.classList.add('p-1','rounded-full','cursor-pointer','hover:bg-[#F5F5F5]');
     fileLabelRemoveButton.addEventListener('click', function(){
         var dataTransfer = new DataTransfer();
         updateFileField.value = '';

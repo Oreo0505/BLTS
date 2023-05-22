@@ -132,7 +132,7 @@ function showUploadedLabel(filename){
     uploadedLabelName.innerText = filename;
     var uploadedLabelRemoveButton = document.createElement('img');
     uploadedLabelRemoveButton.src = "/images/exit.svg"
-    uploadedLabelRemoveButton.classList.add('p-1','rounded-full','bg-red-500','cursor-pointer');
+    uploadedLabelRemoveButton.classList.add('p-1','rounded-full','cursor-pointer','hover:bg-[#F5F5F5]');
     uploadedLabelRemoveButton.addEventListener('click', function(){
         var dataTransfer = new DataTransfer();
         uploadFileField.value = '';
