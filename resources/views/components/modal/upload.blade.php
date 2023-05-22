@@ -12,7 +12,7 @@
         <div class="flex flex-col space-y-4 items-center mb-3 md:flex-row md:space-x-4 md:ml-9 md:mr-9 md:mt-3 md:items-end">
             <div class="flex flex-col w-3/5 space-y-2">
                 <div class="flex flex-col relative">
-                    <input type="text" id="upload-title" name="title" class="w-full flex border border-gray-700 rounded-[7px] outline outline-0 font-sans font-normal leading-tight text-sm text-gray-700 focus:ring-1 focus:outline-none focus:ring-gray-700 rounded-lg text-sm px-4 py-2.5 inline-flex">
+                    <input type="text" id="upload-title" name="title" placeholder="Enter document title..." class="w-full flex border border-gray-700 rounded-[7px] outline outline-0 font-sans font-normal leading-tight text-sm text-gray-700 focus:ring-1 focus:outline-none focus:ring-gray-700 rounded-lg text-sm px-4 py-2.5 inline-flex placeholder:text-xs">
                     <label for="upload-title" class="relative absolute -top-12 left-3 w-fit px-1 bg-white font-sans font-normal text-gray-700 text-[11px] leading-tight">
                         Document Title
                     </label>
@@ -31,7 +31,7 @@
                         </label>
                     </div>
                     <div class="flex flex-col relative w-full md:w-1/2">
-                        <input type="text" id="upload-number" name="number" class="w-full flex border border-gray-700 rounded-[7px] outline outline-0 font-sans font-normal leading-tight text-sm text-gray-700 focus:ring-1 focus:outline-none focus:ring-gray-700 rounded-lg text-sm px-4 py-2.5 inline-flex">
+                        <input type="text" id="upload-number" name="number" placeholder="Enter document number..." class="w-full flex border border-gray-700 rounded-[7px] outline outline-0 font-sans font-normal leading-tight text-sm text-gray-700 focus:ring-1 focus:outline-none focus:ring-gray-700 rounded-lg text-sm px-4 py-2.5 inline-flex placeholder:text-xs">
                         <label for="upload-number" class="relative absolute -top-12 left-3 w-fit px-1 bg-white font-sans font-normal text-gray-700 text-[11px] leading-tight">
                             Number
                         </label>
@@ -53,7 +53,7 @@
                         </label>
                     </div>
                     <div class="flex flex-col relative w-full md:w-1/2">
-                        <input type="text" datepicker datepicker-autohide id="upload-date" name="date" class="w-full flex border border-gray-700 rounded-[7px] outline outline-0 font-sans font-normal leading-tight text-sm text-gray-700 focus:ring-1 focus:outline-none focus:ring-gray-700 rounded-lg text-sm px-4 py-2.5 inline-flex">
+                        <input type="text" datepicker datepicker-autohide id="upload-date" name="date" placeholder="Enter date of enactment/endorsed..." class="w-full flex border border-gray-700 rounded-[7px] outline outline-0 font-sans font-normal leading-tight text-sm text-gray-700 focus:ring-1 focus:outline-none focus:ring-gray-700 rounded-lg text-sm px-4 py-2.5 inline-flex placeholder:text-xs">
                         <label for="upload-date" class="relative absolute -top-12 left-3 w-fit px-1 bg-white font-sans font-normal text-gray-700 text-[11px] leading-tight">
                             Date
                         </label>
