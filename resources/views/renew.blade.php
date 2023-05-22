@@ -35,7 +35,7 @@
             <div class="flex flex-col space-y-2 justify-center mx-12 md:space-y-0 md:mx-24">
                 <div class="flex flex-col space-y-2 md:flex-row md:space-x-3 md:space-y-0 mt-4">
                     <div class="flex flex-col relative w-full md:w-1/2">
-                        <input type="text" datepicker datepicker-autohide id="from" name="from" value="{{ old('from') }}" placeholder="Enter start date of administration year..." class="w-full flex border border-gray-700 rounded-[7px] outline outline-0 font-sans font-normal leading-tight text-sm text-gray-700 focus:ring-1 focus:outline-none focus:ring-gray-700 rounded-lg text-sm px-4 py-2.5 inline-flex placeholder:text-xs">
+                        <input type="text" datepicker datepicker-autohide id="from" name="from" value="{{ old('from') }}" placeholder="AY start date" class="w-full flex border border-gray-700 rounded-[7px] outline outline-0 font-sans font-normal leading-tight text-sm text-gray-700 focus:ring-1 focus:outline-none focus:ring-gray-700 rounded-lg text-sm px-4 py-2.5 inline-flex placeholder:text-xs">
                         <label for="from" class="relative absolute -top-12 left-3 w-fit px-1 bg-white font-sans font-normal text-gray-700 text-[11px] leading-tight">
                             From
                         </label>                 
@@ -46,7 +46,7 @@
                         </div>
                     </div>
                     <div class="flex flex-col relative w-full md:w-1/2">
-                        <input type="text" datepicker datepicker-autohide id="to" name="to" value="{{ old('from') }}" placeholder="Enter end date of administration year..." class="w-full flex border border-gray-700 rounded-[7px] outline outline-0 font-sans font-normal leading-tight text-sm text-gray-700 focus:ring-1 focus:outline-none focus:ring-gray-700 rounded-lg text-sm px-4 py-2.5 inline-flex placeholder:text-xs">
+                        <input type="text" datepicker datepicker-autohide id="to" name="to" value="{{ old('from') }}" placeholder="AY end date" class="w-full flex border border-gray-700 rounded-[7px] outline outline-0 font-sans font-normal leading-tight text-sm text-gray-700 focus:ring-1 focus:outline-none focus:ring-gray-700 rounded-lg text-sm px-4 py-2.5 inline-flex placeholder:text-xs">
                         <label for="to" class="relative absolute -top-12 left-3 w-fit px-1 bg-white font-sans font-normal text-gray-700 text-[11px] leading-tight">
                             To
                         </label>                 
