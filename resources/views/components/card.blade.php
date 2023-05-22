@@ -24,17 +24,17 @@
                     {{join(", ", $authors)}}
             </p>
             <div class="flex flex-row justify-end items-end space-x-4">
-                <a href={{'/download'.'/'.substr($document->file, 10)}} target="_blank" rel="noopener noreferrer" class="rounded-sm hover:bg-[#9ED6E7] hover:border hover:border-gray-100 hover:scale-150">
-                    <img src="{{ asset('/images/download.svg') }}" alt="">
+                <a href={{'/download'.'/'.substr($document->file, 10)}} target="_blank" rel="noopener noreferrer" class="rounded-sm hover:bg-[#F5F5F5] hover:scale-150">
+                    <img src="{{ asset('/images/download.svg') }}" alt="Download" title="Download">
                 </a>
-                <button type="button" data-file="{{ $document->file}}" class="view rounded-sm hover:bg-[#9ED6E7] hover:border hover:border-gray-100 hover:scale-150">
-                    <img src="{{ asset('/images/open.svg') }}" alt="">
+                <button type="button" data-file="{{ $document->file}}" class="view rounded-sm hover:bg-[#F5F5F5] hover:scale-150">
+                    <img src="{{ asset('/images/open.svg') }}" alt="Open" title="Open">
                 </button>
-                <button type="button" data-id="{{$document->id}}" class="update rounded-sm hover:bg-[#9ED6E7] hover:border hover:border-gray-100 hover:scale-150">
-                    <img src="{{ asset('/images/sync.svg') }}" alt="">
+                <button type="button" data-id="{{$document->id}}" class="update rounded-sm hover:bg-[#F5F5F5] hover:scale-150">
+                    <img src="{{ asset('/images/update.svg') }}" alt="Update" title="Update">
                 </a>
-                <button type="button" data-id="{{$document->id}}" class="delete rounded-sm hover:bg-[#9ED6E7] hover:border hover:border-gray-100 hover:scale-150">
-                    <img src="{{ asset('/images/delete.svg') }}" alt="">
+                <button type="button" data-id="{{$document->id}}" class="delete rounded-sm hover:bg-[#F5F5F5] hover:scale-150">
+                    <img src="{{ asset('/images/delete.svg') }}" alt="Delete" title="Delete">
                 </button>
             </div>
         </div>
