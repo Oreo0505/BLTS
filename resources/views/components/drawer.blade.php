@@ -16,10 +16,12 @@
                 <p class="font-sans font-normal text-2xl leading-9 tracking-wide text-white uppercase">{{ $barangay }}</p>
                 <p class="font-sans font-normal text-lg leading-9 tracking-wide text-white italic -translate-y-3">{{ $municipality }}, Marinduque</p>
             </div>
-            <div class="group flex flex-row h-11 justify-start items-center space-x-2 mb-2 hover:bg-[#508DB9]/10 mt-6">
-                <img src="{{ asset('/images/folder.svg') }}" alt="" class="h-4 w-4">
-                <p class="font-sans text-sm font-base text-white opacity-70 cursor-pointer group-hover:text-[#90CAF9]">All</p>
-            </div>
+            <a href="/browse?by=all" class="">
+                <div class="group flex flex-row h-11 justify-start items-center space-x-2 mb-2 hover:bg-[#508DB9]/10 mt-6">
+                    <img src="{{ asset('/images/folder.svg') }}" alt="" class="h-4 w-4">
+                    <p class="font-sans text-sm font-base text-white opacity-70 cursor-pointer group-hover:text-[#90CAF9]">All</p>
+                </div>
+            </a>
             <div class="flex justify-start">
                 <p class="font-sans text-sm font-medium text-[#90CAF9]">BROWSE BY...</p>
             </div>
@@ -27,34 +29,39 @@
                 <img src="{{ asset('/images/folder.svg') }}" alt="" class="h-4 w-4">
                 <p class="font-sans text-sm font-base text-[#90CAF9]">Document Type</p>
             </div>
-            <div class="group flex flex-row h-11 justify-start items-center space-x-2 pl-6 py-4 hover:bg-[#508DB9]/10">
-                <p class="font-sans text-sm font-base text-white opacity-70 cursor-pointer group-hover:text-[#90CAF9]">Code of Ordinance</p>
-            </div>
-            <div class="group flex flex-row h-11 justify-start items-center space-x-2 pl-6 py-4 hover:bg-[#508DB9]/10">
-                <p class="font-sans text-sm font-base text-white opacity-70 cursor-pointer group-hover:text-[#90CAF9]">Ordinance</p>
-            </div>
-            <div class="group flex flex-row h-11 justify-start items-center space-x-2 pl-6 py-4 hover:bg-[#508DB9]/10">
-                <p class="font-sans text-sm font-base text-white opacity-70 cursor-pointer group-hover:text-[#90CAF9]">Resolution</p>
-            </div>
-            <div class="group flex flex-row h-11 justify-start items-center space-x-2 pl-6 py-4 hover:bg-[#508DB9]/10">
-                <p class="font-sans text-sm font-base text-white opacity-70 cursor-pointer group-hover:text-[#90CAF9]">Others</p>
-            </div>
+            <a href="/browse?by=type&value=Code of Ordinance">
+                <div class="group flex flex-row h-11 justify-start items-center space-x-2 pl-6 py-4 hover:bg-[#508DB9]/10">
+                    <p class="font-sans text-sm font-base text-white opacity-70 cursor-pointer group-hover:text-[#90CAF9]">Code of Ordinance</p>
+                </div>
+            </a>
+            <a href="/browse?by=type&value=Ordinance">
+                <div class="group flex flex-row h-11 justify-start items-center space-x-2 pl-6 py-4 hover:bg-[#508DB9]/10">
+                    <p class="font-sans text-sm font-base text-white opacity-70 cursor-pointer group-hover:text-[#90CAF9]">Ordinance</p>
+                </div>
+            </a>
+            <a href="/browse?by=type&value=Resolution" class="">
+                <div class="group flex flex-row h-11 justify-start items-center space-x-2 pl-6 py-4 hover:bg-[#508DB9]/10">
+                    <p class="font-sans text-sm font-base text-white opacity-70 cursor-pointer group-hover:text-[#90CAF9]">Resolution</p>
+                </div>            
+            </a>
+            <a href="/browse?by=type&value=Others" class="">
+                <div class="group flex flex-row h-11 justify-start items-center space-x-2 pl-6 py-4 hover:bg-[#508DB9]/10">
+                    <p class="font-sans text-sm font-base text-white opacity-70 cursor-pointer group-hover:text-[#90CAF9]">Others</p>
+                </div>            
+            </a>
             <div class="flex flex-row h-12 justify-start items-center space-x-2 py-4">
                 <img src="{{ asset('/images/folder.svg') }}" alt="" class="h-4 w-4">
                 <p class="font-sans text-sm font-base text-[#90CAF9]">Administration Year</p>
             </div>
-            <div class="group flex flex-row h-11 justify-start items-center space-x-2 pl-6 py-4 hover:bg-[#508DB9]/10">
-                <p class="font-sans text-sm font-base text-white opacity-70 cursor-pointer group-hover:text-[#90CAF9]">2012 - 2015</p>
-            </div>
-            <div class="group flex flex-row h-11 justify-start items-center space-x-2 pl-6 py-4 hover:bg-[#508DB9]/10">
-                <p class="font-sans text-sm font-base text-white opacity-70 cursor-pointer group-hover:text-[#90CAF9]">2015 - 2018</p>
-            </div>
-            <div class="group flex flex-row h-11 justify-start items-center space-x-2 pl-6 py-4 hover:bg-[#508DB9]/10">
-                <p class="font-sans text-sm font-base text-white opacity-70 cursor-pointer group-hover:text-[#90CAF9]">2018 - 2022</p>
-            </div>
-            <div class="group flex flex-row h-11 justify-start items-center space-x-2 pl-6 py-4 hover:bg-[#508DB9]/10">
-                <p class="font-sans text-sm font-base text-white opacity-70 cursor-pointer group-hover:text-[#90CAF9]">2022 - 2025</p>
-            </div>
+
+            @foreach($terms as $term)
+                <a href="/browse?by=term&value={{$term->id}}">
+                    <div class="group flex flex-row h-11 justify-start items-center space-x-2 pl-6 py-4 hover:bg-[#508DB9]/10">
+                        <p class="font-sans text-sm font-base text-white opacity-70 cursor-pointer group-hover:text-[#90CAF9]">{{date('Y', strtotime($term->start))}} - {{date('Y', strtotime($term->end))}}</p>
+                    </div>            
+                </a>
+            @endforeach
+
         </div>
     </div>
 </div>
