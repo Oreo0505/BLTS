@@ -1,10 +1,12 @@
 <nav class="flex flex-col h-fit bg-[#425B71] sticky top-0 z-20 px-4 py-2 md:h-12 md:flex-row">
-    <div class="flex flex-row space-x-2 items-center justify-center w-full md:w-1/4 md:justify-start">
-        <img src="{{ asset('/images/hamburger.svg') }}" id="open-drawer" alt="" class="h-9 cursor-pointer hover:stroke-neutral-500 hover:fill-neutral-500">
-        <img src="{{ asset('/images/dilg_logo.svg') }}" alt="" class="h-9">
-        <img src="{{ asset('/images/om_logo.svg') }}" alt="" class="h-9">
-        <img src="{{ asset('/images/lgrc_logo.svg') }}" alt="" class="h-9">
-    </div>
+    <a href="/">
+        <div class="flex flex-row space-x-2 items-center justify-center w-full cursor-pointer md:w-1/4 md:justify-start">
+            <img src="{{ asset('/images/hamburger.svg') }}" id="open-drawer" alt="" class="h-9 cursor-pointer hover:stroke-neutral-500 hover:fill-neutral-500">
+            <img src="{{ asset('/images/dilg_logo.svg') }}" alt="" class="h-9">
+            <img src="{{ asset('/images/om_logo.svg') }}" alt="" class="h-9">
+            <img src="{{ asset('/images/lgrc_logo.svg') }}" alt="" class="h-9">
+        </div>
+    </a>
     <div class="flex items-center justify-center w-full">
         <p class="font-sans font-semibold text-white text-2xl leading-[29px] text-center">
             <span class="uppercase font-bold">{{ $barangay }},</span>
