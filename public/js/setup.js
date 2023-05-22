@@ -240,6 +240,7 @@ const logoField = document.getElementById('logo');
 const captainField = document.getElementById('captain');
 const secretaryField = document.getElementById('secretary');
 const sbFields = document.querySelectorAll('.sb-member');
+const chairmanField = document.getElementById('chairman');
 const setupButton = document.getElementById('setup-button');
 const setupForm = document.getElementById('setup-form');
 
@@ -304,6 +305,20 @@ setupButton.addEventListener('click', function(event){
         alert('Please select barangay');
         return;
     }
+    if(fromDateField.value.length <= 0){
+        alert('Please select term start date');
+        return;
+    }
+    if(toDateField.value.length <= 0){
+        alert('Please select term end date');
+        return;
+    }
+    var fromDate = new Date(fromDateField.value);
+    var toDate = new Date(toDateField.value);
+    if(toDate < fromDate){
+        alert('Invalid date range. End date should be later than start date.');
+        return;
+    }
     if(captainField.value.length < 3){
         alert('Barangay captain field should contain at least 3 or more characters');
         return;
@@ -322,18 +337,8 @@ setupButton.addEventListener('click', function(event){
             return;
         }
     }
-    if(fromDateField.value.length <= 0){
-        alert('Please select term start date');
-        return;
-    }
-    if(toDateField.value.length <= 0){
-        alert('Please select term end date');
-        return;
-    }
-    var fromDate = new Date(fromDateField.value);
-    var toDate = new Date(toDateField.value);
-    if(toDate < fromDate){
-        alert('Invalid date range. End date should be later than start date.');
+    if(chairmanField.value.length < 3){
+        alert('SK Chairman field should contain at least 3 or more characters');
         return;
     }
     setupForm.submit();

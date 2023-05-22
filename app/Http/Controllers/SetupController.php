@@ -30,6 +30,7 @@ class SetupController extends Controller
             'sb5' => 'required|min:3',
             'sb6' => 'required|min:3',
             'sb7' => 'required|min:3',
+            'chairman' => 'required|min:3',
             'logo' => 'mimes:png,jpeg,jpg,bmp,svg'
         ],
         [
@@ -60,6 +61,8 @@ class SetupController extends Controller
             'sb6.min' => 'Sanggunian Member 6 name shoud contain 3 or more character',
             'sb7.required' => 'Sanggunian Member 7 is required',
             'sb7.min' => 'Sanggunian Member 7 name shoud contain 3 or more character',
+            'chairman.required' => 'SK Chairman is required',
+            'chairman.min' => 'SK Chairman name shoud contain 3 or more character',
             'logo.mimes' => 'File should be image file'
         ]);
         if($validator->fails()){
@@ -118,6 +121,13 @@ class SetupController extends Controller
             ];
             Author::create($sb_form);
         }
+
+        $chairman_form = [
+            'name' => $request->chairman,
+            'position' => 'SK Chairman',
+            'term_id' => $current_term->id
+        ];
+        Author::create($chairman_form);
 
         return redirect('/');
     }

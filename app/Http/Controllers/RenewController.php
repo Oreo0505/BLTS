@@ -23,7 +23,8 @@ class RenewController extends Controller
             'sb4' => 'required|min:3',
             'sb5' => 'required|min:3',
             'sb6' => 'required|min:3',
-            'sb7' => 'required|min:3'
+            'sb7' => 'required|min:3',
+            'chairman' => 'required|min:3'
         ],
         [
             'captain.required' => 'Barangay captain field is required',
@@ -48,7 +49,9 @@ class RenewController extends Controller
             'sb6.required' => 'Sanggunian Member 6 is required',
             'sb6.min' => 'Sanggunian Member 6 name shoud contain 3 or more character',
             'sb7.required' => 'Sanggunian Member 7 is required',
-            'sb7.min' => 'Sanggunian Member 7 name shoud contain 3 or more character'
+            'sb7.min' => 'Sanggunian Member 7 name shoud contain 3 or more character',
+            'chairman.required' => 'SK Chairman is required',
+            'chairman.min' => 'SK Chairman name shoud contain 3 or more character'
         ]);
         if($validator->fails()){
             foreach($validator->messages()->all() as $message){
@@ -99,6 +102,13 @@ class RenewController extends Controller
             ];
             Author::create($sb_form);
         }
+
+        $chairman_form = [
+            'name' => $request->chairman,
+            'position' => 'SK Chairman',
+            'term_id' => $current_term->id
+        ];
+        Author::create($chairman_form);
 
         return redirect('/');
     }

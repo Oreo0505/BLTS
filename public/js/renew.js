@@ -4,6 +4,7 @@ const toDateField = document.getElementById('to');
 const captainField = document.getElementById('captain');
 const secretaryField = document.getElementById('secretary');
 const sbFields = document.querySelectorAll('.sb-member');
+const chairmanField = document.getElementById('chairman');
 const renewButton = document.getElementById('renew-button');
 const fromDateIcon = document.getElementById('from-date-icon');
 const toDateIcon = document.getElementById('to-date-icon');
@@ -48,6 +49,10 @@ renewButton.addEventListener('click', function(){
             alert('SB Member name should contain at least 3 or more characters');
             return;
         }
+    }
+    if(chairmanField.value.length < 3){
+        alert('SK Chairman name should contain at least 3 or more characters');
+        return;
     }
     renewForm.submit();
 });
