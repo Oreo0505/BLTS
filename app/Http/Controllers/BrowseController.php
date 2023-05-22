@@ -30,7 +30,11 @@ class BrowseController extends Controller
             $documents = Document::with('authors')->whereBetween('date',[$term->start,$term->end]);
         }
         else if($request->by == 'all'){
+<<<<<<< HEAD
             $documents = Document::latest()->get();
+=======
+            $documents = Document::all();
+>>>>>>> b96b8de244a42d609b8dcebc94538b22db927abd
         }
         else{
             flash()->addError('Invalid Query!');
