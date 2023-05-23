@@ -33,7 +33,10 @@
     {{-- Titleholder --}}
     <div class="relative flex flex-row mt-12 mx-36 justify-between items-center md:mx-60">
         <div class="flex justify-start">
-            <p class="text-xl text-[#181313] font-bold font-sans ">Search Results</p>
+            <p class="text-xl text-[#181313] font-bold font-sans ">
+                Search Results
+                <span class="text-[#909090] font-normal">({{count($documents)}} matches for "{{$query}}")</span>
+            </p>
         </div>
         <div class="flex justify-end">
             <x-sort/>

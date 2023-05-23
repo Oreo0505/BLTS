@@ -124,7 +124,8 @@ class SearchController extends Controller
             'logo' => $config->logo,
             'documents' => $documents,
             'authors' => $authors,
-            'terms' => $terms
+            'terms' => $terms,
+            'query' => $request->search
         ]);
     }
 }
