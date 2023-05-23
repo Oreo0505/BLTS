@@ -1,12 +1,13 @@
 <div id="filter-overlay" class="hidden fixed w-full h-100 inset-0 z-10 overflow-hidden flex justify-center items-center brightness-50 backdrop-blur-sm animated faster">
 </div>
-<div id="filter" class="hidden fixed inset-0 h-fit w-2/3 flex flex-col space-y-6 border drop-shadow-md shadow-lg modal-container bg-white mx-auto my-auto rounded z-50 overflow-y-auto px-6 pb-6 pt-2 animated faster md:w-1/2">
-    <div id="hide-filter" class="group flex flex-row space-x-2 justify-end items-center h-9 shrink">
-        <svg width="15" height="15" viewBox="0 0 15 15" xmlns="http://www.w3.org/2000/svg" class="flex justify-end fill-[#757575] cursor-pointer">
+<div id="filter" class="hidden fixed inset-0 h-fit w-2/3 flex flex-col border drop-shadow-md shadow-lg modal-container bg-white mx-auto my-auto rounded z-50 overflow-y-auto animated faster md:w-1/2">
+    <div class="flex flex-col self-end items-end ml-9 mr-2.5 mt-2.5">
+        <svg id="hide-filter" width="15" height="15" viewBox="0 0 15 15" xmlns="http://www.w3.org/2000/svg" class="flex justify-end fill-[#757575] cursor-pointer">
             <path d="M4 11.875L3.125 11L6.625 7.5L3.125 4L4 3.125L7.5 6.625L11 3.125L11.875 4L8.375 7.5L11.875 11L11 11.875L7.5 8.375L4 11.875Z"/>
-        </svg>            
+        </svg>
     </div>
-    <div class="flex flex-col space-y-3 items-center md:justify-between md:flex-row md:space-x-2 md:space-y-0">
+    <p class="flex self-center font-sans font-medium text-xl text-black/90 ml-7 mb-2 md:self-start">Select Filter</p>
+    <div class="flex flex-col space-y-3 items-center mx-6 mt-6 md:justify-between md:flex-row md:space-x-2 md:space-y-0">
         <div class="flex flex-col relative w-2/3 md:w-1/3">
             <select id="filter-year" name="year" class="w-full flex border border-gray-700 rounded-[7px] outline outline-0 font-sans font-normal leading-tight text-sm text-gray-700 focus:ring-1 focus:outline-none focus:ring-gray-700 rounded-lg text-sm px-4 py-2.5 inline-flex">
                 <option value="all" class="text-sm">All Terms</option>
@@ -51,7 +52,7 @@
             </label>
         </div>
     </div>
-    <div class="flex flex-col space-y-2">
+    <div class="flex flex-col space-y-2 mx-6 mt-2">
         <div class="flex flex-row shrink space-x-2">
             <img src="{{ asset('/images/folder.svg') }}" alt="" class="h-4 w-4">
             <p class="font-sans text-sm font-base">Document Type</p>
@@ -75,8 +76,9 @@
             </div>
         </div>
     </div>
-    <div class="flex self-end">
-        <button type="button" id="apply-filter" class="flex bg-[#0288D1] rounded-full font-sans font-normal text-sm text-white px-6 py-2 hover:bg-[#086192] hover:text-gray-50">Apply</button>
+    <div class="flex flex-row space-x-2 justify-end mx-6 mt-8 pb-3 items-center">
+        <button id="search-filter" class="px-2 py-1.5 font-sans font-medium text-sm text-[#1976D2] hover:text-gray-400">SEARCH</button>
+        <button id="apply-filter" class="px-2 py-1.5 font-sans font-medium text-sm text-[#1976D2] hover:text-gray-400">APPLY</button>
     </div>
 </div>
 
