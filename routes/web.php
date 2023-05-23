@@ -29,8 +29,6 @@ Route::post('/upload', [CreateController::class, 'create']);
 
 Route::post('/delete', [DeleteController::class, 'delete']);
 
-Route::get('/getData', [UpdateController::class, 'getData']);
-
 Route::post('/update', [UpdateController::class, 'update']);
 
 Route::get('/download/{file_name}', [DownloadController::class, 'download']);
@@ -46,5 +44,7 @@ Route::post('/renew/process', [RenewController::class, 'renew']);
 Route::get('browse', [BrowseController::class, 'browse']);
 
 Route::get('/search', [SearchController::class, 'search']);
+
+Route::get('/get/document', [FetchController::class, 'getDocument']);
 
 Route::get('/get/author', [FetchController::class, 'getAuthors']);

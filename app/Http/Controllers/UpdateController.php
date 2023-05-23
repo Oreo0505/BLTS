@@ -13,20 +13,6 @@ class UpdateController extends Controller
 {
     use Upload;
 
-    public function getData(Request $request){
-        $document = Document::where('id', $request->id)->with('authors')->first();
-        return response()->json([
-            'id' => $document->id,
-            'title' => $document->title,
-            'type' => $document->type,
-            'number' => $document->number,
-            'area' => $document->area,
-            'date' => $document->date,
-            'file' => $document->file,
-            'authors' => $document->authors->pluck('name')
-        ]);
-    }
-
     public function update(Request $request){
         $validator = Validator::make($request->all(),[
             'id' => 'required|exists:documents,id',

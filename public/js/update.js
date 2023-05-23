@@ -20,9 +20,9 @@ const updateFileField = document.getElementById('update-file');
 const updateDropzone = document.getElementById('update-dropzone');
 const updateFileContainer = document.getElementById('update-file-container');
 
-async function getData(id){
+async function getDocument(id){
     const response = await fetch(
-        '/getData?id='+id,
+        '/get/document?id='+id,
         {
             method: 'GET'
         }
@@ -141,7 +141,7 @@ updateFileField.addEventListener('change', function(){
 for(let i = 0; i < updateButtons.length; i++){
     updateButtons[i].addEventListener('click', function(){
         var id = this.getAttribute('data-id');
-        getData(id).then(data => {
+        getDocument(id).then(data => {
             console.log(data);
             updateIdField.value = data['id'];
             updateTitleField.value = data['title'];
