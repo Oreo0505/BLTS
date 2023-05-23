@@ -1,4 +1,4 @@
-<form action="/search" method="GET" id="search-form" {{ $attributes->merge(['class' => 'contact-form']) }}>
+<form action="/search" method="GET" id="search-form" {{ $attributes->merge(['class' => '']) }}>
     <div class="flex flex-col items-center justify-center -mt-4">
         <div class="w-2/3 flex items-center relative md:w-1/2">
             <img src="/images/search.svg" class="absolute start-0 h-8 ml-6" alt="Search Icon" />

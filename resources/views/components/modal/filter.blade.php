@@ -8,15 +8,6 @@
     </div>
     <div class="flex flex-col space-y-3 items-center md:justify-between md:flex-row md:space-x-2 md:space-y-0">
         <div class="flex flex-col relative w-2/3 md:w-1/3">
-            <select id="filter-searchBy" name="searchBy" class="w-full flex border border-gray-700 rounded-[7px] outline outline-0 font-sans font-normal leading-tight text-sm text-gray-700 focus:ring-1 focus:outline-none focus:ring-gray-700 rounded-lg text-sm px-4 py-2.5 inline-flex">
-                <option value="title" class="text-sm">Title</option>
-                <option value="author" class="text-sm">Author</option> 
-            </select>
-            <label for="filter-searchBy" class="relative absolute -top-12 left-3 w-fit px-1 bg-white font-sans font-normal text-gray-700 text-[11px] leading-tight">
-                Search by...
-            </label>
-        </div>
-        <div class="flex flex-col relative w-2/3 md:w-1/3">
             <select id="filter-year" name="year" class="w-full flex border border-gray-700 rounded-[7px] outline outline-0 font-sans font-normal leading-tight text-sm text-gray-700 focus:ring-1 focus:outline-none focus:ring-gray-700 rounded-lg text-sm px-4 py-2.5 inline-flex">
                 <option value="all" class="text-sm">All Terms</option>
 
@@ -29,6 +20,21 @@
             <label for="filter-year" class="relative absolute -top-12 left-3 w-fit px-1 bg-white font-sans font-normal text-gray-700 text-[11px] leading-tight">
                 Administrative Year
             </label>
+        </div>
+        <div class="flex flex-col relative w-2/3 md:w-1/3">
+            <input type="text" id="filter-authors" name="authors" class="hidden">
+            <button id="filter-author-button" type="button" class="w-full flex justify-between border border-gray-700 rounded-[7px] outline outline-0 font-sans font-normal leading-tight text-sm text-gray-700 focus:ring-1 focus:outline-none focus:ring-gray-700 rounded-lg text-sm pl-4 pr-3 py-2.5 inline-flex">
+                Select Authors
+                <svg class="w-4 h-4 ml-2" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="fill-[#3A37B0]">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                </svg>
+            </button>
+            <label for="filter-author-button" class="relative absolute -top-12 left-3 w-fit px-1 bg-white font-sans font-normal text-gray-700 text-[11px] leading-tight">
+                Author/s
+            </label>
+            <div id="filter-author-dropmenu" class="hidden z-10 absolute inset-x-0 top-10 w-fit border border-gray-300 bg-white rounded-md shadow overflow-y-auto">
+                {{-- Rendered by filter.js --}}
+            </div>
         </div>
         <div class="flex flex-col relative w-2/3 md:w-1/3">
             <select id="filter-area" name="area" class="w-full flex border border-gray-700 rounded-[7px] outline outline-0 font-sans font-normal leading-tight text-sm text-gray-700 focus:ring-1 focus:outline-none focus:ring-gray-700 rounded-lg text-sm px-4 py-2.5 inline-flex">
