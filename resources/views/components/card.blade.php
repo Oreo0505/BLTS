@@ -1,4 +1,4 @@
-<div class="flex-flex-col space-y-1 w-[65%] border-x border-b drop-shadow-sm shadow-sm">
+<div class="flex-flex-col space-y-1 w-full border-x border-b drop-shadow-sm shadow-sm">
     <div class="flex flex-row justify-between items-center px-4 pt-2 pb-1 bg-[#F5F5F5]">
         <p class="font-sans font-medium text-base text-left">{{$document->type}} No.{{$document->number}}, s. {{date('Y', strtotime($document->date))}}</p>
         <img src="{{ asset('/images/approved.svg') }}" alt="" class="h-8 w-8">

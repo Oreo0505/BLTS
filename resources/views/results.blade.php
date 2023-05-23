@@ -52,7 +52,7 @@
             <p class="font-sans font-bold text-5xl text-gray-600 text-center">No Documents Found</p>
         </div>
     @else
-        <div class="flex flex-col space-y-8 items-center py-8">
+        <div class="flex flex-col space-y-8 items-center py-8 mx-36 md:mx-60">
             @foreach($documents as $document)
                 <x-card :document="$document"/>
             @endforeach
