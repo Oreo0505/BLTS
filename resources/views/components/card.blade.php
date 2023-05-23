@@ -33,7 +33,7 @@
                     <img src="{{ asset('/images/download.svg') }}" alt="Download" title="Download">
                 </a>
                 <button type="button" data-file="{{ $document->file}}" class="view rounded-sm hover:bg-[#F5F5F5] hover:scale-150">
-                    <img src="{{ asset('/images/open.svg') }}" alt="Open" title="Open">
+                    <img src="{{ asset('/images/view.svg') }}" alt="Open" title="Open">
                 </button>
                 <button type="button" data-id="{{$document->id}}" class="update rounded-sm hover:bg-[#F5F5F5] hover:scale-150">
                     <img src="{{ asset('/images/update.svg') }}" alt="Update" title="Update">
