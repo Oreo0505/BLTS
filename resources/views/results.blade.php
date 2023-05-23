@@ -38,7 +38,8 @@
                 <span class="text-[#909090] font-normal">({{count($documents)}} matches for "{{$query}}")</span>
             </p>
         </div>
-        <div class="flex justify-end">
+        <div class="flex space-x-4 justify-end">
+            <img src="{{ asset('/images/print.svg') }}" alt="print" title="Print Report" class="cursor-pointer">
             <x-sort/>
         </div>
     </div>
