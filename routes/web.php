@@ -10,6 +10,7 @@ use App\Http\Controllers\SetupController;
 use App\Http\Controllers\RenewController;
 use App\Http\Controllers\BrowseController;
 use App\Http\Controllers\SearchController;
+use App\Http\Controllers\FetchController;
 
 /*
 |--------------------------------------------------------------------------
@@ -45,3 +46,5 @@ Route::post('/renew/process', [RenewController::class, 'renew']);
 Route::get('browse', [BrowseController::class, 'browse']);
 
 Route::get('/search', [SearchController::class, 'search']);
+
+Route::get('/get/author', [FetchController::class, 'getAuthors']);
