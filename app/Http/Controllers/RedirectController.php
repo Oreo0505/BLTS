@@ -80,22 +80,43 @@ class RedirectController extends Controller
 
         $terms = Term::all();
 
-        $config = Config::first();
-        $captain = Author::where('term_id',$config->current_term)->where('position','Captain')->first();
-        $secretary = Author::where('term_id',$config->current_term)->where('position','Secretary')->first();
-        $chairman = Author::where('term_id',$config->current_term)->where('position','SK Chairman')->first();
-        $sb_member_1 = Author::where('term_id',$config->current_term)->where('position','SB Member 1')->first();
-        $sb_member_2 = Author::where('term_id',$config->current_term)->where('position','SB Member 2')->first();
-        $sb_member_3 = Author::where('term_id',$config->current_term)->where('position','SB Member 3')->first();
-        $sb_member_4 = Author::where('term_id',$config->current_term)->where('position','SB Member 4')->first();
-        $sb_member_5 = Author::where('term_id',$config->current_term)->where('position','SB Member 5')->first();
-        $sb_member_6 = Author::where('term_id',$config->current_term)->where('position','SB Member 6')->first();
-        $sb_member_7 = Author::where('term_id',$config->current_term)->where('position','SB Member 7')->first();
+        if($request->has('id')){
+            $term = Term::find($request->id);
+            if($term == null){
+                flash()->addError('Cannot find term');
+                return back();
+            }
+            $captain = Author::where('term_id',$request->id)->where('position','Captain')->first();
+            $secretary = Author::where('term_id',$request->id)->where('position','Secretary')->first();
+            $chairman = Author::where('term_id',$request->id)->where('position','SK Chairman')->first();
+            $sb_member_1 = Author::where('term_id',$request->id)->where('position','SB Member 1')->first();
+            $sb_member_2 = Author::where('term_id',$request->id)->where('position','SB Member 2')->first();
+            $sb_member_3 = Author::where('term_id',$request->id)->where('position','SB Member 3')->first();
+            $sb_member_4 = Author::where('term_id',$request->id)->where('position','SB Member 4')->first();
+            $sb_member_5 = Author::where('term_id',$request->id)->where('position','SB Member 5')->first();
+            $sb_member_6 = Author::where('term_id',$request->id)->where('position','SB Member 6')->first();
+            $sb_member_7 = Author::where('term_id',$request->id)->where('position','SB Member 7')->first();
+        }
+        else{
+            $config = Config::first();
+            $term = Term::where('id', $config->current_term)->first();
+            $captain = Author::where('term_id',$config->current_term)->where('position','Captain')->first();
+            $secretary = Author::where('term_id',$config->current_term)->where('position','Secretary')->first();
+            $chairman = Author::where('term_id',$config->current_term)->where('position','SK Chairman')->first();
+            $sb_member_1 = Author::where('term_id',$config->current_term)->where('position','SB Member 1')->first();
+            $sb_member_2 = Author::where('term_id',$config->current_term)->where('position','SB Member 2')->first();
+            $sb_member_3 = Author::where('term_id',$config->current_term)->where('position','SB Member 3')->first();
+            $sb_member_4 = Author::where('term_id',$config->current_term)->where('position','SB Member 4')->first();
+            $sb_member_5 = Author::where('term_id',$config->current_term)->where('position','SB Member 5')->first();
+            $sb_member_6 = Author::where('term_id',$config->current_term)->where('position','SB Member 6')->first();
+            $sb_member_7 = Author::where('term_id',$config->current_term)->where('position','SB Member 7')->first();
+        }
 
         return view('profile',[
             'barangay' => $config->barangay,
             'municipality' => $config->municipality,
             'logo' => $config->logo,
+            'term' => $term,
             'terms' => $terms,
             'captain' => $captain,
             'secretary' => $secretary,
