@@ -18,6 +18,9 @@
         </p>
     </div>
     <div class="hidden items-center mr-3 justify-end w-1/4 space-x-6 md:flex">
+        <a href="/" class="">
+            <img src="{{ asset('/images/home.svg') }}" alt="" class="h-6 cursor-pointer">        
+        </a>
         <img id="enter-fullscreen" src="{{ asset('/images/enter_fullscreen.svg') }}" alt="" class="h-6 cursor-pointer">
         <img id="exit-fullscreen" src="{{ asset('/images/exit_fullscreen.svg') }}" alt="" class="h-6 cursor-pointer hidden">
         <svg id="close-viewer" width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="hidden fill-white h-6 scale-150 cursor-pointer">
