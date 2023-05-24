@@ -1,7 +1,6 @@
 const updateProfileButton = document.getElementById('update-profile-button');
 const submitProfileButton = document.getElementById('submit-profile-button');
 const cancelProfileButton = document.getElementById('cancel-profile-button');
-const profileMenuButton = document.getElementById('profile-menu-button');
 
 const captainField = document.getElementById('captain');
 const secretaryField = document.getElementById('secretary');

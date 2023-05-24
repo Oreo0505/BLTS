@@ -22,9 +22,9 @@
         <img id="cancel-profile-button" src="{{ asset('/images/cancel-changes.svg') }}" alt="Cancel Changes" title="Cancel Changes" class="hidden translate-y-1 h-6 cursor-pointer hover:scale-125">
         <img id="submit-profile-button" src="{{ asset('/images/check.svg') }}" alt="Submit Changes" title="Submit Changes" class="hidden translate-y-1 scale-75 h-6 cursor-pointer hover:scale-100">
         <img id="update-profile-button" src="{{ asset('/images/update_profile.svg') }}" alt="Update Profile" title="Update Profile" class="w-6 cursor-pointer hover:scale-125">
-        <img id="profile-menu-button" src="{{ asset('/images/hamburger-accent.svg') }}" alt="Menu" title="Menu" class="translate-y-1 cursor-pointer">
+        <x-modal.profile-menu :terms="$terms"/>
     </div>
-    
+
     <div class="flex flex-col space-y-3 w-fit justify-start mx-auto mt-20 md:flex-row md:space-x-3 md:space-y-0">
         <div class="flex p-2 justify-center">
             <img src="{{ asset('/images/default_logo.svg') }}" alt="Barangay Logo" class="h-36 w-36">
