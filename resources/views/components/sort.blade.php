@@ -8,13 +8,13 @@
             <button data-filter="created_at-asc" class="sort-button font-sans font-normal text-sm group-hover:text-white">Date Uploaded (Oldest - Latest)</button>
         </div>
         <div class="flex group cursor-pointer px-4 hover:bg-[#0B91FF]">
-            <button data-filter="created_at-desc" class="sort-button font-sans font-normal text-sm group-hover:text-white">Date Uploaded (Latest - Oldest)</a>
+            <button data-filter="created_at-desc" class="sort-button font-sans font-normal text-sm group-hover:text-white">Date Uploaded (Latest - Oldest)</button>
         </div>
         <div class="flex group cursor-pointer px-4 hover:bg-[#0B91FF]">
-            <button data-filter="date-asc" class="sort-button font-sans font-normal text-sm group-hover:text-white">Date Enacted (Oldest - Latest)</a>
+            <button data-filter="date-asc" class="sort-button font-sans font-normal text-sm group-hover:text-white">Date Enacted (Oldest - Latest)</button>
         </div>
         <div class="flex group cursor-pointer px-4 hover:bg-[#0B91FF]">
-            <button data-filter="date-desc" class="sort-button font-sans font-normal text-sm group-hover:text-white">Date Enacted (Latest - Oldest)</a>
+            <button data-filter="date-desc" class="sort-button font-sans font-normal text-sm group-hover:text-white">Date Enacted (Latest - Oldest)</button>
         </div>
     </div>
 </div>
