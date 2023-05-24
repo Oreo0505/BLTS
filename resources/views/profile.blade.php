@@ -73,7 +73,7 @@
                     <img src="{{ asset('/images/calendar.svg') }}" alt="Administration Year / Term Year" class="h-6 w-6 translate-y-1">
                 </div>
                 <div class="flex flex-col">
-                    <p class="font-sans font-medium text-2xl text-[#181313] uppercase whitespace-nowrap">2018-2023</p>
+                    <p class="font-sans font-medium text-2xl text-[#181313] uppercase whitespace-nowrap">{{date('Y', strtotime($term->start))}} - {{date('Y', strtotime($term->end))}}</p>
                     <p class="font-sans font-normal text-base text-[#181313] italic whitespace-nowrap ml-1 -translate-y-1">Administrative Year / Term Year</p>
                 </div>
             </div>
@@ -95,8 +95,11 @@
         </div>
     </div>
 
+    <img src="{{ asset('/images/accent-1.svg') }}" alt="" class="absolute bottom-0 left-0 rotate-180">
+
     <form action="/profile/update" method="POST" id="update-profile-form" class="hidden">
         @csrf
+        <input type="text" id="update-id" name="id" value="{{ $term->id }}">
         <input type="text" id="update-profile-captain" name="captain">
         <input type="text" id="update-profile-secretary" name="secretary">
         <input type="text" id="update-profile-chairman" name="chairman">

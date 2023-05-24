@@ -121,17 +121,16 @@ class UpdateController extends Controller
             return back()->withInput();
         }
 
-        $config = Config::first();
-        $captain = Author::where('term_id',$config->current_term)->where('position','Captain')->first();
-        $secretary = Author::where('term_id',$config->current_term)->where('position','Secretary')->first();
-        $chairman = Author::where('term_id',$config->current_term)->where('position','SK Chairman')->first();
-        $sb_member_1 = Author::where('term_id',$config->current_term)->where('position','SB Member 1')->first();
-        $sb_member_2 = Author::where('term_id',$config->current_term)->where('position','SB Member 2')->first();
-        $sb_member_3 = Author::where('term_id',$config->current_term)->where('position','SB Member 3')->first();
-        $sb_member_4 = Author::where('term_id',$config->current_term)->where('position','SB Member 4')->first();
-        $sb_member_5 = Author::where('term_id',$config->current_term)->where('position','SB Member 5')->first();
-        $sb_member_6 = Author::where('term_id',$config->current_term)->where('position','SB Member 6')->first();
-        $sb_member_7 = Author::where('term_id',$config->current_term)->where('position','SB Member 7')->first();
+        $captain = Author::where('term_id',$request->id)->where('position','Captain')->first();
+        $secretary = Author::where('term_id',$request->id)->where('position','Secretary')->first();
+        $chairman = Author::where('term_id',$request->id)->where('position','SK Chairman')->first();
+        $sb_member_1 = Author::where('term_id',$request->id)->where('position','SB Member 1')->first();
+        $sb_member_2 = Author::where('term_id',$request->id)->where('position','SB Member 2')->first();
+        $sb_member_3 = Author::where('term_id',$request->id)->where('position','SB Member 3')->first();
+        $sb_member_4 = Author::where('term_id',$request->id)->where('position','SB Member 4')->first();
+        $sb_member_5 = Author::where('term_id',$request->id)->where('position','SB Member 5')->first();
+        $sb_member_6 = Author::where('term_id',$request->id)->where('position','SB Member 6')->first();
+        $sb_member_7 = Author::where('term_id',$request->id)->where('position','SB Member 7')->first();
 
         if($captain->name != $request->captain){
             $captain->name = $request->captain;
