@@ -82,13 +82,13 @@
                     <img src="{{ asset('/images/member.svg') }}" alt="Sangguniang Barangay Member" class="h-6 w-6 translate-y-1">
                 </div>
                 <div class="flex flex-col">
-                    <p class="font-sans font-medium text-xl text-[#181313] whitespace-nowrap">1. <span id="sb1" class="outline-none"> {{$sb_members[0]->name}} </span></p>
-                    <p class="font-sans font-medium text-xl text-[#181313] whitespace-nowrap">2. <span id="sb2" class="outline-none"> {{$sb_members[1]->name}} </span></p>
-                    <p class="font-sans font-medium text-xl text-[#181313] whitespace-nowrap">3. <span id="sb3" class="outline-none"> {{$sb_members[2]->name}} </span></p>
-                    <p class="font-sans font-medium text-xl text-[#181313] whitespace-nowrap">4. <span id="sb4" class="outline-none"> {{$sb_members[3]->name}} </span></p>
-                    <p class="font-sans font-medium text-xl text-[#181313] whitespace-nowrap">5. <span id="sb5" class="outline-none"> {{$sb_members[4]->name}} </span></p>
-                    <p class="font-sans font-medium text-xl text-[#181313] whitespace-nowrap">6. <span id="sb6" class="outline-none"> {{$sb_members[5]->name}} </span></p>
-                    <p class="font-sans font-medium text-xl text-[#181313] whitespace-nowrap">7. <span id="sb7" class="outline-none"> {{$sb_members[6]->name}} </span></p>
+                    <p class="font-sans font-medium text-xl text-[#181313] whitespace-nowrap">1. <span id="sb1" class="outline-none"> {{$sb_member_1->name}} </span></p>
+                    <p class="font-sans font-medium text-xl text-[#181313] whitespace-nowrap">2. <span id="sb2" class="outline-none"> {{$sb_member_2->name}} </span></p>
+                    <p class="font-sans font-medium text-xl text-[#181313] whitespace-nowrap">3. <span id="sb3" class="outline-none"> {{$sb_member_3->name}} </span></p>
+                    <p class="font-sans font-medium text-xl text-[#181313] whitespace-nowrap">4. <span id="sb4" class="outline-none"> {{$sb_member_4->name}} </span></p>
+                    <p class="font-sans font-medium text-xl text-[#181313] whitespace-nowrap">5. <span id="sb5" class="outline-none"> {{$sb_member_5->name}} </span></p>
+                    <p class="font-sans font-medium text-xl text-[#181313] whitespace-nowrap">6. <span id="sb6" class="outline-none"> {{$sb_member_6->name}} </span></p>
+                    <p class="font-sans font-medium text-xl text-[#181313] whitespace-nowrap">7. <span id="sb7" class="outline-none"> {{$sb_member_7->name}} </span></p>
                     <p class="font-sans font-normal text-base text-[#181313] italic whitespace-nowrap ml-1 -translate-y-1">Sangguniang Barangay Members</p>
                 </div>
             </div>

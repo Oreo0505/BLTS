@@ -125,7 +125,13 @@ class UpdateController extends Controller
         $captain = Author::where('term_id',$config->current_term)->where('position','Captain')->first();
         $secretary = Author::where('term_id',$config->current_term)->where('position','Secretary')->first();
         $chairman = Author::where('term_id',$config->current_term)->where('position','SK Chairman')->first();
-        $sb_members = Author::where('term_id',$config->current_term)->where('position','SB Member')->get();
+        $sb_member_1 = Author::where('term_id',$config->current_term)->where('position','SB Member 1')->first();
+        $sb_member_2 = Author::where('term_id',$config->current_term)->where('position','SB Member 2')->first();
+        $sb_member_3 = Author::where('term_id',$config->current_term)->where('position','SB Member 3')->first();
+        $sb_member_4 = Author::where('term_id',$config->current_term)->where('position','SB Member 4')->first();
+        $sb_member_5 = Author::where('term_id',$config->current_term)->where('position','SB Member 5')->first();
+        $sb_member_6 = Author::where('term_id',$config->current_term)->where('position','SB Member 6')->first();
+        $sb_member_7 = Author::where('term_id',$config->current_term)->where('position','SB Member 7')->first();
 
         if($captain->name != $request->captain){
             $captain->name = $request->captain;
@@ -142,22 +148,39 @@ class UpdateController extends Controller
             $chairman->save();
         }
 
-        $new_sb_members = [
-            $request->sb1,
-            $request->sb2,
-            $request->sb3,
-            $request->sb4,
-            $request->sb5,
-            $request->sb6,
-            $request->sb7
-        ];
-        $i = 0;
-        foreach($sb_members as $sb_member){
-            if($sb_member->name != $new_sb_members[$i]){
-                $sb_member->name = $new_sb_members[$i];
-                $sb_member->save();
-            }
-            $i++;
+        if($sb_member_1->name != $request->sb1){
+            $sb_member_1->name = $request->sb1;
+            $sb_member_1->save();
+        }
+
+        if($sb_member_2->name != $request->sb2){
+            $sb_member_2->name = $request->sb2;
+            $sb_member_2->save();
+        }
+
+        if($sb_member_3->name != $request->sb3){
+            $sb_member_3->name = $request->sb3;
+            $sb_member_3->save();
+        }
+
+        if($sb_member_4->name != $request->sb4){
+            $sb_member_4->name = $request->sb4;
+            $sb_member_4->save();
+        }
+
+        if($sb_member_5->name != $request->sb5){
+            $sb_member_5->name = $request->sb5;
+            $sb_member_5->save();
+        }
+
+        if($sb_member_6->name != $request->sb6){
+            $sb_member_6->name = $request->sb6;
+            $sb_member_6->save();
+        }
+
+        if($sb_member_7->name != $request->sb7){
+            $sb_member_7->name = $request->sb7;
+            $sb_member_7->save();
         }
 
         flash()->addSuccess('Profile Successfully Updated!');

@@ -84,7 +84,13 @@ class RedirectController extends Controller
         $captain = Author::where('term_id',$config->current_term)->where('position','Captain')->first();
         $secretary = Author::where('term_id',$config->current_term)->where('position','Secretary')->first();
         $chairman = Author::where('term_id',$config->current_term)->where('position','SK Chairman')->first();
-        $sb_members = Author::where('term_id',$config->current_term)->where('position','SB Member')->get();
+        $sb_member_1 = Author::where('term_id',$config->current_term)->where('position','SB Member 1')->first();
+        $sb_member_2 = Author::where('term_id',$config->current_term)->where('position','SB Member 2')->first();
+        $sb_member_3 = Author::where('term_id',$config->current_term)->where('position','SB Member 3')->first();
+        $sb_member_4 = Author::where('term_id',$config->current_term)->where('position','SB Member 4')->first();
+        $sb_member_5 = Author::where('term_id',$config->current_term)->where('position','SB Member 5')->first();
+        $sb_member_6 = Author::where('term_id',$config->current_term)->where('position','SB Member 6')->first();
+        $sb_member_7 = Author::where('term_id',$config->current_term)->where('position','SB Member 7')->first();
 
         return view('profile',[
             'barangay' => $config->barangay,
@@ -94,7 +100,13 @@ class RedirectController extends Controller
             'captain' => $captain,
             'secretary' => $secretary,
             'chairman' => $chairman,
-            'sb_members' => $sb_members
+            'sb_member_1' => $sb_member_1,
+            'sb_member_2' => $sb_member_2,
+            'sb_member_3' => $sb_member_3,
+            'sb_member_4' => $sb_member_4,
+            'sb_member_5' => $sb_member_5,
+            'sb_member_6' => $sb_member_6,
+            'sb_member_7' => $sb_member_7
         ]);
     }
 }

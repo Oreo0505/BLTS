@@ -94,13 +94,15 @@ class RenewController extends Controller
             $request->sb7,
         );
 
+        $i = 1;
         foreach($sb_members as $sb_member){
             $sb_form = [
                 'name' => $sb_member,
-                'position' => 'SB Member',
+                'position' => 'SB Member '.$i,
                 'term_id' => $current_term->id
             ];
             Author::create($sb_form);
+            $i++;
         }
 
         $chairman_form = [
