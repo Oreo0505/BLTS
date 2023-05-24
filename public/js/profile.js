@@ -52,6 +52,7 @@ function updateProfile(){
     sb5Field.setAttribute('contenteditable', true);
     sb6Field.setAttribute('contenteditable', true);
     sb7Field.setAttribute('contenteditable', true);
+    captainField.focus();
 }
 
 function submitUpdate(){
