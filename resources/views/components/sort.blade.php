@@ -1,4 +1,4 @@
-<img src="{{ asset('/images/sort.svg') }}" alt="" id="sort-button" class="cursor-pointer">
+<img src="{{ asset('/images/sort.svg') }}" alt="Sort" title="Sort" id="sort-button" class="cursor-pointer">
 <div id="sort-dropdown" class="hidden z-10 absolute flex-flex-col top-7 right-0 w-fit border border-[#888888] shadow-md bg-white">
     <div class="flex flex-col px-4 py-1 bg-[#F5F5F5] border-b border-[#888888]">
         <p class="font-sans font-normal text-sm">Sort by</p>
