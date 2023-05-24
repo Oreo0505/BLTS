@@ -48,3 +48,7 @@ Route::get('/search', [SearchController::class, 'search']);
 Route::get('/get/document', [FetchController::class, 'getDocument']);
 
 Route::get('/get/author', [FetchController::class, 'getAuthors']);
+
+Route::get('/profile', [RedirectController::class, 'redirectToProfilePage']);
+
+Route::post('/profile/update', [UpdateController::class, 'updateProfile']);

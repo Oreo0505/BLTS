@@ -15,6 +15,7 @@
             <div class="flex flex-col items-center justify-center mt-2.5">
                 <p class="font-sans font-normal text-2xl leading-9 tracking-wide text-white uppercase">{{ $barangay }}</p>
                 <p class="font-sans font-normal text-lg leading-9 tracking-wide text-white italic -translate-y-3">{{ $municipality }}, Marinduque</p>
+                <a href="/profile" class="font-sans font-semibold text-base leading-6 tracking-[0.4px] text-[#90CAF9] uppercase">VIEW PROFILE</a>
             </div>
             <a href="/browse?by=all" class="">
                 <div class="group flex flex-row h-11 justify-start items-center space-x-2 mb-2 hover:bg-[#508DB9]/10 mt-6">

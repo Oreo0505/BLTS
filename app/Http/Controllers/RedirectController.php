@@ -66,4 +66,35 @@ class RedirectController extends Controller
         }
         return view('renew');
     }
+
+    public function redirectToProfilePage(Request $request){
+        $config = Config::first();
+        if($config->first_time){
+            return redirect('/setup');
+        }
+
+        $current_term = Term::find($config->current_term);
+        if(date('Y-m-d') > $current_term->end){
+            return redirect('/renew');
+        }
+
+        $terms = Term::all();
+
+        $config = Config::first();
+        $captain = Author::where('term_id',$config->current_term)->where('position','Captain')->first();
+        $secretary = Author::where('term_id',$config->current_term)->where('position','Secretary')->first();
+        $chairman = Author::where('term_id',$config->current_term)->where('position','SK Chairman')->first();
+        $sb_members = Author::where('term_id',$config->current_term)->where('position','SB Member')->get();
+
+        return view('profile',[
+            'barangay' => $config->barangay,
+            'municipality' => $config->municipality,
+            'logo' => $config->logo,
+            'terms' => $terms,
+            'captain' => $captain,
+            'secretary' => $secretary,
+            'chairman' => $chairman,
+            'sb_members' => $sb_members
+        ]);
+    }
 }
