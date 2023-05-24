@@ -35,8 +35,8 @@
                     <img src="{{ asset('/images/government.svg') }}" alt="Barangay" class="h-6 w-6 translate-y-1">
                 </div>
                 <div class="flex flex-col">
-                    <p class="font-sans font-medium text-2xl text-[#181313] uppercase whitespace-nowrap">BANGBANGALON</p>
-                    <p class="font-sans font-normal text-base text-[#181313] italic whitespace-nowrap ml-1 -translate-y-1">Boac, Marinduque</p>
+                    <p class="font-sans font-medium text-2xl text-[#181313] uppercase whitespace-nowrap"> {{$barangay}} </p>
+                    <p class="font-sans font-normal text-base text-[#181313] italic whitespace-nowrap ml-1 -translate-y-1">{{$municipality}}, Marinduque</p>
                 </div>
             </div>
             <div class="flex flex-row space-x-2 items-center md:items-start">
