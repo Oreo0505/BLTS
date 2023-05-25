@@ -14,7 +14,7 @@ class CreateController extends Controller
 
     use Upload;
 
-    public function create(Request $request){
+    public function createDocument(Request $request){
         $validator = Validator::make($request->all(),[
             'title' => 'required',
             'type' => 'required|different:null',

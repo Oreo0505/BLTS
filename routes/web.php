@@ -25,7 +25,7 @@ use App\Http\Controllers\FetchController;
 
 Route::get('/', [RedirectController::class, 'redirectToHomepage']);
 
-Route::post('/upload', [CreateController::class, 'create']);
+Route::post('/upload', [CreateController::class, 'createDocument']);
 
 Route::post('/delete', [DeleteController::class, 'delete']);
 
