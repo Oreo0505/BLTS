@@ -52,3 +52,7 @@ Route::get('/get/author', [FetchController::class, 'getAuthors']);
 Route::get('/profile', [RedirectController::class, 'redirectToProfilePage']);
 
 Route::post('/profile/update', [UpdateController::class, 'updateProfile']);
+
+Route::get('/profile/add', [RedirectController::class, 'redirectToAddProfilePage']);
+
+Route::post('/profile/add/process', [CreateController::class, 'createTerm']);

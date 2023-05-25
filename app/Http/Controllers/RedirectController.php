@@ -130,4 +130,24 @@ class RedirectController extends Controller
             'sb_member_7' => $sb_member_7
         ]);
     }
+
+    public function redirectToAddProfilePage(){
+        $config = Config::first();
+        if($config->first_time){
+            return redirect('/setup');
+        }
+
+        $current_term = Term::find($config->current_term);
+        if(date('Y-m-d') > $current_term->end){
+            return redirect('/renew');
+        }
+
+        $terms = Term::all();
+        return view('add_profile',[
+            'barangay' => $config->barangay,
+            'municipality' => $config->municipality,
+            'logo' => $config->logo,
+            'terms' => $terms
+        ]);
+    }
 }

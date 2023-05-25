@@ -5,7 +5,7 @@
     </div>
     <div class="flex flex-col py-2">
         <div class="flex group cursor-pointer px-4 hover:bg-[#0B91FF]">
-            <button type="button" class="font-sans font-normal text-sm group-hover:text-white">Add Profiles for Previous Terms</button>
+            <a href="/profile/add" class="font-sans font-normal text-sm group-hover:text-white">Add Profiles for Previous Terms</a>
         </div>
         <div class="flex group cursor-pointer px-4 hover:bg-[#0B91FF]">
             <button type="button" id="previous-terms-button" class="w-full flex justify-between font-sans font-normal text-sm group-hover:text-white">
