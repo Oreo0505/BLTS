@@ -131,6 +131,7 @@ class SetupController extends Controller
         ];
         Author::create($chairman_form);
 
+        flash()->addSuccess('Application setup successful');
         return redirect('/');
     }
 }

@@ -112,6 +112,7 @@ class RenewController extends Controller
         ];
         Author::create($chairman_form);
 
+        flash()->addSuccess('Profile renewed successfully');
         return redirect('/');
     }
 }
