@@ -77,8 +77,8 @@
         </div>
     </div>
     <div class="flex flex-row space-x-2 justify-end mx-6 mt-8 pb-3 items-center">
-        <button id="search-filter" class="px-2 py-1.5 font-sans font-medium text-sm text-[#1976D2] hover:text-gray-400">SEARCH</button>
-        <button id="apply-filter" class="px-2 py-1.5 font-sans font-medium text-sm text-[#1976D2] hover:text-gray-400">APPLY</button>
+        <button id="search-filter" type="button" class="px-2 py-1.5 font-sans font-medium text-sm text-[#1976D2] hover:text-gray-400">SEARCH</button>
+        <button id="apply-filter" type="button" class="px-2 py-1.5 font-sans font-medium text-sm text-[#1976D2] hover:text-gray-400">APPLY</button>
     </div>
 </div>
 
