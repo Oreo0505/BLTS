@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="{{ asset('/css/flowbite.css') }}" rel="stylesheet">
     @vite('resources/css/app.css')
-    <title>Profile</title>
+    <title>Add Profile</title>
 </head>
 <body>
 
