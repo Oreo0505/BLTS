@@ -31,6 +31,8 @@ Route::post('/delete', [DeleteController::class, 'delete']);
 
 Route::post('/update', [UpdateController::class, 'update']);
 
+Route::post('/update/logo', [UpdateController::class, 'updateLogo']);
+
 Route::get('/download/{file_name}', [DownloadController::class, 'download']);
 
 Route::get('/setup', [RedirectController::class, 'redirectToSetupPage']);

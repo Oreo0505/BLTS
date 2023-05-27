@@ -9,9 +9,15 @@
                 </svg>                
                 <p class="text-sm font-medium text-[#90CAF9] font-sans cursor-pointer group-hover:text-white/70">CLOSE</p>
             </div>
-            <div class="flex items-center justify-center mt-9">
-                <img src="{{ $logo ? asset('/storage'.'/'.$logo) : asset('/images/default_logo.svg')}}" alt="" class="h-36">
+            <div id="logo-holder" class="group flex flex-col items-center justify-center mt-9 cursor-pointer">
+                <img src="{{ $logo ? asset('/storage'.'/'.$logo) : asset('/images/default_logo.svg')}}" alt="" class="h-36 group-hover:brightness-50">
+                <img src="{{ asset('/images/camera.svg') }}" alt="Update Logo" title="Update Logo" class="invisible absolute relative -top-24 group-hover:visible">
+                <p class="invisible absolute relative -top-20 rounded-md font-sans text-sm font-bold text-center text-white tracking-widest uppercase group-hover:visible">Update</p>
             </div>
+            <form action="/update/logo" method="POST" id="update-logo-form" enctype="multipart/form-data" class="hidden">
+                @csrf
+                <input type="file" id="update-logo-file" name="logo" accept="image/*" class="hidden">
+            </form>
             <div class="flex flex-col items-center justify-center mt-2.5">
                 <p class="font-sans font-normal text-2xl leading-9 tracking-wide text-white uppercase">{{ $barangay }}</p>
                 <p class="font-sans font-normal text-lg leading-9 tracking-wide text-white italic -translate-y-3">{{ $municipality }}, Marinduque</p>

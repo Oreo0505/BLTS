@@ -71,7 +71,7 @@ class UpdateController extends Controller
             $this->deleteFile($document->file);
             $file_name = date('Y_m_d_H_i_s').Str::random(10);
             $path = $this->UploadFile($request->file('file'), $file_name, 'Documents', 'public');
-            $document-> file = $path;
+            $document->file = $path;
         }
         $document->save();
         $document->authors()->sync($author_ids);
@@ -183,6 +183,29 @@ class UpdateController extends Controller
         }
 
         flash()->addSuccess('Profile Successfully Updated!');
+        return back();
+    }
+
+    public function updateLogo(Request $request){
+        $validator = Validator::make($request->all(),[
+            'logo' => 'required|mimes:jpg,bmp,png,svg',
+        ],
+        [
+            'logo.required' => 'Logo file is required',
+            'logo.mimes' => 'File must be a valid image file'
+        ]);
+        if($validator->fails()){
+            foreach($validator->messages()->all() as $message){
+                flash()->addError($message);
+            }
+            return back()->withInput();
+        }
+
+        $config = Config::first();
+        $path = $this->UploadFile($request->file('logo'), 'logo', 'Profile', 'public');
+        $config->logo = $path;
+        $config->save();
+        flash()->addSuccess('Logo successfully updated!');
         return back();
     }
 }
