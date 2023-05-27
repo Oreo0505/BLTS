@@ -1,4 +1,4 @@
-<div class="flex-flex-col space-y-1 w-full border-x border-b drop-shadow-sm shadow-sm">
+<div class="flex-flex-col w-full border-x border-b drop-shadow-sm shadow-sm">
     <div class="flex flex-row justify-between items-center px-4 pt-2 pb-1 bg-[#F5F5F5]">
         <p class="font-sans font-medium text-base text-left">{{$document->type}} No.{{$document->number}}, s. {{date('Y', strtotime($document->date))}}</p>
         
@@ -17,11 +17,11 @@
         @endif
 
     </div>
-    <p class="text-base font-normal uppercase text-black/60 px-4 pt-2">
+    <p class="text-base font-normal uppercase text-black/60 px-4 pt-2 bg-white">
         {{$document->title}}
     </p>
-    <div class="flex flex-col px-4 pb-2">
-        <p class="text-base font-bold text-black/60">
+    <div class="flex flex-col px-4 pb-2 bg-white">
+        <p class="text-base font-bold text-black/60 pt-2">
             Date of Enactment | {{date('M d, Y', strtotime($document->date))}}
         </p>
         <div class="flex flex-col justify-start items-end md:flex-row md:justify-between">
