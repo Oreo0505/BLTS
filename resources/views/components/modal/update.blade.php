@@ -53,7 +53,7 @@
                             <option value="Safety, Peace and Order" class="text-sm">Safety, Peace and Order</option>    
                             <option value="Social Protection and Sensitivity" class="text-sm">Social Protection and Sensitivity</option>  
                             <option value="Business-Friendliness and Competitiveness" class="text-sm">Business-Friendliness and Competitiveness</option>  
-                            <option value="Environmental Mannagement" class="text-sm">Environmental Mannagement</option>  
+                            <option value="Environmental Management" class="text-sm">Environmental Management</option>  
                         </select>
                         <label for="update-area" class="relative absolute -top-12 left-3 w-fit px-1 bg-white font-sans font-normal text-gray-700 text-[11px] leading-tight">
                             Governance Area
