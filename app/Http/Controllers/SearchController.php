@@ -27,6 +27,7 @@ class SearchController extends Controller
         }
 
         $parameters = [];
+        $valid_types = ['Code of Ordinance','Ordinance','Resolution'];
 
         if(strlen($request->search) > 0){
             $title_search = strtoupper($request->search);
@@ -69,24 +70,49 @@ class SearchController extends Controller
                     $keys = array_keys($parameters);
                 }
                 if(count($keys) <= 1){
-                    $documents_by_title->where(function($query) use ($keys){
-                        $query->where('type',ucwords($keys[0]));
+                    $documents_by_title->where(function($query) use ($keys, $valid_types){
+                        if($keys[0] != 'others'){
+                            $query->where('type',ucwords($keys[0]));
+                        }
+                        else{
+                            $query->whereNotIn('type', $valid_types);
+                        }
                     });
-                    $documents_by_author->where(function($query) use ($keys){
-                        $query->where('type',ucwords($keys[0]));
+                    $documents_by_author->where(function($query) use ($keys, $valid_types){
+                        if($keys[0] != 'others'){
+                            $query->where('type',ucwords($keys[0]));
+                        }
+                        else{
+                            $query->whereNotIn('type', $valid_types);
+                        }
                     });
                 }
                 else{
-                    $documents_by_title->where(function($query) use ($keys){
-                        $query->where('type', ucwords($keys[0]));
+                    $documents_by_title->where(function($query) use ($keys, $valid_types){
+                        if($keys[0] != 'others'){
+                            $query->where('type',ucwords($keys[0]));
+                        }
+                        else{
+                            $query->whereNotIn('type', $valid_types);
+                        }
                         for($i = 1; $i < count($keys); $i++){
-                            $query->orWhere('type',ucwords($keys[$i]));
+                            if($keys[$i] != 'others'){
+                                $query->orWhere('type',ucwords($keys[$i]));
+                            }
+                            else{
+                                $query->orWhereNotIn('type', $valid_types);
+                            }
                         }
                     });
-                    $documents_by_author->where(function($query) use ($keys){
+                    $documents_by_author->where(function($query) use ($keys, $valid_types){
                         $query->where('type', ucwords($keys[0]));
                         for($i = 1; $i < count($keys); $i++){
-                            $query->orWhere('type',ucwords($keys[$i]));
+                            if($keys[$i] != 'others'){
+                                $query->orWhere('type',ucwords($keys[$i]));
+                            }
+                            else{
+                                $query->orWhereNotIn('type', $valid_types);
+                            }
                         }
                     });
                 }
@@ -124,15 +150,30 @@ class SearchController extends Controller
                     $keys = array_keys($parameters);
                 }
                 if(count($keys) <= 1){
-                    $documents_query->where(function($query) use ($keys){
-                        $query->where('type',ucwords($keys[0]));
+                    $documents_query->where(function($query) use ($keys, $valid_types){
+                        if($keys[0] != 'others'){
+                            $query->where('type',ucwords($keys[0]));
+                        }
+                        else{
+                            $query->whereNotIn('type', $valid_types);
+                        }
                     });
                 }
                 else{
-                    $documents_query->where(function($query) use ($keys){
-                        $query->where('type', ucwords($keys[0]));
+                    $documents_query->where(function($query) use ($keys, $valid_types){
+                        if($keys[0] != 'others'){
+                            $query->where('type',ucwords($keys[0]));
+                        }
+                        else{
+                            $query->whereNotIn('type', $valid_types);
+                        }
                         for($i = 1; $i < count($keys); $i++){
-                            $query->orWhere('type',ucwords($keys[$i]));
+                            if($keys[$i] != 'others'){
+                                $query->orWhere('type',ucwords($keys[$i]));
+                            }
+                            else{
+                                $query->orWhereNotIn('type', $valid_types);
+                            }
                         }
                     });
                 }
