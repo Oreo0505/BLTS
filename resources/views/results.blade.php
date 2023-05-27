@@ -41,7 +41,8 @@
             </p>
         </div>
         <div class="flex space-x-4 justify-end">
-            <img src="{{ asset('/images/print.svg') }}" alt="print" title="Print Report" class="cursor-pointer">
+            <img src="{{ asset('/images/print.svg') }}" id="print-report" alt="Print Report" title="Print Report" class="cursor-pointer">
+            <x-modal.report-viewer/>
             <x-sort/>
         </div>
     </div>

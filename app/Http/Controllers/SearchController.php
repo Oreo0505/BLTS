@@ -8,9 +8,13 @@ use App\Models\Author;
 use App\Models\Document;
 use App\Models\Term;
 use App\Models\Config;
+use App\Traits\Report;
 
 class SearchController extends Controller
 {
+
+    use Report;
+
     public function search(Request $request){
         $config = Config::first();
         if($config->first_time){
@@ -21,6 +25,8 @@ class SearchController extends Controller
         if(date('Y-m-d') > $current_term->end){
             return redirect('/renew');
         }
+
+        $parameters = [];
 
         if(strlen($request->search) > 0){
             $title_search = strtoupper($request->search);
@@ -56,7 +62,6 @@ class SearchController extends Controller
                 $documents_by_author->where('area', $request->area);
             }
             if($request->has('code_of_ordinance') || $request->has('ordinance') || $request->has('resolution') || $request->has('others')){
-                $parameters = [];
                 foreach($request->all() as $key=>$value){
                     if($value == 'on'){
                         $parameters[$key] = $value;
@@ -112,7 +117,6 @@ class SearchController extends Controller
                 $documents_query->where('area', $request->area);
             }
             if($request->has('code_of_ordinance') || $request->has('ordinance') || $request->has('resolution') || $request->has('others')){
-                $parameters = [];
                 foreach($request->all() as $key=>$value){
                     if($value == 'on'){
                         $parameters[$key] = $value;
@@ -148,6 +152,14 @@ class SearchController extends Controller
         $authors = Author::where('term_id', $current_term->id)->whereNot('position','Secretary')->get();
 
         $terms = Term::all();
+
+        $filters = [
+            'administration' => $request->by != 'term' ? 'All' : $request->value,
+            'type' => $request->by != 'type' ? 'All' : $request->value,
+            'area' => $request->area,
+            'authors' => join(', ',explode(',',$request->authors))
+        ];
+        $this->CreateReport($documents, $filters);
 
         return view('results',[
             'barangay' => $config->barangay,

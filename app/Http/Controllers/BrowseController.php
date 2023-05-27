@@ -8,9 +8,13 @@ use App\Models\Author;
 use App\Models\Document;
 use App\Models\Term;
 use App\Models\Config;
+use App\Traits\Report;
 
 class BrowseController extends Controller
 {
+
+    use Report;
+
     public function browse(Request $request){
         $config = Config::first();
         if($config->first_time){
@@ -60,13 +64,22 @@ class BrowseController extends Controller
 
         $terms = Term::all();
 
+        $filters = [
+            'administration' => $request->by != 'term' ? 'All' : $request->value,
+            'type' => $request->by != 'type' ? 'All' : $request->value,
+            'area' => 'All',
+            'authors' => 'All'
+        ];
+        $this->CreateReport($documents, $filters);
+
         return view('results',[
             'barangay' => $config->barangay,
             'municipality' => $config->municipality,
             'logo' => $config->logo,
             'documents' => $documents,
             'authors' => $authors,
-            'terms' => $terms
+            'terms' => $terms,
+            'query' => $request->value
         ]);
     }
 }

@@ -18,6 +18,8 @@ return new class extends Migration
             $table->string('logo')->nullable();
             $table->foreignId('current_term')->nullable();
             $table->boolean('first_time');
+            $table->year('report_year');
+            $table->integer('current_report');
             $table->timestamps();
         });
     }
