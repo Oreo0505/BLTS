@@ -30,7 +30,7 @@ trait Report
             'documents' => $documents
         ]);
 
-        Storage::disk('local')->makeDirectory('/Reports');
+        Storage::disk('local')->makeDirectory('public/Reports');
         $pdf->save('storage/Reports/report.pdf');
     }
 
