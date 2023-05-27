@@ -42,7 +42,9 @@
         <div class="flex justify-start">
             <p class="text-xl text-[#181313] font-bold font-sans ">Documents</p>
         </div>
-        <div class="flex justify-end">
+        <div class="flex space-x-4 justify-end">
+            <img src="{{ asset('/images/print.svg') }}" id="print-report" alt="Print Report" title="Print Report" class="cursor-pointer">
+            <x-modal.report-viewer/>
             <x-sort/>
         </div>
     </div>

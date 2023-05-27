@@ -7,9 +7,13 @@ use App\Models\Author;
 use App\Models\Document;
 use App\Models\Term;
 use App\Models\Config;
+use App\Traits\Report;
 
 class RedirectController extends Controller
 {
+
+    use Report;
+
     public function redirectToHomepage(Request $request){
         $config = Config::first();
         if($config->first_time){
@@ -33,6 +37,18 @@ class RedirectController extends Controller
         $authors = Author::where('term_id', $current_term->id)->whereNot('position','Secretary')->get();
 
         $terms = Term::all();
+
+        $authors_names = [];
+        foreach($authors as $author){
+            array_push($authors_names, $author->name);
+        }
+        $filters = [
+            'administration' => date('Y',strtotime($start)).'-'.date('Y',strtotime($end)),
+            'type' => 'All',
+            'area' => 'All',
+            'authors' => join(', ', $authors_names)
+        ];
+        $this->CreateReport($documents, $filters);
 
         return view('welcome',[
             'barangay' => $config->barangay,
