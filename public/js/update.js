@@ -8,6 +8,8 @@ const updateSubmitButton = document.getElementById('update-submit');
 const updateIdField = document.getElementById('update-id');
 const updateTitleField = document.getElementById('update-title');
 const updateTypeField = document.getElementById('update-type');
+const updateSpecificContainer = document.getElementById('update-specific-container');
+const updateSpecificField = document.getElementById('update-specific');
 const updateNumberField = document.getElementById('update-number');
 const updateAreaField = document.getElementById('update-area');
 const updateDateField = document.getElementById('update-date');
@@ -108,6 +110,15 @@ window.addEventListener('keydown', function(event){
     }
 })
 
+updateTypeField.addEventListener('change', function(){
+    if(updateTypeField.value == 'Others'){
+        updateSpecificContainer.classList.remove('hidden');
+    }
+    else{
+        updateSpecificContainer.classList.add('hidden');
+    }
+});
+
 var dropdownOpened = false
 updateAuthorDropdown.addEventListener('click', function(){
     if(dropdownOpened){
@@ -142,10 +153,19 @@ for(let i = 0; i < updateButtons.length; i++){
     updateButtons[i].addEventListener('click', function(){
         var id = this.getAttribute('data-id');
         getDocument(id).then(data => {
-            console.log(data);
+            var types = ['Code of Ordinance','Ordinance','Resolution'];
             updateIdField.value = data['id'];
             updateTitleField.value = data['title'];
-            updateTypeField.value = data['type'];
+            if(!types.includes(data['type'])){
+                updateTypeField.value = 'Others';
+                updateSpecificContainer.classList.remove('hidden');
+                updateSpecificField.value = data['type'];
+            }
+            else{
+                updateSpecificContainer.classList.add('hidden');
+                updateSpecificField.value = '';
+                updateTypeField.value = data['type'];
+            }
             updateNumberField.value = data['number'];
             updateAreaField.value = data['area'];
             updateDateField.value = data['date'];
@@ -168,6 +188,10 @@ updateSubmitButton.addEventListener('click', function(){
     }
     if(updateTypeField.value == 'null'){
         alert('Please select document type');
+        return;
+    }
+    if(updateTypeField.value == 'Others' && updateSpecificField.value.length <= 0){
+        alert('Please specify document type');
         return;
     }
     if(updateNumberField.value.length <= 0){

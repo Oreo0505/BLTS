@@ -63,7 +63,7 @@ class UpdateController extends Controller
 
         $document = Document::where('id', $request->id)->first();
         $document->title = $request->title;
-        $document->type = $request->type;
+        $document->type = $request->type == 'Others' ? $request->specific : $request->type;
         $document->number = $request->number;
         $document->area = $request->area;
         $document->date = date("Y-m-d", strtotime($request->date));

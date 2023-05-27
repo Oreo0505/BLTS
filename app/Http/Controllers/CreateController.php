@@ -63,7 +63,7 @@ class CreateController extends Controller
         $path = $this->UploadFile($request->file('file'), $file_name, 'Documents', 'public');
         $document_form = [
             'title' => $request->title,
-            'type' => $request->type,
+            'type' => $request->type == 'Others' ? $request->specific : $request->type,
             'number' => $request->number,
             'area' => $request->area,
             'date' => date("Y-m-d", strtotime($request->date)),

@@ -7,6 +7,8 @@ const uploadCancelButton = document.getElementById('upload-cancel');
 const uploadSubmitButton = document.getElementById('upload-submit');
 const uploadTitleField = document.getElementById('upload-title');
 const uploadTypeField = document.getElementById('upload-type');
+const uploadSpecificContainer = document.getElementById('upload-specific-container');
+const uploadSpecificField = document.getElementById('upload-specific');
 const uploadNumberField = document.getElementById('upload-number');
 const uploadAreaField = document.getElementById('upload-area');
 const uploadDateField = document.getElementById('upload-date');
@@ -54,6 +56,15 @@ window.addEventListener('keydown', function(event){
     }
 })
 
+uploadTypeField.addEventListener('change', function(){
+    if(uploadTypeField.value == 'Others'){
+        uploadSpecificContainer.classList.remove('hidden');
+    }
+    else{
+        uploadSpecificContainer.classList.add('hidden');
+    }
+});
+
 uploadDateIcon.addEventListener('click', function(){
     uploadDateField.focus();
 })
@@ -86,6 +97,10 @@ uploadSubmitButton.addEventListener('click', function(){
     }
     if(uploadTypeField.value == 'null'){
         alert('Please select document type');
+        return;
+    }
+    if(uploadTypeField.value == 'Others' && uploadSpecificField.value.length <= 0){
+        alert('Please specify document type');
         return;
     }
     if(uploadNumberField.value.length <= 0){
