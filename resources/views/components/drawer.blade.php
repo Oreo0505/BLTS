@@ -24,12 +24,18 @@
                 <a href="/profile" class="font-sans font-semibold text-base leading-6 tracking-[0.4px] text-[#90CAF9] uppercase">VIEW PROFILE</a>
             </div>
             <a href="/browse?by=all" class="">
-                <div class="group flex flex-row h-11 justify-start items-center space-x-2 mb-2 hover:bg-[#508DB9]/10 mt-6">
+                <div class="group flex flex-row py-3 justify-start items-center space-x-2 hover:bg-[#508DB9]/10 mt-6">
                     <img src="{{ asset('/images/folder.svg') }}" alt="" class="h-4 w-4">
                     <p class="font-sans text-sm font-base text-white opacity-70 cursor-pointer group-hover:text-[#90CAF9]">All</p>
                 </div>
             </a>
-            <div class="flex justify-start">
+            <a href="/trash" class="">
+                <div class="group flex flex-row py-3 justify-start items-center space-x-2 hover:bg-[#508DB9]/10">
+                    <img src="{{ asset('/images/bin.svg') }}" alt="" class="h-4 w-4">
+                    <p class="font-sans text-sm font-base text-white opacity-70 cursor-pointer group-hover:text-[#90CAF9]">Deleted</p>
+                </div>
+            </a>
+            <div class="flex justify-start mt-6">
                 <p class="font-sans text-sm font-medium text-[#90CAF9]">BROWSE BY...</p>
             </div>
             <div class="flex flex-row h-12 justify-start items-center space-x-2 py-4">

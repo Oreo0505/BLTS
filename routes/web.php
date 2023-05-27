@@ -11,6 +11,7 @@ use App\Http\Controllers\RenewController;
 use App\Http\Controllers\BrowseController;
 use App\Http\Controllers\SearchController;
 use App\Http\Controllers\FetchController;
+use App\Http\Controllers\RestoreController;
 
 /*
 |--------------------------------------------------------------------------
@@ -58,3 +59,7 @@ Route::post('/profile/update', [UpdateController::class, 'updateProfile']);
 Route::get('/profile/add', [RedirectController::class, 'redirectToAddProfilePage']);
 
 Route::post('/profile/add/process', [CreateController::class, 'createTerm']);
+
+Route::get('/trash', [RedirectController::class, 'redirectToTrashPage']);
+
+Route::post('/restore', [RestoreController::class, 'restore']);

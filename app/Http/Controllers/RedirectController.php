@@ -150,4 +150,38 @@ class RedirectController extends Controller
             'terms' => $terms
         ]);
     }
+
+    public function redirectToTrashPage(Request $request){
+        $config = Config::first();
+        if($config->first_time){
+            return redirect('/setup');
+        }
+
+        $current_term = Term::find($config->current_term);
+        if(date('Y-m-d') > $current_term->end){
+            return redirect('/renew');
+        }
+
+        $start = $current_term->start;
+        $end = $current_term->end;
+        if($request->has('filter')){
+            $filter = explode('-', $request->filter);
+            $documents = Document::with('authors')->onlyTrashed()->whereBetween('date',[$start, $end])->orderBy($filter[0],$filter[1])->get();
+        }
+        else{
+            $documents = Document::with('authors')->onlyTrashed()->whereBetween('date',[$start, $end])->latest()->get();
+        }
+        $authors = Author::where('term_id', $current_term->id)->whereNot('position','Secretary')->get();
+
+        $terms = Term::all();
+
+        return view('trash',[
+            'barangay' => $config->barangay,
+            'municipality' => $config->municipality,
+            'logo' => $config->logo,
+            'documents' => $documents,
+            'authors' => $authors,
+            'terms' => $terms
+        ]);
+    }
 }
