@@ -102,6 +102,7 @@ function changefilterAuthorDropmenu(authors){
         }
         filterAuthorDropmenu.appendChild(list);
 
+        var authors = [];
         var authorCheckboxes = document.querySelectorAll('.filter-author');
         for(let i = 0; i < authorCheckboxes.length; i++){
             authors.push(authorCheckboxes[i].value);
@@ -109,10 +110,20 @@ function changefilterAuthorDropmenu(authors){
         }
         for(let i = 0; i < authorCheckboxes.length; i++){
             authorCheckboxes[i].addEventListener('change', function(){
-                var authors = [];
+                authors = [];
+                var authorsSelected = 0;
                 for(let j = 0; j < authorCheckboxes.length; j++){
                     if(authorCheckboxes[j].checked){
                         authors.push(authorCheckboxes[j].value);
+                        authorsSelected++;
+                    }
+                    else{
+                        if(selectAllInput.checked){
+                            selectAllInput.checked = false;
+                        }
+                    }
+                    if(authorsSelected == authorCheckboxes.length){
+                        selectAllInput.checked = true;
                     }
                 }
                 filterAuthorsField.value = authors.join(',');
@@ -122,6 +133,7 @@ function changefilterAuthorDropmenu(authors){
         var selectAllInput = selectAllOption.querySelector('#filter-author-all');
         selectAllInput.addEventListener('change', function(){
             if(this.checked){
+                authors = [];
                 for(let i = 0; i < authorCheckboxes.length; i++){
                     authorCheckboxes[i].checked = true;
                 }
@@ -134,6 +146,7 @@ function changefilterAuthorDropmenu(authors){
                 for(let i = 0; i < authorCheckboxes.length; i++){
                     authorCheckboxes[i].checked = false;
                 }
+                authors = [];
                 filterAuthorsField.value = '';
             }
         });
