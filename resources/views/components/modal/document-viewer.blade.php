@@ -2,4 +2,4 @@
     <iframe id="viewer-frame" src ="" class="h-full w-full"></iframe>
 </div>
 
-<script src="{{ asset('/js/viewer.js') }}"></script>
+<script src="{{ asset('/js/document_viewer.js') }}"></script>
