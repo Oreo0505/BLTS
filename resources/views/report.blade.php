@@ -90,20 +90,12 @@
                     </div>
                     <div class="table-cell text-center align-middle text-sm">
 
-                        @php
-                            $authors = [];
-                        @endphp
                         @foreach($document->authors as $author)
-                            @php
-                                array_push($authors, $author->name);
-                            @endphp
+                            {{$author->name}}<br>
                         @endforeach
-                        {{join(", ", $authors)}}
-                        @php
-                            if(count($authors) <= 0){
+                        @if(count($document->authors) <= 0)
                                 echo "No author";
-                            }
-                        @endphp
+                        @endif
 
                     </div>
                     <div class="table-cell font-sans text-center align-middle text-sm">{{date('M d, Y',strtotime($document->date))}}</div>
