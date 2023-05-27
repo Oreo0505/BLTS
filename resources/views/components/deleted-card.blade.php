@@ -2,18 +2,18 @@
     <div class="flex flex-row justify-between items-center px-4 pt-2 pb-1 bg-[#F5F5F5]">
         <p class="font-sans font-medium text-base text-left">{{$document->type}} No.{{$document->number}}, s. {{date('Y', strtotime($document->date))}}</p>
         
-        @if($document->type == 'Financial Administration and Sustainability')
+        @if($document->area == 'Financial Administration and Sustainability')
             <img src="{{ asset('/images/Financial_Administration_and_Sustainability.svg') }}" alt="" class="h-8 w-8">
-        @elseif($document->type == 'Disaster Preparedness')
+        @elseif($document->area == 'Disaster Preparedness')
             <img src="{{ asset('/images/Disaster_Preparedness.svg') }}" alt="" class="h-8 w-8">
-        @elseif($document->type == 'Safety, Peace and Order')
+        @elseif($document->area == 'Safety, Peace and Order')
             <img src="{{ asset('/images/Safety_Peace_and_Order.svg') }}" alt="" class="h-8 w-8">
-        @elseif($document->type == 'Social Protection and Sensitivity')
+        @elseif($document->area == 'Social Protection and Sensitivity')
             <img src="{{ asset('/images/Social_Protection_and_Sensitivity.svg') }}" alt="" class="h-8 w-8">
-        @elseif($document->type == 'Business-Friendliness and Competitiveness')
+        @elseif($document->area == 'Business-Friendliness and Competitiveness')
             <img src="{{ asset('/images/Business_Friendliness_and_Competitiveness.svg') }}" alt="" class="h-8 w-8">
-        @elseif($document->type == 'Environmental Mannagement')
-            <img src="{{ asset('/images/Environmental_Mannagement.svg') }}" alt="" class="h-8 w-8">
+        @elseif($document->area == 'Environmental Management')
+            <img src="{{ asset('/images/Environmental_Management.svg') }}" alt="" class="h-8 w-8">
         @endif
 
     </div>
