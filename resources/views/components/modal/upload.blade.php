@@ -103,8 +103,8 @@
         </div> 
     </form>
     <div class="flex flex-row justify-end self-end space-x-2 mx-6 px-2 pb-3">
-        <button id="upload-cancel" class="px-2 py-1.5 font-sans font-medium text-sm text-[#1976D2] hover:text-gray-400">SEARCH</button>
-        <button id="upload-submit" class="px-2 py-1.5 font-sans font-medium text-sm text-[#1976D2] hover:text-gray-400">APPLY</button>
+        <button id="upload-cancel" type="button" class="px-2 py-1.5 font-sans font-medium text-sm text-[#1976D2] hover:text-gray-400">CANCEL</button>
+        <button id="upload-submit" type="button" class="px-2 py-1.5 font-sans font-medium text-sm text-[#1976D2] hover:text-gray-400">UPLOAD</button>
     </div>
 </div>
 
