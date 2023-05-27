@@ -1,22 +1,21 @@
-const body = document.body;
-const confirmOverlay = document.getElementById('confirm-overlay');
-const confirmModal = document.getElementById('confirm');
+const confirmDeleteOverlay = document.getElementById('confirm-delete-overlay');
+const confirmDeleteModal = document.getElementById('confirm-delete');
 const deleteButtons = document.querySelectorAll('.delete');
-const confirmButton = document.getElementById('delete-true');
+const confirmDeleteButton = document.getElementById('delete-true');
 const backButton = document.getElementById('delete-false');
 const deleteForm = document.getElementById('delete-form');
-const idField = document.getElementById('delete-id');
+const deletedIdField = document.getElementById('delete-id');
 var activeCardId = -1;
 
 var confirmModalOpened = false;
 function openConfirmModal(){
     if(!confirmModalOpened){
-        confirmOverlay.classList.remove('hidden');
-        confirmModal.classList.remove('hidden','fadeOut');
-        confirmModal.classList.add('fadeIn');
+        confirmDeleteOverlay.classList.remove('hidden');
+        confirmDeleteModal.classList.remove('hidden','fadeOut');
+        confirmDeleteModal.classList.add('fadeIn');
         setTimeout(() => {
-            if(confirmModal.classList.contains('hidden')){
-                confirmModal.classList.remove('hidden');
+            if(confirmDeleteModal.classList.contains('hidden')){
+                confirmDeleteModal.classList.remove('hidden');
             }
         }, 1000);
         confirmModalOpened = true;
@@ -25,11 +24,11 @@ function openConfirmModal(){
 
 function closeConfirmModal(){
     if(confirmModalOpened){
-        confirmOverlay.classList.add('hidden');
-        confirmModal.classList.remove('fadeIn');
-        confirmModal.classList.add('fadeOut');
+        confirmDeleteOverlay.classList.add('hidden');
+        confirmDeleteModal.classList.remove('fadeIn');
+        confirmDeleteModal.classList.add('fadeOut');
         setTimeout(() => {
-            confirmModal.classList.add('hidden');
+            confirmDeleteModal.classList.add('hidden');
         }, 1000);
         confirmModalOpened = false;    
     }
@@ -42,7 +41,7 @@ for(let i = 0; i < deleteButtons.length; i++){
     });
 }
 
-confirmOverlay.addEventListener('click', closeConfirmModal);
+confirmDeleteOverlay.addEventListener('click', closeConfirmModal);
 backButton.addEventListener('click', closeConfirmModal);
 window.addEventListener('keydown', function(event){
     if(event.key == 'Escape'){
@@ -50,7 +49,7 @@ window.addEventListener('keydown', function(event){
     }
 });
 
-confirmButton.addEventListener('click', function(){
-    idField.value = activeCardId;
+confirmDeleteButton.addEventListener('click', function(){
+    deletedIdField.value = activeCardId;
     deleteForm.submit();
 });
