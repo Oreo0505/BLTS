@@ -64,6 +64,8 @@ function closeUpdateModal(){
         updateModalOpened = false;
         updateTitleField.value = '';
         updateTypeField.value = 'null';
+        updateSpecificContainer.classList.add('hidden');
+        updateSpecificField.value = '';
         updateNumberField.value = '';
         updateAreaField.value = 'null';
         updateDateField.value = '';
@@ -103,6 +105,7 @@ function showFileLabel(filename){
 }
 
 updateExitButton.addEventListener('click', closeUpdateModal);
+updateCancelButton.addEventListener('click', closeUpdateModal);
 updateOverlay.addEventListener('click',closeUpdateModal);
 window.addEventListener('keydown', function(event){
     if(event.key == 'Escape'){
@@ -162,8 +165,6 @@ for(let i = 0; i < updateButtons.length; i++){
                 updateSpecificField.value = data['type'];
             }
             else{
-                updateSpecificContainer.classList.add('hidden');
-                updateSpecificField.value = '';
                 updateTypeField.value = data['type'];
             }
             updateNumberField.value = data['number'];
