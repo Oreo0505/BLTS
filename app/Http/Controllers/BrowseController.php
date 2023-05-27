@@ -33,6 +33,9 @@ class BrowseController extends Controller
             $term = Term::find($request->value);
             $documents = Document::with('authors')->whereBetween('date',[$term->start,$term->end]);
         }
+        else if($request->by == 'area'){
+            $documents = Document::with('authors')->where('area',$request->value);
+        }
         else if($request->by == 'all'){
             $documents = Document::latest()->get();
         }

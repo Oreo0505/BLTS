@@ -58,6 +58,40 @@
             </a>
             <div class="flex flex-row h-12 justify-start items-center space-x-2 py-4">
                 <img src="{{ asset('/images/folder.svg') }}" alt="" class="h-4 w-4">
+                <p class="font-sans text-sm font-base text-[#90CAF9]">Governance Areas</p>
+            </div>
+            <a href="/browse?by=area&value=Financial Administration and Sustainability">
+                <div class="group flex flex-row h-11 justify-start items-center space-x-2 pl-6 py-4 hover:bg-[#508DB9]/10">
+                    <p class="font-sans text-sm font-base text-white opacity-70 cursor-pointer group-hover:text-[#90CAF9]">Financial Administration and Sustainability</p>
+                </div>
+            </a>
+            <a href="/browse?by=area&value=Disaster Preparedness">
+                <div class="group flex flex-row h-11 justify-start items-center space-x-2 pl-6 py-4 hover:bg-[#508DB9]/10">
+                    <p class="font-sans text-sm font-base text-white opacity-70 cursor-pointer group-hover:text-[#90CAF9]">Disaster Preparedness</p>
+                </div>
+            </a>
+            <a href="/browse?by=area&value=Safety, Peace and Order" class="">
+                <div class="group flex flex-row h-11 justify-start items-center space-x-2 pl-6 py-4 hover:bg-[#508DB9]/10">
+                    <p class="font-sans text-sm font-base text-white opacity-70 cursor-pointer group-hover:text-[#90CAF9]">Safety, Peace and Order</p>
+                </div>            
+            </a>
+            <a href="/browse?by=area&value=Social Protection and Sensitivity" class="">
+                <div class="group flex flex-row h-11 justify-start items-center space-x-2 pl-6 py-4 hover:bg-[#508DB9]/10">
+                    <p class="font-sans text-sm font-base text-white opacity-70 cursor-pointer group-hover:text-[#90CAF9]">Social Protection and Sensitivity</p>
+                </div>            
+            </a>
+            <a href="/browse?by=area&value=Business-Friendliness and Competitiveness" class="">
+                <div class="group flex flex-row h-11 justify-start items-center space-x-2 pl-6 py-4 hover:bg-[#508DB9]/10">
+                    <p class="font-sans text-sm font-base text-white opacity-70 cursor-pointer group-hover:text-[#90CAF9]">Business-Friendliness and Competitiveness</p>
+                </div>            
+            </a>
+            <a href="/browse?by=area&value=Environmental Mannagement" class="">
+                <div class="group flex flex-row h-11 justify-start items-center space-x-2 pl-6 py-4 hover:bg-[#508DB9]/10">
+                    <p class="font-sans text-sm font-base text-white opacity-70 cursor-pointer group-hover:text-[#90CAF9]">Environmental Mannagement</p>
+                </div>            
+            </a>
+            <div class="flex flex-row h-12 justify-start items-center space-x-2 py-4">
+                <img src="{{ asset('/images/folder.svg') }}" alt="" class="h-4 w-4">
                 <p class="font-sans text-sm font-base text-[#90CAF9]">Administration Year</p>
             </div>
 
