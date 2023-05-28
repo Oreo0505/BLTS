@@ -19,11 +19,11 @@
     </div>
     <div class="hidden items-center mr-3 justify-end w-1/4 space-x-6 md:flex">
         <a href="/" class="">
-            <img src="{{ asset('/images/home.svg') }}" alt="Home" title="Home" class="h-6 cursor-pointer">        
+            <img src="{{ asset('/images/home.svg') }}" alt="Home" title="Home" class="h-6 cursor-pointer rounded-full hover:bg-gray-50/10">        
         </a>
-        <img id="enter-fullscreen" src="{{ asset('/images/enter_fullscreen.svg') }}" alt="Enter Fullscreen" title="Enter Fullscreen" class="h-6 cursor-pointer">
-        <img id="exit-fullscreen" src="{{ asset('/images/exit_fullscreen.svg') }}" alt="Exit Fullscreen" title="Exit Fullscreen" class="h-6 cursor-pointer hidden">
-        <img id="close-viewer" src="{{ asset('/images/close.svg') }}" alt="Close Viewer" title="Close Viewer" class="hidden h-6 scale-125 cursor-pointer">
+        <img id="enter-fullscreen" src="{{ asset('/images/enter_fullscreen.svg') }}" alt="Enter Fullscreen" title="Enter Fullscreen" class="h-6 cursor-pointer rounded-full hover:bg-gray-50/10">
+        <img id="exit-fullscreen" src="{{ asset('/images/exit_fullscreen.svg') }}" alt="Exit Fullscreen" title="Exit Fullscreen" class="h-6 cursor-pointer hidden rounded-full hover:bg-gray-50/10">
+        <img id="close-viewer" src="{{ asset('/images/close.svg') }}" alt="Close Viewer" title="Close Viewer" class="hidden h-6 scale-125 cursor-pointer rounded-full hover:bg-gray-50/10">
     </div>
 </nav>
 
