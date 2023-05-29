@@ -21,7 +21,8 @@ class FetchController extends Controller
             'area' => $document->area,
             'date' => $document->date,
             'file' => $document->file,
-            'authors' => $document->authors->pluck('name')
+            'authors' => $document->authors->pluck('name'),
+            'term' => date('Y', strtotime($document->term->start)).'-'.date('Y', strtotime($document->term->end))
         ]);
     }
 
