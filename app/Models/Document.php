@@ -11,7 +11,7 @@ class Document extends Model
     use HasFactory;
     use SoftDeletes;
     
-    // protected $appends = ['current'];
+    protected $appends = ['term'];
 
     protected $fillable = [
         'title',
@@ -31,5 +31,11 @@ class Document extends Model
         $current_term = Term::find($config->current_term);
         $current = $this->date >= $current_term->start && $this->date <= $current_term->end ? true : false;
         return $current;
+    }
+
+    public function getTermAttribute(){
+        $date = $this->date;
+        $term = Term::where('start','<=',$date)->where('end','>=',$date)->first();
+        return $term;
     }
 }
