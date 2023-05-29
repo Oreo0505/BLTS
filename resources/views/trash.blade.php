@@ -70,7 +70,7 @@
     {{-- Confirm Modal --}}
     <x-modal.confirm-restore/>
     
-    <img src="{{ asset('/images/accent-1.svg') }}" alt="" class="fixed bottom-0 left-0 rotate-180">
+    <img src="{{ asset('/images/accent-1.svg') }}" alt="" class="fixed -z-10 bottom-0 left-0 rotate-180">
 
     <script src="{{ asset('/js/flowbite.js') }}"></script>
     <script src="{{ asset('/js/datepicker.js') }}"></script>

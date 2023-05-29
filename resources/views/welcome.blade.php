@@ -27,7 +27,7 @@
     </button>
 
     {{-- Upload Modal --}}
-    <x-modal.upload :authors="$authors"/>
+    <x-modal.upload :terms="$terms"/>
 
     {{-- Hero --}}
     <div id="hero" class="h-48 mt-16">
@@ -67,12 +67,12 @@
     <x-modal.document-viewer/>
 
     {{-- Update Modal --}}
-    <x-modal.update :authors="$authors"/>
+    <x-modal.update :terms="$terms"/>
 
     {{-- Confirm Modal --}}
     <x-modal.confirm-delete/>
     
-    <img src="{{ asset('/images/accent-1.svg') }}" alt="" class="fixed bottom-0 left-0 rotate-180">
+    <img src="{{ asset('/images/accent-1.svg') }}" alt="" class="fixed -z-10 bottom-0 left-0 rotate-180">
 
     <script src="{{ asset('/js/flowbite.js') }}"></script>
     <script src="{{ asset('/js/datepicker.js') }}"></script>

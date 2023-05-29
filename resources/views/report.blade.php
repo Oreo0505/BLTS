@@ -10,12 +10,12 @@
 </head>
 <body>
     <header class="w-full h-28 border-b-2" style="border-color: black">
-        <img src="{{ asset('/images/default_logo.png') }}" class="absolute top-4 left-8 h-20">
+        <img src={{ $logo ? asset('/storage'.'/'.$logo) : asset('/images/default_logo.png')}} class="absolute top-4 left-8 h-20">
         <p class="absolute top-9 left-28 ml-4 my-auto font-sans font-bold text-[12px] uppercase text-left align-middle">
-            SANGGUNIANG BARANGAY NG BANGBANGALON
+            SANGGUNIANG BARANGAY NG {{$barangay}}
         </p>
         <p class="absolute top-14 left-28 ml-4 my-auto font-sans font-normal text-10px text-left align-middle">
-            Boac, Marinduque
+            {{$municipality}}, Marinduque
         </p>
         <p class="absolute right-8 font-sans font-xs text-xs italic align-top">Date Generated: {{date('m/d/Y')}}</p>
         <hr class="absolute top-16"/>
@@ -25,7 +25,7 @@
         BARANGAY LEGISLATIVE TRACKING SYSTEM (BLTS)
     </p>
     <p class="font-sans font-bold text-[12px] text-center uppercase">
-        REPORT NO. {{$year}}-{{sprintf("%02d", $number)}}
+        REPORT
     </p>
     <p class="mt-16 mb-2 font-sans font-bold text-sm">Filters Applied</p>
     <div class="w-full">

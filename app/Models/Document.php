@@ -11,6 +11,8 @@ class Document extends Model
     use HasFactory;
     use SoftDeletes;
     
+    protected $appends = ['term'];
+
     protected $fillable = [
         'title',
         'type',
@@ -22,5 +24,18 @@ class Document extends Model
 
     public function authors(){
         return $this->belongsToMany(Author::class, 'authors_documents', 'documents_id', 'authors_id');
+    }
+
+    public function isInCurrentTerm(){
+        $config = Config::first();
+        $current_term = Term::find($config->current_term);
+        $current = $this->date >= $current_term->start && $this->date <= $current_term->end ? true : false;
+        return $current;
+    }
+
+    public function getTermAttribute(){
+        $date = $this->date;
+        $term = Term::where('start','<=',$date)->where('end','>=',$date)->first();
+        return $term;
     }
 }

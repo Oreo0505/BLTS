@@ -26,8 +26,14 @@
     </div>
 
     <div class="flex flex-col space-y-3 w-fit justify-start mx-auto mt-20 md:flex-row md:space-x-3 md:space-y-0">
-        <div class="flex p-2 justify-center">
-            <img src="{{ asset('/images/default_logo.svg') }}" alt="Barangay Logo" class="h-36 w-36">
+        <div id="logo-holder" class="group flex flex-col p-2 justify-center cursor-pointer">
+            <img src="{{ $logo ? asset('/storage'.'/'.$logo) : asset('/images/default_logo.svg')}}" alt="" class="h-36 w-36 group-hover:brightness-50">
+            <img src="{{ asset('/images/camera.svg') }}" alt="Update Logo" title="Update Logo" class="invisible h-4 absolute relative -top-24 group-hover:visible">
+            <p class="invisible absolute relative -top-20 rounded-md font-sans text-sm font-bold text-center text-white tracking-widest uppercase group-hover:visible">Update</p>
+            <form action="/update/logo" method="POST" id="update-logo-form" enctype="multipart/form-data" class="hidden">
+                @csrf
+                <input type="file" id="update-logo-file" name="logo" accept="image/*" class="hidden">
+            </form>
         </div>
         <div class="flex flex-col space-y-4 w-fit items-center p-2 md:items-start">
             <div class="flex flex-row space-x-2 items-start">

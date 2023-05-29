@@ -14,9 +14,10 @@ const updateNumberField = document.getElementById('update-number');
 const updateAreaField = document.getElementById('update-area');
 const updateDateField = document.getElementById('update-date');
 const updateDateIcon = document.getElementById('update-date-icon');
+const updateTermField = document.getElementById('update-term');
 const updateAuthorDropdown = document.getElementById('update-author-dropdown');
 const updateAuthorDropmenu = document.getElementById('update-author-dropmenu');
-const updateAuthorOptions = document.querySelectorAll('.update-author');
+const updateAuthorList = document.getElementById('update-author-list');
 const updateAuthorsField = document.getElementById('update-authors');
 const updateFileField = document.getElementById('update-file');
 const updateDropzone = document.getElementById('update-dropzone');
@@ -36,6 +37,38 @@ async function getDocument(id){
     
     const data = await response.json();
     return data;
+}
+
+async function getAuthors(value){
+    const response = await fetch(
+        '/get/author?value='+value,
+        {
+            method: 'GET'
+        }
+    );
+
+    if(!response.ok){
+        throw new Error(`HTTP error! status: ${response.status}`);
+    }
+    
+    const data = await response.json();
+    return data['authors'];
+}
+
+async function getTerm(value){
+    const response = await fetch(
+        '/get/term?value='+value,
+        {
+            method: 'GET'
+        }
+    );
+
+    if(!response.ok){
+        throw new Error(`HTTP error! status: ${response.status}`);
+    }
+    
+    const data = await response.json();
+    return data['term'];
 }
 
 var updateModalOpened = false;
@@ -69,9 +102,7 @@ function closeUpdateModal(){
         updateNumberField.value = '';
         updateAreaField.value = 'null';
         updateDateField.value = '';
-        for(let i = 0; i < updateAuthorOptions.length; i++){
-            updateAuthorOptions[i].checked = false;
-        }
+        updateAuthorList.innerHTML = '';
         updateFileField.value = '';
         var dataTransfer = new DataTransfer();
         updateFileField.files = dataTransfer.files;
@@ -122,6 +153,10 @@ updateTypeField.addEventListener('change', function(){
     }
 });
 
+updateDateIcon.addEventListener('click', function(){
+    updateDateField.focus();
+})
+
 var dropdownOpened = false
 updateAuthorDropdown.addEventListener('click', function(){
     if(dropdownOpened){
@@ -152,79 +187,71 @@ updateFileField.addEventListener('change', function(){
     showFileLabel(updateFileField.files[0].name);
 });
 
-for(let i = 0; i < updateButtons.length; i++){
-    updateButtons[i].addEventListener('click', function(){
-        var id = this.getAttribute('data-id');
-        getDocument(id).then(data => {
-            var types = ['Code of Ordinance','Ordinance','Resolution'];
-            updateIdField.value = data['id'];
-            updateTitleField.value = data['title'];
-            if(!types.includes(data['type'])){
-                updateTypeField.value = 'Others';
-                updateSpecificContainer.classList.remove('hidden');
-                updateSpecificField.value = data['type'];
-            }
-            else{
-                updateTypeField.value = data['type'];
-            }
-            updateNumberField.value = data['number'];
-            updateAreaField.value = data['area'];
-            updateDateField.value = data['date'];
-            for(let i = 0; i < updateAuthorOptions.length; i++){
-                if(data['authors'].includes(updateAuthorOptions[i].value)){
-                    updateAuthorOptions[i].checked = true;
-                }
-            }
-            loadURLToInputField('/storage/'+data['file'],data['file'].substring(10));
-            showFileLabel(data['file'].substring(10));
-        });
-        openUpdateModal();
-    });
-}
-
 updateSubmitButton.addEventListener('click', function(){
-    if(updateTitleField.value.length < 3){
-        alert('Title should be 3 or more character long');
-        return;
-    }
-    if(updateTypeField.value == 'null'){
-        alert('Please select document type');
-        return;
-    }
-    if(updateTypeField.value == 'Others' && updateSpecificField.value.length <= 0){
-        alert('Please specify document type');
-        return;
-    }
-    if(updateNumberField.value.length <= 0){
-        alert('Please enter document number');
-        return;
-    }
-    if(isNaN(updateNumberField.value)){
-        alert('Number field can only contain digits');
-        return;
-    }
-    if(updateAreaField.value == 'null'){
-        alert('Please select area of governance');
-        return;
-    }
-    if(updateDateField.value.length <= 0){
-        alert('Please select document date');
-        return;
-    }
-    var authors = []
-    for(let i = 0; i < updateAuthorOptions.length; i++){
-        if(updateAuthorOptions[i].checked){
-            authors.push(updateAuthorOptions[i].value);
+    getTerm(updateTermField.value).then(term => {
+        if(updateTitleField.value.length < 3){
+            alert('Title should be 3 or more character long');
+            return;
         }
-    }
-    if(updateFileField.files.length == 0){
-        alert('Please upload a file');
-        return;
-    }
-    updateTitleField.value = updateTitleField.value.toUpperCase();
-    updateAuthorsField.value = authors.join(',');
-    updateForm.submit();
+        if(updateTypeField.value == 'null'){
+            alert('Please select document type');
+            return;
+        }
+        if(updateTypeField.value == 'Others' && updateSpecificField.value.length <= 0){
+            alert('Please specify document type');
+            return;
+        }
+        if(updateNumberField.value.length <= 0){
+            alert('Please enter document number');
+            return;
+        }
+        if(isNaN(updateNumberField.value)){
+            alert('Number field can only contain digits');
+            return;
+        }
+        if(updateAreaField.value == 'null'){
+            alert('Please select area of governance');
+            return;
+        }
+        if(updateDateField.value.length <= 0){
+            alert('Please select document date');
+            return;
+        }
+        let start = new Date(term['start']);
+        let end = new Date(term['end']);
+        let dateSelected = new Date(updateDateField.value);
+        if(!(dateSelected >= start && dateSelected <= end)){
+            alert('Date enacted / adopted should be within the selected administrative term duration range');
+            return;
+        }
+        var updateAuthorOptions = document.querySelectorAll('.update-author');
+        var authors = []
+        for(let i = 0; i < updateAuthorOptions.length; i++){
+            if(updateAuthorOptions[i].checked){
+                authors.push(updateAuthorOptions[i].value);
+            }
+        }
+        if(updateFileField.files.length == 0){
+            alert('Please upload a file');
+            return;
+        }
+        updateTitleField.value = updateTitleField.value.toUpperCase();
+        updateAuthorsField.value = authors.join(',');
+        updateForm.submit();
+    });
 });
+
+function changeUpdateAuthorSelection(data){
+    updateAuthorList.innerHTML = '';
+    for(let i = 0; i < data.length; i++){
+        var authorOption = document.createElement('li');
+        authorOption.innerHTML = `<div class="flex items-center p-2 rounded hover:bg-gray-100">
+                <input id="upload-${data[i]}" type="checkbox" value="${data[i]}" class="update-author w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 focus:ring-1">
+                <label for="upload-${data[i]}" class="w-full ml-2 font-sans text-sm font-normal text-gray-700 rounded cursor-pointer">${data[i]}</label>
+            </div>`
+        updateAuthorList.appendChild(authorOption);
+    }
+}
 
 function loadURLToInputField(url, fileName){
     getImgURL(url, (imgBlob)=>{
@@ -247,3 +274,39 @@ function loadURLToInputField(url, fileName){
     xhr.responseType = 'blob';
     xhr.send();
   }
+
+for(let i = 0; i < updateButtons.length; i++){
+    updateButtons[i].addEventListener('click', function(){
+        var id = this.getAttribute('data-id');
+        getDocument(id).then(data => {
+            updateTermField.value = data['term'];   
+            getAuthors(data['term']).then(authors => {
+                changeUpdateAuthorSelection(authors);
+                var updateAuthorOptions = document.querySelectorAll('.update-author');
+                for(let i = 0; i < updateAuthorOptions.length; i++){
+                    if(data['authors'].includes(updateAuthorOptions[i].value)){
+                        updateAuthorOptions[i].checked = true;
+                    }
+                }
+            });
+            var types = ['Code of Ordinance','Ordinance','Resolution'];
+            updateIdField.value = data['id'];
+            updateTitleField.value = data['title'];
+            if(!types.includes(data['type'])){
+                updateTypeField.value = 'Others';
+                updateSpecificContainer.classList.remove('hidden');
+                updateSpecificField.value = data['type'];
+            }
+            else{
+                updateTypeField.value = data['type'];
+            }
+            updateNumberField.value = data['number'];
+            updateAreaField.value = data['area'];
+            let date = new Date(data['date']);
+            updateDateField.value = `${(date.getMonth()+1)}`.padStart(2,'0')+'/'+`${date.getDate()}`.padStart(2,'0')+'/'+date.getFullYear();
+            loadURLToInputField('/storage/'+data['file'],data['file'].substring(10));
+            showFileLabel(data['file'].substring(10));
+        });
+        openUpdateModal();
+    });
+}

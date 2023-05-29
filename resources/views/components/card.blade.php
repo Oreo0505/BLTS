@@ -52,9 +52,15 @@
                 <button type="button" data-id="{{$document->id}}" class="update rounded-sm hover:bg-[#F5F5F5] hover:scale-150">
                     <img src="{{ asset('/images/update.svg') }}" alt="Update" title="Update">
                 </a>
-                <button type="button" data-id="{{$document->id}}" class="delete rounded-sm hover:bg-[#F5F5F5] hover:scale-150">
-                    <img src="{{ asset('/images/delete.svg') }}" alt="Delete" title="Delete">
-                </button>
+                @if($document->isinCurrentTerm())
+                    <button type="button" data-id="{{$document->id}}" class="delete rounded-sm hover:bg-[#F5F5F5] hover:scale-150">
+                        <img src="{{ asset('/images/delete.svg') }}" alt="Delete" title="Delete">
+                    </button>
+                @else
+                    <button type="button" class="rounded-sm bg-gray-400/50">
+                        <img src="{{ asset('/images/delete.svg') }}" alt="Delete Disabled" title="Delete Disabled">
+                    </button>
+                @endif
             </div>
         </div>
     </div>

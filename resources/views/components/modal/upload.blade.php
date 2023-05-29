@@ -70,6 +70,18 @@
                         </div>
                     </div>
                 </div>
+                <div class="flex flex-col relative w-full">
+                    <select id="upload-term" name="term" class="w-full flex border border-gray-700 rounded-[7px] outline outline-0 font-sans font-normal leading-tight text-sm text-gray-700 focus:ring-1 focus:outline-none focus:ring-gray-700 rounded-lg text-sm px-4 py-2.5 inline-flex">
+                        
+                        @foreach($terms as $term)
+                            <option value="{{date('Y', strtotime($term->start))}}-{{date('Y', strtotime($term->end))}}" class="text-sm">{{date('Y', strtotime($term->start))}}-{{date('Y', strtotime($term->end))}}</option>
+                        @endforeach
+                    
+                    </select>
+                    <label for="upload-term" class="relative absolute -top-12 left-3 w-fit px-1 bg-white font-sans font-normal text-gray-700 text-[11px] leading-tight">
+                        Adminitrative Year / Term Year
+                    </label>
+                </div>
                 <div class="flex flex-col">
                     <div class="flex flex-col relative w-full">
                         <input type="text" id="upload-authors" name="authors" class="hidden">
@@ -81,17 +93,8 @@
                         </button>
                         <p class="relative absolute -top-12 left-3 w-fit px-1 bg-white font-sans font-normal text-gray-700 text-[11px] leading-tight">Author/s</p>
                         <div id="dropdownBgHover" class="z-10 hidden w-fit border border-gray-300 bg-white rounded-md shadow">
-                            <ul class="p-3 space-y-1 text-sm text-gray-700" aria-labelledby="dropdownBgHoverButton">
-
-                                @foreach($authors as $author)
-                                    <li class="">
-                                        <div class="flex items-center p-2 rounded hover:bg-gray-100">
-                                            <input id="{{ $author->name }}" type="checkbox" value="{{ $author->name }}" class="upload-author w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 focus:ring-1">
-                                            <label for="{{ $author->name }}" class="w-full ml-2 font-sans text-sm font-normal text-gray-700 rounded cursor-pointer">{{ $author->name }}</label>
-                                        </div>
-                                    </li>
-                                @endforeach
-
+                            <ul id="upload-author-list" class="p-3 space-y-1 text-sm text-gray-700" aria-labelledby="dropdownBgHoverButton">
+                                {{-- Rendered by upload.js --}}
                             </ul>
                         </div>
                     </div>

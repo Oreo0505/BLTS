@@ -52,6 +52,8 @@ Route::get('/get/document', [FetchController::class, 'getDocument']);
 
 Route::get('/get/author', [FetchController::class, 'getAuthors']);
 
+Route::get('/get/term', [FetchController::class, 'getTerm']);
+
 Route::get('/profile', [RedirectController::class, 'redirectToProfilePage']);
 
 Route::post('/profile/update', [UpdateController::class, 'updateProfile']);

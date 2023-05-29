@@ -1,6 +1,9 @@
 const updateProfileButton = document.getElementById('update-profile-button');
 const submitProfileButton = document.getElementById('submit-profile-button');
 const cancelProfileButton = document.getElementById('cancel-profile-button');
+const logoHolder = document.getElementById('logo-holder');
+const updateLogoForm = document.getElementById('update-logo-form');
+const updateLogoField = document.getElementById('update-logo-file');
 
 const captainField = document.getElementById('captain');
 const secretaryField = document.getElementById('secretary');
@@ -142,3 +145,11 @@ function cancelChanges(){
 updateProfileButton.addEventListener('click', updateProfile);
 submitProfileButton.addEventListener('click', submitUpdate);
 cancelProfileButton.addEventListener('click', cancelChanges);
+
+logoHolder.addEventListener('click', function(){
+    updateLogoField.click();
+})
+
+updateLogoField.addEventListener('change', function(){
+    updateLogoForm.submit();
+});
