@@ -25,7 +25,7 @@
         BARANGAY LEGISLATIVE TRACKING SYSTEM (BLTS)
     </p>
     <p class="font-sans font-bold text-[12px] text-center uppercase">
-        QUERY REPORT
+        REPORT
     </p>
     <p class="mt-16 mb-2 font-sans font-bold text-sm">Filters Applied</p>
     <div class="w-full">
