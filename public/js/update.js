@@ -68,7 +68,6 @@ async function getTerm(value){
     }
     
     const data = await response.json();
-    console.log(data['term']);
     return data['term'];
 }
 
