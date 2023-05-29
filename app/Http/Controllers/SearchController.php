@@ -195,10 +195,10 @@ class SearchController extends Controller
         $terms = Term::all();
 
         $filters = [
-            'administration' => $request->by != 'term' ? 'All' : $request->value,
-            'type' => $request->by != 'type' ? 'All' : $request->value,
+            'administration' => $request->year,
+            'type' => count($parameters) >= 4 || count($parameters) <= 0 ? 'All' : str_replace('_',' ',join(', ', array_keys($parameters))),
             'area' => $request->area,
-            'authors' => join(', ',explode(',',$request->authors))
+            'authors' => $request->year == 'all' ? 'All' : join(', ',explode(',',$request->authors))
         ];
         $this->CreateReport($documents, $filters);
 

@@ -67,10 +67,16 @@ class BrowseController extends Controller
 
         $terms = Term::all();
 
+        if($request->by == 'term'){
+            $term = Term::find($request->value);
+            $start_year = date('Y', strtotime($term->start));
+            $end_year = date('Y', strtotime($term->end));
+            $term_query = $start_year.'-'.$end_year;
+        }
         $filters = [
-            'administration' => $request->by != 'term' ? 'All' : $request->value,
+            'administration' => $request->by != 'term' ? 'All' :  $term_query,
             'type' => $request->by != 'type' ? 'All' : $request->value,
-            'area' => 'All',
+            'area' => $request->by != 'area' ? 'All' : $request->value,
             'authors' => 'All'
         ];
         $this->CreateReport($documents, $filters);
