@@ -27,7 +27,7 @@
     </button>
 
     {{-- Upload Modal --}}
-    <x-modal.upload :authors="$authors"/>
+    <x-modal.upload :terms="$terms"/>
 
     {{-- Hero --}}
     <div id="hero" class="h-48 mt-16">
@@ -67,7 +67,7 @@
     <x-modal.document-viewer/>
 
     {{-- Update Modal --}}
-    <x-modal.update :authors="$authors"/>
+    <x-modal.update :terms="$terms"/>
 
     {{-- Confirm Modal --}}
     <x-modal.confirm-delete/>
