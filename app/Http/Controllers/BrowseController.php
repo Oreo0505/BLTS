@@ -70,7 +70,7 @@ class BrowseController extends Controller
         $filters = [
             'administration' => $request->by != 'term' ? 'All' : $request->value,
             'type' => $request->by != 'type' ? 'All' : $request->value,
-            'area' => 'All',
+            'area' => $request->by != 'area' ? 'All' : $request->value,
             'authors' => 'All'
         ];
         $this->CreateReport($documents, $filters);
