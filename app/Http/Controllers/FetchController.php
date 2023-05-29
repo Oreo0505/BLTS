@@ -28,19 +28,19 @@ class FetchController extends Controller
 
     function getAuthors(Request $request){
         if($request->value == 'all'){
-            $authors = Author::orderBy('name', 'asc')->get()->unique('name');
+            $authors = Author::whereNot('position','Secretary')->orderBy('name', 'asc')->get()->unique('name');
         }
         else if($request->value == 'older'){
-            $authors = Author::where('term_id',0)->orderBy('name','asc')->get();
+            $authors = Author::where('term_id',0)->whereNot('position','Secretary')->orderBy('name','asc')->get();
         }
         else if($request->value == 'current'){
             $config = Config::first();
-            $authors = Author::where('term_id',$config->current_term)->orderBy('name','asc')->get();   
+            $authors = Author::where('term_id',$config->current_term)->whereNot('position','Secretary')->orderBy('name','asc')->get();   
         }
         else{
             $date = explode('-',$request->value);
             $term = Term::whereYear('start',$date[0])->whereYear('end',$date[1])->first();
-            $authors = Author::where('term_id',$term->id)->orderBy('name','asc')->get();
+            $authors = Author::where('term_id',$term->id)->whereNot('position','Secretary')->orderBy('name','asc')->get();
         }
         $json = [];
         foreach($authors as $author){
