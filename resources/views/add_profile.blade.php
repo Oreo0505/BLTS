@@ -113,7 +113,7 @@
             </div>        
         </form>
         <button id="add-term-button" type="button" class="mx-auto mt-6 px-16 py-3 rounded-lg bg-gradient-270 from-[#A60453] to-[#FFB144] font-sans font-bold text-xl leading-6 text-white">
-            Update
+            Create
         </button>
     </div>
 
