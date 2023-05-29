@@ -11,18 +11,11 @@ trait Report
     public function CreateReport($documents, $filters)
     {
         $config = Config::first();
-        $report_year = date('Y');
-        $report_number = $config->current_report;
-        
-        if($report_year != $config->report_year){
-            $config->report_year = $report_year;
-            $config->current_report = 1;
-            $config->save();
-        }
 
         $pdf = PDF::loadView('report',[
-            'year' => $report_year,
-            'number' => $report_number,
+            'barangay' => $config->barangay,
+            'municipality' => $config->municipality,
+            'logo' => $config->logo,
             'authors' => $filters['authors'],
             'administration' => $filters['administration'],
             'type' => $filters['type'],
