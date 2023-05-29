@@ -65,3 +65,5 @@ Route::post('/profile/add/process', [CreateController::class, 'createTerm']);
 Route::get('/trash', [RedirectController::class, 'redirectToTrashPage']);
 
 Route::post('/restore', [RestoreController::class, 'restore']);
+
+Route::get('/about', [RedirectController::class, 'redirectToAboutPage']);

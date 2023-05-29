@@ -200,4 +200,8 @@ class RedirectController extends Controller
             'terms' => $terms
         ]);
     }
+    
+    public function redirectToAboutPage(){
+        return view('about');
+    }
 }
