@@ -24,6 +24,10 @@
     animation-name: fadeOut;
 }
 
+.bottom-32 {
+    bottom: 128px;
+}
+
 @keyframes fadeIn {
     from {
         opacity: 0;
