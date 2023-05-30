@@ -9,6 +9,11 @@
     <title>Setup</title>
 </head>
 <body>
+    {{-- About Page link --}}
+    <a href="/about">
+        <img src="{{ asset('/images/help.svg') }}" alt="" class="fixed top-16 right-6 h-8 w-8">
+    </a>
+    
     <div class="flex flex-col-reverse justify-between overflow-clip md:flex-row md:space-y-0">
         <div class="flex flex-col w-2/5 h-[450px] mt-3 drop-shadow bg-gradient-30 from-[#425B71] to-[#425B71]/60 rounded-r-lg p-9 md:h-[800px] md:w-3/5 md:mt-0">
             <p class="font-sans font-normal text-white text-xl tracking-[5px]">DILG MARINDUQUE</p>

@@ -9,6 +9,12 @@
     <title>Update Profile</title>
 </head>
 <body>
+
+    {{-- About Page link --}}
+    <a href="/about">
+        <img src="{{ asset('/images/help.svg') }}" alt="" class="fixed top-16 right-6 h-8 w-8">
+    </a>
+    
     <div id="overlay" class="fixed w-full h-100 inset-0 overflow-hidden flex justify-center items-center bg-gradient-215 from-[#425B71] to-[#425B71]/60">
     </div>
     <div id="upload" class="fixed inset-0 h-fit w-4/5 overflow-clip flex flex-col border drop-shadow-md shadow-lg modal-container bg-white mx-auto my-auto rounded z-50 pb-6 md:w-2/5">
