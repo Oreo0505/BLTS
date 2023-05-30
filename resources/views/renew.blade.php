@@ -1,14 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link href="{{ asset('/css/flowbite.css') }}" rel="stylesheet">
-    @vite('resources/css/app.css')
-    <title>Update Profile</title>
-</head>
-<body>
+@extends('layout', [$title = 'Renew'])
+
+@section('content')
 
     {{-- About Page link --}}
     <a href="/about">
@@ -125,5 +117,5 @@
 
     <script src="{{ asset('/js/renew.js') }}"></script>
     <script src="{{ asset('/js/datepicker.js') }}"></script>
-</body>
-</html>
+
+@endsection

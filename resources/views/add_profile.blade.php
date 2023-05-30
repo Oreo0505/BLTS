@@ -1,23 +1,17 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="{{ asset('/css/flowbite.css') }}" rel="stylesheet">
-    @vite('resources/css/app.css')
-    <title>Add Profile</title>
-</head>
-<body>
+@extends('layout', [$title = 'Add Profile'])
+
+@section('content')
 
     {{-- Navigation Bar --}}
     <x-navbar :barangay="$barangay" :municipality="$municipality"/>
 
+    {{-- Top Accent --}}
     <img src="{{ asset('/images/accent-1.svg') }}" alt="" class="absolute top-12 right-0">
 
     {{-- Category Drawer --}}
     <x-drawer :barangay="$barangay" :municipality="$municipality" :logo="$logo" :terms="$terms"/>
 
+    {{-- Bottom Accent --}}
     <img src="{{ asset('/images/accent-1.svg') }}" alt="" class="absolute bottom-0 left-0 rotate-180">
 
     <div class="flex flex-col justify-center items-center mx-auto">
@@ -119,5 +113,5 @@
 
     <script src="{{ asset('/js/datepicker.js') }}"></script>
     <script src="{{ asset('/js/add_profile.js') }}"></script>
-</body>
-</html>
+
+@endsection

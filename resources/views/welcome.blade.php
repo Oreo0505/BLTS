@@ -1,18 +1,11 @@
-<!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="{{ asset('/css/flowbite.css') }}" rel="stylesheet">
-    @vite('resources/css/app.css')
-    <title>Homepage</title>
-</head>
-<body>
+@extends('layout', [$title = 'Homepage'])
+
+@section('content')
 
     {{-- Navigation Bar --}}
     <x-navbar :barangay="$barangay" :municipality="$municipality"/>
 
+    {{-- Top Accent --}}
     <img src="{{ asset('/images/accent-1.svg') }}" alt="" class="fixed top-12 right-0">
 
     {{-- Category Drawer --}}
@@ -80,11 +73,12 @@
     {{-- Confirm Modal --}}
     <x-modal.confirm-delete/>
     
+    {{-- Bottom Accent --}}
     <img src="{{ asset('/images/accent-1.svg') }}" alt="" class="fixed -z-10 bottom-0 left-0 rotate-180">
 
     <script src="{{ asset('/js/jquery-3.7.0.min.js') }}"></script>
     <script src="{{ asset('/js/flowbite.js') }}"></script>
     <script src="{{ asset('/js/datepicker.js') }}"></script>
     <script src="{{ asset('/js/fab.js') }}"></script>
-</body>
-</html>
+
+@endsection

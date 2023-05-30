@@ -1,14 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="{{ asset('/css/flowbite.css') }}" rel="stylesheet">
-    @vite('resources/css/app.css')
-    <title>Setup</title>
-</head>
-<body>
+@extends('layout', [$title = 'Setup'])
+
+@section('content')
+
     {{-- About Page link --}}
     <a href="/about">
         <img src="{{ asset('/images/help.svg') }}" alt="" class="fixed top-16 right-6 h-8 w-8">
@@ -161,5 +154,5 @@
 
     <script src="{{ asset('/js/setup.js') }}"></script>
     <script src="{{ asset('/js/datepicker.js') }}"></script>
-</body>
-</html>
+
+@endsection

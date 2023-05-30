@@ -1,18 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="{{ asset('/css/flowbite.css') }}" rel="stylesheet">
-    @vite('resources/css/app.css')
-    <title>Profile</title>
-</head>
-<body>
+@extends('layout', [$title = 'Profile'])
+
+@section('content')
 
     {{-- Navigation Bar --}}
     <x-navbar :barangay="$barangay" :municipality="$municipality"/>
 
+    {{-- Top Accent --}}
     <img src="{{ asset('/images/accent-1.svg') }}" alt="" class="absolute top-12 right-0">
 
     {{-- Category Drawer --}}
@@ -101,6 +94,7 @@
         </div>
     </div>
 
+    {{-- Bottom Accent --}}
     <img src="{{ asset('/images/accent-1.svg') }}" alt="" class="absolute bottom-0 left-0 rotate-180">
 
     <form action="/profile/update" method="POST" id="update-profile-form" class="hidden">
@@ -119,5 +113,5 @@
     </form>
 
     <script src="{{ asset('/js/profile.js') }}"></script>
-</body>
-</html>
+
+@endsection
