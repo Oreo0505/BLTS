@@ -15,9 +15,7 @@ class DatabaseSeeder extends Seeder
         // \App\Models\User::factory(10)->create();
 
         \App\Models\Config::factory()->create([
-            'first_time' => true,
-            'report_year' => date('Y'),
-            'current_report' => 1
+            'first_time' => true
         ]);
     }
 }
