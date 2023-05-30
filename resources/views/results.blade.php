@@ -26,6 +26,14 @@
         </svg>
     </button>
 
+    {{-- Back to To FAB --}}
+    <a href="#" id="top-fab" title="Back to Top" class="hidden fixed z-90 bottom-10 right-8 bg-white w-[72px] h-[72px] overflow-clip rounded-full drop-shadow-lg flex justify-center items-center text-white text-4xl hover:shadow-lg">
+        <img src="{{ asset('/images/arrow-head.svg') }}" alt="" class="h-9 w-9 translate-x-[18px] rotate-180">
+        <svg width="68" height="44" viewBox="0 0 68 44" fill="none" xmlns="http://www.w3.org/2000/svg" class="scale-150 translate-x-1 translate-y-3">
+            <path d="M80 7.22399V49C80 52.866 77.3303 56 74.0371 56H0C3.63886 24.3779 26.7231 0 54.6576 0C63.7941 0 72.4118 2.60782 80 7.22399Z" fill="#797979" fill-opacity="0.34"/>
+        </svg>
+    </a>
+
     {{-- Upload Modal --}}
     <x-modal.upload :terms="$terms"/>
 
@@ -35,7 +43,7 @@
     {{-- Titleholder --}}
     <div class="relative flex flex-row mt-12 mx-36 justify-between items-center md:mx-60">
         <div class="flex justify-start">
-            <p class="text-xl text-[#181313] font-bold font-sans ">
+            <p id="breakpoint" class="text-xl text-[#181313] font-bold font-sans ">
                 Search Results
                 <span class="text-[#909090] font-normal">({{count($documents)}} matches for "{{$query}}")</span>
             </p>
@@ -71,7 +79,9 @@
 
     <img src="{{ asset('/images/accent-1.svg') }}" alt="" class="fixed -z-10 bottom-0 left-0 rotate-180">
 
+    <script src="{{ asset('/js/jquery-3.7.0.min.js') }}"></script>
     <script src="{{ asset('/js/flowbite.js') }}"></script>
     <script src="{{ asset('/js/datepicker.js') }}"></script>
+    <script src="{{ asset('/js/fab.js') }}"></script>
 </body>
 </html>
