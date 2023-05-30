@@ -14,8 +14,6 @@ class Config extends Model
         'barangay',
         'logo',
         'first_time',
-        'current_term',
-        'report_year',
-        'current_report'
+        'current_term'
     ];
 }
