@@ -13,6 +13,9 @@ module.exports = {
         'gradient-215': 'linear-gradient(215deg, var(--tw-gradient-stops))',
         'gradient-270': 'linear-gradient(270deg, var(--tw-gradient-stops))'
       },
+      fontFamily: {
+        'roboto': ['Roboto','sans-serif']
+      }
     },
   },
   plugins: [],
