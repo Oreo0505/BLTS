@@ -1,6 +1,6 @@
 const container = document.getElementById('container');
-const testElement = document.getElementById('breakpoint');
-const footer = document.getElementById('footer');
+const hero = document.getElementById('hero')
+const breakpoint = document.getElementById('breakpoint');
 const arrowHead = document.getElementById('arrow-head');
 const scrollButton = document.getElementById('scroll-button');
 const homeIcon = document.getElementById('home');
@@ -17,8 +17,7 @@ function isScrolledIntoView(elem)
 }
 
 document.addEventListener('scroll', function(){
-    console.log(isScrolledIntoView(footer));
-    if(!isScrolledIntoView(testElement)){
+    if(!isScrolledIntoView(hero)){
         arrowHead.classList.add('rotate-180');
         scrollButton.href = '#info';
     }
@@ -26,7 +25,7 @@ document.addEventListener('scroll', function(){
         arrowHead.classList.remove('rotate-180');
         scrollButton.href = '#authors';
     }
-    if(isScrolledIntoView(footer)){
+    if(!isScrolledIntoView(breakpoint)){
         homeIcon.classList.remove('fill-white','hover:bg-gray-500');
         homeIcon.classList.add('fill-black','hover:bg-gray-300');
     }
