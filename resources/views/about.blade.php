@@ -1,16 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     @vite('resources/css/app.css')
     <title>About</title>
-    <style>
-        html{
-            scroll-behavior: smooth;
-        }
-    </style>
 </head>
 <body>
     <div id="container" class="w-screen">
