@@ -146,7 +146,7 @@
                     </div>
                 </div>
             </form>
-            <button id="setup-button" type="button" class="mx-auto mt-8 px-12 py-3 rounded-lg bg-gradient-270 from-[#A60453] to-[#FFB144] font-sans font-semibold text-xl leading-6 text-white">
+            <button id="setup-button" type="button" class="mx-auto mt-8 px-12 py-3 rounded-full bg-gradient-270 from-[#A60453] to-[#FFB144] font-sans font-semibold text-xl leading-6 text-white">
                 Setup Account
             </button>
         </div>
