@@ -1515,6 +1515,18 @@ video {
   background-image: linear-gradient(90deg, var(--tw-gradient-stops));
 }
 
+.bg-\[url\(\'\/images\/arrianne\.png\'\)\] {
+  background-image: url('/images/arrianne.png');
+}
+
+.bg-\[url\(\'\/images\/clarence\.png\'\)\] {
+  background-image: url('/images/clarence.png');
+}
+
+.bg-\[url\(\'\/images\/jepthe\.png\'\)\] {
+  background-image: url('/images/jepthe.png');
+}
+
 .from-\[\#425B71\] {
   --tw-gradient-from: #425B71 var(--tw-gradient-from-position);
   --tw-gradient-to: rgb(66 91 113 / 0) var(--tw-gradient-to-position);
