@@ -6,7 +6,7 @@
     <x-navbar :barangay="$barangay" :municipality="$municipality"/>
 
     {{-- Top Accent --}}
-    <img src="{{ asset('/images/accent-1.svg') }}" alt="" class="absolute top-12 right-0">
+    <img src="{{ asset('/images/accent-1.svg') }}" alt="" class="absolute -z-10 top-12 right-0">
 
     {{-- Category Drawer --}}
     <x-drawer :barangay="$barangay" :municipality="$municipality" :logo="$logo" :terms="$terms"/>
