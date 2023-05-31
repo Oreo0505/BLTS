@@ -9,8 +9,8 @@
                 </svg>                
                 <p class="text-sm font-medium text-[#90CAF9] font-sans cursor-pointer group-hover:text-white/70">CLOSE</p>
             </div>
-            <div class="flex flex-col items-center justify-center mt-9 -mb-8 cursor-pointer">
-                <img src="{{ $logo ? asset('/storage'.'/'.$logo) : asset('/images/default_logo.svg')}}" alt="" class="h-36">
+            <div class="flex flex-col items-center justify-center mt-9 -mb-8">
+                <img src="{{ $logo ? asset('/storage'.'/'.$logo) : asset('/images/default_logo.svg')}}" alt="Barangay Logo" class="h-36">
             </div>
             <div class="flex flex-col items-center justify-center mt-10">
                 <p class="font-sans font-normal text-2xl leading-9 tracking-wide text-white uppercase">{{ $barangay }}</p>
