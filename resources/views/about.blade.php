@@ -13,7 +13,7 @@
                 </g>
             </svg>                
         </a>
-        <img src="{{ asset('/images/accent-3.svg') }}" alt="" class="fixed top-0 right-0 w-[520px] rotate-180">
+        <img src="{{ asset('/images/accent-3.svg') }}" alt="" class="fixed top-0 -right-8 w-[520px] rotate-180">
         <section id="info" class="section">
             <div class="w-full flex flex-col items-center bg-[#425B71] px-[115px] pt-[88px] pb-1 md:h-[525px] md:pb-28">
                 <img id="hero" src="{{ asset('/images/logo-white.svg') }}" alt="BLTS Logo" class="flex h-32">
@@ -117,7 +117,7 @@
                         </p>
                     </div>
                 </div>
-                <img src="{{ asset('/images/accent-3.svg') }}" alt="" class="fixed bottom-0 left-0 w-[520px]">
+                <img src="{{ asset('/images/accent-3.svg') }}" alt="" class="fixed bottom-0 -left-8 w-[520px]">
             </div>
         </section>
     </div>
