@@ -42,7 +42,7 @@ addTermButton.addEventListener('click', function(){
     }
     for(let i = 0; i < sbFields.length; i++){
         if(sbFields[i].value.length <= 0){
-            alert('Missing Sangguiniang Barangay Member');
+            alert('Missing Sangguniang Barangay Member');
             return;
         }
         else if(sbFields[i].value.length < 3){
