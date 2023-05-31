@@ -44,19 +44,19 @@
                     <p class="font-sans font-normal text-xs leading-5 text-center text-[#707070]">
                         BSCpE Intern, MSC
                     </p>
-                    <div class="flex flex-row items-center justify-start space-x-1 pr-1 mt-6 ml-3">
+                    <div class="flex flex-row items-center justify-start space-x-1 pr-1 mt-6 ml-3 md:ml-6">
                         <img src="{{ asset('/images/location.svg') }}" alt="" class="flex h-[13px]">
                         <p class="flex font-sans font-normal text-xs leading-5 text-[#707070] truncate">
                             Dili, Gasan, Marinduque
                         </p>
                     </div>
-                    <div class="flex flex-row items-center justify-start space-x-1 pr-1 mt-1.5 ml-3">
+                    <div class="flex flex-row items-center justify-start space-x-1 pr-1 mt-1.5 ml-3 md:ml-6">
                         <img src="{{ asset('/images/phone.svg') }}" alt="" class="flex h-[13px]">
                         <p class="flex font-sans font-normal text-xs leading-5 text-[#707070] truncate">
                             0918-399-3030
                         </p>
                     </div>
-                    <div class="flex flex-row items-center justify-start space-x-1 pr-1 mt-1.5 ml-3 mb-5">
+                    <div class="flex flex-row items-center justify-start space-x-1 pr-1 mt-1.5 ml-3 md:ml-6 mb-5">
                         <img src="{{ asset('/images/email.svg') }}" alt="" class="flex h-[13px]">
                         <p class="flex font-sans font-normal text-xs leading-5 text-[#707070] truncate">
                             clarencemadrigal08@gmail.com
@@ -71,19 +71,19 @@
                     <p class="font-sans font-normal text-xs leading-5 text-center text-[#707070]">
                         BSCpE Intern, MSC
                     </p>
-                    <div class="flex flex-row items-center justify-start space-x-1 pr-1 mt-6 ml-3">
+                    <div class="flex flex-row items-center justify-start space-x-1 pr-1 mt-6 ml-3 md:ml-6">
                         <img src="{{ asset('/images/location.svg') }}" alt="" class="flex h-[13px]">
                         <p class="flex font-sans font-normal text-xs leading-5 text-[#707070] truncate">
                             Tanza, Boac, Marinduque
                         </p>
                     </div>
-                    <div class="flex flex-row items-center justify-start space-x-1 pr-1 mt-1.5 ml-3">
+                    <div class="flex flex-row items-center justify-start space-x-1 pr-1 mt-1.5 ml-3 md:ml-6">
                         <img src="{{ asset('/images/phone.svg') }}" alt="" class="flex h-[13px]">
                         <p class="flex font-sans font-normal text-xs leading-5 text-[#707070] truncate">
                             0916-418-2098
                         </p>
                     </div>
-                    <div class="flex flex-row items-center justify-start space-x-1 pr-1 mt-1.5 ml-3 mb-5">
+                    <div class="flex flex-row items-center justify-start space-x-1 pr-1 mt-1.5 ml-3 md:ml-6 mb-5">
                         <img src="{{ asset('/images/email.svg') }}" alt="" class="flex h-[13px]">
                         <p class="flex font-sans font-normal text-xs leading-5 text-[#707070] truncate">
                             jeptheladeras@gmail.com
@@ -98,19 +98,19 @@
                     <p class="font-sans font-normal text-xs leading-5 text-center text-[#707070]">
                         BSCpE Intern, MSC
                     </p>
-                    <div class="flex flex-row items-center justify-start space-x-1 pr-1 mt-6 ml-3">
+                    <div class="flex flex-row items-center justify-start space-x-1 pr-1 mt-6 ml-3 md:ml-6">
                         <img src="{{ asset('/images/location.svg') }}" alt="" class="flex h-[13px]">
                         <p class="flex font-sans font-normal text-xs leading-5 text-[#707070] truncate">
                             Libas, Buenavista, Marinduque
                         </p>
                     </div>
-                    <div class="flex flex-row items-center justify-start space-x-1 pr-1 mt-1.5 ml-3">
+                    <div class="flex flex-row items-center justify-start space-x-1 pr-1 mt-1.5 ml-3 md:ml-6">
                         <img src="{{ asset('/images/phone.svg') }}" alt="" class="flex h-[13px]">
                         <p class="flex font-sans font-normal text-xs leading-5 text-[#707070] truncate">
                             0998-748-2707
                         </p>
                     </div>
-                    <div class="flex flex-row items-center justify-start space-x-1 pr-1 mt-1.5 ml-3 mb-5">
+                    <div class="flex flex-row items-center justify-start space-x-1 pr-1 mt-1.5 ml-3 md:ml-6 mb-5">
                         <img src="{{ asset('/images/email.svg') }}" alt="" class="flex h-[13px]">
                         <p class="flex font-sans font-normal text-xs leading-5 text-[#707070] truncate">
                             umaliaryana@gmail.com
