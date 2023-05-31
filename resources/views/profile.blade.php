@@ -52,7 +52,7 @@
                     <img src="{{ asset('/images/secretary.svg') }}" alt="Barangay Secretary" class="h-6 w-6 translate-y-1">
                 </div>
                 <div class="flex flex-col">
-                    <p id="secretary" class="font-sans font-medium text-xl text-[#181313] whitespace-nowrap outline-none"> {{$secretary->name}} </p>
+                    <p class="font-sans font-medium text-xl text-[#181313] whitespace-nowrap outline-none"> <span id="secretary" class="outline-none"> {{$secretary->name}} </span> </p>
                     <p class="font-sans font-normal text-base text-[#181313] italic whitespace-nowrap ml-1 -translate-y-1">Barangay Secretary</p>
                 </div>
             </div>
