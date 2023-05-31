@@ -1,6 +1,11 @@
 const updateProfileButton = document.getElementById('update-profile-button');
 const submitProfileButton = document.getElementById('submit-profile-button');
 const cancelProfileButton = document.getElementById('cancel-profile-button');
+const confirmUpdateProfileOverlay = document.getElementById('confirm-profile-update-overlay');
+const confirmUpdateProfileModal = document.getElementById('confirm-profile-update');
+const confirmSubmitProfileButton = document.getElementById('update-true');
+const confirmCancelProfileButton = document.getElementById('update-false');
+
 const logoHolder = document.getElementById('logo-holder');
 const updateLogoForm = document.getElementById('update-logo-form');
 const updateLogoField = document.getElementById('update-logo-file');
@@ -55,6 +60,20 @@ function updateProfile(){
     sb6Field.setAttribute('contenteditable', true);
     sb7Field.setAttribute('contenteditable', true);
     captainField.focus();
+}
+
+var updateConfirmModalOpened = false;
+function openUpdateProfileConfirmation(){
+    confirmUpdateProfileOverlay.classList.remove('hidden');
+    confirmUpdateProfileModal.classList.remove('hidden');
+    updateConfirmModalOpened = true;
+}
+
+function closeUpdateProfileConfirmation(){
+    confirmUpdateProfileOverlay.classList.add('hidden');
+    confirmUpdateProfileModal.classList.add('hidden');
+    updateConfirmModalOpened = false;
+    cancelChanges();
 }
 
 function submitUpdate(){
@@ -143,8 +162,16 @@ function cancelChanges(){
 }
 
 updateProfileButton.addEventListener('click', updateProfile);
-submitProfileButton.addEventListener('click', submitUpdate);
+submitProfileButton.addEventListener('click', openUpdateProfileConfirmation);
 cancelProfileButton.addEventListener('click', cancelChanges);
+confirmSubmitProfileButton.addEventListener('click', submitUpdate);
+confirmCancelProfileButton.addEventListener('click', closeUpdateProfileConfirmation);
+
+window.addEventListener('keydown', function(event){
+    if(event.key == 'Escape'){
+        closeUpdateProfileConfirmation();
+    }
+});
 
 logoHolder.addEventListener('click', function(){
     updateLogoField.click();

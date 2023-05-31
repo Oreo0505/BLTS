@@ -94,6 +94,9 @@
         </div>
     </div>
 
+    {{-- Confirm Delete Modal --}}
+    <x-modal.confirm-update/>
+
     {{-- Bottom Accent --}}
     <img src="{{ asset('/images/accent-1.svg') }}" alt="" class="absolute bottom-0 left-0 rotate-180">
 
