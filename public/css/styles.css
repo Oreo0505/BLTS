@@ -2284,6 +2284,10 @@ video {
     margin-right: 15rem;
   }
 
+  .md\:ml-6 {
+    margin-left: 1.5rem;
+  }
+
   .md\:ml-9 {
     margin-left: 2.25rem;
   }
