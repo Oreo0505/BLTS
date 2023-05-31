@@ -28,6 +28,10 @@
     bottom: 128px;
 }
 
+.fill-black {
+    fill: black;
+}
+
 @keyframes fadeIn {
     from {
         opacity: 0;

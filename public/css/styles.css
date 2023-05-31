@@ -594,6 +594,10 @@ video {
   left: -2rem;
 }
 
+.-right-8 {
+  right: -2rem;
+}
+
 .-top-12 {
   top: -3rem;
 }
@@ -1353,6 +1357,10 @@ video {
   overflow-x: scroll;
 }
 
+.scroll-smooth {
+  scroll-behavior: smooth;
+}
+
 .truncate {
   overflow: hidden;
   text-overflow: ellipsis;
@@ -1479,16 +1487,16 @@ video {
   background-color: rgb(255 255 255 / var(--tw-bg-opacity));
 }
 
-.bg-\[url\(\'\/public\/images\/arrianne\.png\'\)\] {
-  background-image: url('/public/images/arrianne.png');
+.bg-\[url\(\'\/images\/arrianne\.png\'\)\] {
+  background-image: url('/images/arrianne.png');
 }
 
-.bg-\[url\(\'\/public\/images\/clarence\.png\'\)\] {
-  background-image: url('/public/images/clarence.png');
+.bg-\[url\(\'\/images\/clarence\.png\'\)\] {
+  background-image: url('/images/clarence.png');
 }
 
-.bg-\[url\(\'\/public\/images\/jepthe\.png\'\)\] {
-  background-image: url('/public/images/jepthe.png');
+.bg-\[url\(\'\/images\/jepthe\.png\'\)\] {
+  background-image: url('/images/jepthe.png');
 }
 
 .bg-gradient-215 {
@@ -2093,6 +2101,10 @@ video {
 
 .bottom-32 {
   bottom: 128px;
+}
+
+.fill-black {
+  fill: black;
 }
 
 @keyframes fadeIn {

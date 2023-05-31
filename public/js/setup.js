@@ -295,6 +295,16 @@ uploadButton.addEventListener('click', function(){
     logoField.click();
 });
 
+logoField.addEventListener('change', function(){
+    console.log(logoField.value);
+    if(logoField.value.length > 0){
+        uploadButton.innerHTML =  `${logoField.files[0].name}
+        <svg width="43" height="43" viewBox="0 0 43 43" fill="none" xmlns="http://www.w3.org/2000/svg" class="absolute top-2.5 right-3 h-5 w-5">
+            <path d="M5.75 42.5C4.30625 42.5 3.07031 41.9859 2.04219 40.9578C1.01406 39.9297 0.5 38.6937 0.5 37.25V29.375H5.75V37.25H37.25V29.375H42.5V37.25C42.5 38.6937 41.9859 39.9297 40.9578 40.9578C39.9297 41.9859 38.6937 42.5 37.25 42.5H5.75ZM18.875 32V10.6063L12.05 17.4313L8.375 13.625L21.5 0.5L34.625 13.625L30.95 17.4313L24.125 10.6063V32H18.875Z" fill="#6B7280"/>
+        </svg>`
+    }
+});
+
 setupButton.addEventListener('click', function(event){
     event.preventDefault();
     if(municipalityDropdown.value == 'null'){
