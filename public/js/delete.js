@@ -7,9 +7,9 @@ const deleteForm = document.getElementById('delete-form');
 const deletedIdField = document.getElementById('delete-id');
 var activeCardId = -1;
 
-var confirmModalOpened = false;
-function openConfirmModal(){
-    if(!confirmModalOpened){
+var confirmDeleteModalOpened = false;
+function openConfirmDeleteModal(){
+    if(!confirmDeleteModalOpened){
         confirmDeleteOverlay.classList.remove('hidden');
         confirmDeleteModal.classList.remove('hidden','fadeOut');
         confirmDeleteModal.classList.add('fadeIn');
@@ -18,34 +18,34 @@ function openConfirmModal(){
                 confirmDeleteModal.classList.remove('hidden');
             }
         }, 1000);
-        confirmModalOpened = true;
+        confirmDeleteModalOpened = true;
     }
 }
 
-function closeConfirmModal(){
-    if(confirmModalOpened){
+function closeConfirmDeleteModal(){
+    if(confirmDeleteModalOpened){
         confirmDeleteOverlay.classList.add('hidden');
         confirmDeleteModal.classList.remove('fadeIn');
         confirmDeleteModal.classList.add('fadeOut');
         setTimeout(() => {
             confirmDeleteModal.classList.add('hidden');
         }, 1000);
-        confirmModalOpened = false;    
+        confirmDeleteModalOpened = false;    
     }
 }
 
 for(let i = 0; i < deleteButtons.length; i++){
     deleteButtons[i].addEventListener('click', function(){
-        openConfirmModal();
+        openConfirmDeleteModal();
         activeCardId = parseInt(this.getAttribute('data-id'));
     });
 }
 
-confirmDeleteOverlay.addEventListener('click', closeConfirmModal);
-backButton.addEventListener('click', closeConfirmModal);
+confirmDeleteOverlay.addEventListener('click', closeConfirmDeleteModal);
+backButton.addEventListener('click', closeConfirmDeleteModal);
 window.addEventListener('keydown', function(event){
     if(event.key == 'Escape'){
-        closeConfirmModal();
+        closeConfirmDeleteModal();
     }
 });
 
