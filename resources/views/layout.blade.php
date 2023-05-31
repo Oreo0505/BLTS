@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link href="{{ asset('/css/flowbite.css') }}" rel="stylesheet">
     <link href="{{ asset('/css/styles.css') }}" rel="stylesheet">
+    <link rel="icon" href="{{ asset('/images/icon.ico') }}">
     <title>{{$title}}</title>
 </head>
 <body>
