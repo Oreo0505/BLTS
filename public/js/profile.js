@@ -61,16 +61,16 @@ function submitUpdate(){
     submitProfileButton.classList.add('hidden');
     cancelProfileButton.classList.add('hidden');
     updateProfileButton.classList.remove('hidden');
-    updateProfileCaptain.value = captainField.innerHTML;
-    updateProfileSecretary.value = secretaryField.innerHTML;
-    updateProfileChairman.value = chairmanField.innerHTML;
-    updateProfileSb1.value = sb1Field.innerHTML;
-    updateProfileSb2.value = sb2Field.innerHTML;
-    updateProfileSb3.value = sb3Field.innerHTML;
-    updateProfileSb4.value = sb4Field.innerHTML;
-    updateProfileSb5.value = sb5Field.innerHTML;
-    updateProfileSb6.value = sb6Field.innerHTML;
-    updateProfileSb7.value = sb7Field.innerHTML;
+    updateProfileCaptain.value = captainField.innerHTML.replaceAll('&nbsp;','').replaceAll('<br>','');
+    updateProfileSecretary.value = secretaryField.innerHTML.replaceAll('&nbsp;','').replaceAll('<br>','');
+    updateProfileChairman.value = chairmanField.innerHTML.replaceAll('&nbsp;','').replaceAll('<br>','');
+    updateProfileSb1.value = sb1Field.innerHTML.replaceAll('&nbsp;','').replaceAll('<br>','');
+    updateProfileSb2.value = sb2Field.innerHTML.replaceAll('&nbsp;','').replaceAll('<br>','');
+    updateProfileSb3.value = sb3Field.innerHTML.replaceAll('&nbsp;','').replaceAll('<br>','');
+    updateProfileSb4.value = sb4Field.innerHTML.replaceAll('&nbsp;','').replaceAll('<br>','');
+    updateProfileSb5.value = sb5Field.innerHTML.replaceAll('&nbsp;','').replaceAll('<br>','');
+    updateProfileSb6.value = sb6Field.innerHTML.replaceAll('&nbsp;','').replaceAll('<br>','');
+    updateProfileSb7.value = sb7Field.innerHTML.replaceAll('&nbsp;','').replaceAll('<br>','');
 
     if(updateProfileChairman.value.length < 3){
         alert('Punong Barangay field should contain at least 3 or more characters');
