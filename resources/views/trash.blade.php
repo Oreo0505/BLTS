@@ -41,7 +41,7 @@
     {{-- Recent Upload Titleholder --}}
     <div class="relative flex flex-row mt-12 mx-36 justify-between items-center md:mx-60">
         <div class="flex justify-start">
-            <p id="breakpoint" class="text-xl text-[#181313] font-bold font-sans ">Trashed Documents</p>
+            <p id="breakpoint" class="text-xl text-[#181313] font-bold font-sans ">Deleted Documents</p>
         </div>
         <div class="flex justify-end">
             <x-sort/>
