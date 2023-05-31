@@ -37,7 +37,7 @@
         <section id="authors" class="section">
             <div class="flex flex-row justify-none space-x-8 px-5 pt-14 pb-10 w-screen overflow-x-scroll md:justify-center">
                 <div class="flex flex-col w-[270px] h-[410px] rounded-lg border drop-shadow-md bg-white z-20 md:h-[450px]">
-                    <div class="flex h-[250px] bg-[url('/public/images/clarence.png')] bg-top rounded-t-lg"></div>
+                    <div class="flex h-[250px] bg-[url('/images/clarence.png')] bg-top rounded-t-lg"></div>
                     <p class="mt-4 px-2 font-roboto font-bold text-xl leading-8 text-center text-[#4B4B4B] uppercase">
                         CLARENCE S. MADRIGAL
                     </p>
@@ -64,7 +64,7 @@
                     </div> 
                 </div>
                 <div class="flex flex-col w-[270px] h-[410px] rounded-lg border drop-shadow-md bg-white z-20 md:h-[450px]">
-                    <div class="flex h-[250px] bg-[url('/public/images/jepthe.png')] bg-top bg-cover rounded-t-lg"></div>
+                    <div class="flex h-[250px] bg-[url('/images/jepthe.png')] bg-top bg-cover rounded-t-lg"></div>
                     <p class="mt-4 px-2 font-roboto font-bold text-xl leading-8 text-center text-[#4B4B4B] uppercase">
                         JEPTHE M. LADERAS
                     </p>
@@ -91,7 +91,7 @@
                     </div> 
                 </div>
                 <div class="flex flex-col w-[270px] h-[410px] rounded-lg border drop-shadow-md bg-white z-20 md:h-[450px]">
-                    <div class="flex h-[250px] bg-[url('/public/images/arrianne.png')] bg-top rounded-t-lg"></div>
+                    <div class="flex h-[250px] bg-[url('/images/arrianne.png')] bg-top rounded-t-lg"></div>
                     <p class="mt-4 px-2 font-roboto font-bold text-xl leading-8 text-center text-[#4B4B4B] uppercase">
                         ARRIANNE S. UMALI
                     </p>
