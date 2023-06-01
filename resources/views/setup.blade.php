@@ -4,7 +4,7 @@
 
     {{-- About Page link --}}
     <a href="/about">
-        <img src="{{ asset('/images/help.svg') }}" alt="" class="fixed top-16 right-6 h-8 w-8">
+        <img src="{{ asset('/images/help.svg') }}" alt="" class="absolute top-16 right-0 z-50 h-8 w-8">
     </a>
     
     <div class="flex flex-col-reverse justify-between overflow-clip md:flex-row md:space-y-0">
@@ -19,6 +19,16 @@
             <img src="{{ asset('/images/accent-2.svg') }}" alt="" class="absolute relative -top-24 -left-8 md:-top-36">
         </div>
         <div class="h-full flex flex-col w-3/5 px-16">
+            <a href="/about">
+                <svg width="25" height="25" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg" class="absolute top-10 right-6 z-50">
+                    <mask id="mask0_926_3369" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="25" height="25">
+                        <rect x="0.408447" y="0.0491943" width="24" height="24" fill="#D9D9D9"/>
+                    </mask>
+                    <g mask="url(#mask0_926_3369)">
+                        <path d="M11.0085 16.0492C11.0085 14.6992 11.1293 13.7284 11.371 13.1367C11.6127 12.545 12.1252 11.8992 12.9085 11.1992C13.5918 10.5992 14.1127 10.0784 14.471 9.63669C14.8293 9.19503 15.0085 8.69086 15.0085 8.12419C15.0085 7.44086 14.7793 6.87419 14.321 6.42419C13.8627 5.97419 13.2252 5.74919 12.4085 5.74919C11.5585 5.74919 10.9127 6.00753 10.471 6.52419C10.0293 7.04086 9.71683 7.56586 9.5335 8.09919L6.9585 6.99919C7.3085 5.93253 7.95016 5.00753 8.8835 4.22419C9.81683 3.44086 10.9918 3.04919 12.4085 3.04919C14.1585 3.04919 15.5043 3.53669 16.446 4.51169C17.3877 5.48669 17.8585 6.65753 17.8585 8.02419C17.8585 8.85753 17.6793 9.57003 17.321 10.1617C16.9627 10.7534 16.4002 11.4242 15.6335 12.1742C14.8168 12.9575 14.321 13.5534 14.146 13.9617C13.971 14.37 13.8835 15.0659 13.8835 16.0492H11.0085ZM12.4085 22.0492C11.8585 22.0492 11.3877 21.8534 10.996 21.4617C10.6043 21.07 10.4085 20.5992 10.4085 20.0492C10.4085 19.4992 10.6043 19.0284 10.996 18.6367C11.3877 18.245 11.8585 18.0492 12.4085 18.0492C12.9585 18.0492 13.4293 18.245 13.821 18.6367C14.2127 19.0284 14.4085 19.4992 14.4085 20.0492C14.4085 20.5992 14.2127 21.07 13.821 21.4617C13.4293 21.8534 12.9585 22.0492 12.4085 22.0492Z" fill="black"/>
+                    </g>
+                </svg>            
+            </a>
             <img src="{{ asset('/images/accent-1.svg') }}" alt="" class="absolute right-0 -top-8">
             <p class="w-fit font-sans font-medium text-3xl bg-gradient-90 from-[#A60453] to-[#FFB144] bg-clip-text text-transparent mt-10">
                 Setup Account
