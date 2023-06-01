@@ -12,7 +12,7 @@
     <x-drawer :barangay="$barangay" :municipality="$municipality" :logo="$logo" :terms="$terms"/>
 
     <div class="flex flex-row relative justify-end items-center space-x-2 px-4 z-10">
-        <img id="cancel-profile-button" src="{{ asset('/images/cancel-changes.svg') }}" alt="Cancel Changes" title="Cancel Changes" class="hidden translate-y-1 h-6 cursor-pointer hover:scale-125">
+        <img id="cancel-profile-button" src="{{ asset('/images/cancel-changes.svg') }}" alt="Cancel Changes" title="Cancel Changes" class="hidden translate-y-1 h-6 cursor-pointer scale-125 hover:scale-150">
         <img id="submit-profile-button" src="{{ asset('/images/check.svg') }}" alt="Submit Changes" title="Submit Changes" class="hidden translate-y-1 scale-75 h-6 cursor-pointer hover:scale-100">
         <img id="update-profile-button" src="{{ asset('/images/update_profile.svg') }}" alt="Update Profile" title="Update Profile" class="w-6 cursor-pointer hover:scale-125">
         <x-modal.profile-menu :terms="$terms"/>
