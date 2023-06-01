@@ -217,6 +217,20 @@ function changeUploadAuthorSelection(data){
                 <input id="upload-${data[i]}" type="checkbox" value="${data[i]}" class="upload-author w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 focus:ring-1">
                 <label for="upload-${data[i]}" class="w-full ml-2 font-sans text-sm font-normal text-gray-700 rounded cursor-pointer">${data[i]}</label>
             </div>`
+        var currentUploadAuthorInput = authorOption.querySelector('.upload-author')
+        currentUploadAuthorInput.addEventListener('change', function(){
+            var uploadAuthorOptions = document.querySelectorAll('.upload-author');
+            var selected = 0
+            for(let i = 0; i < uploadAuthorOptions.length; i++){
+                if(uploadAuthorOptions[i].checked){
+                    selected++;
+                }
+            }
+            uploadAuthorDropdown.innerHTML = `Select authors (${selected} out of 9 selected)
+                <svg class="w-4 h-4 ml-2" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                </svg>`
+        });
         uploadAuthorList.appendChild(authorOption);
     }
 }

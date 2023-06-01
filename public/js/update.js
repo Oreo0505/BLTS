@@ -249,6 +249,20 @@ function changeUpdateAuthorSelection(data){
                 <input id="upload-${data[i]}" type="checkbox" value="${data[i]}" class="update-author w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 focus:ring-1">
                 <label for="upload-${data[i]}" class="w-full ml-2 font-sans text-sm font-normal text-gray-700 rounded cursor-pointer">${data[i]}</label>
             </div>`
+        var currentUpdateAuthorInput = authorOption.querySelector('.update-author')
+        currentUpdateAuthorInput.addEventListener('change', function(){
+            var updateAuthorOptions = document.querySelectorAll('.update-author');
+            var selected = 0
+            for(let i = 0; i < updateAuthorOptions.length; i++){
+                if(updateAuthorOptions[i].checked){
+                    selected++;
+                }
+            }
+            uploadAuthorDropdown.innerHTML = `Select authors (${selected} out of 9 selected)
+                <svg class="w-4 h-4 ml-2" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                </svg>`
+        });
         updateAuthorList.appendChild(authorOption);
     }
 }
@@ -282,6 +296,10 @@ for(let i = 0; i < updateButtons.length; i++){
             updateTermField.value = data['term'];   
             getAuthors(data['term']).then(authors => {
                 changeUpdateAuthorSelection(authors);
+                updateAuthorDropdown.innerHTML = `Select authors (${data['authors'].length} out of 9 selected)
+                    <svg class="w-4 h-4 ml-2" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                    </svg>`
                 var updateAuthorOptions = document.querySelectorAll('.update-author');
                 for(let i = 0; i < updateAuthorOptions.length; i++){
                     if(data['authors'].includes(updateAuthorOptions[i].value)){
