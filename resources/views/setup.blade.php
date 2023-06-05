@@ -8,7 +8,7 @@
     </a>
     
     <div class="flex flex-col-reverse justify-between overflow-clip md:flex-row md:space-y-0">
-        <div class="flex flex-col w-2/5 h-[450px] mt-3 drop-shadow bg-gradient-30 from-[#425B71] to-[#425B71]/60 rounded-r-lg p-9 md:h-[800px] md:w-3/5 md:mt-0">
+        <div class="flex flex-col w-full h-[450px] mt-3 drop-shadow bg-gradient-30 from-[#425B71] to-[#425B71]/60 rounded-r-lg p-9 md:h-[800px] md:w-2/5 md:mt-0">
             <p class="font-sans font-normal text-white text-xl tracking-[5px]">DILG MARINDUQUE</p>
             <p class="font-sans font-extralight text-white text-base mt-16 md:mt-28">
                 Barangay Legislative Tracking System (BLTS) is an offline repository platform for archiving Barangay Legislative Records. Barangay Secretary uploads code of ordinances, ordinances, resolutions and others.
@@ -18,7 +18,7 @@
             <p class="font-sans font-bold text-3xl text-white">DILG - LGRC</p>
             <img src="{{ asset('/images/accent-2.svg') }}" alt="" class="absolute relative -top-24 -left-8 md:-top-36">
         </div>
-        <div class="h-full flex flex-col w-3/5 px-16">
+        <div class="h-full flex flex-col w-full px-16 md:w-3/5">
             <a href="/about">
                 <svg width="25" height="25" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg" class="absolute top-10 right-6 z-50">
                     <mask id="mask0_926_3369" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="25" height="25">
