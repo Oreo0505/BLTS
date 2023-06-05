@@ -36,25 +36,27 @@
         <p class="text-base font-bold text-black/60 pt-2">
             Date of Enactment | {{date('M d, Y', strtotime($document->date))}}
         </p>
-        <div class="flex flex-col justify-start items-end md:flex-row md:justify-between">
-            <p class="text-base font-bold text-black/60">
-                Author/s | 
-                    @php
-                        $authors = [];
-                    @endphp
-                    @foreach($document->authors as $author)
+        <div class="flex flex-row justify-between md:flex-row md:justify-between">
+            <div class="flex w-3/5 items-start">
+                <p class="text-base font-bold text-black/60">
+                    Author/s | 
                         @php
-                            array_push($authors, $author->name);
+                            $authors = [];
                         @endphp
-                    @endforeach
-                    {{join(", ", $authors)}}
-                    @php
-                        if(count($authors) <= 0){
-                            echo "No author";
-                        }
-                    @endphp
-            </p>
-            <div class="flex flex-row justify-end items-end space-x-4">
+                        @foreach($document->authors as $author)
+                            @php
+                                array_push($authors, $author->name);
+                            @endphp
+                        @endforeach
+                        {{join(", ", $authors)}}
+                        @php
+                            if(count($authors) <= 0){
+                                echo "No author";
+                            }
+                        @endphp
+                </p>
+            </div>
+            <div class="flex flex-row w-2/5 justify-end items-end space-x-4">
                 <a href={{'/download'.'/'.substr($document->file, 10)}} target="_blank" rel="noopener noreferrer" class="rounded-sm hover:bg-[#F5F5F5] hover:scale-150">
                     <img src="{{ asset('/images/download.svg') }}" alt="Download" title="Download">
                 </a>
