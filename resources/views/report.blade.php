@@ -71,7 +71,7 @@
                 <div class="table-cell text-center font-bold align-middle text-sm" style="width: 17%; background-color: #D9D9D9">Document</div>
                 <div class="table-cell text-center font-bold align-middle text-sm" style="width: 25%; background-color: #D9D9D9">Title</div>
                 <div class="table-cell text-center font-bold align-middle text-sm" style="width: 18%; background-color: #D9D9D9">Author/s</div>
-                <div class="table-cell text-center font-bold align-middle text-sm" style="width: 15%; background-color: #D9D9D9">Date of Enactment / Adaption</div>
+                <div class="table-cell text-center font-bold align-middle text-sm" style="width: 15%; background-color: #D9D9D9">Date of Enactment / Adoption</div>
                 <div class="table-cell text-center font-bold align-middle text-sm" style="width: 20%; background-color: #D9D9D9">Governance Area</div>
             </div>
         </div>
