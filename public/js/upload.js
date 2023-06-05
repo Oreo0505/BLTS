@@ -116,7 +116,10 @@ uploadCancelButton.addEventListener('click', function(){
     uploadNumberField.value = '';
     uploadAreaField.selectedIndex = 0;
     uploadDateField.value = '';
-    uploadAuthorOptions.selectedIndex = 0;
+    var uploadAuthorOptions = document.querySelectorAll('.upload-author');
+    for(let i = 0; i < uploadAuthorOptions.length; i++){
+        uploadAuthorOptions[i].checked = false;
+    }
     uploadFileField.value = '';
     var dataTransfer = new DataTransfer();
     uploadFileField.files = dataTransfer.files;
