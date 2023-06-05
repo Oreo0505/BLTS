@@ -74,10 +74,10 @@ class BrowseController extends Controller
             $term_query = $start_year.'-'.$end_year;
         }
         $filters = [
-            'administration' => $request->by != 'term' ? 'All' :  $term_query,
-            'type' => $request->by != 'type' ? 'All' : $request->value,
-            'area' => $request->by != 'area' ? 'All' : $request->value,
-            'authors' => 'All'
+            'administration' => $request->by != 'term' ? 'Any' :  $term_query,
+            'type' => $request->by != 'type' ? 'Any' : $request->value,
+            'area' => $request->by != 'area' ? 'Any' : $request->value,
+            'authors' => 'Any'
         ];
         $this->CreateReport($documents, $filters);
 

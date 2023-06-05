@@ -44,9 +44,9 @@ class RedirectController extends Controller
         }
         $filters = [
             'administration' => date('Y',strtotime($start)).'-'.date('Y',strtotime($end)),
-            'type' => 'All',
-            'area' => 'All',
-            'authors' => join(', ', $authors_names)
+            'type' => 'Any',
+            'area' => 'Any',
+            'authors' => 'Any'
         ];
         $this->CreateReport($documents, $filters);
 

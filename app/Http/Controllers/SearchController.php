@@ -194,11 +194,12 @@ class SearchController extends Controller
 
         $terms = Term::all();
 
+        $authors_filter = explode(',',$request->authors); 
         $filters = [
-            'administration' => $request->year,
-            'type' => count($parameters) >= 4 || count($parameters) <= 0 ? 'All' : str_replace('_',' ',join(', ', array_keys($parameters))),
-            'area' => $request->area,
-            'authors' => $request->year == 'all' ? 'All' : join(', ',explode(',',$request->authors))
+            'administration' => $request->year == 'all' ? 'Any' : $request->year,
+            'type' => count($parameters) >= 4 || count($parameters) <= 0 ? 'Any' : str_replace('_',' ',join(', ', array_keys($parameters))),
+            'area' => $request->area == 'all' ? 'Any' : $request->area,
+            'authors' => count($authors_filter) >= 9 ? 'Any' : join(', ',explode(',',$request->authors))
         ];
         $this->CreateReport($documents, $filters);
 
