@@ -3,17 +3,29 @@
         <p class="font-sans font-medium text-base text-left">{{$document->type}} No.{{$document->number}}, s. {{date('Y', strtotime($document->date))}}</p>
         
         @if($document->area == 'Financial Administration and Sustainability')
-            <img src="{{ asset('/images/Financial_Administration_and_Sustainability.svg') }}" alt="" class="h-8 w-8">
+            <a href="/browse?by=area&value=Financial Administration and Sustainability" class="">
+                <img src="{{ asset('/images/Financial_Administration_and_Sustainability.svg') }}" alt="Financial Administration and Sustainability" title="Financial Administration and Sustainability" class="h-8 w-8">            
+            </a>
         @elseif($document->area == 'Disaster Preparedness')
-            <img src="{{ asset('/images/Disaster_Preparedness.svg') }}" alt="" class="h-8 w-8">
+            <a href="/browse?by=area&value=Disaster Preparedness" class="">
+                <img src="{{ asset('/images/Disaster_Preparedness.svg') }}" alt="Disaster Preparedness" title="Disaster Preparedness" class="h-8 w-8">
+            </a>
         @elseif($document->area == 'Safety, Peace and Order')
-            <img src="{{ asset('/images/Safety_Peace_and_Order.svg') }}" alt="" class="h-8 w-8">
+            <a href="/browse?by=area&value=Safety, Peace and Order" class="">
+                <img src="{{ asset('/images/Safety_Peace_and_Order.svg') }}" alt="Safety Peace and Order" title="Safety Peace and Order" class="h-8 w-8">
+            </a>
         @elseif($document->area == 'Social Protection and Sensitivity')
-            <img src="{{ asset('/images/Social_Protection_and_Sensitivity.svg') }}" alt="" class="h-8 w-8">
+            <a href="/browse?by=area&value=Social Protection and Sensitivity" class="">
+                <img src="{{ asset('/images/Social_Protection_and_Sensitivity.svg') }}" alt="Social Protection and Sensitivity" title="Social Protection and Sensitivity" class="h-8 w-8">
+            </a>
         @elseif($document->area == 'Business-Friendliness and Competitiveness')
-            <img src="{{ asset('/images/Business_Friendliness_and_Competitiveness.svg') }}" alt="" class="h-8 w-8">
+            <a href="/browse?by=area&value=Business-Friendliness and Competitiveness" class="">
+                <img src="{{ asset('/images/Business_Friendliness_and_Competitiveness.svg') }}" alt="Business Friendliness and Competitiveness" title="Business Friendliness and Competitiveness" class="h-8 w-8">
+            </a>
         @elseif($document->area == 'Environmental Management')
-            <img src="{{ asset('/images/Environmental_Management.svg') }}" alt="" class="h-8 w-8">
+            <a href="/browse?by=area&value=Environmental Mannagement" class="">
+                <img src="{{ asset('/images/Environmental_Management.svg') }}" alt="Environmental Management" title="Environmental Management" class="h-8 w-8">                
+            </a>
         @endif
 
     </div>
