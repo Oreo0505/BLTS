@@ -62,7 +62,7 @@
                     <div class="flex flex-col relative w-full md:w-1/2">
                         <input type="text" datepicker datepicker-autohide id="update-date" name="date" placeholder="Enter date of enactment/endorsed..." class="w-full flex border border-gray-700 rounded-[7px] outline outline-0 font-sans font-normal leading-tight text-sm text-gray-700 focus:ring-1 focus:outline-none focus:ring-gray-700 rounded-lg text-sm px-4 py-2.5 inline-flex placeholder:text-xs">
                         <label for="update-date" class="relative absolute -top-12 left-3 w-fit px-1 bg-white font-sans font-normal text-gray-700 text-[11px] leading-tight">
-                            Date Enacted / Adapted
+                            Date Enacted / Adopted
                         </label>
                         <div class="absolute inset-y-0 right-0 flex mt-2 pr-3 cursor-pointer">
                             <svg id="update-date-icon" aria-hidden="true" class="w-5 h-5 text-gray-500" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
