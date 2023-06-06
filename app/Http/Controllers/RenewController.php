@@ -15,7 +15,7 @@ class RenewController extends Controller
         $validator = Validator::make($request->all(),[
             'captain' => 'required|min:3',
             'secretary' => 'required|min:3',
-            'from' => 'required|date',
+            'from' => 'required|date|after:yesterday',
             'to' => 'required|date|after:from',
             'sb1' => 'required|min:3',
             'sb2' => 'required|min:3',
@@ -32,7 +32,8 @@ class RenewController extends Controller
             'secretary.required' => 'Barangay secretary field is required',
             'secretary.min' => 'Barangay secretary name should contain 3 or more character',
             'from.required' => 'Term start date is required',
-            'from.date' => 'Invalid date format',
+            'from.date' => 'Term period should be later than yesterday',
+            'from.after' => 'Term start date',
             'to.required' => 'Term end date is required',
             'to.date' => 'Invalid date format',
             'to.after' => 'Term end date should be later than term start date',

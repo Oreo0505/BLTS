@@ -79,7 +79,7 @@ class CreateController extends Controller
         $validator = Validator::make($request->all(),[
             'captain' => 'required|min:3',
             'secretary' => 'required|min:3',
-            'from' => 'required|date',
+            'from' => 'required|date|before:now',
             'to' => 'required|date|after:from',
             'sb1' => 'required|min:3',
             'sb2' => 'required|min:3',
@@ -97,6 +97,7 @@ class CreateController extends Controller
             'secretary.min' => 'Barangay secretary name should contain 3 or more character',
             'from.required' => 'Term start date is required',
             'from.date' => 'Invalid date format',
+            'from.before' => 'You can\'t add term for the future',
             'to.required' => 'Term end date is required',
             'to.date' => 'Invalid date format',
             'to.after' => 'Term end date should be later than term start date',
@@ -124,6 +125,11 @@ class CreateController extends Controller
             return back()->withInput();
         }
 
+        $check_term = Term::where('start', date("Y-m-d", strtotime($request->from)))->where('end', date("Y-m-d", strtotime($request->to)))->get();
+        if(count($check_term) >= 1){
+            flash()->addError('Profile already exists');
+            return back();
+        }
         $term_form = [
             'start' => date("Y-m-d", strtotime($request->from)),
             'end' => date("Y-m-d", strtotime($request->to))
