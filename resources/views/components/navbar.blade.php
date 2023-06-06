@@ -10,6 +10,9 @@
         <a href="/">
             <img src="{{ asset('/images/lgrc_logo.svg') }}" alt="" class="h-9">        
         </a>
+        <a href="/">
+            <img src="{{ asset('/images/one_marinduque.png') }}" alt="" class="h-9">        
+        </a>
     </div>
     <div class="flex items-center justify-center w-full">
         <p class="font-sans font-semibold text-white text-2xl leading-[29px] text-center">
