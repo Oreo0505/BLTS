@@ -74,7 +74,7 @@
                     <div class="flex flex-row items-center justify-start space-x-1 pr-1 mt-6 ml-3 md:ml-6">
                         <img src="{{ asset('/images/location.svg') }}" alt="" class="flex h-[13px]">
                         <p class="flex font-sans font-normal text-xs leading-5 text-[#707070] truncate">
-                            Tanza, Boac, Marinduque
+                            Tampus, Boac, Marinduque
                         </p>
                     </div>
                     <div class="flex flex-row items-center justify-start space-x-1 pr-1 mt-1.5 ml-3 md:ml-6">
@@ -93,7 +93,7 @@
                 <div class="flex flex-col w-[270px] h-[410px] rounded-lg border drop-shadow-md bg-white z-20 md:h-[450px]">
                     <div class="flex h-[250px] bg-[url('/images/arrianne.png')] bg-top rounded-t-lg"></div>
                     <p class="mt-4 px-2 font-roboto font-bold text-xl leading-8 text-center text-[#4B4B4B] uppercase">
-                        ARRIANNE S. UMALI
+                        ARRIANNE R. UMALI
                     </p>
                     <p class="font-sans font-normal text-xs leading-5 text-center text-[#707070]">
                         BSCpE Intern, MSC
