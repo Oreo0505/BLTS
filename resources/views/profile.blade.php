@@ -62,7 +62,7 @@
                 </div>
                 <div class="flex flex-col">
                     <p class="font-sans font-medium text-xl text-[#181313] whitespace-nowrap outline-none">Hon. <span id="chairman" class="outline-none"> {{$chairman->name}} </span></p>
-                    <p class="font-sans font-normal text-base text-[#181313] italic whitespace-nowrap ml-1 -translate-y-1">Sangguniang Kabataan Chairman</p>
+                    <p class="font-sans font-normal text-base text-[#181313] italic whitespace-nowrap ml-1 -translate-y-1">Sangguniang Kabataan Chairperson</p>
                 </div>
             </div>
         </div>

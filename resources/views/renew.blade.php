@@ -110,7 +110,7 @@
                         </div>
                         <div class="h-2 flex flex-row space-x-2 items-center">
                             <label for="chairman" class="font-sans font-normal text-sm text-gray-700 leading-tight mt-1">8.</label>
-                            <input type="text" id="chairman" name="chairman" value="{{ old('chairman') }}" placeholder="SK Chairman" class="w-full mt-1 border-0 border-gray-700 font-sans font-normal px-1 py-0 text-sm text-gray-700 placeholder:text-xs">
+                            <input type="text" id="chairman" name="chairman" value="{{ old('chairman') }}" placeholder="SK Chairperson" class="w-full mt-1 border-0 border-gray-700 font-sans font-normal px-1 py-0 text-sm text-gray-700 placeholder:text-xs">
                         </div>
                     </div>
                 </div>
