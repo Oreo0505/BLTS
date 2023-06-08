@@ -1325,10 +1325,6 @@ video {
   margin-bottom: calc(2rem * var(--tw-space-y-reverse));
 }
 
-.self-start {
-  align-self: flex-start;
-}
-
 .self-end {
   align-self: flex-end;
 }
@@ -1485,6 +1481,20 @@ video {
 .bg-white {
   --tw-bg-opacity: 1;
   background-color: rgb(255 255 255 / var(--tw-bg-opacity));
+}
+
+.bg-\[\#425B71\]\/60 {
+  background-color: rgb(66 91 113 / 0.6);
+}
+
+.bg-\[\#53697d\] {
+  --tw-bg-opacity: 1;
+  background-color: rgb(83 105 125 / var(--tw-bg-opacity));
+}
+
+.bg-\[\#53697D\] {
+  --tw-bg-opacity: 1;
+  background-color: rgb(83 105 125 / var(--tw-bg-opacity));
 }
 
 .bg-\[url\(\'\/images\/arrianne\.png\'\)\] {
@@ -1994,10 +2004,6 @@ video {
 .text-white {
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity));
-}
-
-.text-white\/60 {
-  color: rgb(255 255 255 / 0.6);
 }
 
 .opacity-70 {
