@@ -122,10 +122,28 @@
         </section>
     </div>
     <footer id="footer">
-        <div class="absolute relative bottom-0 flex h-12 w-screen bg-[#425B71] items-center justify-center z-50">
+        <div class="absolute relative bottom-0 flex h-fit w-full bg-[#425B71] items-center justify-center z-50 p-2">
             <p class="font-roboto font-normal text-xs leading-5 text-center text-white">
                 BLTS is a project completed during the 2023 DILG Internship in collaboration with the 
                 Computer Engineering on-the-job trainees from the Marinduque State College (MSC).
+            </p>
+        </div>
+        <div class="flex flex-col absolute relative bottom-0 flex h-fit w-full bg-[#53697D] items-center justify-center z-50 p-2">
+            <p class="flex font-roboto font-normal text-xs leading-5 text-center text-white">
+                The DILG Marinduque Provincial Office assert full ownership rights over the 
+                Barangay Legistative Tracking System (BLTS).
+            </p>
+            <p class="flex font-roboto font-normal text-xs leading-5 text-center text-white">
+                The software was developed for the purpose of helping Barangay Secretaries managing 
+                and organization barangay legistative documents.
+            </p>
+            <p class="flex font-roboto font-normal text-xs leading-5 text-center text-white">
+                Any unauthorized use, reproduction, distribution, or modification of the sorftware
+                without our explicit consent is strictly prohibited.
+            </p>
+            <p class="flex font-roboto font-normal text-xs leading-5 text-center text-white">
+                We reserve the right to enforce our ownership rights and protect the integrity of the 
+                software through legal means as neccessary.
             </p>
         </div>
     </footer>
