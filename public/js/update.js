@@ -188,33 +188,41 @@ updateFileField.addEventListener('change', function(){
 });
 
 updateSubmitButton.addEventListener('click', function(){
+    updateSubmitButton.disabled = true;
     getTerm(updateTermField.value).then(term => {
         if(updateTitleField.value.length < 3){
             alert('Title should be 3 or more character long');
+            updateSubmitButton.disabled = false;
             return;
         }
         if(updateTypeField.value == 'null'){
             alert('Please select document type');
+            updateSubmitButton.disabled = false;
             return;
         }
         if(updateTypeField.value == 'Others' && updateSpecificField.value.length <= 0){
             alert('Please specify document type');
+            updateSubmitButton.disabled = false;
             return;
         }
         if(updateNumberField.value.length <= 0){
             alert('Please enter document number');
+            updateSubmitButton.disabled = false;
             return;
         }
         if(isNaN(updateNumberField.value)){
             alert('Number field can only contain digits');
+            updateSubmitButton.disabled = false;
             return;
         }
         if(updateAreaField.value == 'null'){
             alert('Please select area of governance');
+            updateSubmitButton.disabled = false;
             return;
         }
         if(updateDateField.value.length <= 0){
             alert('Please select document date');
+            updateSubmitButton.disabled = false;
             return;
         }
         let start = new Date(term['start']);
@@ -222,6 +230,7 @@ updateSubmitButton.addEventListener('click', function(){
         let dateSelected = new Date(updateDateField.value);
         if(!(dateSelected >= start && dateSelected <= end)){
             alert('Date enacted / adopted should be within the selected administrative term duration range');
+            updateSubmitButton.disabled = false;
             return;
         }
         var updateAuthorOptions = document.querySelectorAll('.update-author');
@@ -239,6 +248,7 @@ updateSubmitButton.addEventListener('click', function(){
         }
         if(updateFileField.files.length == 0){
             alert('Please upload a file');
+            updateSubmitButton.disabled = false;
             return;
         }
         updateTitleField.value = updateTitleField.value.toUpperCase();

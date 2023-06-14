@@ -127,33 +127,41 @@ uploadCancelButton.addEventListener('click', function(){
 });
 
 uploadSubmitButton.addEventListener('click', function(){
+    uploadSubmitButton.disabled = true;
     getTerm(uploadTermField.value).then(term => {
         if(uploadTitleField.value.length < 3){
             alert('Title should be 3 or more character long');
+            uploadSubmitButton.disabled = false;
             return;
         }
         if(uploadTypeField.value == 'null'){
             alert('Please select document type');
+            uploadSubmitButton.disabled = false;
             return;
         }
         if(uploadTypeField.value == 'Others' && uploadSpecificField.value.length <= 0){
             alert('Please specify document type');
+            uploadSubmitButton.disabled = false;
             return;
         }
         if(uploadNumberField.value.length <= 0){
             alert('Please enter document number');
+            uploadSubmitButton.disabled = false;
             return;
         }
         if(isNaN(uploadNumberField.value)){
             alert('Number field can only contain digits');
+            uploadSubmitButton.disabled = false;
             return;
         }
         if(uploadAreaField.value == 'null'){
             alert('Please select area of governance');
+            uploadSubmitButton.disabled = false;
             return;
         }
         if(uploadDateField.value.length <= 0){
             alert('Please select document date');
+            uploadSubmitButton.disabled = false;
             return;
         }
         let start = new Date(term['start']);
@@ -161,6 +169,7 @@ uploadSubmitButton.addEventListener('click', function(){
         let dateSelected = new Date(uploadDateField.value);
         if(!(dateSelected >= start && dateSelected <= end)){
             alert('Date enacted / adopted should be within the selected administrative term duration range');
+            uploadSubmitButton.disabled = false;
             return;
         }
         var authors = []
@@ -178,8 +187,10 @@ uploadSubmitButton.addEventListener('click', function(){
         }
         if(uploadFileField.files.length == 0){
             alert('Please upload a file');
+            uploadSubmitButton.disabled = false;
             return;
         }
+        uploadSubmitButton.disabled = true;
         uploadTitleField.value = uploadTitleField.value.toUpperCase();
         uploadAuthorsField.value = authors.join(',');
         uploadForm.submit();
