@@ -21,9 +21,6 @@ class RedirectController extends Controller
         }
 
         $current_term = Term::find($config->current_term);
-        if(date('Y-m-d') > $current_term->end){
-            return redirect('/renew');
-        }
 
         $start = $current_term->start;
         $end = $current_term->end;
@@ -51,6 +48,8 @@ class RedirectController extends Controller
         $this->CreateReport($documents, $filters);
 
         return view('welcome',[
+            'renew' => date('Y-m-d') > $current_term->end ? true : false,
+            'current_term' => $current_term,
             'barangay' => $config->barangay,
             'municipality' => $config->municipality,
             'logo' => $config->logo,
@@ -89,11 +88,6 @@ class RedirectController extends Controller
             return redirect('/setup');
         }
 
-        $current_term = Term::find($config->current_term);
-        if(date('Y-m-d') > $current_term->end){
-            return redirect('/renew');
-        }
-
         $terms = Term::all();
 
         if($request->has('id')){
@@ -129,6 +123,8 @@ class RedirectController extends Controller
         }
 
         return view('profile',[
+            'renew' => date('Y-m-d') > $current_term->end ? true : false,
+            'current_term' => $current_term,
             'barangay' => $config->barangay,
             'municipality' => $config->municipality,
             'logo' => $config->logo,
@@ -153,13 +149,10 @@ class RedirectController extends Controller
             return redirect('/setup');
         }
 
-        $current_term = Term::find($config->current_term);
-        if(date('Y-m-d') > $current_term->end){
-            return redirect('/renew');
-        }
-
         $terms = Term::all();
         return view('add_profile',[
+            'renew' => date('Y-m-d') > $current_term->end ? true : false,
+            'current_term' => $current_term,
             'barangay' => $config->barangay,
             'municipality' => $config->municipality,
             'logo' => $config->logo,
@@ -171,11 +164,6 @@ class RedirectController extends Controller
         $config = Config::first();
         if($config->first_time){
             return redirect('/setup');
-        }
-
-        $current_term = Term::find($config->current_term);
-        if(date('Y-m-d') > $current_term->end){
-            return redirect('/renew');
         }
 
         $start = $current_term->start;
@@ -192,6 +180,8 @@ class RedirectController extends Controller
         $terms = Term::all();
 
         return view('trash',[
+            'renew' => date('Y-m-d') > $current_term->end ? true : false,
+            'current_term' => $current_term,
             'barangay' => $config->barangay,
             'municipality' => $config->municipality,
             'logo' => $config->logo,
