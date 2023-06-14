@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\Author;
 use App\Models\Document;
 use App\Models\Config;
+use App\Models\Term;
 use App\Traits\Upload;
 use Illuminate\Support\Facades\Validator;
 
@@ -14,7 +15,7 @@ class UpdateController extends Controller
 {
     use Upload;
 
-    public function update(Request $request){
+    public function updateDocument(Request $request){
         $validator = Validator::make($request->all(),[
             'id' => 'required|exists:documents,id',
             'title' => 'required',
@@ -46,11 +47,14 @@ class UpdateController extends Controller
         $author_ids = [];
         if($request->authors != null){
             $authors = explode(',', $request->authors);
+            $current_term = Term::find(Config::first()->current_term);
             foreach($authors as $author){
                 $temp = Author::where('name',ucwords($author))->first();
                 if($temp == null){
                     $author_form = [
-                        'name' => ucwords($author)
+                        'name' => ucwords($author),
+                        'position' => 'Other',
+                        'term_id' => $current_term->id
                     ];
                     $new_author = Author::create($author_form);
                     array_push($author_ids, $new_author->id);

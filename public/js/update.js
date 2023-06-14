@@ -231,6 +231,12 @@ updateSubmitButton.addEventListener('click', function(){
                 authors.push(updateAuthorOptions[i].value);
             }
         }
+        var updateCustomAuthors = document.querySelectorAll('.update-custom-author');
+        for(let i = 0; i < updateCustomAuthors.length; i++){
+            if(updateCustomAuthors[i].value.length >= 3){
+                authors.push(updateCustomAuthors[i].value);   
+            }
+        }
         if(updateFileField.files.length == 0){
             alert('Please upload a file');
             return;
@@ -241,8 +247,37 @@ updateSubmitButton.addEventListener('click', function(){
     });
 });
 
+function changeUpdateAuthorDropdownCounter(selected, length){
+    updateAuthorDropdown.innerHTML = `Select authors (${selected} out of ${length} selected)
+        <svg class="w-4 h-4 ml-2" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+        </svg>`;
+}
+
 function changeUpdateAuthorSelection(data){
     updateAuthorList.innerHTML = '';
+    var updateSelectAllAuthorOption = document.createElement('li');
+    updateSelectAllAuthorOption.innerHTML = `<div class="flex items-center p-2 rounded hover:bg-gray-100">
+            <input id="update-select-all-author" type="checkbox" value="all" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 focus:ring-1">
+            <label for="update-select-all-author" class="w-full ml-2 font-sans text-sm font-normal text-gray-700 rounded cursor-pointer">Select All</label>
+        </div>`;
+    updateSelectAllAuthorCheckbox = updateSelectAllAuthorOption.querySelector('#update-select-all-author');
+    updateSelectAllAuthorCheckbox.addEventListener('click', function(){
+        var updateAuthorOptions = document.querySelectorAll('.update-author');
+        if(updateSelectAllAuthorCheckbox.checked){
+            for(let i = 0; i < updateAuthorOptions.length; i++){
+                updateAuthorOptions[i].checked = true;
+            }
+            changeUpdateAuthorDropdownCounter(updateAuthorOptions.length, updateAuthorOptions.length);
+        }
+        else{
+            for(let i = 0; i < updateAuthorOptions.length; i++){
+                updateAuthorOptions[i].checked = false;
+            } 
+            changeUpdateAuthorDropdownCounter(0, updateAuthorOptions.length);
+        }
+    });
+    updateAuthorList.appendChild(updateSelectAllAuthorOption);
     for(let i = 0; i < data.length; i++){
         var authorOption = document.createElement('li');
         authorOption.innerHTML = `<div class="flex items-center p-2 rounded hover:bg-gray-100">
@@ -252,19 +287,31 @@ function changeUpdateAuthorSelection(data){
         var currentUpdateAuthorInput = authorOption.querySelector('.update-author')
         currentUpdateAuthorInput.addEventListener('change', function(){
             var updateAuthorOptions = document.querySelectorAll('.update-author');
-            var selected = 0
+            var selected = 0;
             for(let i = 0; i < updateAuthorOptions.length; i++){
                 if(updateAuthorOptions[i].checked){
                     selected++;
                 }
             }
-            updateAuthorDropdown.innerHTML = `Select authors (${selected} out of 9 selected)
-                <svg class="w-4 h-4 ml-2" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-                </svg>`
+            changeUpdateAuthorDropdownCounter(selected, updateAuthorOptions.length);
         });
         updateAuthorList.appendChild(authorOption);
     }
+    updateAddAuthorButton = document.createElement('button');
+    updateAddAuthorButton.classList.add('w-full','flex','p-2','rounded','hover:bg-gray-100','rounded-md','font-sans','font-normal','text-sm','text-gray-700','justify-center');
+    updateAddAuthorButton.innerHTML = '+ Add Other Author';
+    updateAddAuthorButton.type = 'button';
+    updateAddAuthorButton.addEventListener('click', function(){
+        let updateCustomAuthorOption = document.createElement('li');
+        updateCustomAuthorOption.innerHTML = `<div class="flex flex-col mt-4">
+                <input type="text" id="update-custom-author" placeholder="Enter author's name" class="update-custom-author w-full flex border border-gray-700 rounded-[7px] outline outline-0 font-sans font-normal leading-tight text-sm text-gray-700 focus:ring-1 focus:outline-none focus:ring-gray-700 rounded-lg text-sm px-4 py-2.5 inline-flex placeholder:text-xs">
+                <label for="update-custom-author" class="relative absolute -top-12 left-3 w-fit px-1 bg-white font-sans font-normal text-gray-700 text-[11px] leading-tight">
+                    Author Name
+                </label>
+            </div>`;
+        updateAuthorList.appendChild(updateCustomAuthorOption);
+    })
+    updateAuthorList.appendChild(updateAddAuthorButton);
 }
 
 function loadURLToInputField(url, fileName){
@@ -296,10 +343,7 @@ for(let i = 0; i < updateButtons.length; i++){
             updateTermField.value = data['term'];   
             getAuthors(data['term']).then(authors => {
                 changeUpdateAuthorSelection(authors);
-                updateAuthorDropdown.innerHTML = `Select authors (${data['authors'].length} out of 9 selected)
-                    <svg class="w-4 h-4 ml-2" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-                    </svg>`
+                changeUpdateAuthorDropdownCounter(data['authors'].length, authors.length);
                 var updateAuthorOptions = document.querySelectorAll('.update-author');
                 for(let i = 0; i < updateAuthorOptions.length; i++){
                     if(data['authors'].includes(updateAuthorOptions[i].value)){

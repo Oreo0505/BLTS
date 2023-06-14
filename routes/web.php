@@ -30,7 +30,7 @@ Route::post('/upload', [CreateController::class, 'createDocument']);
 
 Route::post('/delete', [DeleteController::class, 'delete']);
 
-Route::post('/update', [UpdateController::class, 'update']);
+Route::post('/update', [UpdateController::class, 'updateDocument']);
 
 Route::post('/update/logo', [UpdateController::class, 'updateLogo']);
 

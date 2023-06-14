@@ -170,6 +170,12 @@ uploadSubmitButton.addEventListener('click', function(){
                 authors.push(uploadAuthorOptions[i].value);
             }
         }
+        var uploadCustomAuthors = document.querySelectorAll('.upload-custom-author');
+        for(let i = 0; i < uploadCustomAuthors.length; i++){
+            if(uploadCustomAuthors[i].value.length >= 3){
+                authors.push(uploadCustomAuthors[i].value);   
+            }
+        }
         if(uploadFileField.files.length == 0){
             alert('Please upload a file');
             return;
@@ -212,8 +218,38 @@ function showUploadedLabel(filename){
     uploadFileContainer.appendChild(uploadedLabel)
 }
 
+function changeUploadAuthorDropdownCounter(selected, length){
+    uploadAuthorDropdown.innerHTML = `Select authors (${selected} out of ${length} selected)
+    <svg class="w-4 h-4 ml-2" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+    </svg>`;
+}
+
 function changeUploadAuthorSelection(data){
+    changeUploadAuthorDropdownCounter(0, data.length);
     uploadAuthorList.innerHTML = '';
+    var uploadSelectAllAuthorOption = document.createElement('li');
+    uploadSelectAllAuthorOption.innerHTML = `<div class="flex items-center p-2 rounded hover:bg-gray-100">
+            <input id="upload-select-all-author" type="checkbox" value="all" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 focus:ring-1">
+            <label for="upload-select-all-author" class="w-full ml-2 font-sans text-sm font-normal text-gray-700 rounded cursor-pointer">Select All</label>
+        </div>`;
+    uploadSelectAllAuthorCheckbox = uploadSelectAllAuthorOption.querySelector('#upload-select-all-author');
+    uploadSelectAllAuthorCheckbox.addEventListener('click', function(){
+        var uploadAuthorOptions = document.querySelectorAll('.upload-author');
+        if(uploadSelectAllAuthorCheckbox.checked){
+            for(let i = 0; i < uploadAuthorOptions.length; i++){
+                uploadAuthorOptions[i].checked = true;
+            }
+            changeUploadAuthorDropdownCounter(uploadAuthorOptions.length, uploadAuthorOptions.length);
+        }
+        else{
+            for(let i = 0; i < uploadAuthorOptions.length; i++){
+                uploadAuthorOptions[i].checked = false;
+            } 
+            changeUploadAuthorDropdownCounter(0, uploadAuthorOptions.length);
+        }
+    });
+    uploadAuthorList.appendChild(uploadSelectAllAuthorOption);
     for(let i = 0; i < data.length; i++){
         var authorOption = document.createElement('li');
         authorOption.innerHTML = `<div class="flex items-center p-2 rounded hover:bg-gray-100">
@@ -229,13 +265,31 @@ function changeUploadAuthorSelection(data){
                     selected++;
                 }
             }
-            uploadAuthorDropdown.innerHTML = `Select authors (${selected} out of 9 selected)
-                <svg class="w-4 h-4 ml-2" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-                </svg>`
+            if(selected == uploadAuthorOptions.length){
+                uploadSelectAllAuthorCheckbox.checked = true;
+            }
+            else{
+                uploadSelectAllAuthorCheckbox.checked = false;
+            }
+            changeUploadAuthorDropdownCounter(selected, uploadAuthorOptions.length);
         });
         uploadAuthorList.appendChild(authorOption);
     }
+    uploadAddAuthorButton = document.createElement('button');
+    uploadAddAuthorButton.classList.add('w-full','flex','p-2','rounded','hover:bg-gray-100','rounded-md','font-sans','font-normal','text-sm','text-gray-700','justify-center');
+    uploadAddAuthorButton.innerHTML = '+ Add Other Author';
+    uploadAddAuthorButton.type = 'button';
+    uploadAddAuthorButton.addEventListener('click', function(){
+        let uploadCustomAuthorOption = document.createElement('li');
+        uploadCustomAuthorOption.innerHTML = `<div class="flex flex-col mt-4">
+                <input type="text" id="upload-custom-author" placeholder="Enter author's name" class="upload-custom-author w-full flex border border-gray-700 rounded-[7px] outline outline-0 font-sans font-normal leading-tight text-sm text-gray-700 focus:ring-1 focus:outline-none focus:ring-gray-700 rounded-lg text-sm px-4 py-2.5 inline-flex placeholder:text-xs">
+                <label for="upload-custom-author" class="relative absolute -top-12 left-3 w-fit px-1 bg-white font-sans font-normal text-gray-700 text-[11px] leading-tight">
+                    Author Name
+                </label>
+            </div>`;
+        uploadAuthorList.appendChild(uploadCustomAuthorOption);
+    })
+    uploadAuthorList.appendChild(uploadAddAuthorButton);
 }
 
 getAuthors('current').then(data => {
