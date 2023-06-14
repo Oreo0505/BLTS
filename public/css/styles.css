@@ -2385,6 +2385,14 @@ video {
     width: 23%;
   }
 
+  .md\:w-full {
+    width: 100%;
+  }
+
+  .md\:w-2\/3 {
+    width: 66.666667%;
+  }
+
   .md\:flex-row {
     flex-direction: row;
   }
