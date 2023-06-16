@@ -93,7 +93,7 @@
                             {{$author->name}}<br>
                         @endforeach
                         @if(count($document->authors) <= 0)
-                                echo "No author";
+                            No author
                         @endif
 
                     </div>
