@@ -2,6 +2,11 @@
 
 @section('content')
 
+    {{-- Show renew notification if administrative term ended --}}
+    @if($renew)
+        <x-modal.renew-notification :term="$current_term"/>
+    @endif
+    
     {{-- Navigation Bar --}}
     <x-navbar :barangay="$barangay" :municipality="$municipality"/>
 

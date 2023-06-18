@@ -22,9 +22,6 @@ class BrowseController extends Controller
         }
 
         $current_term = Term::find($config->current_term);
-        if(date('Y-m-d') > $current_term->end){
-            return redirect('/renew');
-        }
 
         if($request->by == 'type'){
             $documents = Document::with('authors')->where('type', $request->value);
@@ -82,6 +79,8 @@ class BrowseController extends Controller
         $this->CreateReport($documents, $filters);
 
         return view('results',[
+            'renew' => date('Y-m-d') > $current_term->end ? true : false,
+            'current_term' => $current_term,
             'barangay' => $config->barangay,
             'municipality' => $config->municipality,
             'logo' => $config->logo,
