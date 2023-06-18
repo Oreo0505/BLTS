@@ -132,7 +132,7 @@ class SearchController extends Controller
             });
             $documents_query->orDoesntHave('authors');
 
-            if($request->year != 'all'){
+            if($request->year != 'all' && $request->year != 'older'){
                 $date = explode('-',$request->year);
                 $term = Term::whereYear('start',$date[0])->whereYear('end',$date[1])->first();
                 $documents_query->whereBetween('date', [$term->start, $term->end]);
