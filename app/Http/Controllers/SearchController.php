@@ -39,7 +39,7 @@ class SearchController extends Controller
             });
 
             $authors_filter = explode(',',$request->authors); 
-            $documents_by_title->whereHas('authors', function(Builder $query) use ($authors_filter){
+            $documents_by_title->orWhereHas('authors', function(Builder $query) use ($authors_filter){
                 $query->where(function($query) use ($authors_filter){
                     $query->where('name','like','%'.$authors_filter[0].'%');
                     for($i = 1; $i < count($authors_filter); $i++){
@@ -130,6 +130,7 @@ class SearchController extends Controller
                     }
                 });
             });
+            $documents_query->orDoesntHave('authors');
 
             if($request->year != 'all'){
                 $date = explode('-',$request->year);
