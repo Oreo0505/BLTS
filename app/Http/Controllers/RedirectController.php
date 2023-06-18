@@ -88,6 +88,7 @@ class RedirectController extends Controller
             return redirect('/setup');
         }
 
+        $current_term = Term::find($config->current_term);
         $terms = Term::all();
 
         if($request->has('id')){
@@ -149,6 +150,8 @@ class RedirectController extends Controller
             return redirect('/setup');
         }
 
+        $current_term = Term::find($config->current_term);
+        
         $terms = Term::all();
         return view('add_profile',[
             'renew' => date('Y-m-d') > $current_term->end ? true : false,
