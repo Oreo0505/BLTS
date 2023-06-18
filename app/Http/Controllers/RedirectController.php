@@ -166,6 +166,7 @@ class RedirectController extends Controller
             return redirect('/setup');
         }
 
+        $current_term = Term::find($config->current_term);
         $start = $current_term->start;
         $end = $current_term->end;
         if($request->has('filter')){
