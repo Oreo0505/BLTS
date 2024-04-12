@@ -30,8 +30,8 @@
                 </svg>            
             </a>
             <img src="{{ asset('/images/accent-1.svg') }}" alt="" class="absolute right-0 -top-8">
-            <p class="w-fit font-sans font-medium text-3xl bg-gradient-90 from-[#A60453] to-[#FFB144] bg-clip-text text-transparent mt-10">
-                Setup Account
+            <p class="w-fit font-sans font-medium text-3xl bg-gradient-90 from-[#A60453] to-[#FFB144] bg-clip-text text-transparent mt-10 pb-1">
+                Register Account
             </p>
             <p class="font-sans font-semibold text-xl leading-6 text-[#2D2D2D]">Create Your BLTS Profile</p>
             <img src="{{ asset('/images/logo.svg') }}" alt="" class="mx-auto mt-20 h-24">
@@ -90,6 +90,12 @@
                             <input type="text" id="secretary" name="secretary" value="{{ old('secretary') }}" placeholder="Barangay Secretary" class="w-full flex border border-gray-700 rounded-[7px] outline outline-0 font-sans font-normal leading-tight text-sm text-gray-700 focus:ring-1 focus:outline-none focus:ring-gray-700 rounded-lg text-sm px-4 py-2.5 inline-flex placeholder:text-xs">
                             <label for="secretary" class="relative absolute -top-12 left-3 w-fit px-1 bg-white font-sans font-normal text-gray-700 text-[11px] leading-tight">
                                 Barangay Secretary
+                            </label>
+                        </div>
+                        <div class="flex flex-col relative mt-3">
+                            <input type="text" id="username" name="username" value="{{ old('username') }}" placeholder="Username" class="w-full flex border border-gray-700 rounded-[7px] outline outline-0 font-sans font-normal leading-tight text-sm text-gray-700 focus:ring-1 focus:outline-none focus:ring-gray-700 rounded-lg text-sm px-4 py-2.5 inline-flex placeholder:text-xs">
+                            <label for="username" class="relative absolute -top-12 left-3 w-fit px-1 bg-white font-sans font-normal text-gray-700 text-[11px] leading-tight">
+                                Username
                             </label>
                         </div>
                     </div>
@@ -153,11 +159,17 @@
                             </label>
                             <input type="file" accept="image/*" id="logo" name="logo" class="hidden">
                         </div>
+                        <div class="flex flex-col relative mt-3">
+                            <input type="text" id="password" name="password" value="{{ old('password') }}" placeholder="Password" class="w-full flex border border-gray-700 rounded-[7px] outline outline-0 font-sans font-normal leading-tight text-sm text-gray-700 focus:ring-1 focus:outline-none focus:ring-gray-700 rounded-lg text-sm px-4 py-2.5 inline-flex placeholder:text-xs">
+                            <label for="password" class="relative absolute -top-12 left-3 w-fit px-1 bg-white font-sans font-normal text-gray-700 text-[11px] leading-tight">
+                                Password
+                            </label>
+                        </div>
                     </div>
                 </div>
             </form>
             <button id="setup-button" type="button" class="mx-auto mt-8 px-12 py-3 rounded-full bg-gradient-270 from-[#A60453] to-[#FFB144] font-sans font-semibold text-xl leading-6 text-white">
-                Setup Account
+                Register
             </button>
         </div>
     </div>
