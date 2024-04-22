@@ -24,7 +24,7 @@ use App\Http\Controllers\RestoreController;
 |
 */
 
-Route::get('/', [RedirectController::class, 'redirectToHomepage']);
+Route::get('/', [RedirectController::class, 'redirectToDashboardPage']);
 
 Route::post('/upload', [CreateController::class, 'createDocument']);
 
@@ -67,3 +67,5 @@ Route::get('/trash', [RedirectController::class, 'redirectToTrashPage']);
 Route::post('/restore', [RestoreController::class, 'restore']);
 
 Route::get('/about', [RedirectController::class, 'redirectToAboutPage']);
+
+Route::get('/dashboard', [RedirectController::class, 'redirectToDashboardPage']);
