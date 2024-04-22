@@ -14,6 +14,14 @@ class RedirectController extends Controller
 
     use Report;
 
+    public function redirectToDashboardPage(){
+        $config = Config::first();
+        if(!$config->first_time){
+            return redirect('/');
+        }
+        return view('dashboard');
+    }
+
     public function redirectToHomepage(Request $request){
         $config = Config::first();
         if($config->first_time){
