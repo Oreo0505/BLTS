@@ -93,9 +93,9 @@
                             </label>
                         </div>
                         <div class="flex flex-col relative mt-3">
-                            <input type="text" id="username" name="username" value="{{ old('username') }}" placeholder="Username" class="w-full flex border border-gray-700 rounded-[7px] outline outline-0 font-sans font-normal leading-tight text-sm text-gray-700 focus:ring-1 focus:outline-none focus:ring-gray-700 rounded-lg text-sm px-4 py-2.5 inline-flex placeholder:text-xs">
-                            <label for="username" class="relative absolute -top-12 left-3 w-fit px-1 bg-white font-sans font-normal text-gray-700 text-[11px] leading-tight">
-                                Username
+                            <input type="text" id="email" name="email" value="{{ old('email') }}" placeholder="Email" class="w-full flex border border-gray-700 rounded-[7px] outline outline-0 font-sans font-normal leading-tight text-sm text-gray-700 focus:ring-1 focus:outline-none focus:ring-gray-700 rounded-lg text-sm px-4 py-2.5 inline-flex placeholder:text-xs">
+                            <label for="email" class="relative absolute -top-12 left-3 w-fit px-1 bg-white font-sans font-normal text-gray-700 text-[11px] leading-tight">
+                                Email
                             </label>
                         </div>
                     </div>

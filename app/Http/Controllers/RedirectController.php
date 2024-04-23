@@ -14,12 +14,12 @@ class RedirectController extends Controller
 
     use Report;
 
-    public function redirectToDashboardPage(){
+    public function redirectToHomePage(){
         $config = Config::first();
         if(!$config->first_time){
             return redirect('/');
         }
-        return view('dashboard');
+        return view('homepage');
     }
 
     public function redirectToLoginPage(){
@@ -30,11 +30,13 @@ class RedirectController extends Controller
         return view('login');
     }
 
-    public function redirectToHomepage(Request $request){
+    public function redirectToSetupPage(Request $request){
         $config = Config::first();
-        if($config->first_time){
-            return redirect('/setup');
+        if(!$config->first_time){
+            flash()->addError('First time set-up completed');
+            return redirect('/');
         }
+        return view('setup');
 
         $current_term = Term::find($config->current_term);
 
@@ -73,15 +75,6 @@ class RedirectController extends Controller
             'authors' => $authors,
             'terms' => $terms
         ]);
-    }
-
-    public function redirectToSetupPage(){
-        $config = Config::first();
-        if(!$config->first_time){
-            flash()->addError('First time set-up completed');
-            return redirect('/');
-        }
-        return view('setup');
     }
 
     public function redirectToRenewPage(){
