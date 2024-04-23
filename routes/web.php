@@ -69,3 +69,5 @@ Route::post('/restore', [RestoreController::class, 'restore']);
 Route::get('/about', [RedirectController::class, 'redirectToAboutPage']);
 
 Route::get('/dashboard', [RedirectController::class, 'redirectToDashboardPage']);
+
+Route::get('/login', [RedirectController::class, 'redirectToLoginPage']);

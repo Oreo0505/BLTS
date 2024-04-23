@@ -22,6 +22,14 @@ class RedirectController extends Controller
         return view('dashboard');
     }
 
+    public function redirectToLoginPage(){
+        $config = Config::first();
+        if(!$config->first_time){
+            return redirect('/');
+        }
+        return view('login');
+    }
+
     public function redirectToHomepage(Request $request){
         $config = Config::first();
         if($config->first_time){
