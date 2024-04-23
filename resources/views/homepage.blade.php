@@ -1,4 +1,4 @@
-@extends('layout', [$title = 'dashboard'])
+@extends('layout', [$title = 'Homepage'])
 
 @section('content')
 

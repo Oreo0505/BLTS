@@ -9,6 +9,7 @@ use App\Models\Author;
 use App\Models\Term;
 use App\Models\Config;
 use App\Traits\Upload;
+use App\Models\User;
 
 class SetupController extends Controller
 {
@@ -31,7 +32,9 @@ class SetupController extends Controller
             'sb6' => 'required|min:3',
             'sb7' => 'required|min:3',
             'chairman' => 'required|min:3',
-            'logo' => 'mimes:png,jpeg,jpg,bmp,svg'
+            'logo' => 'mimes:png,jpeg,jpg,bmp,svg',
+            'email' => 'required|email|unique:users,email',
+            'password' => 'required|min:8'
         ],
         [
             'municipality.required' => 'Please select a municipality',
@@ -63,8 +66,12 @@ class SetupController extends Controller
             'sb7.min' => 'Sanggunian Member 7 name shoud contain 3 or more character',
             'chairman.required' => 'SK Chairman is required',
             'chairman.min' => 'SK Chairman name shoud contain 3 or more character',
-            'logo.mimes' => 'File should be image file'
+            'logo.mimes' => 'File should be image file',
+            'email.required' => 'Email is required',
+            'email.email' => 'Invalid email format',
+            'email.unique' => 'Email already exists'
         ]);
+
         if($validator->fails()){
             foreach($validator->messages()->all() as $message){
                 flash()->addError($message);
