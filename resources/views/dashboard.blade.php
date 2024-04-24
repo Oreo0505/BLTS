@@ -1,36 +1,21 @@
-@extends('layout', [$title = 'Homepage'])
+@extends('layout', [$title = 'Dashboard'])
 
 @section('content')
 
     
     <div class="flex flex-col relative justify-between overflow-clip bg-gradient-30 from-[#425B71] to-[#425B71]/60">
-        <div class="flex flex-col drop-shadow rounded-r-lg p-5">
-            <div class="flex flex-row items-center">
+        <div class="flex flex-col drop-shadow rounded-r-lg">
+            <div class="flex flex-row items-center bg-blue-600 p-2"></div>
+            
+            <div class="flex flex-row items-center bg-yellow-300 p-2">
                 <div class="flex flex-row items-center space-x-5">
                    <img src="{{ asset ('/images/dilg.png')}}" alt="" class="w-16 h-16">
-                <p class="font-sans font-normal text-white text-xl tracking-[5px]">DILG MARINDUQUE</p> 
-                </div>
-                
-                <div class="flex flex-row z-20 space-x-6 ml-auto mr-16 items-center">
-                    <a href="/login">
-                        <button id="signup-button" type="button" class=" text-lg ">
-                            Login  
-                        </button>
-                    </a>
-                    
-                    <a href="/setup">
-                        <button id="login-button" type="button" class=" px-12 py-3 rounded-full bg-gradient-270 from-[#A60453] to-[#FFB144] font-sans font-semibold text-xl leading-6 text-white">
-                            Signup
-                        </button>
-                    </a>
-                    
-                    {{-- About Page link --}}
-                    <a href="/about">
-                        <img src="{{ asset('/images/help.svg') }}" alt="" class="top-16 right-5 z-50 h-8 w-8">
-                    </a>
+                <p class="font-sans font-normal text-black text-xl tracking-[5px]">DILG MARINDUQUE</p> 
                 </div>
                 
             </div>
+
+            <div class="flex flex-row items-center bg-red-600 p-2"></div>
                 
             <img src="{{ asset('/images/logo.svg') }}" alt="" class="mx-auto mt-20 h-24">
             <p class="font-sans font-extralight text-white text-2xl mt-16 z-20 text-center">
