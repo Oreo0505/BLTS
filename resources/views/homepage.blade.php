@@ -11,22 +11,23 @@
                 <p class="font-sans font-normal text-white text-xl tracking-[5px]">DILG MARINDUQUE</p> 
                 </div>
                 
-                <div class="flex flex-row z-20 space-x-6 ml-auto mr-16 items-center">
+                <div class="flex flex-row z-20 space-x-0 ml-auto items-center">
                     <a href="/login">
-                        <button id="signup-button" type="button" class=" text-lg ">
-                            Login  
-                        </button>
+                    <button id="login-button" type="button" class="text-lg text-white hover:bg-gradient-to-br from-[#A60453] to-[#FFB144] py-2 px-4 pr-2 rounded-full">
+                        Login
+                    </button>
+
                     </a>
                     
                     <a href="/setup">
-                        <button id="login-button" type="button" class=" px-12 py-3 rounded-full bg-gradient-270 from-[#A60453] to-[#FFB144] font-sans font-semibold text-xl leading-6 text-white">
-                            Signup
+                        <button id="signup-button" type="button" class=" text-white hover:bg-gradient-to-br from-[#A60453] to-[#FFB144] py-2 px-4 pr-2 rounded-full hover:font-sans text-lg leading-6 text-white">
+                            Sign Up
                         </button>
                     </a>
                     
                     {{-- About Page link --}}
                     <a href="/about">
-                        <img src="{{ asset('/images/help.svg') }}" alt="" class="top-16 right-5 z-50 h-8 w-8">
+                        <img src="{{ asset('/images/help.svg') }}" alt="" class="top-16 right-5 z-50 h-6 w-8 hover:bg-gray-500 rounded-full ">
                     </a>
                 </div>
                 
