@@ -30,7 +30,6 @@ class RedirectController extends Controller
         return view('dashboard');
     }
 
-
     public function redirectToLoginPage(){
         $config = Config::first();
         if($config && !$config->first_time){
@@ -42,7 +41,7 @@ class RedirectController extends Controller
     public function redirectToHomepage(Request $request){
         $config = Config::first();
         if(!$config || $config->first_time){
-            return redirect('/setup');
+            return redirect('/home');
         }
 
         $current_term = Term::find($config->current_term);

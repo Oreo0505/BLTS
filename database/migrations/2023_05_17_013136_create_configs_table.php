@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('barangay')->nullable();
             $table->string('logo')->nullable();
             $table->foreignId('current_term')->nullable();
-            $table->boolean('first_time');
+            $table->boolean('first_time')->default(1);
             $table->timestamps();
             $table->string('email')->unique();
             $table->string('password');
