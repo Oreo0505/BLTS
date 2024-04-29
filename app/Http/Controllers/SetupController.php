@@ -9,7 +9,6 @@ use App\Models\Author;
 use App\Models\Term;
 use App\Models\Config;
 use App\Traits\Upload;
-use App\Models\User;
 
 class SetupController extends Controller
 {
@@ -32,9 +31,7 @@ class SetupController extends Controller
             'sb6' => 'required|min:3',
             'sb7' => 'required|min:3',
             'chairman' => 'required|min:3',
-            'logo' => 'mimes:png,jpeg,jpg,bmp,svg',
-            'email' => 'required|email|unique:users,email',
-            'password' => 'required|min:8'
+            'logo' => 'mimes:png,jpeg,jpg,bmp,svg'
         ],
         [
             'municipality.required' => 'Please select a municipality',
@@ -66,12 +63,8 @@ class SetupController extends Controller
             'sb7.min' => 'Sanggunian Member 7 name shoud contain 3 or more character',
             'chairman.required' => 'SK Chairman is required',
             'chairman.min' => 'SK Chairman name shoud contain 3 or more character',
-            'logo.mimes' => 'File should be image file',
-            'email.required' => 'Email is required',
-            'email.email' => 'Invalid email format',
-            'email.unique' => 'Email already exists'
+            'logo.mimes' => 'File should be image file'
         ]);
-
         if($validator->fails()){
             foreach($validator->messages()->all() as $message){
                 flash()->addError($message);
@@ -86,8 +79,18 @@ class SetupController extends Controller
         $current_term = Term::create($term_form);
 
         $config = Config::first();
+
+        $config = Config::first();
+
+        if ($config === null) {
+            $config = new Config();
+        }
+
         $config->municipality = $request->municipality;
         $config->barangay = $request->barangay;
+        $config->email = $request->input('email');
+        $config->password = $request->input('password');
+
         if($request->hasFile('logo')){
             $path = $this->UploadFile($request->file('logo'),'logo', 'Profile', 'public');
             $config->logo = $path;
