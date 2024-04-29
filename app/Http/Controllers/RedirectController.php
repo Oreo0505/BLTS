@@ -22,13 +22,13 @@ class RedirectController extends Controller
         return view('homepage');
     }
 
-    public function redirectToDashboardPage(){
-        $config = Config::first();
-        if($config && !$config->first_time){
-            return redirect('/');
-        }
-        return view('dashboard');
-    }
+    // public function redirectToDashboardPage(){
+    //     $config = Config::first();
+    //     if($config && !$config->first_time){
+    //         return redirect('/');
+    //     }
+    //     return view('dashboard');
+    // }
 
 
     public function redirectToLoginPage(){
@@ -88,7 +88,16 @@ class RedirectController extends Controller
         $config = Config::first();
         if ($config && !$config->first_time) {
             flash()->addError('Registration Successful!');
-            return redirect('/');
+            return view('welcome',[
+            'renew' => date('Y-m-d') > $current_term->end ? true : false,
+            'current_term' => $current_term,
+            'barangay' => $config->barangay,
+            'municipality' => $config->municipality,
+            'logo' => $config->logo,
+            'documents' => $documents,
+            'authors' => $authors,
+            'terms' => $terms
+        ]);
         }
         return view('setup');
     }
