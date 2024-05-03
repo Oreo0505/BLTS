@@ -20,7 +20,7 @@ return new class extends Migration
             $table->boolean('first_time')->default(1);
             $table->timestamps();
             $table->string('email')->unique();
-            $table->string('password');
+            $table->string('password')->unique();
         });
     }
 
@@ -30,5 +30,6 @@ return new class extends Migration
     public function down(): void
     {
         Schema::dropIfExists('configs');
+        
     }
 };

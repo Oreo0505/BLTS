@@ -9,6 +9,7 @@ use App\Models\Author;
 use App\Models\Term;
 use App\Models\Config;
 use App\Traits\Upload;
+use App\Models\User;
 
 class SetupController extends Controller
 {
@@ -31,40 +32,48 @@ class SetupController extends Controller
             'sb6' => 'required|min:3',
             'sb7' => 'required|min:3',
             'chairman' => 'required|min:3',
-            'logo' => 'mimes:png,jpeg,jpg,bmp,svg'
+            'logo' => 'mimes:png,jpeg,jpg,bmp,svg',
+            'email' => 'required|email|unique:users,email',
+            'password' => 'required|min:8'
         ],
         [
-            'municipality.required' => 'Please select a municipality',
-            'municipality.different' => 'Please select a municipality',
-            'barangay.required' => 'Please select a barangay',
-            'barangay.different' => 'Please select a barangay',
-            'captain.required' => 'Barangay captain field is required',
-            'captain.min' => 'Barangay captain name should contain 3 or more character',
-            'secretary.required' => 'Barangay secretary field is required',
-            'secretary.min' => 'Barangay secretary name should contain 3 or more character',
+            'municipality.required' => 'Please select a Municipality',
+            'municipality.different' => 'Please select a Municipality',
+            'barangay.required' => 'Please select a Barangay',
+            'barangay.different' => 'Please select a Barangay',
+            'captain.required' => 'Punong Barangay field is required',
+            'captain.min' => 'Punong Barangay name shoud contain atleast 3 characters',
+            'secretary.required' => 'Barangay Secretary field is required',
+            'secretary.min' => 'Barangay ecretary name shoud contain atleast 3 characters',
             'from.required' => 'Term start date is required',
             'from.date' => 'Invalid date format',
             'to.required' => 'Term end date is required',
             'to.date' => 'Invalid date format',
             'to.after' => 'Term end date should be later than term start date',
             'sb1.required' => 'Sanggunian Member 1 is required',
-            'sb1.min' => 'Sanggunian Member 1 name shoud contain 3 or more character',
+            'sb1.min' => 'Sanggunian Member 1 name shoud contain atleast 3 characters',
             'sb2.required' => 'Sanggunian Member 2 is required',
-            'sb2.min' => 'Sanggunian Member 2 name shoud contain 3 or more character',
+            'sb2.min' => 'Sanggunian Member 2 name shoud contain atleast 3 characters',
             'sb3.required' => 'Sanggunian Member 3 is required',
-            'sb3.min' => 'Sanggunian Member 3 name shoud contain 3 or more character',
+            'sb3.min' => 'Sanggunian Member 3 name shoud contain atleast 3 characters',
             'sb4.required' => 'Sanggunian Member 4 is required',
-            'sb4.min' => 'Sanggunian Member 4 name shoud contain 3 or more character',
+            'sb4.min' => 'Sanggunian Member 4 name shoud contain atleast 3 characters',
             'sb5.required' => 'Sanggunian Member 5 is required',
-            'sb5.min' => 'Sanggunian Member 5 name shoud contain 3 or more character',
+            'sb5.min' => 'Sanggunian Member 5 name shoud contain atleast 3 characters',
             'sb6.required' => 'Sanggunian Member 6 is required',
-            'sb6.min' => 'Sanggunian Member 6 name shoud contain 3 or more character',
+            'sb6.min' => 'Sanggunian Member 6 name shoud contain atleast 3 characters',
             'sb7.required' => 'Sanggunian Member 7 is required',
-            'sb7.min' => 'Sanggunian Member 7 name shoud contain 3 or more character',
-            'chairman.required' => 'SK Chairman is required',
-            'chairman.min' => 'SK Chairman name shoud contain 3 or more character',
-            'logo.mimes' => 'File should be image file'
+            'sb7.min' => 'Sanggunian Member 7 nameshoud contain atleast 3 characters',
+            'chairman.required' => 'SK Chairperson is required',
+            'chairman.min' => 'SK Chairperson name shoud contain atleast 3 characters',
+            'logo.mimes' => 'File should be image file',
+            'email.required' => 'Email is required',
+            'email.email' => 'Invalid email format',
+            'email.unique' => 'Email already exists',
+            'password.required' => 'Password is required',
+            'password.min' => 'Password should contain atleast 8 characters'
         ]);
+
         if($validator->fails()){
             foreach($validator->messages()->all() as $message){
                 flash()->addError($message);
@@ -77,30 +86,39 @@ class SetupController extends Controller
             'end' => date("Y-m-d", strtotime($request->to))
         ];
         $current_term = Term::create($term_form);
+        
+        //create new user
+        $user_form =[
+            'municipality' => $request->municipality,
+            'barangay' => $request->barangay,
+            'logo' => $request->logo,
+            'current_term' => $request->current_term,
+            'email' => $request->email,
+            'password' => $request->password,
+        ];
 
-        $config = Config::first();
+        $user = User::create($user_form);
 
-        $config = Config::first();
-
-        if ($config === null) {
-            $config = new Config();
+        Auth::login($user);
+        flash()->addSuccess('Registered Successfully');
+        return redirect('/')->with([
+            'id' => $user->id
+        ]);
+        
+        $user->municipality = $request->municipality;
+        $user->barangay = $request->barangay;
+        
+        if ($request->hasFile('logo')) {
+            $path = $this->UploadFile($request->file('logo'), 'logo', 'Profile', 'public');
+            $user->logo = $path;
         }
-
-        $config->municipality = $request->municipality;
-        $config->barangay = $request->barangay;
-        $config->email = $request->input('email');
-        $config->password = $request->input('password');
-
-        if($request->hasFile('logo')){
-            $path = $this->UploadFile($request->file('logo'),'logo', 'Profile', 'public');
-            $config->logo = $path;
-        }
-        $config->first_time = false;
-        $config->current_term = $current_term->id;
-        $config->save();
+        
+        $user->current_term = $current_term->id;
+        $user->save();
 
         $captain_form = [
             'name' => $request->captain,
+            'user_id' => $request->user_id,
             'position' => 'Captain',
             'term_id' => $current_term->id
         ];
@@ -108,6 +126,7 @@ class SetupController extends Controller
 
         $secretary_form = [
             'name' => $request->secretary,
+            'user_id' => $request->user_id,
             'position' => 'Secretary',
             'term_id' => $current_term->id
         ];
@@ -127,6 +146,7 @@ class SetupController extends Controller
         foreach($sb_members as $sb_member){
             $sb_form = [
                 'name' => $sb_member,
+                'user_id' => $request->user_id,
                 'position' => 'SB Member '.$i,
                 'term_id' => $current_term->id
             ];
@@ -136,12 +156,22 @@ class SetupController extends Controller
 
         $chairman_form = [
             'name' => $request->chairman,
+            'user_id' => $request->user_id,
             'position' => 'SK Chairman',
             'term_id' => $current_term->id
         ];
         Author::create($chairman_form);
 
-        flash()->addSuccess('Application setup successful');
-        return redirect('/');
+        flash()->addSuccess('Registration Successful!');
+        return view('welcome',[
+            'renew' => date('Y-m-d') > $current_term->end ? true : false,
+            'current_term' => $current_term,
+            'barangay' => $user->barangay,
+            'municipality' => $user->municipality,
+            'logo' => $user->logo,
+            // 'documents' => $documents,
+            'authors' => $authors,
+            'terms' => $terms
+        ]);
     }
 }

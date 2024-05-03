@@ -12,6 +12,7 @@ use App\Http\Controllers\BrowseController;
 use App\Http\Controllers\SearchController;
 use App\Http\Controllers\FetchController;
 use App\Http\Controllers\RestoreController;
+use App\Http\Controllers\LoginController;
 
 /*
 |--------------------------------------------------------------------------
@@ -70,6 +71,8 @@ Route::get('/about', [RedirectController::class, 'redirectToAboutPage']);
 
 Route::get('/home', [RedirectController::class, 'redirectToHome']);
 
-// Route::get('/login', [RedirectController::class, 'redirectToLoginPage']);
+Route::get('/login', [RedirectController::class, 'redirectToLoginPage']);
 
 // Route::get('/dashboard', [RedirectController::class, 'redirectToDashboardPage']);
+
+Route::get('/login/process', [LoginController::class, 'loginUser']);

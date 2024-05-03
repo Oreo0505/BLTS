@@ -10,10 +10,11 @@ class Config extends Model
     use HasFactory;
 
     protected $fillable = [
-        'municipality',
-        'barangay',
-        'logo',
+
         'first_time',
         'current_term'
+    
     ];
+
+
 }

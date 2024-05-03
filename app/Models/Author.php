@@ -12,7 +12,8 @@ class Author extends Model
     protected $fillable = [
         'name',
         'position',
-        'term_id'
+        'term_id',
+        'user_id'
     ];
 
     public function documents(){
@@ -21,5 +22,9 @@ class Author extends Model
 
     public function term(){
         return $this->belongsTo(Term::class, 'term_id');
+    }
+
+    public function authors(){
+        return $this->belongsTo(User::class, 'user_id');
     }
 }

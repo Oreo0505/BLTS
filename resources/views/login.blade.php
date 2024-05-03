@@ -42,7 +42,7 @@
                 <div class="flex flex-col mx-auto justify-center w-80 h-80 mt-16 md:space-y-5 items-center border border-gray-400 rounded-lg ">
                     <div class="flex flex-col relative mt-3">
                         <input type="text" id="email" name="email" value="{{ old('username') }}" placeholder="Email" class="w-64 flex border border-gray-700 rounded-[7px] outline outline-0 font-sans font-normal leading-tight text-sm text-gray-700 focus:ring-1 focus:outline-none focus:ring-gray-700 rounded-lg text-sm px-4 py-2.5 inline-flex placeholder:text-xs">
-                        <label for="password" class="relative absolute -top-12 left-3 w-fit px-1 bg-white font-sans font-normal text-gray-700 text-[11px] leading-tight">
+                        <label for="email" class="relative absolute -top-12 left-3 w-fit px-1 bg-white font-sans font-normal text-gray-700 text-[11px] leading-tight">
                             Email
                         </label>
                     </div>
@@ -54,14 +54,12 @@
                         </label>
                     </div>
 
-                    <button id="setup-button" type="button" class="mx-auto mt-4 px-12 py-3 rounded-full bg-gradient-270 from-[#A60453] to-[#FFB144] font-sans font-semibold text-xl leading-6 text-white">
+                    <button id="login-button" type="button" class="mx-auto mt-4 px-12 py-3 rounded-full bg-gradient-270 from-[#A60453] to-[#FFB144] font-sans font-semibold text-xl leading-6 text-white">
                         Login
                     </button>
+            </form>        
                     <p class="flex mt-4 font-roboto text-sm font-medium text-[#2D3748] text-center md:text-base">Don't have an account? &nbsp;<span><a href="/setup" class="font-roboto text-blue-500 hover:text-blue-700 text-sm md:text-base justify-self-center underline">Register here</a></span></p>
                 </div>
-
-                
-            </form>
             
         </div>
     </div>
