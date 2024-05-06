@@ -8,6 +8,7 @@ use App\Models\Document;
 use App\Models\Term;
 use App\Models\Config;
 use App\Traits\Report;
+use App\Models\User;
 
 class RedirectController extends Controller
 {
@@ -15,32 +16,36 @@ class RedirectController extends Controller
     use Report;
 
     public function redirectToHome(){
-        return view('homepage');
+        $user = Config::first();
+        if($user && !$user->first_time){
+            return redirect('/');
+        }
+        return view ('homepage');
     }
 
-    public function redirectToDashboardPage(){w
-        $config = Config::first();
-        if($config && !$config->first_time){
+    public function redirectToDashboardPage(){
+        $user = User::first();
+        if($user && !$user->first_time){
             return redirect('/');
         }
         return view('dashboard');
     }
 
     public function redirectToLoginPage(){
-        $config = Config::first();
-        if($config && !$config->first_time){
+        $user = Config::first();
+        if($user && !$user->first_time){
             return redirect('/');
         }
         return view('login');
     }
 
     public function redirectToHomepage(Request $request){
-        $config = Config::first();
-        if(!$config || $config->first_time){
+        $user = Config::first();
+        if(!$user || $user->first_time){
             return redirect('/home');
         }
 
-        $current_term = Term::find($config->current_term);
+        $current_term = Term::find($user->current_term);
 
         $start = $current_term->start;
         $end = $current_term->end;
@@ -70,9 +75,9 @@ class RedirectController extends Controller
         return view('welcome',[
             'renew' => date('Y-m-d') > $current_term->end ? true : false,
             'current_term' => $current_term,
-            'barangay' => $config->barangay,
-            'municipality' => $config->municipality,
-            'logo' => $config->logo,
+            'barangay' => $user->barangay,
+            'municipality' => $user->municipality,
+            'logo' => $user->logo,
             'documents' => $documents,
             'authors' => $authors,
             'terms' => $terms
@@ -80,8 +85,8 @@ class RedirectController extends Controller
     }
 
     public function redirectToSetupPage(){
-        $config = Config::first();
-        if ($config && !$config->first_time) {
+        $user = Config::first();
+        if ($user && !$user->first_time) {
             flash()->addError('Registration Successful!');
             return redirect('/');
         }
@@ -89,12 +94,12 @@ class RedirectController extends Controller
     }
 
     public function redirectToRenewPage(){
-        $config = Config::first();
-        if($config->first_time){
+        $user = Config::first();
+        if($user->first_time){
             flash()->addError('You have to set up an account first!');
             return redirect('/setup');
         }        
-        $current_term = Term::find($config->current_term);
+        $current_term = Term::find($user->current_term);
         if(date('Y-m-d') < $current_term->end){
             flash()->addError('Administrative Year / Term has not ended yet!');
             return redirect('/');
@@ -103,12 +108,12 @@ class RedirectController extends Controller
     }
 
     public function redirectToProfilePage(Request $request){
-        $config = Config::first();
-        if($config->first_time){
+        $user = Config::first();
+        if($user->first_time){
             return redirect('/setup');
         }
 
-        $current_term = Term::find($config->current_term);
+        $current_term = Term::find($user->current_term);
         $terms = Term::all();
 
         if($request->has('id')){

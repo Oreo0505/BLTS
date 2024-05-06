@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Author;
@@ -10,6 +11,7 @@ use App\Models\Term;
 use App\Models\Config;
 use App\Traits\Upload;
 use App\Models\User;
+
 
 class SetupController extends Controller
 {
@@ -42,30 +44,30 @@ class SetupController extends Controller
             'barangay.required' => 'Please select a Barangay',
             'barangay.different' => 'Please select a Barangay',
             'captain.required' => 'Punong Barangay field is required',
-            'captain.min' => 'Punong Barangay name shoud contain atleast 3 characters',
+            'captain.min' => 'Punong Barangay name should contain atleast 3 characters',
             'secretary.required' => 'Barangay Secretary field is required',
-            'secretary.min' => 'Barangay ecretary name shoud contain atleast 3 characters',
+            'secretary.min' => 'Barangay ecretary name should contain atleast 3 characters',
             'from.required' => 'Term start date is required',
             'from.date' => 'Invalid date format',
             'to.required' => 'Term end date is required',
             'to.date' => 'Invalid date format',
             'to.after' => 'Term end date should be later than term start date',
             'sb1.required' => 'Sanggunian Member 1 is required',
-            'sb1.min' => 'Sanggunian Member 1 name shoud contain atleast 3 characters',
+            'sb1.min' => 'Sanggunian Member 1 name should contain atleast 3 characters',
             'sb2.required' => 'Sanggunian Member 2 is required',
-            'sb2.min' => 'Sanggunian Member 2 name shoud contain atleast 3 characters',
+            'sb2.min' => 'Sanggunian Member 2 name should contain atleast 3 characters',
             'sb3.required' => 'Sanggunian Member 3 is required',
-            'sb3.min' => 'Sanggunian Member 3 name shoud contain atleast 3 characters',
+            'sb3.min' => 'Sanggunian Member 3 name should contain atleast 3 characters',
             'sb4.required' => 'Sanggunian Member 4 is required',
-            'sb4.min' => 'Sanggunian Member 4 name shoud contain atleast 3 characters',
+            'sb4.min' => 'Sanggunian Member 4 name should contain atleast 3 characters',
             'sb5.required' => 'Sanggunian Member 5 is required',
-            'sb5.min' => 'Sanggunian Member 5 name shoud contain atleast 3 characters',
+            'sb5.min' => 'Sanggunian Member 5 name should contain atleast 3 characters',
             'sb6.required' => 'Sanggunian Member 6 is required',
-            'sb6.min' => 'Sanggunian Member 6 name shoud contain atleast 3 characters',
+            'sb6.min' => 'Sanggunian Member 6 name should contain atleast 3 characters',
             'sb7.required' => 'Sanggunian Member 7 is required',
-            'sb7.min' => 'Sanggunian Member 7 nameshoud contain atleast 3 characters',
+            'sb7.min' => 'Sanggunian Member 7 name should contain atleast 3 characters',
             'chairman.required' => 'SK Chairperson is required',
-            'chairman.min' => 'SK Chairperson name shoud contain atleast 3 characters',
+            'chairman.min' => 'SK Chairperson name should contain atleast 3 characters',
             'logo.mimes' => 'File should be image file',
             'email.required' => 'Email is required',
             'email.email' => 'Invalid email format',
@@ -162,16 +164,6 @@ class SetupController extends Controller
         ];
         Author::create($chairman_form);
 
-        flash()->addSuccess('Registration Successful!');
-        return view('welcome',[
-            'renew' => date('Y-m-d') > $current_term->end ? true : false,
-            'current_term' => $current_term,
-            'barangay' => $user->barangay,
-            'municipality' => $user->municipality,
-            'logo' => $user->logo,
-            // 'documents' => $documents,
-            'authors' => $authors,
-            'terms' => $terms
-        ]);
+        
     }
 }
