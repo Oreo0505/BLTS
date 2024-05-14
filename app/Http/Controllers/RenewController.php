@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Validator;
 use App\Models\Author;
 use App\Models\Term;
 use App\Models\Config;
+use App\Models\User;
 
 class RenewController extends Controller
 {
@@ -67,9 +68,9 @@ class RenewController extends Controller
         ];
         $current_term = Term::create($term_form);
 
-        $config = Config::first();
-        $config->current_term = $current_term->id;
-        $config->save();
+        $user = User::first();
+        $user->current_term = $current_term->id;
+        $user->save();
 
         $captain_form = [
             'name' => $request->captain,

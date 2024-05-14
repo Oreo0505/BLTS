@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('documents', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('user_id'); // Add user_id column
             $table->longText('title');
             $table->string('type');
             $table->string('number');
@@ -21,6 +22,9 @@ return new class extends Migration
             $table->string('file');
             $table->timestamps();
             $table->softDeletes();
+
+            // Add foreign key constraint
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
         });
     }
 

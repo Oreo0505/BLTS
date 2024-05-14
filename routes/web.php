@@ -12,6 +12,7 @@ use App\Http\Controllers\BrowseController;
 use App\Http\Controllers\SearchController;
 use App\Http\Controllers\FetchController;
 use App\Http\Controllers\RestoreController;
+use App\Http\Controllers\LoginController;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,7 +25,9 @@ use App\Http\Controllers\RestoreController;
 |
 */
 
-Route::get('/', [RedirectController::class, 'redirectToHomepage']);
+Route::get('/', [RedirectController::class, 'redirectToHome']);
+
+Route::get('/homepage', [RedirectController::class, 'redirectToHomepage']);
 
 Route::post('/upload', [CreateController::class, 'createDocument']);
 
@@ -70,6 +73,10 @@ Route::get('/about', [RedirectController::class, 'redirectToAboutPage']);
 
 Route::get('/home', [RedirectController::class, 'redirectToHome']);
 
-// Route::get('/login', [RedirectController::class, 'redirectToLoginPage']);
+Route::get('/login', [RedirectController::class, 'redirectToLoginPage']);
 
-// Route::get('/dashboard', [RedirectController::class, 'redirectToDashboardPage']);
+Route::post('/login/process', [LoginController::class, 'loginUser']);
+
+Route::get('/logout', [LoginController::class, 'logout']);
+
+Route::get('/dashboard', [RedirectController::class, 'redirectToDashboardPage']);
