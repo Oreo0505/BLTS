@@ -8,6 +8,7 @@ use App\Models\Author;
 use App\Models\Document;
 use App\Models\Term;
 use App\Models\Config;
+use App\Models\User;
 use App\Traits\Report;
 
 class SearchController extends Controller
@@ -16,12 +17,12 @@ class SearchController extends Controller
     use Report;
 
     public function search(Request $request){
-        $config = Config::first();
-        if($config->first_time){
+        $user = User::first();
+        if($user->first_time){
             return redirect('/setup');
         }
 
-        $current_term = Term::find($config->current_term);
+        $current_term = Term::find($user->current_term);
 
         $parameters = [];
         $valid_types = ['Code of Ordinance','Ordinance','Resolution'];
@@ -204,9 +205,9 @@ class SearchController extends Controller
         return view('results',[
             'renew' => date('Y-m-d') > $current_term->end ? true : false,
             'current_term' => $current_term,
-            'barangay' => $config->barangay,
-            'municipality' => $config->municipality,
-            'logo' => $config->logo,
+            'barangay' => $user->barangay,
+            'municipality' => $user->municipality,
+            'logo' => $user->logo,
             'documents' => $documents,
             'authors' => $authors,
             'terms' => $terms,

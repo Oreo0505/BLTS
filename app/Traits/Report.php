@@ -5,17 +5,18 @@ namespace App\Traits;
 use PDF;
 use Illuminate\Support\Facades\Storage;
 use App\Models\Config;
+use App\Models\User;
 
 trait Report
 {
     public function CreateReport($documents, $filters)
     {
-        $config = Config::first();
+        $user = User::first();
 
         $pdf = PDF::loadView('report',[
-            'barangay' => $config->barangay,
-            'municipality' => $config->municipality,
-            'logo' => $config->logo,
+            'barangay' => $user->barangay,
+            'municipality' => $user->municipality,
+            'logo' => $user->logo,
             'authors' => $filters['authors'],
             'administration' => $filters['administration'],
             'type' => $filters['type'],

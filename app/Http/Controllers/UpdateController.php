@@ -47,7 +47,7 @@ class UpdateController extends Controller
         $author_ids = [];
         if($request->authors != null){
             $authors = explode(',', $request->authors);
-            $current_term = Term::find(Config::first()->current_term);
+            $current_term = Term::find(User::first()->current_term);
             foreach($authors as $author){
                 $temp = Author::where('name',ucwords($author))->first();
                 if($temp == null){
@@ -205,10 +205,10 @@ class UpdateController extends Controller
             return back()->withInput();
         }
 
-        $config = Config::first();
+        $user = User::first();
         $path = $this->UploadFile($request->file('logo'), 'logo', 'Profile', 'public');
-        $config->logo = $path;
-        $config->save();
+        $user->logo = $path;
+        $user->save();
         flash()->addSuccess('Logo successfully updated!');
         return back();
     }

@@ -1,4 +1,4 @@
-@extends('layout', [$title = 'Setup'])
+@extends('layout', [$title = 'setup'])
 
 @section('content')
 

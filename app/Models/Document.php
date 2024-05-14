@@ -14,6 +14,7 @@ class Document extends Model
     protected $appends = ['term'];
 
     protected $fillable = [
+        'user_id',
         'title',
         'type',
         'number',
@@ -27,8 +28,8 @@ class Document extends Model
     }
 
     public function isInCurrentTerm(){
-        $config = Config::first();
-        $current_term = Term::find($config->current_term);
+        $user = User::first();
+        $current_term = Term::find($user->current_term);
         $current = $this->date >= $current_term->start && $this->date <= $current_term->end ? true : false;
         return $current;
     }

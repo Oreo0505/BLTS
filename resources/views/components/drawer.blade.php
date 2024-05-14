@@ -104,6 +104,11 @@
             @endforeach
 
         </div>
+        <a href="/logout">
+            <div class="group flex flex-row p-2 space-x-5">                                      
+                <p class="font-roboto text-white">Logout</p>
+            </div>
+        </a> 
     </div>
 </div>
 

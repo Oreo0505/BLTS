@@ -8,6 +8,7 @@ use App\Models\Document;
 use App\Models\Author;
 use App\Models\Term;
 use App\Models\Config;
+use App\Models\User;
 
 class FetchController extends Controller
 {
@@ -34,8 +35,8 @@ class FetchController extends Controller
             $authors = Author::where('term_id',0)->whereNot('position','Secretary')->orderBy('name','asc')->get();
         }
         else if($request->value == 'current'){
-            $config = Config::first();
-            $authors = Author::where('term_id',$config->current_term)->whereNot('position','Secretary')->orderBy('name','asc')->get();   
+            $user = User::first();
+            $authors = Author::where('term_id',$user->current_term)->whereNot('position','Secretary')->orderBy('name','asc')->get();   
         }
         else{
             $date = explode('-',$request->value);
@@ -53,8 +54,8 @@ class FetchController extends Controller
 
     function getTerm(Request $request){
         if($request->value == 'current'){
-            $config = Config::first();
-            $current_term = Term::find($config->current_term);
+            $user = User::first();
+            $current_term = Term::find($user->current_term);
         }
         else{
             $date = explode('-',$request->value);

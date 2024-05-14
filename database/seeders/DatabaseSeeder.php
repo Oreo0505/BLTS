@@ -14,8 +14,7 @@ class DatabaseSeeder extends Seeder
     {
         // \App\Models\User::factory(10)->create();
 
-        \App\Models\Config::factory()->create([
-            'first_time' => true
+        \App\Models\User::factory()->create([
         ]);
     }
 }

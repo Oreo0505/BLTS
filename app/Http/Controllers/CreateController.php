@@ -8,8 +8,10 @@ use App\Models\Author;
 use App\Models\Document;
 use App\Models\Term;
 use App\Models\Config;
+use App\Models\User;
 use App\Traits\Upload;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Auth;
 
 class CreateController extends Controller
 {
@@ -17,6 +19,7 @@ class CreateController extends Controller
     use Upload;
 
     public function createDocument(Request $request){
+        $user_id = Auth::id();
         $validator = Validator::make($request->all(),[
             'title' => 'required',
             'type' => 'required|different:null',
@@ -45,7 +48,7 @@ class CreateController extends Controller
         $author_ids = [];
         if($request->authors != null){
             $authors = explode(',', $request->authors);
-            $current_term = Term::find(Config::first()->current_term);
+            $current_term = Term::find(User::first()->current_term);
             foreach($authors as $author){
                 $temp = Author::where('name',ucwords($author))->first();
                 if($temp == null){
@@ -66,6 +69,7 @@ class CreateController extends Controller
         $file_name = date('Y_m_d_H_i_s').Str::random(10);
         $path = $this->UploadFile($request->file('file'), $file_name, 'Documents', 'public');
         $document_form = [
+            'user_id'=>$user_id,
             'title' => $request->title,
             'type' => $request->type == 'Others' ? ucwords($request->specific) : $request->type,
             'number' => $request->number,
@@ -140,8 +144,11 @@ class CreateController extends Controller
         ];
         $term = Term::create($term_form);
 
+        $user_id = Auth::id(); 
+
         $captain_form = [
             'name' => $request->captain,
+            'user_id' => $user_id,
             'position' => 'Captain',
             'term_id' => $term->id
         ];
@@ -149,6 +156,7 @@ class CreateController extends Controller
 
         $secretary_form = [
             'name' => $request->secretary,
+            'user_id' => $user_id,
             'position' => 'Secretary',
             'term_id' => $term->id
         ];
@@ -168,6 +176,7 @@ class CreateController extends Controller
         foreach($sb_members as $sb_member){
             $sb_form = [
                 'name' => $sb_member,
+                'user_id' => $user_id,
                 'position' => 'SB Member '.$i,
                 'term_id' => $term->id
             ];
@@ -177,6 +186,7 @@ class CreateController extends Controller
 
         $chairman_form = [
             'name' => $request->chairman,
+            'user_id' => $user_id,
             'position' => 'SK Chairman',
             'term_id' => $term->id
         ];

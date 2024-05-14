@@ -21,7 +21,7 @@
         </p>
     </div>
     <div class="hidden items-center mr-3 justify-end w-1/4 space-x-6 md:flex">
-        <a href="/" class="">
+        <a href="/homepage" class="">
             <img src="{{ asset('/images/home.svg') }}" alt="Home" title="Home" class="h-6 cursor-pointer rounded-full hover:bg-gray-50/10">        
         </a>
         <img id="enter-fullscreen" src="{{ asset('/images/enter_fullscreen.svg') }}" alt="Enter Fullscreen" title="Enter Fullscreen" class="h-6 cursor-pointer rounded-full hover:bg-gray-50/10">
