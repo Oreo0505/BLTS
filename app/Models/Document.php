@@ -27,8 +27,8 @@ class Document extends Model
     }
 
     public function isInCurrentTerm(){
-        $config = Config::first();
-        $current_term = Term::find($config->current_term);
+        $user = User::find($this->user_id);
+        $current_term = Term::find($user->current_term);
         $current = $this->date >= $current_term->start && $this->date <= $current_term->end ? true : false;
         return $current;
     }

@@ -21,11 +21,12 @@ class User extends Authenticatable
         'municipality',
         'barangay',
         'logo',
-        'first_time',
         'current_term',
         'name',
         'email',
         'password',
+        'created_at',
+        'updated_at'
     ];
 
     /**

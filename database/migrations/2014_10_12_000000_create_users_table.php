@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('logo')->nullable();
             $table->foreignId('current_term')->nullable();
             $table->string('email')->unique()->require();
-            // $table->timestamp('email_verified_at')->nullable();
+            $table->timestamp('email_verified_at')->nullable();
             $table->string('password')->unique()->require();
             $table->timestamps();
             $table->rememberToken();
