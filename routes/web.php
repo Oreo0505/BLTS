@@ -79,4 +79,6 @@ Route::post('/login/process', [LoginController::class, 'loginUser']);
 
 Route::get('/logout', [LoginController::class, 'logout']);
 
-Route::get('/dashboard', [RedirectController::class, 'redirectToDashboardPage']);
+Route::get('/admin', [RedirectController::class, 'redirectToLoginAdmin']);
+
+Route::post('/municipal/admin', [LoginController::class, 'loginAdmin']);
