@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\Author;
 use App\Models\Document;
 use App\Models\Config;
+use App\Models\User;
 use App\Models\Term;
 use App\Traits\Upload;
 use Illuminate\Support\Facades\Validator;
