@@ -170,9 +170,10 @@
                     </div>
                 </div>
             </form>
-            <button id="setup-button" type="button" class="mx-auto mt-8 px-12 py-3 rounded-full bg-gradient-270 from-[#A60453] to-[#FFB144] font-sans font-semibold text-xl leading-6 text-white">
+            <button id="setup-button" type="button" class="mx-auto mt-4 px-12 py-3 rounded-full bg-gradient-270 from-[#A60453] to-[#FFB144] font-sans font-semibold text-xl leading-6 text-white">
                 Register
             </button>
+            <p class="flex mt-2 font-roboto justify-center text-sm font-medium text-[#2D3748] text-center md:text-base">If you already have an account &nbsp;<span><a href="/login" class="font-roboto text-blue-500 hover:text-blue-700 text-sm md:text-base justify-self-center underline">Login here</a></span></p>
         </div>
     </div>
 
