@@ -100,17 +100,13 @@ class LoginController extends Controller
             $user = Auth::user();
     
             // Determine the user count based on the user's municipality
-            $user_count = User::where('municipality', $user->municipality)->whereNotNull('barangay')->where('barangay', '!=', '')->count();
+            // $user_count = User::where('municipality', $user->municipality)->whereNotNull('barangay')->where('barangay', '!=', '')->count();
           
             // Flash a success message
             flash()->addSuccess('Login Successfully');
-    
-            // Redirect to the dashboard page with the user count and municipality
-            return view('admin_municipal', [
-                'user_count' => $user_count,
-                'municipality' => $user->municipality,
-                'user' => $user
-            ]);
+            
+            return redirect('/admin/municipal');
+        
         } else {
             // Flash an error message
             flash()->addError('Your Credentials do not match our records.');

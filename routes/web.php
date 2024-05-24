@@ -81,4 +81,8 @@ Route::get('/logout', [LoginController::class, 'logout']);
 
 Route::get('/admin', [RedirectController::class, 'redirectToLoginAdmin']);
 
-Route::post('/municipal/admin', [LoginController::class, 'loginAdmin']);
+Route::post('/login/process/admin', [LoginController::class, 'loginAdmin']);
+
+Route::get('/admin/municipal', [RedirectController::class, 'redirectToMunicipalAdmin']);
+
+Route::get('/municipal/barangay/statistics', [FetchController::class, 'getBarangayStatistics']);

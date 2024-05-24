@@ -82,46 +82,5 @@ class DatabaseSeeder extends Seeder
             'updated_at' => '2023-08-18 17:47:50'
         ]);
 
-        Term::factory()->create([
-            'start' => '2023-10-30',
-            'end' => '2025-10-30',
-            'created_at' => '2023-11-01 17:47:50',
-            'updated_at' => '2023-11-01 17:47:50'
-        ]);
-
-        Term::factory()->create([
-            'start' => '2023-10-30',
-            'end' => '2025-10-30',
-            'created_at' => '2023-11-01 17:47:50',
-            'updated_at' => '2023-11-01 17:47:50'
-        ]);
-
-        Term::factory()->create([
-            'start' => '2023-10-30',
-            'end' => '2025-10-30',
-            'created_at' => '2023-11-01 17:47:50',
-            'updated_at' => '2023-11-01 17:47:50'
-        ]);
-
-        Term::factory()->create([
-            'start' => '2023-10-30',
-            'end' => '2025-10-30',
-            'created_at' => '2023-11-01 17:47:50',
-            'updated_at' => '2023-11-01 17:47:50'
-        ]);
-
-        Term::factory()->create([
-            'start' => '2023-10-30',
-            'end' => '2025-10-30',
-            'created_at' => '2023-11-01 17:47:50',
-            'updated_at' => '2023-11-01 17:47:50'
-        ]);
-
-        Term::factory()->create([
-            'start' => '2023-10-30',
-            'end' => '2025-10-30',
-            'created_at' => '2023-11-01 17:47:50',
-            'updated_at' => '2023-11-01 17:47:50'
-        ]);
     }
 }

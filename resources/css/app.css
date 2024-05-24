@@ -32,6 +32,14 @@
     fill: black;
 }
 
+.text-gradient-270 {
+    background: linear-gradient(270deg, #A60453, #FFB144); /* Define the gradient */
+    -webkit-background-clip: text; /* Apply background clip to text */
+    background-clip: text; /* Apply background clip to text */
+    color: transparent; /* Make text transparent to show the gradient */
+}
+
+
 @keyframes fadeIn {
     from {
         opacity: 0;

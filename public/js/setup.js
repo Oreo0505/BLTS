@@ -247,7 +247,7 @@ const setupForm = document.getElementById('setup-form');
 function addOptions(select, list){
     select.innerHTML = '';
     var nullOption = document.createElement('option');
-    nullOption.value = 'null';
+
     nullOption.innerHTML = 'Select Barangay...'
     select.appendChild(nullOption);
     for(let i = 0; i < list.length; i++){
@@ -260,10 +260,8 @@ function addOptions(select, list){
 
 municipalityDropdown.addEventListener('change', function(){
     var value = municipalityDropdown.value;
-    if(value == 'null'){
-        addOptions(barangayDropdown, []);
-    }
-    else if(value == 'Boac'){
+   
+     if(value == 'Boac'){
         addOptions(barangayDropdown, boac_barangays);
     }
     else if(value == 'Buenavista'){

@@ -9,6 +9,8 @@ use App\Models\Author;
 use App\Models\Term;
 use App\Models\Config;
 use App\Models\User;
+use Illuminate\Support\Facades\Auth;
+
 
 class FetchController extends Controller
 {
@@ -65,4 +67,45 @@ class FetchController extends Controller
             'term' => $current_term
         ]);
     }
+
+    public function getBarangayStatistics(Request $request){
+        $document_count = [];
+        $municipality = ucwords(Auth::user()->municipality);
+        
+        if (in_array($municipality, ['Boac', 'Mogpog', 'Gasan', 'Buenavista', 'Sta.Cruz', 'Torrijos'])) {
+            // Retrieve and count users in the specified municipality
+            $users_count = User::where('municipality', $municipality)
+                ->whereNotNull('barangay')
+                ->where('barangay', '!=', '')
+                ->count();
+    
+            // Group documents by type and count them
+            $documents = Document::whereHas('user', function($query) use ($municipality) {
+                    $query->where('municipality', $municipality);
+                })
+                ->selectRaw('type, count(*) as count')
+                ->groupBy('type')
+                ->pluck('count', 'type');
+    
+            // Prepare the response data
+            $document_count = [
+                'municipality' => $municipality,
+                'users_count' => $users_count,
+                'documents' => $documents
+            ];
+        } 
+        else {
+            return response()->json(['error' => 'Invalid municipality'], 400);
+        }
+    
+        return response()->json($document_count);
+    }
+    
+       
+    
+    
+    
+
 }
+
+   

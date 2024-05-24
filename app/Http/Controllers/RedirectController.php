@@ -23,6 +23,53 @@ class RedirectController extends Controller
         return view('homepage');
     }
 
+    public function redirectToMunicipalAdmin(Request $request){
+        // Check if the user is authenticated
+        if (!Auth::check()) {
+            return redirect('/admin'); // or any other route you want to redirect unauthenticated users to
+        }
+    
+        $user = Auth::user();
+        $municipality = $user->municipality;
+    
+        // Count the users with the same municipality and non-null, non-empty barangay
+        $user_count = User::where('municipality', $municipality)
+            ->whereNotNull('barangay')
+            ->where('barangay', '!=', '')
+            ->count();
+    
+        // Get the resolution counts made by users in the same municipality
+        $resolution_counts = Document::whereHas('user', function($query) use ($municipality) {
+            $query->where('municipality', $municipality);
+        })
+            ->where('type', 'Resolution') // Assuming 'resolution' is the type field value for resolutions
+            ->count();
+        $ordinance_counts = Document::whereHas('user', function($query) use ($municipality){
+            $query->where('municipality', $municipality);
+        })
+            ->where('type', 'Ordinance')
+            ->count();
+        $code_of_ordinance_counts = Document::whereHas('user', function($query) use ($municipality){
+            $query->where('municipality', $municipality);
+        })
+            ->where('type', 'Code of Ordinance')
+            ->count();
+
+        // dd($resolution_counts);
+        // dd($ordinance_counts);
+        // dd($code_of_ordinance_counts);
+
+        // Return the view for authenticated users
+        return view('municipal_admin', [
+            'user_count' => $user_count,
+            'municipality' => $municipality,
+            'resolution_counts' => $resolution_counts,
+            'ordinance_counts' => $ordinance_counts,
+            'code_of_ordinance_counts' => $code_of_ordinance_counts,
+            'user' => $user
+        ]);
+    
+    }
     // public function loginAdmin(Request $request){
     //     // Retrieve email and password from the request
     //     $email = $request->input('email');

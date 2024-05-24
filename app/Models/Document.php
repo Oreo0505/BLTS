@@ -27,6 +27,11 @@ class Document extends Model
         return $this->belongsToMany(Author::class, 'authors_documents', 'documents_id', 'authors_id');
     }
 
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
+
     public function isInCurrentTerm(){
         $user = User::first();
         $current_term = Term::find($user->current_term);

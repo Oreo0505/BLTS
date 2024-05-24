@@ -2458,4 +2458,11 @@ video {
   .md\:pb-28 {
     padding-bottom: 7rem;
   }
+
+  .text-gradient {
+    background: linear-gradient(270deg, #A60453, #FFB144); /* Define the gradient */
+    -webkit-background-clip: text; /* Apply background clip to text */
+    background-clip: text; /* Apply background clip to text */
+    color: transparent; /* Make text transparent to show the gradient */
+  }
 }

@@ -37,7 +37,7 @@
             </p>
             <p class="font-sans font-semibold text-xl leading-6 text-[#2D2D2D]">Enter Your BLTS Account</p>
             <img src="{{ asset('/images/logo.svg') }}" alt="" class="mx-auto mt-20 h-24">
-            <form action="/municipal/admin" id="form" method="POST" enctype="multipart/form-data">
+            <form action="/login/process/admin" id="form" method="POST" enctype="multipart/form-data">
                 @csrf
                 <div class="flex flex-col mx-auto justify-center w-80 h-80 mt-16 md:space-y-5 items-center border border-gray-400 rounded-lg ">
                     <p class="flex items-center font-semibold text-gray-700 text-[50px] pb-6">Please Enter your Admin Credentials</p>
@@ -65,6 +65,6 @@
         </div>
     </div>
 
-    <script src="{{ asset('/js/login.js') }}"></script>
+    <script src="{{ asset('/js/login_admin.js') }}"></script>
 
 @endsection
