@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->id();
-            $table->string('municipality')->nullable()->require();
-            $table->string('barangay')->nullable()->require();
+            $table->string('municipality')->nullable();
+            $table->string('barangay')->nullable();
             $table->string('logo')->nullable();
             $table->foreignId('current_term')->nullable();
             $table->string('email')->unique()->require();
