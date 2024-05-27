@@ -10,6 +10,7 @@ use App\Models\Term;
 use App\Models\Config;
 use App\Models\User;
 use App\Traits\Report;
+use Illuminate\Support\Facades\Auth;
 
 class BrowseController extends Controller
 {
@@ -17,7 +18,7 @@ class BrowseController extends Controller
     use Report;
 
     public function browse(Request $request){
-        $user = User::first();
+        $user = Auth::user();
         if($user->first_time){
             return redirect('/setup');
         }

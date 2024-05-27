@@ -123,10 +123,13 @@ class RedirectController extends Controller
     }
 
     public function redirectToHomepage(Request $request){
-        $user = Auth::user();
-    
-        $current_term = Term::find($user->current_term);
+        if(!Auth::check()){
+            return redirect('/setup');
+        }
         
+        $user = Auth::user();
+        $current_term = Term::find($user->current_term);
+
         $start = $current_term->start;
         $end = $current_term->end;
         if($request->has('filter')){
