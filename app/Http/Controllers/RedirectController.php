@@ -181,7 +181,7 @@ class RedirectController extends Controller
         if(date('Y-m-d') < $current_term->end){
             flash()->addError('Administrative Year / Term has not ended yet!');
             return redirect('/');
-        }
+        }   
         return view('renew');
     }
 
@@ -300,6 +300,10 @@ class RedirectController extends Controller
     
     public function redirectToAboutPage(){
         return view('about');
+    }
+
+    public function redirectToAboutAdminPage(){
+        return view('about_admin');
     }
 
 }
