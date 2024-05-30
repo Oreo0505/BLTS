@@ -100,6 +100,8 @@ class FetchController extends Controller
 
             echo $current_term;
         }
+
+        $edit = "pakidelete";
         
        
         return response()->json([
