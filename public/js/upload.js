@@ -34,24 +34,34 @@ async function getAuthors(value){
     }
     
     const data = await response.json();
+    console.log(data);
     return data['authors'];
 }
 
 async function getTerm(value){
-    const response = await fetch(
-        '/get/term?value='+value,
-        {
-            method: 'GET'
-        }
-    );
-
-    if(!response.ok){
-        throw new Error(`HTTP error! status: ${response.status}`);
-    }
+    try {
+        const response = await fetch(
+            '/get/term?value=' + value,
+            {
+                method: 'GET'
+            }
+        );
     
-    const data = await response.json();
-    return data['term'];
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+    
+        // Parse and return the JSON response
+        const data = await response.json();
+        return data;
+        
+    } catch (error) {
+        print(data);    
+    }
+
+    
 }
+
 
 var uploadModalOpened = false;
 function openUploadModal(){
@@ -179,6 +189,7 @@ uploadSubmitButton.addEventListener('click', function(){
                 authors.push(uploadAuthorOptions[i].value);
             }
         }
+       
         var uploadCustomAuthors = document.querySelectorAll('.upload-custom-author');
         for(let i = 0; i < uploadCustomAuthors.length; i++){
             if(uploadCustomAuthors[i].value.length >= 3){
