@@ -10,6 +10,7 @@ class Term extends Model
     use HasFactory;
 
     protected $fillable = [
+        'user_id',
         'start',
         'end'
     ];
@@ -17,4 +18,10 @@ class Term extends Model
     public function authors(){
         return $this->hasMany(Author::class, 'term_id');
     }
+
+    public function user(){
+        return $this-> belongsTo(User::class);
+    }
+
+
 }
