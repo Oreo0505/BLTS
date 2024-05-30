@@ -71,6 +71,8 @@ Route::post('/restore', [RestoreController::class, 'restore']);
 
 Route::get('/about', [RedirectController::class, 'redirectToAboutPage']);
 
+Route::get('/about/admin', [RedirectController::class, 'redirectToAboutAdminPage']);
+
 Route::get('/home', [RedirectController::class, 'redirectToHome']);
 
 Route::get('/login', [RedirectController::class, 'redirectToLoginPage']);
@@ -85,4 +87,5 @@ Route::post('/login/process/admin', [LoginController::class, 'loginAdmin']);
 
 Route::get('/admin/municipal', [RedirectController::class, 'redirectToMunicipalAdmin']);
 
-Route::get('/municipal/barangay/statistics', [FetchController::class, 'getBarangayStatistics']);
+Route::get('/get/documents', [FetchController::class, 'getBarangayStatistics']);
+

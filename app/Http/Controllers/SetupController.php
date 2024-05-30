@@ -8,7 +8,6 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Author;
 use App\Models\Term;
-use App\Models\Config;
 use App\Models\User;
 use App\Traits\Upload;
 
@@ -18,9 +17,6 @@ class SetupController extends Controller
 
     public function setup(Request $request)
     {
-        // Debug incoming request data
-        // dd($request->all()); // Uncomment this line to debug the incoming request data
-
         // Validate the incoming request data
         $validator = Validator::make($request->all(), [
             'municipality' => 'required|string',
@@ -85,30 +81,41 @@ class SetupController extends Controller
         }
 
         // Process the form data and create records in the database
-        $term_form = [
-            'start' => date("Y-m-d", strtotime($request->from)),
-            'end' => date("Y-m-d", strtotime($request->to))
-        ];
-        $current_term = Term::create($term_form);
 
+        // Create term with user_id
+
+        // $users = User::all();
+        // $user_id = $users->id;
+        
+        
+        // Create the user first
         $user_form = [
             'municipality' => $request->municipality,
             'barangay' => $request->barangay,
-            'logo' => $request->logo,
             'email' => $request->email,
             'password' => bcrypt($request->password)
         ];
 
         $user = User::create($user_form);
-
         $user_id = $user->id;
-
+        
+        $term_form = [
+            'user_id' => $user_id,
+            'start' => date("Y-m-d", strtotime($request->from)),
+            'end' => date("Y-m-d", strtotime($request->to))
+        ];
+        $current_term = Term::create($term_form);
+        $user->current_term = $current_term->id;
+         
+        // Upload logo if exists
         if ($request->hasFile('logo')) {
             $path = $this->UploadFile($request->file('logo'), 'logo', 'Profile', 'public');
             $user->logo = $path;
+            $user->save();
         }
 
-        $user->current_term = $current_term->id;
+        // Update user with current term ID
+       
         $user->save();
 
         // Create authors for captain, secretary, and SB members
