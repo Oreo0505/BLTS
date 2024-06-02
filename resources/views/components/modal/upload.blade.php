@@ -79,7 +79,7 @@
                     
                     </select>
                     <label for="upload-term" class="relative absolute -top-12 left-3 w-fit px-1 bg-white font-sans font-normal text-gray-700 text-[11px] leading-tight">
-                        Adminitrative Year / Term Year
+                        Administrative Year / Term Year
                     </label>
                 </div>
                 <div class="flex flex-col">

@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Support\Facades\Auth;
 
 class Document extends Model
 {
@@ -33,15 +34,15 @@ class Document extends Model
     }
 
     public function isInCurrentTerm(){
-        $user = User::first();
-        $current_term = Term::find($user->current_term);
+        $user = Auth::user();
+        $current_term = Term::where('user_id', $user->id)->find($user->current_term);
         $current = $this->date >= $current_term->start && $this->date <= $current_term->end ? true : false;
         return $current;
     }
 
     public function getTermAttribute(){
         $date = $this->date;
-        $term = Term::where('start','<=',$date)->where('end','>=',$date)->first();
+        $term = Term::where('user_id', $user->id)->where('start','<=',$date)->where('end','>=',$date)->first();
         return $term;
     }
 }

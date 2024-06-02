@@ -5,13 +5,13 @@
             <img src="{{ asset('/images/dilg_logo.svg') }}" alt="" class="h-9">        
         </a>
         <a href="/" class="">
-            <img src="{{ asset('/images/om_logo.svg') }}" alt="" class="h-9">        
+            <img src="{{ asset('/images/duque_morion.png') }}" alt="" class="h-12">        
         </a>
         <a href="/">
             <img src="{{ asset('/images/lgrc_logo.svg') }}" alt="" class="h-9">        
         </a>
         <a href="/">
-            <img src="{{ asset('/images/one_marinduque.png') }}" alt="" class="h-9">        
+            <img src="{{ asset('/images/one_duque.png') }}" alt="" class="h-9">        
         </a>
     </div>
     <div class="flex items-center justify-center w-full">

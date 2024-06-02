@@ -128,20 +128,20 @@ class RedirectController extends Controller
         }
         
         $user = Auth::user();
-        $current_term = Term::find($user->current_term);
+        $current_term = Term::where('user_id', $user->id)->find($user->current_term);
 
         $start = $current_term->start;
         $end = $current_term->end;
         if($request->has('filter')){
             $filter = explode('-', $request->filter);
-            $documents = Document::with('authors')->where('user_id',$user->id)->whereBetween('date',[$start, $end])->orderBy($filter[0],$filter[1])->get();
+            $documents = Document::with('authors')->where('user_id', $user->id)->whereBetween('date',[$start, $end])->orderBy($filter[0],$filter[1])->get();
         }
         else{
-            $documents = Document::with('authors')->where('user_id',$user->id)->whereBetween('date',[$start, $end])->latest()->get();
+            $documents = Document::with('authors')->where('user_id', $user->id)->whereBetween('date',[$start, $end])->latest()->get();
         }
-        $authors = Author::where('term_id', $current_term->id)->whereNot('position','Secretary')->get();
+        $authors = Author::where('user_id', $user->id)->where('term_id', $current_term->id)->whereNot('position','Secretary')->get();
         
-        $terms = Term::all();
+        $terms = Term::where('user_id', $user->id)->get();
         
         $authors_names = [];
         foreach($authors as $author){
@@ -176,11 +176,12 @@ class RedirectController extends Controller
     }
 
     public function redirectToRenewPage(){
-        if(Auth::check()){
+        $user = Auth::user();
+        if(!Auth::check()){
             flash()->addError('You have to set up an account first!');
             return redirect('/setup');
         }        
-        $current_term = Term::find($user->current_term);
+        $current_term = Term::where('user_id', $user->id)->find($user->current_term);
         if(date('Y-m-d') < $current_term->end){
             flash()->addError('Administrative Year / Term has not ended yet!');
             return redirect('/');
@@ -194,39 +195,39 @@ class RedirectController extends Controller
             return redirect('/setup');
         }
 
-        $current_term = Term::find($user->current_term);
-        $terms = Term::all();
+        $current_term = Term::where('user_id', $user->id)->find($user->current_term);
+        $terms = Term::where('user_id', $user->id)->get();
 
         if($request->has('id')){
-            $term = Term::find($request->id);
+            $term = Term::where('user_id', $user->id)->find($request->id);
             if($term == null){
                 flash()->addError('Cannot find term');
                 return back();
             }
-            $captain = Author::where('term_id',$request->id)->where('position','Captain')->first();
-            $secretary = Author::where('term_id',$request->id)->where('position','Secretary')->first();
-            $chairman = Author::where('term_id',$request->id)->where('position','SK Chairman')->first();
-            $sb_member_1 = Author::where('term_id',$request->id)->where('position','SB Member 1')->first();
-            $sb_member_2 = Author::where('term_id',$request->id)->where('position','SB Member 2')->first();
-            $sb_member_3 = Author::where('term_id',$request->id)->where('position','SB Member 3')->first();
-            $sb_member_4 = Author::where('term_id',$request->id)->where('position','SB Member 4')->first();
-            $sb_member_5 = Author::where('term_id',$request->id)->where('position','SB Member 5')->first();
-            $sb_member_6 = Author::where('term_id',$request->id)->where('position','SB Member 6')->first();
-            $sb_member_7 = Author::where('term_id',$request->id)->where('position','SB Member 7')->first();
+            $captain = Author::where('user_id', $user->id)->where('term_id',$request->id)->where('position','Captain')->first();
+            $secretary = Author::where('user_id', $user->id)->where('term_id',$request->id)->where('position','Secretary')->first();
+            $chairman = Author::where('user_id', $user->id)->where('term_id',$request->id)->where('position','SK Chairman')->first();
+            $sb_member_1 = Author::where('user_id', $user->id)->where('term_id',$request->id)->where('position','SB Member 1')->first();
+            $sb_member_2 = Author::where('user_id', $user->id)->where('term_id',$request->id)->where('position','SB Member 2')->first();
+            $sb_member_3 = Author::where('user_id', $user->id)->where('term_id',$request->id)->where('position','SB Member 3')->first();
+            $sb_member_4 = Author::where('user_id', $user->id)->where('term_id',$request->id)->where('position','SB Member 4')->first();
+            $sb_member_5 = Author::where('user_id', $user->id)->where('term_id',$request->id)->where('position','SB Member 5')->first();
+            $sb_member_6 = Author::where('user_id', $user->id)->where('term_id',$request->id)->where('position','SB Member 6')->first();
+            $sb_member_7 = Author::where('user_id', $user->id)->where('term_id',$request->id)->where('position','SB Member 7')->first();
         }
         else{
             $user = Auth::user();
-            $term = Term::where('id', $user->current_term)->first();
-            $captain = Author::where('term_id',$user->current_term)->where('position','Captain')->first();
-            $secretary = Author::where('term_id',$user->current_term)->where('position','Secretary')->first();
-            $chairman = Author::where('term_id',$user->current_term)->where('position','SK Chairman')->first();
-            $sb_member_1 = Author::where('term_id',$user->current_term)->where('position','SB Member 1')->first();
-            $sb_member_2 = Author::where('term_id',$user->current_term)->where('position','SB Member 2')->first();
-            $sb_member_3 = Author::where('term_id',$user->current_term)->where('position','SB Member 3')->first();
-            $sb_member_4 = Author::where('term_id',$user->current_term)->where('position','SB Member 4')->first();
-            $sb_member_5 = Author::where('term_id',$user->current_term)->where('position','SB Member 5')->first();
-            $sb_member_6 = Author::where('term_id',$user->current_term)->where('position','SB Member 6')->first();
-            $sb_member_7 = Author::where('term_id',$user->current_term)->where('position','SB Member 7')->first();
+            $term = Term::where('user_id', $user->id)->where('id', $user->current_term)->first();
+            $captain = Author::where('user_id', $user->id)->where('term_id',$user->current_term)->where('position','Captain')->first();
+            $secretary = Author::where('user_id', $user->id)->where('term_id',$user->current_term)->where('position','Secretary')->first();
+            $chairman = Author::where('user_id', $user->id)->where('term_id',$user->current_term)->where('position','SK Chairman')->first();
+            $sb_member_1 = Author::where('user_id', $user->id)->where('term_id',$user->current_term)->where('position','SB Member 1')->first();
+            $sb_member_2 = Author::where('user_id', $user->id)->where('term_id',$user->current_term)->where('position','SB Member 2')->first();
+            $sb_member_3 = Author::where('user_id', $user->id)->where('term_id',$user->current_term)->where('position','SB Member 3')->first();
+            $sb_member_4 = Author::where('user_id', $user->id)->where('term_id',$user->current_term)->where('position','SB Member 4')->first();
+            $sb_member_5 = Author::where('user_id', $user->id)->where('term_id',$user->current_term)->where('position','SB Member 5')->first();
+            $sb_member_6 = Author::where('user_id', $user->id)->where('term_id',$user->current_term)->where('position','SB Member 6')->first();
+            $sb_member_7 = Author::where('user_id', $user->id)->where('term_id',$user->current_term)->where('position','SB Member 7')->first();
         }
 
         return view('profile',[
@@ -256,9 +257,9 @@ class RedirectController extends Controller
             return redirect('/setup');
         }
 
-        $current_term = Term::find($user->current_term);
+        $current_term = Term::where('user_id', $user->id)->find($user->current_term);
         
-        $terms = Term::all();
+        $terms = Term::where('user_id', $user->id)->get();
         return view('add_profile',[
             'renew' => date('Y-m-d') > $current_term->end ? true : false,
             'current_term' => $current_term,
@@ -275,19 +276,19 @@ class RedirectController extends Controller
             return redirect('/setup');
         }
 
-        $current_term = Term::find($user->current_term);
+        $current_term = Term::where('user_id', $user->id)->find($user->current_term);
         $start = $current_term->start;
         $end = $current_term->end;
         if($request->has('filter')){
             $filter = explode('-', $request->filter);
-            $documents = Document::with('authors')->onlyTrashed()->whereBetween('date',[$start, $end])->orderBy($filter[0],$filter[1])->get();
+            $documents = Document::where('user_id', $user->id)->with('authors')->onlyTrashed()->whereBetween('date',[$start, $end])->orderBy($filter[0],$filter[1])->get();
         }
         else{
-            $documents = Document::with('authors')->onlyTrashed()->whereBetween('date',[$start, $end])->latest()->get();
+            $documents = Document::where('user_id', $user->id)->with('authors')->onlyTrashed()->whereBetween('date',[$start, $end])->latest()->get();
         }
-        $authors = Author::where('term_id', $current_term->id)->whereNot('position','Secretary')->get();
+        $authors = Author::where('user_id', $user->id)->where('term_id', $current_term->id)->whereNot('position','Secretary')->get();
 
-        $terms = Term::all();
+        $terms = Term::where('user_id', $user->id)->get();
 
         return view('trash',[
             'renew' => date('Y-m-d') > $current_term->end ? true : false,
