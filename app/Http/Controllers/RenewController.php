@@ -14,8 +14,6 @@ use App\Models\User;
 class RenewController extends Controller
 {
     public function renew(Request $request){
-        $user = Auth::user();
-        $user_id = $user->id;
         $validator = Validator::make($request->all(),[
             'captain' => 'required|min:3',
             'secretary' => 'required|min:3',
@@ -64,7 +62,9 @@ class RenewController extends Controller
             }
             return back()->withInput();
         }
-
+        $user = Auth::user();
+        $user_id = $user->id;
+       
         $term_form = [
             'start' => date("Y-m-d", strtotime($request->from)),
             'end' => date("Y-m-d", strtotime($request->to)),
@@ -72,6 +72,7 @@ class RenewController extends Controller
         ];
         $current_term = Term::create($term_form);
 
+        
         $user->current_term = $current_term->id;
         $user->save();
 
@@ -122,6 +123,6 @@ class RenewController extends Controller
         Author::create($chairman_form);
 
         flash()->addSuccess('Profile renewed successfully');
-        return redirect('/');
+        return redirect('/homepage');
     }
 }

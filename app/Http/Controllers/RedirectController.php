@@ -55,11 +55,6 @@ class RedirectController extends Controller
             ->where('type', 'Code of Ordinance')
             ->count();
 
-        // dd($resolution_counts);
-        // dd($ordinance_counts);
-        // dd($code_of_ordinance_counts);
-
-        // Return the view for authenticated users
         return view('municipal_admin', [
             'user_count' => $user_count,
             'municipality' => $municipality,
@@ -70,50 +65,11 @@ class RedirectController extends Controller
         ]);
     
     }
-    // public function loginAdmin(Request $request){
-    //     // Retrieve email and password from the request
-    //     $email = $request->input('email');
-    //     $password = $request->input('password');
-
-    //     // Create credentials array
-    //     $credentials = [
-    //         'email' => $email,
-    //         'password' => $password,
-    //     ];
-
-    //     // Attempt to authenticate the user
-    //     if (Auth::attempt($credentials)) {
-    //         // Regenerate session to prevent session fixation attacks
-    //         $request->session()->regenerate();
-
-    //         // Flash a success message
-    //         flash()->addSuccess('Login Successfully');
-
-    //         // Redirect to the dashboard page
-    //         return $this->redirectToAdminPage();
-    //     } else {
-    //         // Flash an error message
-    //         flash()->addError('Your Credentials do not match our records.');
-
-    //         // Redirect back to the login form
-    //         return back();
-    //     }
-    // }
 
     
     public function redirectToLoginAdmin(){
         return view ('admin_login');
     }
-    
-    // public function redirectToAdminPage(){
-    //     $user_count = User::where('municipality', 'boac')->count();
-    //     if(Auth::check()){
-    //         return redirect('/');
-    //     }
-    //     return view('admin_municipal', [
-    //         'user_count' => $user_count
-    //     ]);
-    // }
     
     public function redirectToLoginPage(){
         if(Auth::check()){
