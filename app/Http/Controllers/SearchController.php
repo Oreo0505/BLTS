@@ -10,6 +10,7 @@ use App\Models\Term;
 use App\Models\Config;
 use App\Models\User;
 use App\Traits\Report;
+use Illuminate\Support\Facades\Auth;
 
 class SearchController extends Controller
 {
@@ -17,22 +18,22 @@ class SearchController extends Controller
     use Report;
 
     public function search(Request $request){
-        $user = User::first();
+        $user = Auth::user();
         if($user->first_time){
             return redirect('/setup');
         }
 
-        $current_term = Term::find($user->current_term);
+        $current_term = Term::where('user_id', $user->id)->find($user->current_term);
 
         $parameters = [];
         $valid_types = ['Code of Ordinance','Ordinance','Resolution'];
 
         if(strlen($request->search) > 0){
             $title_search = strtoupper($request->search);
-            $documents_by_title = Document::with('authors')->where('title','like','%'.$title_search.'%');
+            $documents_by_title = Document::where('user_id', $user->id)->with('authors')->where('title','like','%'.$title_search.'%');
 
             $author_search = ucwords($request->search);
-            $documents_by_author = Document::with('authors')->whereHas('authors', function(Builder $query) use ($author_search){
+            $documents_by_author = Document::where('user_id', $user->id)->with('authors')->whereHas('authors', function(Builder $query) use ($author_search){
                 $query->where('name','like','%'.$author_search.'%');
             });
 
@@ -48,13 +49,13 @@ class SearchController extends Controller
 
             if($request->year != 'all'){
                 $date = explode('-',$request->year);
-                $term = Term::whereYear('start',$date[0])->whereYear('end',$date[1])->first();
+                $term = Term::where('user_id', $user->id)->whereYear('start',$date[0])->whereYear('end',$date[1])->first();
                 $documents_by_title->whereBetween('date', [$term->start, $term->end]);
                 $documents_by_author->whereBetween('date', [$term->start, $term->end]);
             }
             else if($request->year == 'older'){
-                $documents_by_title->where('date','<',Term::first()->start);
-                $documents_by_author->where('date','<',Term::first()->start);
+                $documents_by_title->where('date','<',Term::where('user_id', $user->id)->first()->start);
+                $documents_by_author->where('date','<',Term::where('user_id', $user->id)->first()->start);
             }
             if($request->area != 'all'){
                 $documents_by_title->where('area', $request->area);
@@ -120,7 +121,7 @@ class SearchController extends Controller
         }
         else{
             $authors_filter = explode(',',$request->authors); 
-            $documents_query = Document::whereHas('authors', function(Builder $query) use ($authors_filter){
+            $documents_query = Document::where('user_id', $user->id)->whereHas('authors', function(Builder $query) use ($authors_filter){
                 $query->where(function($query) use ($authors_filter){
                     $query->where('name','like','%'.$authors_filter[0].'%');
                     for($i = 1; $i < count($authors_filter); $i++){
@@ -132,11 +133,11 @@ class SearchController extends Controller
 
             if($request->year != 'all' && $request->year != 'older'){
                 $date = explode('-',$request->year);
-                $term = Term::whereYear('start',$date[0])->whereYear('end',$date[1])->first();
+                $term = Term::where('user_id', $user->id)->whereYear('start',$date[0])->whereYear('end',$date[1])->first();
                 $documents_query->whereBetween('date', [$term->start, $term->end]);
             }
             else if($request->year == 'older'){
-                $documents_query->where('date','<',Term::first()->start);
+                $documents_query->where('date','<',Term::where('user_id', $user->id)->first()->start);
             }
             if($request->area != 'all'){
                 $documents_query->where('area', $request->area);
@@ -189,9 +190,9 @@ class SearchController extends Controller
             $documents = $documents_query->get();
         }
 
-        $authors = Author::where('term_id', $current_term->id)->whereNot('position','Secretary')->get();
+        $authors = Author::where('user_id', $user->id)->where('term_id', $current_term->id)->whereNot('position','Secretary')->get();
 
-        $terms = Term::all();
+        $terms = Term::where('user_id', $user->id)->get();
 
         $authors_filter = explode(',',$request->authors); 
         $filters = [

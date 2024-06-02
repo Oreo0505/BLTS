@@ -12,11 +12,10 @@ use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use DateTime;
 
-
 class FetchController extends Controller
 {
     public function getDocument(Request $request){
-        $document = Document::where('id', $request->id)->with('authors')->first();
+        $document = Document::where('user_id', $user_id)->where('id', $request->id)->with('authors')->first();
         return response()->json([
             'id' => $document->id,
             'title' => $document->title,
@@ -33,87 +32,49 @@ class FetchController extends Controller
     
 
     function getAuthors(Request $request){
-        // Get the authenticated user
         $user = Auth::user();
-        
-        if ($request->value == 'all') {
-            $authors = Author::where('user_id', $user->id)->whereNot('position', 'Secretary')->orderBy('name', 'asc')->get()->unique('name');
-        } else if ($request->value == 'older') {
-            $authors = Author::where('user_id', $user->id)
-                            ->where('term_id', 0)
-                            ->whereNot('position', 'Secretary')
-                            ->orderBy('name', 'asc')
-                            ->get();
-        } else if ($request->value == 'current') {
-            $authors = Author::where('user_id', $user->id)
-                            ->where('term_id', $user->current_term)
-                            ->whereNot('position', 'Secretary')
-                            ->orderBy('name', 'asc')
-                            ->get();   
-        } else {
-            $date = explode('-', $request->value);
-            
-            if (isset($date[0]) && isset($date[1])) {
-                $term = Term::whereYear('start', $date[0])->whereYear('end', $date[1])->first();
-                if ($term) {
-                    $authors = Author::where('user_id', $user->id)
-                                    ->where('term_id', $term->id)
-                                    ->whereNot('position', 'Secretary')
-                                    ->orderBy('name', 'asc')
-                                    ->get();
-                } else {
-                    // Handle case where term is not found
-                    $authors = collect(); // empty collection
-                }
-            } else {
-                // Handle invalid date input
-                $authors = collect(); // empty collection
-            }
+        $user_id = Auth::id();
+        if($request->value == 'all'){
+            $authors = Author::where('user_id', $user_id)->whereNot('position','Secretary')->orderBy('name', 'asc')->get()->unique('name');
         }
+        else if($request->value == 'older'){
+            $authors = Author::where('user_id', $user_id)->where('term_id',0)->whereNot('position','Secretary')->orderBy('name','asc')->get();
+        }
+        else if($request->value == 'current'){
 
-        $json = $authors->pluck('name')->toArray();
-
+            $authors = Author::where('user_id', $user_id)->where('term_id',$config->current_term)->whereNot('position','Secretary')->orderBy('name','asc')->get();   
+        }
+        else{
+            $date = explode('-',$request->value);
+            $term = Term::where('user_id', $user_id)->whereYear('start',$date[0])->whereYear('end',$date[1])->first();
+            $authors = Author::where('user_id', $user_id)->where('term_id',$term->id)->whereNot('position','Secretary')->orderBy('name','asc')->get();
+        }
+        $json = [];
+        foreach($authors as $author){
+            array_push($json, $author->name);
+        }
         return response()->json([
             'authors' => $json
         ]);
+        
     }
-
 
     function getTerm(Request $request){
         $user = Auth::user();
-        $term = Term::where('user_id', $user->id)->first();
-
-   
+        $user_id = Auth::id();
         if($request->value == 'current'){
-            $terms = User::user()->id;
-            $current_term = Term::find($terms->current_term);
+            
+            $current_term = Term::where('user_id', $user_id)->find($user->current_term);
         }
         else{
-            // $date = explode('-',$request->value);
-            // $current_term = Term::where('user_id', $user->id)->whereYear('start',$date[0])->whereYear('end',$date[1])->first();
-            $start_date = new \DateTime($current_term['start']);
-            $end_date = new \DateTime($current_term['end']);
-
-            $start_year = $start_date->format('Y');
-            $end_year = $end_date->format('Y');
-            $current_term = "$start_year - $end_year";
-
-            echo $current_term;
+            $date = explode('-',$request->value);
+            $current_term = Term::where('user_id', $user_id)->whereYear('start',$date[0])->whereYear('end',$date[1])->first();
         }
-
-        $edit = "pakidelete";
-        
-       
         return response()->json([
-            'user' => $user,
             'term' => $current_term
         ]);
-       
     }
-
-    
         
-    
 
     public function getBarangayStatistics(Request $request) {
         $document_count = [];
@@ -159,5 +120,3 @@ class FetchController extends Controller
     
 
 }
-
-   

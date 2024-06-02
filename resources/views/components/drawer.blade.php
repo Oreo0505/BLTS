@@ -87,7 +87,7 @@
             </a>
             <a href="/browse?by=area&value=Environmental Mannagement" class="">
                 <div class="group flex flex-row h-11 justify-start items-center space-x-2 pl-6 py-4 hover:bg-[#508DB9]/10">
-                    <p class="font-sans text-sm font-base text-white opacity-70 cursor-pointer group-hover:text-[#90CAF9]">Environmental Mannagement</p>
+                    <p class="font-sans text-sm font-base text-white opacity-70 cursor-pointer group-hover:text-[#90CAF9]">Environmental Management</p>
                 </div>            
             </a>
             <div class="flex flex-row h-12 justify-start items-center space-x-2 py-4">
