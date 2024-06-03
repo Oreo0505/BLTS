@@ -17,6 +17,9 @@ class SetupController extends Controller
 
     public function setup(Request $request)
     {
+
+        // Validate the incoming request data
+
         $validator = Validator::make($request->all(), [
             'municipality' => 'required|string',
             'barangay' => 'required|string',
@@ -78,6 +81,7 @@ class SetupController extends Controller
             return back()->withInput();
         }
 
+
         $user_form = [
             'municipality' => $request->municipality,
             'barangay' => $request->barangay,
@@ -96,10 +100,13 @@ class SetupController extends Controller
         $current_term = Term::create($term_form);
         $user->current_term = $current_term->id;
          
+
         if ($request->hasFile('logo')) {
             $path = $this->UploadFile($request->file('logo'), 'logo', 'Profile', 'public');
             $user->logo = $path;
+            $user->save();
         }
+
        
         $user->save();
 

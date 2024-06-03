@@ -9,12 +9,21 @@
 
     <script src="{{asset('/js/moment.js')}}"></script>
 
+    
+    
+    <div  class="flex flex-col h-full w-screen bg-white "> 
+      
+       
+        <div class="flex flex-col drop-shadow">
+            <div id="bg-overlay" class="hidden fixed w-full h-full inset-0 z-10 overflow-hidden flex justify-center items-center brightness-50 backdrop-blur-sm animated faster"> </div>
+
 
   
     
     <div class="flex flex-col h-screen w-screen bg-gradient-30 from-[#425B71] to-[#425B71]/60 ">    
 
         <div class="flex flex-col drop-shadow">
+
            
             <div class="flex flex-row space-y-2 bg-white "> 
                 <div class="flex flex-col w-[1005px] h-[135px] item-end bg-white text-blue font-normal font-sans leading-[30px]"  >               
@@ -25,15 +34,34 @@
                 <img src="{{asset('images/hero.svg') }}" alt="" class="hidden absolute right-12 w-50 h-12 md:flex"> 
                
             </div>
+            
          
             
-            <div class="flex flex-col md:flex-row  bg-white px-12 h-82 mx-8 justify-center space-x-6 mb-12">
-                <div class=" bg-gray-200 rounded-lg  flex flex-row shadow-lg py-8 px-8 space-x-4 space-y-2 md:py-4 justify-items-center mt-4 mb-8 w-1/8 ">
-                    <img src="{{asset ('images/users.svg')}}" alt="RESOLUTION" class="relative absolute top-0 right-0 h-14">
-                    <div class=" text-center space-y-2 md:text-left">
-                        <p class="text-lg text-black font-semibold ">User's Count</p>
-                        <p class="text-slate-500 text-3xl font-bold"> {{$user_count}} </p>
-                    </div>          
+            <div class="flex flex-col md:flex-row  bg-white px-12 h-82 mx-8 justify-center space-x-6 mb-12 ">
+                <div class=" bg-gray-200 rounded-lg flex flex-row shadow-lg py-8 px-8 space-x-4 space-y-2 md:py-4 justify-items-center mt-4 mb-8 w-1/8 cursor-pointer" id="user-count-card">
+                    <img src="{{ asset('images/users.svg') }}" class="relative absolute top-0 right-0 h-14">
+                    <div class="text-center space-y-2 md:text-left">
+                        <p class="text-lg text-black font-semibold">User's Count</p>
+                        <p class="text-slate-500 text-3xl font-bold">{{ $user_count }}</p>
+                    </div>
+                </div>
+
+               
+
+                <div id="user-count-list" class="hidden absolute top-14 h-96 left-12 bg-white border shadow-lg rounded-lg px-4 z-30">
+                    <div class="flex flex-row items-center justify-center space-x-2">
+                        <img src="{{ asset('images/registered_user.svg') }}" alt="REGISTERED BARANGAYS" class="h-8">
+                        <p class="flex text-xl text-black font-semibold justify-center items-center my-4">REGISTERED BARANGAY LIST</p>
+                    </div>
+                    <ul>
+                        @foreach($registered_barangays as $index => $barangay)
+                            @if ($index < 6)
+                                <li class="p-2 border-b border-gray-300">{{ $barangay }}</li>
+                            @else
+                                <li class="p-2 border-b border-gray-300 hidden">{{ $barangay }}</li>
+                            @endif
+                        @endforeach
+                    </ul>
                 </div>
                 <div class=" bg-gray-200 rounded-lg flex flex-row shadow-lg py-8 px-8 space-x-4 md:py-4  mt-4 mb-8 w-1/8 ">
                     <img src="{{asset ('images/file-yellow.svg')}}" alt="RESOLUTION" class="relative absolute top-0 right-0 h-14">
@@ -57,6 +85,20 @@
                     </div>          
                 </div> 
             </div>
+
+            <div class="flex h-full w-full flex-col items-center justify-center md:flex-row space-x-12 bg-gradient-30 from-[#425B71] to-[#425B71]/60">
+                <div class="flex relative md:items-start w-[50%] md:w-1/8 mx-4">
+                    <select id="select" name="by" class="flex border-2 rounded-full border-[#969696] mt-2 pl-2 bg-white">
+                        
+                        @for ($year = 2000; $year <= 2050; $year++)
+                            <option value="{{ $year }}">{{ $year }}</option>
+                        @endfor
+                    </select>
+                </div>
+                <div class="flex flex-col md:flex-row items-center justify-center mr-12">
+                    <canvas class=" mt-8 mb-8 flex drop-shadow-lg shadow-lg h-96 rounded-lg bg-white" id="documents-chart"></canvas>
+                </div>
+
         </div>
         <div class="flex h-screen w-3/4 flex-col items-center justify-center md:flex-row items-center space-x-12">
             <div class="flex relative md:items-start w-[50%] md:w-1/8 mx-4">
@@ -84,8 +126,11 @@
             <div class="flex flex-col md:flex-row items-center justify-center mr-12">
                 
                 <canvas class="mt-4 flex drop-shadow-lg shadow-lg h-96 rounded-lg bg-white " id="documents-chart"></canvas>
+
             </div>
+            
         </div>
+
 
            
     </div>
@@ -97,9 +142,12 @@
     <script src="{{ asset('/js/chart.js') }}"></script>
     <script src="{{ asset('/js/barangay_statistics.js') }}"></script>
     <script src="{{asset('/js/chart.umd.min.js')}}"></script>
-   
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="{{asset('/js/user-count-list.js')}}"></script>
 
     <!-- <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> -->
+
 
 
 @endsection

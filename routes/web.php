@@ -13,6 +13,7 @@ use App\Http\Controllers\SearchController;
 use App\Http\Controllers\FetchController;
 use App\Http\Controllers\RestoreController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -88,4 +89,8 @@ Route::post('/login/process/admin', [LoginController::class, 'loginAdmin']);
 Route::get('/admin/municipal', [RedirectController::class, 'redirectToMunicipalAdmin']);
 
 Route::get('/get/documents', [FetchController::class, 'getBarangayStatistics']);
+
+// Route::get('/user/count/list', FetchController::class, 'getUserCountList');
+
+Route::get('/admin/municipality/users/list', [UserController::class, 'usersList']);
 

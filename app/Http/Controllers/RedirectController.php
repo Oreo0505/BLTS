@@ -23,7 +23,32 @@ class RedirectController extends Controller
         return view('homepage');
     }
 
-    public function redirectToMunicipalAdmin(Request $request){
+
+    // public function getUserCountList(){
+    //        // Get the authenticated user
+    //     $authenticated_user = Auth::user();
+
+    //     // Ensure the user is authenticated
+    //     if (!$authenticated_user) {
+    //     return response()->json(['error' => 'Unauthenticated'], 401);
+    //     }
+
+    //     // Fetch users from the same municipality
+    //     $users = User::where('municipality', $authenticated_user->municipality)->get();
+
+    //     // Get the barangay name of the authenticated user
+    //     $barangay_name = $authenticated_user->barangay;
+
+    //     return response()->json([
+    //     'users' => $users,
+    //     'barangay_name' => $barangay_name,
+    //     ]);
+        
+        
+    // }
+
+    public function redirectToMunicipalAdmin(Request $request)
+    {
         // Check if the user is authenticated
         if (!Auth::check()) {
             return redirect('/admin'); // or any other route you want to redirect unauthenticated users to
@@ -42,18 +67,32 @@ class RedirectController extends Controller
         $resolution_counts = Document::whereHas('user', function($query) use ($municipality) {
             $query->where('municipality', $municipality);
         })
-            ->where('type', 'Resolution') // Assuming 'resolution' is the type field value for resolutions
+            ->where('type', 'Resolution')
             ->count();
-        $ordinance_counts = Document::whereHas('user', function($query) use ($municipality){
+    
+        $ordinance_counts = Document::whereHas('user', function($query) use ($municipality) {
             $query->where('municipality', $municipality);
         })
             ->where('type', 'Ordinance')
             ->count();
-        $code_of_ordinance_counts = Document::whereHas('user', function($query) use ($municipality){
+    
+        $code_of_ordinance_counts = Document::whereHas('user', function($query) use ($municipality) {
             $query->where('municipality', $municipality);
         })
             ->where('type', 'Code of Ordinance')
             ->count();
+
+    
+        // Get the list of distinct barangays for the users with the same municipality
+        $registered_barangays = User::where('municipality', $municipality)
+            ->whereNotNull('barangay')
+            ->where('barangay', '!=', '')
+            ->distinct()
+            ->pluck('barangay');
+    
+        // Return the view for authenticated users
+=======
+
 
         return view('municipal_admin', [
             'user_count' => $user_count,
@@ -61,10 +100,11 @@ class RedirectController extends Controller
             'resolution_counts' => $resolution_counts,
             'ordinance_counts' => $ordinance_counts,
             'code_of_ordinance_counts' => $code_of_ordinance_counts,
-            'user' => $user
+            'registered_barangays' => $registered_barangays,
+            'user' => $user,
         ]);
-    
     }
+
 
     
     public function redirectToLoginAdmin(){
@@ -264,6 +304,14 @@ class RedirectController extends Controller
 
     public function redirectToAboutAdminPage(){
         return view('about_admin');
+    }
+
+
+    public function redirectToUsersListPage(){
+        $user = Auth::user();
+        $municipality = $user->municipality;
+
+        return redirect('/admin/municipality/users/list');
     }
 
 }
