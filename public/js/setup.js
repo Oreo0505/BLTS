@@ -305,5 +305,13 @@ logoField.addEventListener('change', function(){
 
 setupButton.addEventListener('click', function(event){
     event.preventDefault();
+    if(municipalityDropdown.value == 'null'){
+        alert('Please select municipality');
+        return;
+    }
+    if(barangayDropdown.value == 'null'){
+        alert('Please select barangay');
+        return;
+    }
     setupForm.submit();
 });

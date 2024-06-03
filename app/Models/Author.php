@@ -23,6 +23,10 @@ class Author extends Model
     public function term(){
         return $this->belongsTo(Term::class, 'term_id');
     }
+
+    public function terms(){
+        return $this->belongsTo(Term::class,'user_id');
+    }
     
     public function authors(){
         return $this->belongsTo(User::class, 'user_id');

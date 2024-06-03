@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Auth;
 use App\Models\Author;
 use App\Models\Term;
 use App\Models\Config;
@@ -61,19 +62,23 @@ class RenewController extends Controller
             }
             return back()->withInput();
         }
-
+        $user = Auth::user();
+        $user_id = $user->id;
+       
         $term_form = [
             'start' => date("Y-m-d", strtotime($request->from)),
-            'end' => date("Y-m-d", strtotime($request->to))
+            'end' => date("Y-m-d", strtotime($request->to)),
+            'user_id'=>$user_id
         ];
         $current_term = Term::create($term_form);
 
-        $user = User::first();
+        
         $user->current_term = $current_term->id;
         $user->save();
 
         $captain_form = [
             'name' => $request->captain,
+            'user_id'=>$user_id,
             'position' => 'Captain',
             'term_id' => $current_term->id
         ];
@@ -81,6 +86,7 @@ class RenewController extends Controller
 
         $secretary_form = [
             'name' => $request->secretary,
+            'user_id'=>$user_id,
             'position' => 'Secretary',
             'term_id' => $current_term->id
         ];
@@ -100,6 +106,7 @@ class RenewController extends Controller
         foreach($sb_members as $sb_member){
             $sb_form = [
                 'name' => $sb_member,
+                'user_id'=>$user_id,
                 'position' => 'SB Member '.$i,
                 'term_id' => $current_term->id
             ];
@@ -109,12 +116,13 @@ class RenewController extends Controller
 
         $chairman_form = [
             'name' => $request->chairman,
+            'user_id'=>$user_id,
             'position' => 'SK Chairman',
             'term_id' => $current_term->id
         ];
         Author::create($chairman_form);
 
         flash()->addSuccess('Profile renewed successfully');
-        return redirect('/');
+        return redirect('/homepage');
     }
 }

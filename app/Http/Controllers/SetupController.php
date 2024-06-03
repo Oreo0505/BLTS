@@ -17,7 +17,9 @@ class SetupController extends Controller
 
     public function setup(Request $request)
     {
+
         // Validate the incoming request data
+
         $validator = Validator::make($request->all(), [
             'municipality' => 'required|string',
             'barangay' => 'required|string',
@@ -72,7 +74,6 @@ class SetupController extends Controller
             'password.min' => 'Password should contain at least 8 characters'
         ]);
 
-        // If validation fails, return back with error messages
         if ($validator->fails()) {
             foreach ($validator->messages()->all() as $message) {
                 flash()->addError($message);
@@ -80,15 +81,7 @@ class SetupController extends Controller
             return back()->withInput();
         }
 
-        // Process the form data and create records in the database
 
-        // Create term with user_id
-
-        // $users = User::all();
-        // $user_id = $users->id;
-        
-        
-        // Create the user first
         $user_form = [
             'municipality' => $request->municipality,
             'barangay' => $request->barangay,
@@ -107,18 +100,16 @@ class SetupController extends Controller
         $current_term = Term::create($term_form);
         $user->current_term = $current_term->id;
          
-        // Upload logo if exists
+
         if ($request->hasFile('logo')) {
             $path = $this->UploadFile($request->file('logo'), 'logo', 'Profile', 'public');
             $user->logo = $path;
             $user->save();
         }
 
-        // Update user with current term ID
        
         $user->save();
 
-        // Create authors for captain, secretary, and SB members
         $captain_form = [
             'name' => $request->captain,
             'user_id' => $user_id,

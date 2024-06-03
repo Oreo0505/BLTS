@@ -16,6 +16,14 @@
        
         <div class="flex flex-col drop-shadow">
             <div id="bg-overlay" class="hidden fixed w-full h-full inset-0 z-10 overflow-hidden flex justify-center items-center brightness-50 backdrop-blur-sm animated faster"> </div>
+
+
+  
+    
+    <div class="flex flex-col h-screen w-screen bg-gradient-30 from-[#425B71] to-[#425B71]/60 ">    
+
+        <div class="flex flex-col drop-shadow">
+
            
             <div class="flex flex-row space-y-2 bg-white "> 
                 <div class="flex flex-col w-[1005px] h-[135px] item-end bg-white text-blue font-normal font-sans leading-[30px]"  >               
@@ -77,6 +85,7 @@
                     </div>          
                 </div> 
             </div>
+
             <div class="flex h-full w-full flex-col items-center justify-center md:flex-row space-x-12 bg-gradient-30 from-[#425B71] to-[#425B71]/60">
                 <div class="flex relative md:items-start w-[50%] md:w-1/8 mx-4">
                     <select id="select" name="by" class="flex border-2 rounded-full border-[#969696] mt-2 pl-2 bg-white">
@@ -89,10 +98,39 @@
                 <div class="flex flex-col md:flex-row items-center justify-center mr-12">
                     <canvas class=" mt-8 mb-8 flex drop-shadow-lg shadow-lg h-96 rounded-lg bg-white" id="documents-chart"></canvas>
                 </div>
+
+        </div>
+        <div class="flex h-screen w-3/4 flex-col items-center justify-center md:flex-row items-center space-x-12">
+            <div class="flex relative md:items-start w-[50%] md:w-1/8 mx-4">
+                <select id="select" name="by" class="flex border-2 rounded-full border-[#969696] mt-2 pl-2 bg-white">
+                    <option value="monthly">Monthly</option>
+                    <option value="quarterly">Quarterly</option>
+                    <option value="semi-annually">Semi-Annually</option>
+                    <option value="annually">Annually</option>
+                </select>
+            </div>
+
+            <input class="hidden flex border-2 rounded-full border-[#969696] mt-2 pl-2 bg-white" type="month" min="1900" max="2050" value="2023-01" id="monthly" name="value">
+            <select class="hidden flex border-2 rounded-full border-[#969696] mt-2 pl-2 bg-white mr-6" id="quarterly" name="value">
+                <option value="Q1">Q1</option>
+                <option value="Q2">Q2</option>
+                <option value="Q3">Q3</option>
+                <option value="Q4">Q4</option>
+            </select>
+            <select class="hidden flex border-2 rounded-full border-[#969696] mt-2 pl-2 bg-white" id="semi-annually" name="value">
+                <option value="H1">Jan-Jun</option>
+                <option value="H2">Jul-Dec</option>
+            </select>
+            <input class="hidden flex border-2 rounded-full border-[#969696] mt-2 pl-2 bg-white" type="number" min="1900" max="2050" value="2023" id="annually" name="value">
+
+            <div class="flex flex-col md:flex-row items-center justify-center mr-12">
+                
+                <canvas class="mt-4 flex drop-shadow-lg shadow-lg h-96 rounded-lg bg-white " id="documents-chart"></canvas>
+
             </div>
             
         </div>
-      
+
 
            
     </div>
@@ -104,8 +142,11 @@
     <script src="{{ asset('/js/chart.js') }}"></script>
     <script src="{{ asset('/js/barangay_statistics.js') }}"></script>
     <script src="{{asset('/js/chart.umd.min.js')}}"></script>
+
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="{{asset('/js/user-count-list.js')}}"></script>
+
+    <!-- <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> -->
 
 
 

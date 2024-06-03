@@ -16,7 +16,7 @@ use DateTime;
 class FetchController extends Controller
 {
     public function getDocument(Request $request){
-        $document = Document::where('id', $request->id)->with('authors')->first();
+        $document = Document::where('user_id', $user_id)->where('id', $request->id)->with('authors')->first();
         return response()->json([
             'id' => $document->id,
             'title' => $document->title,
@@ -33,6 +33,7 @@ class FetchController extends Controller
     
 
     function getAuthors(Request $request){
+
         // Get the authenticated user
         $user = Auth::user();
         
@@ -69,6 +70,28 @@ class FetchController extends Controller
                 // Handle invalid date input
                 $authors = collect(); // empty collection
             }
+=======
+        $user = Auth::user();
+        $user_id = Auth::id();
+        if($request->value == 'all'){
+            $authors = Author::where('user_id', $user_id)->whereNot('position','Secretary')->orderBy('name', 'asc')->get()->unique('name');
+        }
+        else if($request->value == 'older'){
+            $authors = Author::where('user_id', $user_id)->where('term_id',0)->whereNot('position','Secretary')->orderBy('name','asc')->get();
+        }
+        else if($request->value == 'current'){
+
+            $authors = Author::where('user_id', $user_id)->where('term_id',$config->current_term)->whereNot('position','Secretary')->orderBy('name','asc')->get();   
+        }
+        else{
+            $date = explode('-',$request->value);
+            $term = Term::where('user_id', $user_id)->whereYear('start',$date[0])->whereYear('end',$date[1])->first();
+            $authors = Author::where('user_id', $user_id)->where('term_id',$term->id)->whereNot('position','Secretary')->orderBy('name','asc')->get();
+        }
+        $json = [];
+        foreach($authors as $author){
+            array_push($json, $author->name);
+
         }
 
         $json = $authors->pluck('name')->toArray();
@@ -76,6 +99,7 @@ class FetchController extends Controller
         return response()->json([
             'authors' => $json
         ]);
+        
     }
 
 
@@ -137,21 +161,8 @@ class FetchController extends Controller
     //     ]);
     // }
 
-    function getTerm(Request $request){
-        if($request->value == 'current'){
-            $config = Config::first();
-            $current_term = Term::find($config->current_term);
-        }
-        else{
-            $date = explode('-',$request->value);
-            $current_term = Term::whereYear('start',$date[0])->whereYear('end',$date[1])->first();
-        }
-        return response()->json([
-            'term' => $current_term
-        ]);
-    }
-
-    
+  
+        
     public function getBarangayStatistics(Request $request) {
         // Extract the year from the date field
         $date = new \DateTime($request->value);
@@ -211,5 +222,3 @@ class FetchController extends Controller
     
 
 }
-
-   

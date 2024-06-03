@@ -82,5 +82,107 @@ class DatabaseSeeder extends Seeder
             'updated_at' => '2023-08-18 17:47:50'
         ]);
 
+        Author::factory()->create([
+            'user_id' => '1',
+            'name' => 'Aubrey M. Jabal',
+            'position' => 'Sangguniang Bayan Secretary',
+            'term_id' => '1',
+            'created_at' => '2023-08-18 17:47:50',
+            'updated_at' => '2023-08-18 17:47:50'
+        ]);
+
+        Author::factory()->create([
+            'user_id' => '2',
+            'name' => 'Rylene Grace L. Sacro',
+            'position' => 'Sangguniang Bayan Secretary',
+            'term_id' => '1',
+            'created_at' => '2023-08-18 17:47:50',
+            'updated_at' => '2023-08-18 17:47:50'
+        ]);
+
+        Author::factory()->create([
+            'user_id' => '3',
+            'name' => 'Ma. Christine Joy S. Frank',
+            'position' => 'Sangguniang Bayan Secretary',
+            'term_id' => '1',
+            'created_at' => '2023-08-18 17:47:50',
+            'updated_at' => '2023-08-18 17:47:50'
+        ]);
+
+        Author::factory()->create([
+            'user_id' => '4',
+            'name' => 'Trixia G. Historillo',
+            'position' => 'Sangguniang Bayan Secretary',
+            'term_id' => '1',
+            'created_at' => '2023-08-18 17:47:50',
+            'updated_at' => '2023-08-18 17:47:50'
+        ]);
+
+        Author::factory()->create([
+            'user_id' => '5',
+            'name' => 'Adrian O. Villaruel',
+            'position' => 'Sangguniang Bayan Secretary',
+            'term_id' => '1',
+            'created_at' => '2023-08-18 17:47:50',
+            'updated_at' => '2023-08-18 17:47:50'
+        ]);
+
+        Author::factory()->create([
+            'user_id' => '6',
+            'name' => 'Reena Vea S. Mendoza',
+            'position' => 'Sangguniang Bayan Secretary',
+            'term_id' => '1',
+            'created_at' => '2023-08-18 17:47:50',
+            'updated_at' => '2023-08-18 17:47:50'
+        ]);
+
+        Term::factory()->create([
+            'user_id' => '1',
+            'start' => '2023-10-30',
+            'end' => '2025-10-30',
+            'created_at' => '2023-08-18 17:47:50',
+            'updated_at' => '2023-08-18 17:47:50'
+        ]);
+
+        Term::factory()->create([
+            'user_id' => '2',
+            'start' => '2023-10-30',
+            'end' => '2025-10-30',
+            'created_at' => '2023-08-18 17:47:50',
+            'updated_at' => '2023-08-18 17:47:50'
+        ]);
+
+        Term::factory()->create([
+            'user_id' => '3',
+            'start' => '2023-10-30',
+            'end' => '2025-10-30',
+            'created_at' => '2023-08-18 17:47:50',
+            'updated_at' => '2023-08-18 17:47:50'
+        ]);
+
+        Term::factory()->create([
+            'user_id' => '4',
+            'start' => '2023-10-30',
+            'end' => '2025-10-30',
+            'created_at' => '2023-08-18 17:47:50',
+            'updated_at' => '2023-08-18 17:47:50'
+        ]);
+
+        Term::factory()->create([
+            'user_id' => '5',
+            'start' => '2023-10-30',
+            'end' => '2025-10-30',
+            'created_at' => '2023-08-18 17:47:50',
+            'updated_at' => '2023-08-18 17:47:50'
+        ]);
+
+        Term::factory()->create([
+            'user_id' => '6',
+            'start' => '2023-10-30',
+            'end' => '2025-10-30',
+            'created_at' => '2023-08-18 17:47:50',
+            'updated_at' => '2023-08-18 17:47:50'
+        ]);
+
     }
 }

@@ -11,12 +11,14 @@ use App\Models\User;
 use App\Models\Term;
 use App\Traits\Upload;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Auth;
 
 class UpdateController extends Controller
 {
     use Upload;
 
     public function updateDocument(Request $request){
+        $user = Auth::user();
         $validator = Validator::make($request->all(),[
             'id' => 'required|exists:documents,id',
             'title' => 'required',
@@ -48,9 +50,9 @@ class UpdateController extends Controller
         $author_ids = [];
         if($request->authors != null){
             $authors = explode(',', $request->authors);
-            $current_term = Term::find(User::first()->current_term);
+            $current_term = Term::where('user_id', $user->id)->find(user()->current_term);
             foreach($authors as $author){
-                $temp = Author::where('name',ucwords($author))->first();
+                $temp = Author::where('user_id', $user->id)->where('name',ucwords($author))->first();
                 if($temp == null){
                     $author_form = [
                         'name' => ucwords($author),
@@ -66,7 +68,7 @@ class UpdateController extends Controller
             }
         }
 
-        $document = Document::where('id', $request->id)->first();
+        $document = Document::where('user_id', $user->id)->where('id', $request->id)->first();
         $document->title = $request->title;
         $document->type = $request->type == 'Others' ? ucwords($request->specific) : $request->type;
         $document->number = $request->number;
@@ -85,6 +87,7 @@ class UpdateController extends Controller
     }
 
     public function updateProfile(Request $request){
+        $user = Auth::user();
         $validator = Validator::make($request->all(),[
             'captain' => 'required|min:3',
             'secretary' => 'required|min:3',
@@ -126,16 +129,16 @@ class UpdateController extends Controller
             return back()->withInput();
         }
 
-        $captain = Author::where('term_id',$request->id)->where('position','Captain')->first();
-        $secretary = Author::where('term_id',$request->id)->where('position','Secretary')->first();
-        $chairman = Author::where('term_id',$request->id)->where('position','SK Chairman')->first();
-        $sb_member_1 = Author::where('term_id',$request->id)->where('position','SB Member 1')->first();
-        $sb_member_2 = Author::where('term_id',$request->id)->where('position','SB Member 2')->first();
-        $sb_member_3 = Author::where('term_id',$request->id)->where('position','SB Member 3')->first();
-        $sb_member_4 = Author::where('term_id',$request->id)->where('position','SB Member 4')->first();
-        $sb_member_5 = Author::where('term_id',$request->id)->where('position','SB Member 5')->first();
-        $sb_member_6 = Author::where('term_id',$request->id)->where('position','SB Member 6')->first();
-        $sb_member_7 = Author::where('term_id',$request->id)->where('position','SB Member 7')->first();
+        $captain = Author::where('user_id', $user->id)->where('term_id',$request->id)->where('position','Captain')->first();
+        $secretary = Author::where('user_id', $user->id)->where('term_id',$request->id)->where('position','Secretary')->first();
+        $chairman = Author::where('user_id', $user->id)->where('term_id',$request->id)->where('position','SK Chairman')->first();
+        $sb_member_1 = Author::where('user_id', $user->id)->where('term_id',$request->id)->where('position','SB Member 1')->first();
+        $sb_member_2 = Author::where('user_id', $user->id)->where('term_id',$request->id)->where('position','SB Member 2')->first();
+        $sb_member_3 = Author::where('user_id', $user->id)->where('term_id',$request->id)->where('position','SB Member 3')->first();
+        $sb_member_4 = Author::where('user_id', $user->id)->where('term_id',$request->id)->where('position','SB Member 4')->first();
+        $sb_member_5 = Author::where('user_id', $user->id)->where('term_id',$request->id)->where('position','SB Member 5')->first();
+        $sb_member_6 = Author::where('user_id', $user->id)->where('term_id',$request->id)->where('position','SB Member 6')->first();
+        $sb_member_7 = Author::where('user_id', $user->id)->where('term_id',$request->id)->where('position','SB Member 7')->first();
 
         if($captain->name != $request->captain){
             $captain->name = $request->captain;
@@ -192,6 +195,7 @@ class UpdateController extends Controller
     }
 
     public function updateLogo(Request $request){
+        $user = Auth::user();
         $validator = Validator::make($request->all(),[
             'logo' => 'required|mimes:jpg,bmp,png,svg',
         ],
@@ -206,7 +210,6 @@ class UpdateController extends Controller
             return back()->withInput();
         }
 
-        $user = User::first();
         $path = $this->UploadFile($request->file('logo'), 'logo', 'Profile', 'public');
         $user->logo = $path;
         $user->save();

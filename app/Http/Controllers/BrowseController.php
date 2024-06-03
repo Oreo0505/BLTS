@@ -10,6 +10,7 @@ use App\Models\Term;
 use App\Models\Config;
 use App\Models\User;
 use App\Traits\Report;
+use Illuminate\Support\Facades\Auth;
 
 class BrowseController extends Controller
 {
@@ -17,25 +18,25 @@ class BrowseController extends Controller
     use Report;
 
     public function browse(Request $request){
-        $user = User::first();
+        $user = Auth::user();
         if($user->first_time){
             return redirect('/setup');
         }
 
-        $current_term = Term::find($user->current_term);
+        $current_term = Term::where('user_id', $user->id)->find($user->current_term);
 
         if($request->by == 'type'){
-            $documents = Document::with('authors')->where('type', $request->value);
+            $documents = Document::where('user_id', $user->id)->with('authors')->where('type', $request->value);
         }
         else if($request->by == 'term'){
             $term = Term::find($request->value);
-            $documents = Document::with('authors')->whereBetween('date',[$term->start,$term->end]);
+            $documents = Document::where('user_id', $user->id)->with('authors')->whereBetween('date',[$term->start,$term->end]);
         }
         else if($request->by == 'area'){
-            $documents = Document::with('authors')->where('area',$request->value);
+            $documents = Document::where('user_id', $user->id)->with('authors')->where('area',$request->value);
         }
         else if($request->by == 'all'){
-            $documents = Document::latest()->get();
+            $documents = Document::where('user_id', $user->id)->latest()->get();
         }
         else{
             flash()->addError('Invalid Query!');
@@ -57,16 +58,16 @@ class BrowseController extends Controller
         else{
             if($request->has('filter')){
                 $filter = explode('-', $request->filter);
-                $documents = Document::orderBy($filter[0],$filter[1])->get();
+                $documents = Document::where('user_id', $user->id)->orderBy($filter[0],$filter[1])->get();
             }
         }
 
-        $authors = Author::where('term_id', $current_term->id)->whereNot('position','Secretary')->get();
+        $authors = Author::where('user_id', $user->id)->where('term_id', $current_term->id)->whereNot('position','Secretary')->get();
 
-        $terms = Term::all();
+        $terms = Term::where('user_id', $user->id)->get();
 
         if($request->by == 'term'){
-            $term = Term::find($request->value);
+            $term = Term::where('user_id', $user->id)->find($request->value);
             $start_year = date('Y', strtotime($term->start));
             $end_year = date('Y', strtotime($term->end));
             $term_query = $start_year.'-'.$end_year;

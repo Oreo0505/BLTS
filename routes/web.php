@@ -92,7 +92,5 @@ Route::get('/get/documents', [FetchController::class, 'getBarangayStatistics']);
 
 // Route::get('/user/count/list', FetchController::class, 'getUserCountList');
 
-// Route::get('/admin/municipality/users/list', [RedirectController::class, 'redirectToUsersListPage']);
-
 Route::get('/admin/municipality/users/list', [UserController::class, 'usersList']);
 
