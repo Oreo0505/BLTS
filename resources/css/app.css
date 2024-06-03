@@ -3,48 +3,26 @@
 @import 'tailwindcss/utilities';
 
 .animated {
-    -webkit-animation-duration: 1s;
     animation-duration: 1s;
-    -webkit-animation-fill-mode: both;
     animation-fill-mode: both;
 }
 
 .animated.faster {
-    -webkit-animation-duration: 500ms;
     animation-duration: 500ms;
 }
 
 .fadeIn {
-    -webkit-animation-name: fadeIn;
     animation-name: fadeIn;
 }
 
 .fadeOut {
-    -webkit-animation-name: fadeOut;
     animation-name: fadeOut;
 }
-
-.bottom-32 {
-    bottom: 128px;
-}
-
-.fill-black {
-    fill: black;
-}
-
-.text-gradient-270 {
-    background: linear-gradient(270deg, #A60453, #FFB144); /* Define the gradient */
-    -webkit-background-clip: text; /* Apply background clip to text */
-    background-clip: text; /* Apply background clip to text */
-    color: transparent; /* Make text transparent to show the gradient */
-}
-
 
 @keyframes fadeIn {
     from {
         opacity: 0;
     }
-
     to {
         opacity: 1;
     }
@@ -54,8 +32,15 @@
     from {
         opacity: 1;
     }
-
     to {
         opacity: 0;
     }
+}
+
+.user-count-list {
+    z-index: 50; /* Ensure this is above the overlay */
+}
+
+.bg-overlay {
+    z-index: 40; /* Ensure this is below the user-count-list */
 }

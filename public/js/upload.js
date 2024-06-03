@@ -63,7 +63,7 @@ async function getTerm(value){
 }
 
 
-var uploadModalOpened = false;
+var uploadModalOpened = false;  
 function openUploadModal(){
     if(!uploadModalOpened){
         uploadOverlay.classList.remove('hidden');

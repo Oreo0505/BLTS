@@ -19,6 +19,11 @@
             </div>
 
         </div>
+        <a href="/admin/municipality/users/list">
+            <div class="group flex flex-row p-2 space-x-5">                                      
+                <p class="font-roboto text-white">Users List</p>
+            </div>
+        </a> 
         <a href="/logout">
             <div class="group flex flex-row p-2 space-x-5">                                      
                 <p class="font-roboto text-white">Logout</p>

@@ -230,80 +230,133 @@
 //         monthlyField.classList.add('hidden');
 //     }
 // });
-const selectField = document.getElementById('select');
-const annuallyField = document.getElementById('annually'); // Define annuallyField if it's not defined elsewhere
-var selectedBy = 'monthly';
-var selectedValue = moment().year() + '-M' + (moment().month() + 1);
-var barangayStatisticsChart = null;
+// const selectField = document.getElementById('select');
+// const annuallyField = document.getElementById('annually'); // Define annuallyField if it's not defined elsewhere
+// var selectedBy = 'monthly';
+// var selectedValue = moment().year() + '-M' + (moment().month() + 1);
+// var barangayStatisticsChart = null;
 
-const getBarangayStatistics = async (by, value) => {
-    const response = await fetch('/get/barangay/statistics?by=' + by + '&value=' + value);
-    const data = await response.json();
-    console.log(data);
-    return data; // Return the entire response object
-}
+// const getBarangayStatistics = async (by, value) => {
+//     const response = await fetch('/get/barangay/statistics?by=' + by + '&value=' + value);
+//     const data = await response.json();
+//     console.log(data);
+//     return data; // Return the entire response object
+// }
 
-function renderBarangayStatisticsChart() {
-    getBarangayStatistics(selectedBy, selectedValue).then((data) => {
-        console.log(data);
+// function renderBarangayStatisticsChart() {
+//     getBarangayStatistics(selectedBy, selectedValue).then((data) => {
+//         console.log(data);
 
-        if (data.hasOwnProperty('error')) {
-            // Handle error response
-            console.error(data.error);
-            return;
-        }
+//         if (data.hasOwnProperty('error')) {
+//             // Handle error response
+//             console.error(data.error);
+//             return;
+//         }
 
-        // Define the labels
-        const labels = Object.keys(data.documents);
+//         // Define the labels
+//         const labels = Object.keys(data.documents);
 
-        // Initialize the documents array with zeros for each label
-        const documents = Object.values(data.documents);
+//         // Initialize the documents array with zeros for each label
+//         const documents = Object.values(data.documents);
 
-        console.log(documents);
+//         console.log(documents);
 
-        const barangayStatisticsData = {
-            labels: labels,
-            datasets: [{
-                backgroundColor: ['#F8CF40', '#F02525', '#0090E7'], // You can add more colors if needed
-                data: documents,
-            }]
-        };
+//         const barangayStatisticsData = {
+//             labels: labels,
+//             datasets: [{
+//                 backgroundColor: ['#F8CF40', '#F02525', '#0090E7'], // You can add more colors if needed
+//                 data: documents,
+//             }]
+//         };
 
-        const barangayStatisticsConfig = {
-            type: 'pie',
-            data: barangayStatisticsData,
-            options: {
-                maintainAspectRatio: true,
-                aspectRatio: 2,
-            },
-        };
+//         const barangayStatisticsConfig = {
+//             type: 'pie',
+//             data: barangayStatisticsData,
+//             options: {
+//                 maintainAspectRatio: true,
+//                 aspectRatio: 2,
+//             },
+//         };
 
-        if (barangayStatisticsChart != null) {
-            barangayStatisticsChart.destroy();
-        }
-        barangayStatisticsChart = new Chart(
-            document.getElementById('documents-chart'),
-            barangayStatisticsConfig
-        );
-    });
-}
+//         if (barangayStatisticsChart != null) {
+//             barangayStatisticsChart.destroy();
+//         }
+//         barangayStatisticsChart = new Chart(
+//             document.getElementById('documents-chart'),
+//             barangayStatisticsConfig
+//         );
+//     });
+// }
 
-// Add event listener for field selection change
-selectField.addEventListener('change', function () {
-    if (selectField.value == 'monthly') {
-        selectedBy = 'monthly';
-    } else if (selectField.value == 'quarterly') {
-        selectedBy = 'quarterly';
-    } else if (selectField.value == 'semi-annually') {
-        selectedBy = 'semi-annually';
-    } else if (selectField.value == 'annually') {
-        selectedBy = 'annually';
+// // Add event listener for field selection change
+// selectField.addEventListener('change', function () {
+//     if (selectField.value == 'monthly') {
+//         selectedBy = 'monthly';
+//     } else if (selectField.value == 'quarterly') {
+//         selectedBy = 'quarterly';
+//     } else if (selectField.value == 'semi-annually') {
+//         selectedBy = 'semi-annually';
+//     } else if (selectField.value == 'annually') {
+//         selectedBy = 'annually';
+//     }
+
+//     renderBarangayStatisticsChart();
+// });
+
+// // Add event listener for the initial rendering of the chart
+// document.addEventListener('DOMContentLoaded', function () {
+//     renderBarangayStatisticsChart();
+// });
+
+
+
+    const selectField = document.getElementById('select');
+    const documentsChartField = document.getElementById('documents-chart');
+    let chart;
+    const currentYear = new Date().getFullYear();
+
+    // Set the dropdown to the current year
+    selectField.value = currentYear;
+
+    function fetchData(year) {
+        fetch('/get/documents?year=' + year)
+            .then(response => response.json())
+            .then(data => {
+                if (data.error) {
+                    alert(data.error);
+                } else {
+                    const documentData = data.documents;
+                    const chartData = {
+                        labels: Object.keys(documentData),
+                        datasets: [{
+                            label: ['Resolution', 'Ordinance', 'Code of Ordinance'],
+                            data: Object.values(documentData),
+                            backgroundColor: ['#F02525','#F8CF40', '#0090E7']
+                        }]
+                    };
+
+                    if (chart) {
+                        chart.destroy();
+                    }
+
+                    chart = new Chart(documentsChartField, {
+                        type: 'pie',
+                        data: chartData,
+                        options: {
+                            responsive: true
+                        }
+                    });
+                }
+            })
+            .catch(error => console.error('Error fetching data:', error));
     }
 
-    renderBarangayStatisticsChart();
-});
+    // Fetch data for the current year on page load
+    fetchData(currentYear);
 
-// Add event listener for the initial rendering of the chart
-document.addEventListener('DOMContentLoaded', function () {
-    renderBarangayStatisticsChart();
-});
+    selectField.addEventListener('change', function() {
+        const year = selectField.value;
+        if (year) {
+            fetchData(year);
+        }
+    });
