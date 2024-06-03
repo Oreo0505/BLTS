@@ -13,6 +13,7 @@ use App\Http\Controllers\SearchController;
 use App\Http\Controllers\FetchController;
 use App\Http\Controllers\RestoreController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -71,6 +72,8 @@ Route::post('/restore', [RestoreController::class, 'restore']);
 
 Route::get('/about', [RedirectController::class, 'redirectToAboutPage']);
 
+Route::get('/about/admin', [RedirectController::class, 'redirectToAboutAdminPage']);
+
 Route::get('/home', [RedirectController::class, 'redirectToHome']);
 
 Route::get('/login', [RedirectController::class, 'redirectToLoginPage']);
@@ -85,4 +88,11 @@ Route::post('/login/process/admin', [LoginController::class, 'loginAdmin']);
 
 Route::get('/admin/municipal', [RedirectController::class, 'redirectToMunicipalAdmin']);
 
-Route::get('/municipal/barangay/statistics', [FetchController::class, 'getBarangayStatistics']);
+Route::get('/get/documents', [FetchController::class, 'getBarangayStatistics']);
+
+// Route::get('/user/count/list', FetchController::class, 'getUserCountList');
+
+// Route::get('/admin/municipality/users/list', [RedirectController::class, 'redirectToUsersListPage']);
+
+Route::get('/admin/municipality/users/list', [UserController::class, 'usersList']);
+
