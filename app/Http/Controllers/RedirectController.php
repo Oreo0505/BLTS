@@ -91,7 +91,7 @@ class RedirectController extends Controller
             ->pluck('barangay');
     
         // Return the view for authenticated users
-=======
+
 
 
         return view('municipal_admin', [
@@ -110,6 +110,7 @@ class RedirectController extends Controller
     public function redirectToLoginAdmin(){
         return view ('admin_login');
     }
+
     
     public function redirectToLoginPage(){
         if(Auth::check()){
@@ -310,8 +311,55 @@ class RedirectController extends Controller
     public function redirectToUsersListPage(){
         $user = Auth::user();
         $municipality = $user->municipality;
+    
+        // Initialize barangay_count based on the municipality
+        if ($municipality == 'Boac'){
+            $barangay_count = 61;
+        } elseif ($municipality == 'Gasan'){
+            $barangay_count = 25;
+        } elseif ($municipality == 'Mogpog'){
+            $barangay_count = 37;
+        } elseif ($municipality == 'Buenavista'){
+            $barangay_count = 15;
+        } elseif ($municipality == 'Torrijos'){
+            $barangay_count = 25;
+        } elseif ($municipality == 'Santa Cruz'){
+            $barangay_count = 55;
+        } else {
+            $barangay_count = 0; // Default value if municipality does not match any case
+        }
+    
+        // Count the registered barangays
+        $registered_barangays = User::where('municipality', $municipality)
+            ->whereNotNull('barangay')
+            ->where('barangay', '!=', '')
+            ->count();
+    
+        return view('users_list', [
+            'municipality' => $municipality,
+            'barangay_count' => $barangay_count,
+            'registered_barangays' => $registered_barangays
+        ]);
+    }
+    
 
-        return redirect('/admin/municipality/users/list');
+    public function redirectToAdminMunicipalProfilePage(){
+        $user = Auth::user();
+        $municipality = $user->municipality;
+    
+        
+        return view('admin_profile', [
+            'municipality' => $municipality,
+           
+        ]);
     }
 
+    // public function redirectToAdminMunicipalProfilePage(){
+    //     $user = Auth::user();
+    //     $municipality = $user->municipality;
+
+    //     return view ('admin_profile', [
+    //         'municipality' => $municipality
+    //     ]);
+    // }
 }

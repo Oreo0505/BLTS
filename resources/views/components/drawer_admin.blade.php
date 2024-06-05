@@ -10,7 +10,7 @@
             </div>
             <div class="flex flex-col items-center justify-center mt-10">
                 <p class="font-sans font-normal text-lg leading-9 tracking-wide text-white italic -translate-y-3">{{ $municipality }}, Marinduque</p>
-                <a href="/profile" class="font-sans font-semibold text-base leading-6 tracking-[0.4px] text-[#90CAF9] uppercase">VIEW PROFILE</a>
+                <a href="/admin/municipal/profile" class="font-sans font-semibold text-base leading-6 tracking-[0.4px] text-[#90CAF9] uppercase">VIEW ACCOUNT</a>
             </div>
             
             <div class="flex flex-row h-12 justify-start items-center space-x-2 py-4">
@@ -19,6 +19,11 @@
             </div>
 
         </div>
+        <a href="/admin/municipal/users/list">
+            <div class="group flex flex-row p-2 space-x-5">                                      
+                <p class="font-roboto text-white">Users List</p>
+            </div>
+        </a> 
         <a href="/logout">
             <div class="group flex flex-row p-2 space-x-5">                                      
                 <p class="font-roboto text-white">Logout</p>

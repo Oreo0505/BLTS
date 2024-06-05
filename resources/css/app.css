@@ -39,6 +39,43 @@
     color: transparent; /* Make text transparent to show the gradient */
 }
 
+/* Custom styles for the Grid.js table */
+.gridjs-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.gridjs-th, .gridjs-td {
+    padding: 10px;
+    border: 1px solid #ddd;
+}
+
+.gridjs-th {
+    background-color: #f4f4f4;
+    font-weight: bold;
+}
+
+.gridjs-td {
+    background-color: #fff;
+}
+
+.gridjs-container {
+    margin: 20px auto;
+    width: 80%;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.gridjs-search {
+    margin-bottom: 10px;
+    text-align: right;
+}
+
+.gridjs-pagination {
+    margin-top: 10px;
+    text-align: center;
+}
+
+
 
 @keyframes fadeIn {
     from {
