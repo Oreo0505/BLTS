@@ -13,7 +13,7 @@ use App\Http\Controllers\SearchController;
 use App\Http\Controllers\FetchController;
 use App\Http\Controllers\RestoreController;
 use App\Http\Controllers\LoginController;
-use App\Http\Controllers\UserController;
+use App\Http\Controllers\AdminController;
 
 /*
 |--------------------------------------------------------------------------
@@ -92,5 +92,10 @@ Route::get('/get/documents', [FetchController::class, 'getBarangayStatistics']);
 
 // Route::get('/user/count/list', FetchController::class, 'getUserCountList');
 
-Route::get('/admin/municipality/users/list', [UserController::class, 'usersList']);
+Route::get('/admin/municipal/users/list', [RedirectController::class, 'redirectToUsersListPage']);
 
+Route::get('/admin/municipal/profile', [RedirectController::class, 'redirectToAdminMunicipalProfilePage']);
+
+// Route::get('admin/municipal/profile', [UserController::class, 'adminMunicipalProfile']);
+
+Route::get('/get/users/list/table',[FetchController::class, 'getUsersListTable']);

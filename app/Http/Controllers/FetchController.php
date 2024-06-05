@@ -12,7 +12,6 @@ use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use DateTime;
 
-
 class FetchController extends Controller
 {
     public function getDocument(Request $request){
@@ -33,44 +32,6 @@ class FetchController extends Controller
     
 
     function getAuthors(Request $request){
-
-        // Get the authenticated user
-        $user = Auth::user();
-        
-        if ($request->value == 'all') {
-            $authors = Author::where('user_id', $user->id)->whereNot('position', 'Secretary')->orderBy('name', 'asc')->get()->unique('name');
-        } else if ($request->value == 'older') {
-            $authors = Author::where('user_id', $user->id)
-                            ->where('term_id', 0)
-                            ->whereNot('position', 'Secretary')
-                            ->orderBy('name', 'asc')
-                            ->get();
-        } else if ($request->value == 'current') {
-            $authors = Author::where('user_id', $user->id)
-                            ->where('term_id', $user->current_term)
-                            ->whereNot('position', 'Secretary')
-                            ->orderBy('name', 'asc')
-                            ->get();   
-        } else {
-            $date = explode('-', $request->value);
-            
-            if (isset($date[0]) && isset($date[1])) {
-                $term = Term::whereYear('start', $date[0])->whereYear('end', $date[1])->first();
-                if ($term) {
-                    $authors = Author::where('user_id', $user->id)
-                                    ->where('term_id', $term->id)
-                                    ->whereNot('position', 'Secretary')
-                                    ->orderBy('name', 'asc')
-                                    ->get();
-                } else {
-                    // Handle case where term is not found
-                    $authors = collect(); // empty collection
-                }
-            } else {
-                // Handle invalid date input
-                $authors = collect(); // empty collection
-            }
-=======
         $user = Auth::user();
         $user_id = Auth::id();
         if($request->value == 'all'){
@@ -91,77 +52,28 @@ class FetchController extends Controller
         $json = [];
         foreach($authors as $author){
             array_push($json, $author->name);
-
         }
-
-        $json = $authors->pluck('name')->toArray();
-
         return response()->json([
             'authors' => $json
         ]);
         
     }
 
-
-    // function getTerm(Request $request){
-    //     $user = Auth::user();
-    //     $term = Term::where('user_id', $user->id)->first();
-
-   
-    //     if($request->value == 'current'){
-    //         $terms = User::user()->id;
-    //         $current_term = Term::find($terms->current_term);
-    //     }
-    //     else{
-    //         // $date = explode('-',$request->value);
-    //         // $current_term = Term::where('user_id', $user->id)->whereYear('start',$date[0])->whereYear('end',$date[1])->first();
-    //         $start_date = new \DateTime($current_term['start']);
-    //         $end_date = new \DateTime($current_term['end']);
-
-    //         $start_year = $start_date->format('Y');
-    //         $end_year = $end_date->format('Y');
-    //         $current_term = "$start_year - $end_year";
-
-    //         echo $current_term;
-    //     }
-
-      
-        
-       
-    //     return response()->json([
-    //         'user' => $user,
-    //         'term' => $current_term
-    //     ]);
-       
-    // }
-
-    // function getTerm(Request $request){
-    //     $user = Auth::user();
-        
-    //     if($request->value == 'current'){
-    //         $terms = User::user()->id;
-    //         dd($user);
-    //         $current_term = Term::find($terms->current_term);
-    //         dd($current_term);
-    //         $start_date = new \DateTime($current_term['start']);
-    //         $end_date = new \DateTime($current_term['end']);
-
-    //         $start_year = $start_date->format('Y');
-    //         $end_year = $end_date->format('Y');
-    //         $current_term = "$start_year - $end_year";
+    function getTerm(Request $request){
+        $user = Auth::user();
+        $user_id = Auth::id();
+        if($request->value == 'current'){
             
-    //     }
-    //     else{
-    //         $date = explode('-',$request->value);
-    //         $current_term = Term::whereYear('start',$date[0])->whereYear('end',$date[1])->first();
-    //     }
-    //     return response()->json([
-    //         'user' => $user,
-    //         'term' => $current_term
-    //     ]);
-    // }
-
-  
+            $current_term = Term::where('user_id', $user_id)->find($user->current_term);
+        }
+        else{
+            $date = explode('-',$request->value);
+            $current_term = Term::where('user_id', $user_id)->whereYear('start',$date[0])->whereYear('end',$date[1])->first();
+        }
+        return response()->json([
+            'term' => $current_term
+        ]);
+    }
         
     public function getBarangayStatistics(Request $request) {
         // Extract the year from the date field
@@ -192,33 +104,62 @@ class FetchController extends Controller
         return response()->json($document_count);
     }
     
-    
-    
 
     public function getUserCountList(){
-           // Get the authenticated user
         $authenticated_user = Auth::user();
-        dd($authenticated_user);
-        // Ensure the user is authenticated
+
         if (!$authenticated_user) {
-        return response()->json(['error' => 'Unauthenticated'], 401);
+            return response()->json(['error' => 'Unauthenticated'], 401);
         }
 
-        // Fetch users from the same municipality
         $users = User::where('municipality', $authenticated_user->municipality)->get();
-
-        // Get the barangay name of the authenticated user
         $barangay_name = $authenticated_user->barangay;
 
         return response()->json([
-        'users' => $users,
-        'barangay_name' => $barangay_name,
+            'users' => $users,
+            'barangay_name' => $barangay_name,
         ]);
-        
-        
+    }
+
+    // public function getPatientListInProfessionalDashboard(Request $request){
+    //     $formatted_users = [];
+    //     $patients = User::where('type', 'patient')->get();
+    //     foreach($patients as $patient){
+    //         $temp_array = [
+    //             $patient->id,
+    //             $patient->id_number,
+    //             $patient->sex,
+    //             Carbon::parse($patient->birthday)->format('M d, Y'),
+    //             $patient->barangay.' '.$patient->municipality,
+    //             $patient->email];
+    //         array_push($formatted_users, $temp_array);    
+    //     }
+    //     return response()->json([
+    //         'patients_list' => $formatted_users
+    //     ]);
+    // }
+
+    public function getUsersListTable(Request $request){
+        $user = Auth::user();
+        $municipality = $user->municipality;
+    
+        $users_list = [];
+        $barangays = User::where('municipality', $municipality)
+            ->whereNotNull('barangay')
+            ->where('barangay', '!=', '')
+            ->get();
+            
+        foreach ($barangays as $barangay){
+            $temp_array = [
+                $barangay->barangay,
+                $barangay->email,
+                '********', // Never expose passwords directly, use placeholders
+            ];
+            array_push($users_list, $temp_array);
+        }
+        return response()->json([
+            'users_list' => $users_list
+        ]);
     }
     
-    
-    
-
 }
