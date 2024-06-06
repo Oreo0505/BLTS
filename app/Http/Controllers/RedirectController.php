@@ -345,26 +345,22 @@ class RedirectController extends Controller
     
 
     public function redirectToAdminMunicipalProfilePage(){
+        if (!Auth::check()) {
+            return redirect('/admin'); // or any other route you want to redirect unauthenticated users to
+        }
+        
         $user = Auth::user();
         $municipality = $user->municipality;
-    
-        
+        $email = $user->email;
+        $password = $user->password;
+
         return view('admin_profile', [
             'municipality' => $municipality,
-           
+            'user' => $user,
+            'email' => $email,
+            'password' => $password,
+            'logo' => $user->logo
         ]);
     }
-
-    // public function redirectToAdminMunicipalProfilePage(){
-    //     $user = Auth::user();
-    //     $municipality = $user->municipality;
-
-    //     return view ('admin_profile', [
-    //         'municipality' => $municipality
-    //     ]);
-    // }
-
-    public function redirectToForgotPasswordPage(){
-        return view ('forgot_password');
-    }
+   
 }

@@ -76,29 +76,31 @@ class FetchController extends Controller
             'term' => $current_term
         ]);
     }
-        
     public function getBarangayStatistics(Request $request) {
-        // Extract the year from the date field
-        $date = new \DateTime($request->value);
-        $year = $date->format('Y');
+        $user = Auth::user();
+        $municipality = ucwords($user->municipality);
     
-        $municipality = ucwords(Auth::user()->municipality);
+        // Ensure the user's municipality is set
+        if (empty($municipality)) {
+            return response()->json(['error' => 'Municipality attribute not set for the user'], 400);
+        }
     
-      
+        // Extract the year from the 'value' parameter if provided, otherwise use the current year
+        $year = $request->input('year', now()->year);
     
         // Retrieve and group documents by the year they were enacted
         $documents = Document::whereHas('user', function($query) use ($municipality) {
                 $query->where('municipality', $municipality);
             })
-            ->whereYear('date', $year)  // Using 'enacted_date' instead of 'created_at'
+            ->whereYear('date', $year) // Ensure 'date' is the correct field in the Document model
             ->selectRaw('type, count(*) as count')
             ->groupBy('type')
             ->pluck('count', 'type')
             ->toArray();
     
-       
+        // If no documents are found, return an empty documents object
         if (empty($documents)) {
-            return response()->json(['error' => 'No documents found for the selected year'], 404);
+            return response()->json(['documents' => []]);
         }
     
         // Prepare the response data
@@ -127,23 +129,6 @@ class FetchController extends Controller
         ]);
     }
 
-    // public function getPatientListInProfessionalDashboard(Request $request){
-    //     $formatted_users = [];
-    //     $patients = User::where('type', 'patient')->get();
-    //     foreach($patients as $patient){
-    //         $temp_array = [
-    //             $patient->id,
-    //             $patient->id_number,
-    //             $patient->sex,
-    //             Carbon::parse($patient->birthday)->format('M d, Y'),
-    //             $patient->barangay.' '.$patient->municipality,
-    //             $patient->email];
-    //         array_push($formatted_users, $temp_array);    
-    //     }
-    //     return response()->json([
-    //         'patients_list' => $formatted_users
-    //     ]);
-    // }
 
     public function getUsersListTable(Request $request){
         $user = Auth::user();
@@ -194,6 +179,7 @@ class FetchController extends Controller
 
         return back()->with('error', 'User not found.');
     }
+    
     
     
 }

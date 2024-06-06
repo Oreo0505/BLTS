@@ -12,6 +12,7 @@ use App\Models\Term;
 use App\Traits\Upload;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 
 class UpdateController extends Controller
 {
@@ -216,4 +217,40 @@ class UpdateController extends Controller
         flash()->addSuccess('Logo successfully updated!');
         return back();
     }
+
+    public function updateAdminMunicipalProfile(Request $request){
+        // Validate the request input
+        $user = Auth::user();
+    
+        $validator = Validator::make($request->all(), [
+            'email' => 'required|email|unique:users,email,' . $user->id, // Ensure unique email except for the current user's email
+            'password' => 'nullable|min:5', // 'confirmed' ensures password matches password_confirmation
+        ]);
+    
+        if ($validator->fails()) {
+            foreach ($validator->messages()->all() as $message) {
+                flash()->addError($message);
+            }
+            return back()->withInput();
+        }
+    
+        // Update email if it has changed
+        if ($user->email != $request->email) {
+            $user->email = $request->email;
+        }
+    
+        // Update password if it is provided and has changed
+        if (!empty($request->password) && !Hash::check($request->password, $user->password)) {
+            $user->password = bcrypt($request->password); // Hash the new password before saving
+        }
+    
+        $user->save(); // Save the updated user data
+    
+        flash()->addSuccess('Profile Successfully Updated!');
+        return back();
+    }
+    
+    
+        
+    
 }
