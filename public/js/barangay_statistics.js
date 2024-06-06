@@ -307,9 +307,6 @@
 // document.addEventListener('DOMContentLoaded', function () {
 //     renderBarangayStatisticsChart();
 // });
-
-
-
 const selectField = document.getElementById('select');
 const documentsChartField = document.getElementById('documents-chart');
 let chart;
@@ -322,18 +319,28 @@ function fetchData(year) {
     fetch('/get/documents?year=' + year)
         .then(response => response.json())
         .then(data => {
+            console.log('Fetched data:', data); // Log the fetched data for debugging
+
             if (data.error) {
                 alert(data.error);
             } else {
                 const documentData = data.documents;
+                console.log('Document data:', documentData); // Log document data for debugging
+
+                if (Object.keys(documentData).length === 0) {
+                    // alert('No uploaded documents for this year');
+                }
+
                 const chartData = {
                     labels: Object.keys(documentData),
                     datasets: [{
-                        label: [],
+                        label: 'Uploaded Document',
                         data: Object.values(documentData),
-                        backgroundColor: ['#FF2941', '#D0154C','#FF6F43']
+                        backgroundColor: ['#FF2941', '#D0154C', '#FF6F43']
                     }]
                 };
+
+                console.log('Chart data:', chartData); // Log chart data for debugging
 
                 if (chart) {
                     chart.destroy();
@@ -343,7 +350,12 @@ function fetchData(year) {
                     type: 'bar',
                     data: chartData,
                     options: {
-                        responsive: true
+                        responsive: true,
+                        scales: {
+                            y: {
+                                beginAtZero: true
+                            }
+                        }
                     }
                 });
             }
@@ -360,3 +372,5 @@ selectField.addEventListener('change', function() {
         fetchData(year);
     }
 });
+
+
