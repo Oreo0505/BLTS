@@ -10,6 +10,8 @@ use App\Models\Term;
 use App\Models\Config;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Validator;
 use DateTime;
 
 class FetchController extends Controller
@@ -82,16 +84,19 @@ class FetchController extends Controller
     
         $municipality = ucwords(Auth::user()->municipality);
     
-        // Retrieve and group documents
+      
+    
+        // Retrieve and group documents by the year they were enacted
         $documents = Document::whereHas('user', function($query) use ($municipality) {
                 $query->where('municipality', $municipality);
             })
-            ->whereYear('created_at', $year)
+            ->whereYear('date', $year)  // Using 'enacted_date' instead of 'created_at'
             ->selectRaw('type, count(*) as count')
             ->groupBy('type')
             ->pluck('count', 'type')
             ->toArray();
     
+       
         if (empty($documents)) {
             return response()->json(['error' => 'No documents found for the selected year'], 404);
         }
@@ -103,6 +108,7 @@ class FetchController extends Controller
     
         return response()->json($document_count);
     }
+    
     
 
     public function getUserCountList(){
@@ -151,18 +157,42 @@ class FetchController extends Controller
             
         foreach ($barangays as $barangay){
             // Decrypt the password before pushing it into the array
-            $decryptedPassword = decrypt($barangay->password);
-            dd($decryptedPassword);
             $temp_array = [
                 $barangay->barangay,
                 $barangay->email,
-                $decryptedPassword // Display decrypted password
+               
             ];
             array_push($users_list, $temp_array);
         }
         return response()->json([
             'users_list' => $users_list
         ]);
+    }
+
+    public function getForgotPassword(Request $request){
+        // Validate the request
+        $validator = Validator::make($request->all(), [
+        'email' => 'required|email|exists:users,email',
+        'password' => 'required|min:8|confirmed',
+        ]);
+
+      
+        if ($validator->fails()) {
+            return back()->withErrors($validator)->withInput();
+        }
+
+        // Find the user by email
+        $user = User::where('email', $request->email)->first();
+
+        if ($user) {
+            // Update the user's password
+            $user->password = Hash::make($request->password);
+            $user->save();
+
+            return redirect('/login')->with('status', 'Password changed successfully.');
+        }
+
+        return back()->with('error', 'User not found.');
     }
     
     

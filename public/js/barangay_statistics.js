@@ -340,7 +340,7 @@ function fetchData(year) {
                 }
 
                 chart = new Chart(documentsChartField, {
-                    type: 'pie',
+                    type: 'bar',
                     data: chartData,
                     options: {
                         responsive: true

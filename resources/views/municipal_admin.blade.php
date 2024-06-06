@@ -45,16 +45,16 @@
                         <img src="{{ asset('images/user_list_icon.svg') }}" alt="REGISTERED BARANGAYS" class="h-8">
                         <p class="flex text-xl text-gradient font-semibold justify-center items-center my-4">REGISTERED BARANGAY LIST</p>
                     </div>
-                    <ul>
-                        @foreach($registered_barangays as $index => $barangay)
-                            @if ($index < 6)
+                    <div class="overflow-y-auto max-h-64"> <!-- Scrollable container -->
+                        <ul>
+                            @foreach($registered_barangays as $barangay)
                                 <li class="p-2 border-b border-gray-300">{{ $barangay }}</li>
-                            @else
-                                <li class="p-2 border-b border-gray-300 hidden">{{ $barangay }}</li>
-                            @endif
-                        @endforeach
-                    </ul>
+                            @endforeach
+                        </ul>
+                    </div>
                 </div>
+
+
                 <div class=" bg-gray-100 rounded-lg flex flex-row shadow-lg py-8 px-8 space-x-4 md:py-4  mt-4 mb-8 w-1/8 ">
                     <img src="{{asset ('images/res.svg')}}" alt="RESOLUTION" class="relative absolute top-0 right-0 h-14">
                     <div class=" text-center space-y-2 md:text-left">

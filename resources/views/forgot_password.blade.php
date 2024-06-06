@@ -1,4 +1,4 @@
-@extends('layout', [$title = 'Login'])
+@extends('layout', [$title = 'Change Password'])
 
 @section('content')
 
@@ -9,9 +9,9 @@
     
     <div class="flex flex-col-reverse justify-between overflow-clip md:flex-row md:space-y-0">
         <div class="flex flex-col w-full h-[450px] mt-3 drop-shadow bg-gradient-30 from-[#425B71] to-[#425B71]/60 rounded-r-lg p-9 md:h-[800px] md:w-2/5 md:mt-0">
-            <div class="flex flex-row items-center justify-between"> <!-- Added items-center to vertically center align the items -->
+            <div class="flex flex-row items-center justify-between">
                 <p class="font-sans font-normal text-white text-xl tracking-[5px]">DILG MARINDUQUE</p>
-                <a href="/" class="ml-4 flex-shrink-0"> <!-- Added flex-shrink-0 to prevent the anchor from shrinking -->
+                <a href="/" class="ml-4 flex-shrink-0">
                     <svg id="home" width="26" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 fill-white p-2 rounded-full hover:bg-gray-500">
                         <mask id="mask0_772_3295" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="26" height="26">
                             <rect width="26" height="26" fill="#000000"></rect>
@@ -33,40 +33,42 @@
         <div class="h-full flex flex-col w-full px-16 md:w-3/5 r">
             <img src="{{ asset('/images/accent-1.svg') }}" alt="" class="absolute right-0 -top-8">
             <p class="w-fit font-sans font-medium text-3xl bg-gradient-90 from-[#A60453] to-[#FFB144] bg-clip-text text-transparent mt-10 pb-1">
-                Login Account
+                Forgot Password
             </p>
-            <p class="font-sans font-semibold text-xl leading-6 text-[#2D2D2D]">Enter Your BLTS Account</p>
+            <p class="font-sans font-semibold text-xl leading-6 text-[#2D2D2D]">Enter The Needed Credentials</p>
             <img src="{{ asset('/images/logo.svg') }}" alt="" class="mx-auto mt-20 h-24">
-            <form action="/login/process" id="form" method="POST" enctype="multipart/form-data" class="items-center">
+            <form action="/forgot/password/process" id="form" method="POST" enctype="multipart/form-data" class="items-center">
                 @csrf
                 <div class="flex flex-col mx-auto justify-center w-80 h-80 mt-16 md:space-y-5 items-center border border-gray-400 rounded-lg ">
                     <div class="flex flex-col relative mt-3">
-                        <input type="text" id="email" name="email" value="{{ old('username') }}" placeholder="Email" class="w-64 flex border border-gray-700 rounded-[7px] outline outline-0 font-sans font-normal leading-tight text-sm text-gray-700 focus:ring-1 focus:outline-none focus:ring-gray-700 rounded-lg text-sm px-4 py-2.5 inline-flex placeholder:text-xs">
+                        <input type="email" id="email" name="email" value="{{ old('email') }}" placeholder="Email" class="w-64 flex border border-gray-700 rounded-[7px] outline outline-0 font-sans font-normal leading-tight text-sm text-gray-700 focus:ring-1 focus:outline-none focus:ring-gray-700 rounded-lg text-sm px-4 py-2.5 inline-flex placeholder:text-xs">
                         <label for="email" class="relative absolute -top-12 left-3 w-fit px-1 bg-white font-sans font-normal text-gray-700 text-[11px] leading-tight">
-                            Email
+                            Enter Your Existing Email
                         </label>
                     </div>
                     
                     <div class="flex flex-col relative mt-3">
-                        <input type="text" id="password" name="password" value="{{ old('password') }}" placeholder="Password" class="w-64 flex border border-gray-700 rounded-[7px] outline outline-0 font-sans font-normal leading-tight text-sm text-gray-700 focus:ring-1 focus:outline-none focus:ring-gray-700 rounded-lg text-sm px-4 py-2.5 inline-flex placeholder:text-xs">
+                        <input type="password" id="password" name="password" value="{{ old('password') }}" placeholder="Password" class="w-64 flex border border-gray-700 rounded-[7px] outline outline-0 font-sans font-normal leading-tight text-sm text-gray-700 focus:ring-1 focus:outline-none focus:ring-gray-700 rounded-lg text-sm px-4 py-2.5 inline-flex placeholder:text-xs">
                         <label for="password" class="relative absolute -top-12 left-3 w-fit px-1 bg-white font-sans font-normal text-gray-700 text-[11px] leading-tight">
-                            Password
+                            Enter New Password
                         </label>
                     </div>
 
-                    <button id="login-button" type="button" class="mx-auto mt-4 px-12 py-3 rounded-full bg-gradient-270 from-[#A60453] to-[#FFB144] font-sans font-semibold text-xl leading-6 text-white">
-                        Login
+                    <div class="flex flex-col relative mt-3">
+                        <input type="password" id="password_confirmation" name="password_confirmation" value="{{ old('password_confirmation') }}" placeholder="Confirm Password" class="w-64 flex border border-gray-700 rounded-[7px] outline outline-0 font-sans font-normal leading-tight text-sm text-gray-700 focus:ring-1 focus:outline-none focus:ring-gray-700 rounded-lg text-sm px-4 py-2.5 inline-flex placeholder:text-xs">
+                        <label for="password_confirmation" class="relative absolute -top-12 left-3 w-fit px-1 bg-white font-sans font-normal text-gray-700 text-[11px] leading-tight">
+                            Confirm New Password
+                        </label>
+                    </div>
+
+                    <button type="button" id="change-password-button" class="mx-auto mt-4 px-6 py-2 rounded-full bg-gradient-270 from-[#A60453] to-[#FFB144] font-sans font-semibold text-base leading-6 text-white">
+                        Change Password
                     </button>
-                    <p class="flex mt-4 font-roboto text-sm font-medium text-[#2D3748] text-center md:text-base">Don't have an account? &nbsp;<span><a href="/setup" class="font-roboto text-blue-500 hover:text-blue-700 text-sm md:text-base justify-self-center underline">Register here</a></span></p>
                 </div>
-                <a href="/forgot/password" class="flex  font-roboto text-blue-500 hover:text-blue-700 text-sm md:text-base items-center justify-center underline mt-2">Forgot Password?</a>
-                
-                
             </form>
-            
         </div>
     </div>
 
-    <script src="{{ asset('/js/login.js') }}"></script>
+    <script src="{{ asset('/js/forgot_password.js') }}"></script>
 
 @endsection
