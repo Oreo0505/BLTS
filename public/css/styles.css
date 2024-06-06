@@ -2465,4 +2465,8 @@ video {
     background-clip: text; /* Apply background clip to text */
     color: transparent; /* Make text transparent to show the gradient */
   }
+
+  .text-color {
+    color: rgb(107, 139, 244);
+}
 }

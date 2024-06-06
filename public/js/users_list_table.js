@@ -13,7 +13,7 @@ getUsersListTable().then((data) => {
         columns: ['Barangay', 'Username', 'Password', 
             {
                 name: 'Action',
-                // formatter: (_, row) => gridjs.html(`<a href="/patients/dashboard?user=${row.cells[0].data}" class="text-color">Visit</a>`)
+                formatter: (_, row) => gridjs.html(`<a href="/patients/dashboard?user=${row.cells[0].data}" class="text-color">Visit</a>`)
             }
         ],
         search: {
