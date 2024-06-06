@@ -75,7 +75,9 @@
     text-align: center;
 }
 
-
+.text-color {
+    color: rgb(107, 139, 244);
+}
 
 @keyframes fadeIn {
     from {

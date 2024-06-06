@@ -150,10 +150,13 @@ class FetchController extends Controller
             ->get();
             
         foreach ($barangays as $barangay){
+            // Decrypt the password before pushing it into the array
+            $decryptedPassword = decrypt($barangay->password);
+            dd($decryptedPassword);
             $temp_array = [
                 $barangay->barangay,
                 $barangay->email,
-                '********', // Never expose passwords directly, use placeholders
+                $decryptedPassword // Display decrypted password
             ];
             array_push($users_list, $temp_array);
         }
@@ -161,5 +164,6 @@ class FetchController extends Controller
             'users_list' => $users_list
         ]);
     }
+    
     
 }

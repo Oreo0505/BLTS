@@ -7,6 +7,7 @@
     <link href="{{ asset('/css/flowbite.css') }}" rel="stylesheet">
     <link href="{{ asset('/css/styles.css') }}" rel="stylesheet">
     <link rel="icon" href="{{ asset('/images/icon.ico') }}">
+    <link rel="stylesheet" href="{{asset('/css/mermaid.min.css')}}">
     <title>{{$title}}</title>
 </head>
 <body>
