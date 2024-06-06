@@ -88,7 +88,8 @@ class RedirectController extends Controller
             ->whereNotNull('barangay')
             ->where('barangay', '!=', '')
             ->distinct()
-            ->pluck('barangay');
+            ->pluck('barangay')
+            ->sort();
     
         // Return the view for authenticated users
 
@@ -362,4 +363,8 @@ class RedirectController extends Controller
     //         'municipality' => $municipality
     //     ]);
     // }
+
+    public function redirectToForgotPasswordPage(){
+        return view ('forgot_password');
+    }
 }

@@ -10,10 +10,10 @@ async function getUsersListTable(){
 getUsersListTable().then((data) => {
     console.log(data);
     new gridjs.Grid({
-        columns: ['Barangay', 'Username', 'Password', 
+        columns: ['Barangay', 'Email', 
             {
                 name: 'Action',
-                formatter: (_, row) => gridjs.html(`<a href="/patients/dashboard?user=${row.cells[0].data}" class="text-color">Visit</a>`)
+                formatter: (_, row) => gridjs.html(`<a href="/barangay/dashboard?user=${row.cells[0].data}" class="text-color">Visit</a>`)
             }
         ],
         search: {

@@ -99,3 +99,7 @@ Route::get('/admin/municipal/profile', [RedirectController::class, 'redirectToAd
 // Route::get('admin/municipal/profile', [UserController::class, 'adminMunicipalProfile']);
 
 Route::get('/get/users/list/table',[FetchController::class, 'getUsersListTable']);
+
+Route::get('/forgot/password', [RedirectController::class, 'redirectToForgotPasswordPage']);
+
+Route::post('/forgot/password/process', [FetchController::class, 'getForgotPassword']);

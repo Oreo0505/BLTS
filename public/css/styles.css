@@ -2468,5 +2468,12 @@ video {
 
   .text-color {
     color: rgb(107, 139, 244);
+  } 
+
+  .user-count-list .overflow-y-auto {
+    max-height: 16rem; /* Adjust the height as needed */
+    overflow-y: auto;
 }
+
+
 }
