@@ -2,6 +2,16 @@
 
 @section('content')
 
+    <script type="text/javascript"> 
+        function preventBack() { 
+            window.history.forward();  
+        } 
+
+        setTimeout("preventBack()", 0); 
+
+        window.onunload = function () {null}; 
+    </script> 
+
     {{-- About Page link --}}
     <a href="/about">
         <img src="{{ asset('/images/help.svg') }}" alt="" class="absolute top-16 right-0 z-50 h-8 w-8">

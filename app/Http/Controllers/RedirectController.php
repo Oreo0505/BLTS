@@ -73,6 +73,7 @@ class RedirectController extends Controller
     
     public function redirectToLoginPage(){
         if(Auth::check()){
+            flash()->addError('Please logout first');
             return redirect('/');
         }
         return view('login');
@@ -125,7 +126,7 @@ class RedirectController extends Controller
     
     public function redirectToSetupPage(){
         if (Auth::check()) {
-            flash()->addError('Registration Successful!');
+            flash()->addError('You are already registered!');
             return redirect('/');
         }
         return view('setup');
