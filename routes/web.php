@@ -38,6 +38,8 @@ Route::post('/update', [UpdateController::class, 'updateDocument']);
 
 Route::post('/update/logo', [UpdateController::class, 'updateLogo']);
 
+Route::post('/update/logo/admin', [UpdateController::class, 'updateLogoAdmin']);
+
 Route::get('/download/{file_name}', [DownloadController::class, 'download']);
 
 Route::get('/setup', [RedirectController::class, 'redirectToSetupPage']);
@@ -105,3 +107,7 @@ Route::get('/forgot/password', [RedirectController::class, 'redirectToForgotPass
 Route::post('/forgot/password/process', [FetchController::class, 'getForgotPassword']);
 
 Route::post('/admin/municipal/profile/update', [UpdateController::class, 'updateAdminMunicipalProfile']);
+
+Route::get('/admin/forgot/password', [RedirectController::class, 'redirectToAdminForgotPasswordPage']);
+
+Route::post('/admin/forgot/password/process', [LoginController::class, 'getAdminForgotPassword']);

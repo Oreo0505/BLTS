@@ -1512,6 +1512,33 @@ video {
   background-image: url('/images/jepthe.png');
 }
 
+.bg-\[url\(\'\/images\/aubrey\.png\'\)\] {
+  background-image: url('/images/aubrey.png');
+}
+
+.bg-\[url\(\'\/images\/rylene\.png\'\)\] {
+  background-image: url('/images/rylene.png');
+}
+
+.bg-\[url\(\'\/images\/vea\.png\'\)\] {
+  background-image: url('/images/vea.png');
+}
+
+.bg-\[url\(\'\/images\/trixia\.png\'\)\] {
+  background-image: url('/images/trixia.png');
+}
+
+.bg-\[url\(\'\/images\/tin\.png\'\)\] {
+  background-image: url('/images/tin.png');
+}
+
+.bg-\[url\(\'\/images\/adrian\.png\'\)\] {
+  background-image: url('/images/adrian.png');
+}
+
+
+
+
 .bg-gradient-215 {
   background-image: linear-gradient(215deg, var(--tw-gradient-stops));
 }

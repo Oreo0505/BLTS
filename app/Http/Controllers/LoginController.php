@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Request;
 use App\Models\Author;
 use App\Models\Document;
@@ -10,6 +11,7 @@ use App\Models\Config;
 use App\Models\User;
 use App\Traits\Report;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 
 class LoginController extends Controller
 {
@@ -80,41 +82,52 @@ class LoginController extends Controller
     // }
 
     public function loginAdmin(Request $request)
-    {
-        // Retrieve email and password from the request
-        $email = $request->input('email');
-        $password = $request->input('password');
-    
-        // Create credentials array
-        $credentials = [
-            'email' => $email,
-            'password' => $password,
-        ];
-    
-        // Attempt to authenticate the user
-        if (Auth::attempt($credentials)) {
-            // Regenerate session to prevent session fixation attacks
-            $request->session()->regenerate();
-    
-            // Get the authenticated user
-            $user = Auth::user();
-    
-            // Determine the user count based on the user's municipality
-            // $user_count = User::where('municipality', $user->municipality)->whereNotNull('barangay')->where('barangay', '!=', '')->count();
-          
-            // Flash a success message
-            flash()->addSuccess('Login Successfully');
-            
-            return redirect('/admin/municipal');
-        
-        } else {
+{
+    // Retrieve email and password from the request
+    $email = $request->input('email');
+    $password = $request->input('password');
+
+    // Create credentials array
+    $credentials = [
+        'email' => $email,
+        'password' => $password,
+    ];
+
+    // Attempt to authenticate the user
+    if (Auth::attempt($credentials)) {
+        // Get the authenticated user
+        $user = Auth::user();
+
+
+        // Check if the user's id is between 1 and 6
+        if ($user->id < 1 || $user->id > 6) {
+            // Log the user out since the id is not in the range of 1-6
+            Auth::logout();
+
             // Flash an error message
-            flash()->addError('Your Credentials do not match our records.');
-    
+            flash()->addError('You do not have permission to log in.');
+
             // Redirect back to the login form
             return back();
         }
+
+        // Regenerate session to prevent session fixation attacks
+        $request->session()->regenerate();
+
+        // Flash a success message
+        flash()->addSuccess('Login Successfully');
+        
+        return redirect('/admin/municipal');
+    } else {
+        // Flash an error message
+        flash()->addError('Your credentials do not match our records.');
+
+        // Redirect back to the login form
+        return back();
     }
+}
+
+    
     
 
     // public function loginAdmin(){
@@ -156,5 +169,50 @@ class LoginController extends Controller
         flash()->addSuccess('Logout successfully');
         return redirect('/');
     }
+
+    public function getAdminForgotPassword(Request $request) {
+        // Validate the request
+        $validator = Validator::make($request->all(), [
+            'email' => 'required|email|exists:users,email',
+            'password' => 'required|min:5|confirmed',
+        ], [
+            'email.required' => 'Email is required',
+            'email.email' => 'Invalid email format',
+            'email.exists' => 'Email does not exist',
+            'password.required' => 'Password is required',
+            'password.min' => 'Password should contain at least 5 characters',
+            'password.confirmed' => 'Password confirmation does not match'
+        ]);
+    
+        if ($validator->fails()) {
+            return back()->withErrors($validator)->withInput();
+        }
+    
+        // Find the user by email
+        $user = User::where('email', $request->email)->first();
+    
+        if ($user) {
+            if (strlen($request->password) < 5) {
+                flash()->addError('Password should contain at least 5 characters');
+                return back()->withInput();
+            }
+            if (empty($request->email) || empty($request->password)) {
+                flash()->addError('All fields are required');
+                return back()->withInput();
+            }
+    
+            // Update the user's password
+            $user->password = Hash::make($request->password);
+            $user->save();
+            flash()->addSuccess('Password changed successfully');
+           
+        } else {
+            flash()->addError('User not found');
+            return back()->withInput();
+        }
+    
+        return back();
+    }
+    
         
 }

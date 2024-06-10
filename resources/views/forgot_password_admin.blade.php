@@ -37,7 +37,7 @@
             </p>
             <p class="font-sans font-semibold text-xl leading-6 text-[#2D2D2D]">Enter The Needed Credentials</p>
             <img src="{{ asset('/images/logo.svg') }}" alt="" class="mx-auto mt-20 h-24">
-            <form action="/forgot/password/process" id="form" method="POST" enctype="multipart/form-data" class="items-center">
+            <form action="/admin/forgot/password/process" id="form" method="POST" enctype="multipart/form-data" class="items-center">
                 @csrf
                 <div class="flex flex-col mx-auto justify-center w-80 h-80 mt-16 md:space-y-5 items-center border border-gray-400 rounded-lg ">
                     <div class="flex flex-col relative mt-3">
@@ -69,6 +69,6 @@
         </div>
     </div>
 
-    <script src="{{ asset('/js/forgot_password.js') }}"></script>
+    <script src="{{ asset('/js/forgot_password_admin.js') }}"></script>
 
 @endsection

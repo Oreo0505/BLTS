@@ -46,44 +46,33 @@ class RedirectController extends Controller
         
         
     // }
-
     public function redirectToMunicipalAdmin(Request $request)
     {
-        // Check if the user is authenticated
         if (!Auth::check()) {
-            return redirect('/admin'); // or any other route you want to redirect unauthenticated users to
+            return redirect('/admin'); 
         }
     
         $user = Auth::user();
         $municipality = $user->municipality;
+        $logo = $user->logo;  // Ensure logo is fetched from the user
     
-        // Count the users with the same municipality and non-null, non-empty barangay
         $user_count = User::where('municipality', $municipality)
             ->whereNotNull('barangay')
             ->where('barangay', '!=', '')
             ->count();
     
-        // Get the resolution counts made by users in the same municipality
         $resolution_counts = Document::whereHas('user', function($query) use ($municipality) {
             $query->where('municipality', $municipality);
-        })
-            ->where('type', 'Resolution')
-            ->count();
+        })->where('type', 'Resolution')->count();
     
         $ordinance_counts = Document::whereHas('user', function($query) use ($municipality) {
             $query->where('municipality', $municipality);
-        })
-            ->where('type', 'Ordinance')
-            ->count();
+        })->where('type', 'Ordinance')->count();
     
         $code_of_ordinance_counts = Document::whereHas('user', function($query) use ($municipality) {
             $query->where('municipality', $municipality);
-        })
-            ->where('type', 'Code of Ordinance')
-            ->count();
-
+        })->where('type', 'Code of Ordinance')->count();
     
-        // Get the list of distinct barangays for the users with the same municipality
         $registered_barangays = User::where('municipality', $municipality)
             ->whereNotNull('barangay')
             ->where('barangay', '!=', '')
@@ -91,10 +80,6 @@ class RedirectController extends Controller
             ->pluck('barangay')
             ->sort();
     
-        // Return the view for authenticated users
-
-
-
         return view('municipal_admin', [
             'user_count' => $user_count,
             'municipality' => $municipality,
@@ -103,10 +88,10 @@ class RedirectController extends Controller
             'code_of_ordinance_counts' => $code_of_ordinance_counts,
             'registered_barangays' => $registered_barangays,
             'user' => $user,
+            'logo' => $logo  // Ensure logo is passed to the view
         ]);
     }
-
-
+       
     
     public function redirectToLoginAdmin(){
         return view ('admin_login');
@@ -340,7 +325,8 @@ class RedirectController extends Controller
         return view('users_list', [
             'municipality' => $municipality,
             'barangay_count' => $barangay_count,
-            'registered_barangays' => $registered_barangays
+            'registered_barangays' => $registered_barangays,
+            'logo' => $user->logo
         ]);
     }
     
@@ -362,6 +348,14 @@ class RedirectController extends Controller
             'password' => $password,
             'logo' => $user->logo
         ]);
+    }
+
+    public function redirectToForgotPasswordPage(){
+        return view ('forgot_password_admin');
+    }
+
+    public function redirectToAdminForgotPasswordPage(){
+        return view ('forgot_password_admin');
     }
    
 }
