@@ -196,51 +196,77 @@ class UpdateController extends Controller
     }
 
     public function updateLogo(Request $request){
+        // Get the currently authenticated user
         $user = Auth::user();
+        
+        // Validate the incoming request
         $validator = Validator::make($request->all(),[
             'logo' => 'required|mimes:jpg,bmp,png,svg',
-        ],
-        [
+        ], [
             'logo.required' => 'Logo file is required',
             'logo.mimes' => 'File must be a valid image file'
         ]);
+        
+        // If validation fails, add error messages and return back with input
         if($validator->fails()){
             foreach($validator->messages()->all() as $message){
                 flash()->addError($message);
             }
             return back()->withInput();
         }
-
+        
+        // Upload the logo file and get the path
         $path = $this->UploadFile($request->file('logo'), 'logo', 'Profile', 'public');
+        
+        // Update the logo path for the authenticated user
         $user->logo = $path;
+        
+        // Save the user's updated information
         $user->save();
+        
+        // Add a success message
         flash()->addSuccess('Logo successfully updated!');
+        
+        // Return back to the previous page
         return back();
     }
-
+    
     public function updateLogoAdmin(Request $request){
+        // Get the currently authenticated user
         $user = Auth::user();
-        $validator = Validator::make($request->all(),[
+        
+        // Validate the incoming request
+        $validator = Validator::make($request->all(), [
             'logo' => 'required|mimes:jpg,bmp,png,svg',
-        ],
-        [
+        ], [
             'logo.required' => 'Logo file is required',
             'logo.mimes' => 'File must be a valid image file'
         ]);
-        if($validator->fails()){
-            foreach($validator->messages()->all() as $message){
+        
+        // If validation fails, add error messages and return back with input
+        if ($validator->fails()) {
+            foreach ($validator->messages()->all() as $message) {
                 flash()->addError($message);
             }
             return back()->withInput();
         }
-
+        
+        // Upload the logo file and get the path
         $path = $this->UploadFile($request->file('logo'), 'logo', 'Profile', 'public');
+        
+        // Update the logo path for the authenticated user only
         $user->logo = $path;
+        
+        // Save the user's updated information
         $user->save();
+        
+        // Add a success message
         flash()->addSuccess('Logo successfully updated!');
+        
+        // Return back to the previous page
         return back();
     }
-
+    
 
     public function updateAdminMunicipalProfile(Request $request)
     {
@@ -290,7 +316,7 @@ class UpdateController extends Controller
         // Flash success message
         flash()->addSuccess('Profile Successfully Updated!');
         return back();
-        }
+    }
 
             
     

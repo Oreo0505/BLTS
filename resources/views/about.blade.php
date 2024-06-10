@@ -138,7 +138,7 @@
             <section id="authors-version_2" class="section hidden ">
                 <div class="flex flex-row justify-none space-x-8 px-5 pt-14 pb-10 w-screen overflow-x-scroll md:justify-center">
                     <div class="flex flex-col w-[270px] h-[410px] rounded-lg border drop-shadow-md bg-white z-20 md:h-[450px]">
-                        <div class="flex h-[250px] bg-[url('/images/aubrey1.png')] bg-top bg-cover rounded-t-lg"></div>
+                        <div class="flex h-[250px] bg-[url('/images/aubrey.png')] bg-top bg-cover rounded-t-lg"></div>
                         <p class="mt-4 px-2 font-roboto font-bold text-xl leading-8 text-center text-[#4B4B4B] uppercase">
                             AUBREY M. JABAL
                         </p>
@@ -165,7 +165,7 @@
                         </div> 
                     </div>
                     <div class="flex flex-col w-[270px] h-[410px] rounded-lg border drop-shadow-md bg-white z-20 md:h-[450px]">
-                        <div class="flex h-[250px] bg-[url('/images/sunoo.png')] bg-top bg-cover rounded-t-lg"></div>
+                        <div class="flex h-[250px] bg-[url('/images/rylene.png')] bg-top bg-cover rounded-t-lg"></div>
                         <p class="mt-4 px-2 font-roboto font-bold text-xl leading-8 text-center text-[#4B4B4B] uppercase">
                         RYLENE GRACE L. SACRO
                         </p>
@@ -192,9 +192,9 @@
                         </div> 
                     </div>
                     <div class="flex flex-col w-[270px] h-[410px] rounded-lg border drop-shadow-md bg-white z-20 md:h-[450px]">
-                        <div class="flex h-[250px] bg-[url('/images/sunoo.png')] bg-top rounded-t-lg"></div>
-                        <p class="mt-4 px-2 font-roboto font-bold text-xl leading-8 text-center text-[#4B4B4B] uppercase">
-                            MA. CHRISTINE JOY S. FRANK
+                        <div class="flex h-[250px] bg-[url('/images/tin.png')] bg-top bg-cover rounded-t-lg"></div>
+                        <p class="mt-4 px-2 font-roboto font-bold text-lg leading-8 text-center text-[#4B4B4B] uppercase">
+                        MA. CHRISTINE JOY S. FRANK
                         </p>
                         <p class="font-sans font-normal text-xs leading-5 text-center text-[#707070]">
                             BSCpE Intern, MSC
@@ -202,27 +202,27 @@
                         <div class="flex flex-row items-center justify-start space-x-1 pr-1 mt-6 ml-3 md:ml-6">
                             <img src="{{ asset('/images/location.svg') }}" alt="" class="flex h-[13px]">
                             <p class="flex font-sans font-normal text-xs leading-5 text-[#707070] truncate">
-                                Bacongbacong, Gasan, Marinduque
+                            Bacongbacong, Gasan, Marinduque
                             </p>
                         </div>
                         <div class="flex flex-row items-center justify-start space-x-1 pr-1 mt-1.5 ml-3 md:ml-6">
                             <img src="{{ asset('/images/phone.svg') }}" alt="" class="flex h-[13px]">
                             <p class="flex font-sans font-normal text-xs leading-5 text-[#707070] truncate">
-                                0927-740-7949
+                            0927-740-7949
                             </p>
                         </div>
                         <div class="flex flex-row items-center justify-start space-x-1 pr-1 mt-1.5 ml-3 md:ml-6 mb-5">
                             <img src="{{ asset('/images/email.svg') }}" alt="" class="flex h-[13px]">
                             <p class="flex font-sans font-normal text-xs leading-5 text-[#707070] truncate">
-                                christinefrank03@gmail.com
+                            christinefrank03@gmail.com
                             </p>
-                        </div>
+                        </div> 
                     </div>
                 </div>
 
                 <div class="flex flex-row justify-none space-x-8 px-5 pt-14 pb-10 w-screen overflow-x-scroll md:justify-center">
                     <div class="flex flex-col w-[270px] h-[410px] rounded-lg border drop-shadow-md bg-white z-20 md:h-[450px]">
-                        <div class="flex h-[250px] bg-[url('/images/sunoo.png')] bg-top bg-cover rounded-t-lg"></div>
+                        <div class="flex h-[250px] bg-[url('/images/adrian.png')] bg-top bg-cover rounded-t-lg"></div>
                         <p class="mt-4 px-2 font-roboto font-bold text-xl leading-8 text-center text-[#4B4B4B] uppercase">
                             ADRIAN O. VILLARUEL
                         </p>
@@ -250,7 +250,7 @@
                         </div> 
                     </div>
                     <div class="flex flex-col w-[270px] h-[410px] rounded-lg border drop-shadow-md bg-white z-20 md:h-[450px]">
-                        <div class="flex h-[250px] bg-[url('/images/sunoo.png')] bg-top bg-cover rounded-t-lg"></div>
+                        <div class="flex h-[250px] bg-[url('/images/trixia.png')] bg-top bg-cover rounded-t-lg"></div>
                         <p class="mt-4 px-2 font-roboto font-bold text-xl leading-8 text-center text-[#4B4B4B] uppercase">
                             TRIXIA G. HISTORILLO
                         </p>
@@ -277,7 +277,7 @@
                         </div> 
                     </div>
                     <div class="flex flex-col w-[270px] h-[410px] rounded-lg border drop-shadow-md bg-white z-20 md:h-[450px]">
-                        <div class="flex h-[250px] bg-[url('/images/sunoo.png')] bg-top rounded-t-lg"></div>
+                        <div class="flex h-[250px] bg-[url('/images/vea.png')] bg-top rounded-t-lg"></div>
                         <p class="mt-4 px-2 font-roboto font-bold text-xl leading-8 text-center text-[#4B4B4B] uppercase">
                             REENA VEA MENDOZA
                         </p>
