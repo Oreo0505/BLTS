@@ -2,7 +2,7 @@
 
 @section('content')
 {{-- Category Drawer --}}
-     <x-drawer_admin :municipality="$municipality"/>
+     <x-drawer_admin :municipality="$municipality" :logo="$logo"/>
      
      {{-- Navigation Bar --}}
     <x-navbar_admin :municipality="$municipality"/>

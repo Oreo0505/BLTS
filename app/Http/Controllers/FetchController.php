@@ -154,31 +154,34 @@ class FetchController extends Controller
         ]);
     }
 
-    public function getForgotPassword(Request $request){
+    public function getForgotPassword(Request $request) {
         // Validate the request
         $validator = Validator::make($request->all(), [
-        'email' => 'required|email|exists:users,email',
-        'password' => 'required|min:8|confirmed',
+            'email' => 'required|email|exists:users,email',
+            'password' => 'required|min:5|confirmed',
         ]);
-
-      
+    
         if ($validator->fails()) {
             return back()->withErrors($validator)->withInput();
         }
-
+        
+    
         // Find the user by email
         $user = User::where('email', $request->email)->first();
-
+    
         if ($user) {
             // Update the user's password
             $user->password = Hash::make($request->password);
             $user->save();
-
-            return redirect('/login')->with('status', 'Password changed successfully.');
+    
+            flash()->addSuccess('Password changed successfully');
+            return redirect('/login');
         }
-
-        return back()->with('error', 'User not found.');
+      
+    
+        
     }
+    
     
     
     

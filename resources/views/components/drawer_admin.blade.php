@@ -8,16 +8,19 @@
                 </svg>                
                 <p class="text-sm font-medium text-[#90CAF9] font-sans cursor-pointer group-hover:text-white/70">CLOSE</p>
             </div>
+            <div class="flex flex-col items-center justify-center mt-9 -mb-8">
+                <img src="{{ $logo ? asset('/storage'.'/'.$logo) : asset('/images/default_logo.svg')}}" alt="Barangay Logo" class="h-36">
+            </div>
+            
             <div class="flex flex-col items-center justify-center mt-10">
                 <p class="font-sans font-normal text-lg leading-9 tracking-wide text-white italic -translate-y-3">{{ $municipality }}, Marinduque</p>
                 <a href="/admin/municipal/profile" class="font-sans font-semibold text-base leading-6 tracking-[0.4px] text-[#90CAF9] uppercase">VIEW ACCOUNT</a>
             </div>
-            
+
             <div class="flex flex-row h-12 justify-start items-center space-x-2 py-4">
                 <img src="{{ asset('/images/folder.svg') }}" alt="" class="h-4 w-4">
                 <p class="font-sans text-sm font-base text-[#90CAF9]">Administration Year</p>
             </div>
-
         </div>
         <a href="/admin/municipal/users/list">
             <div class="group flex flex-row p-2 space-x-5">                                      
