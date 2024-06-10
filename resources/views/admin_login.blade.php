@@ -23,7 +23,7 @@
                 </a>
             </div>
             <p class="font-sans font-extralight text-white text-base mt-16 md:mt-28">
-                Barangay Legislative Tracking System (BLTS) is an offline repository platform for archiving Barangay Legislative Records. Barangay Secretary uploads code of ordinances, ordinances, resolutions and others.
+                Barangay Legislative Tracking System (BLTS) is an online repository platform for archiving Barangay Legislative Records. Barangay Secretary uploads code of ordinances, ordinances, resolutions and others.
             </p>
             <p class="font-sans font-normal text-white text-lg tracking-[3px] mt-8 md:mt-80">a project by</p>
             <p class="font-sans font-bold text-3xl text-white mt-10">ONE MARINDUQUE</p>
@@ -59,6 +59,8 @@
                         Login
                     </button>
                 </div>
+                <a href="/admin/forgot/password" class="flex  font-roboto text-blue-500 hover:text-blue-700 text-sm md:text-base items-center justify-center underline mt-2">Forgot Password?</a>
+                
                 
             </form>
             

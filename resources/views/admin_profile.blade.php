@@ -9,7 +9,7 @@
     <img src="{{ asset('/images/accent-1.svg') }}" alt="" class="absolute -z-10 top-12 right-0">
 
     {{-- Category Drawer --}}
-    <x-drawer_admin :municipality="$municipality"/>
+    <x-drawer_admin :municipality="$municipality" :logo="$logo"/>
 
     <div class="flex flex-row relative justify-end items-center space-x-2 px-4 z-10 mr-4 mt-4">
         <img id="cancel-profile-button" src="{{ asset('/images/cancel-changes.svg') }}" alt="Cancel Changes" title="Cancel Changes" class="hidden translate-y-1 h-6 cursor-pointer scale-125 hover:scale-150">
@@ -22,7 +22,7 @@
             <img src="{{ $logo ? asset('/storage'.'/'.$logo) : asset('/images/default_logo.svg')}}" alt="" class="h-36 w-36 group-hover:brightness-50">
             <img src="{{ asset('/images/camera.svg') }}" alt="Update Logo" title="Update Logo" class="invisible h-4 absolute relative -top-24 group-hover:visible">
             <p class="invisible absolute relative -top-20 rounded-md font-sans text-sm font-bold text-center text-white tracking-widest uppercase group-hover:visible">Update</p>
-            <form action="/update/logo" method="POST" id="update-logo-form" enctype="multipart/form-data" class="hidden">
+            <form action="/update/logo/admin" method="POST" id="update-logo-form" enctype="multipart/form-data" class="hidden">
                 @csrf
                 <input type="file" id="update-logo-file" name="logo" accept="image/*" class="hidden">
             </form>
