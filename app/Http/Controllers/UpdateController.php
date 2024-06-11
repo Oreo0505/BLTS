@@ -196,10 +196,8 @@ class UpdateController extends Controller
     }
 
     public function updateLogo(Request $request){
-        // Get the currently authenticated user
         $user = Auth::user();
         
-        // Validate the incoming request
         $validator = Validator::make($request->all(),[
             'logo' => 'required|mimes:jpg,bmp,png,svg',
         ], [
@@ -207,35 +205,28 @@ class UpdateController extends Controller
             'logo.mimes' => 'File must be a valid image file'
         ]);
         
-        // If validation fails, add error messages and return back with input
         if($validator->fails()){
             foreach($validator->messages()->all() as $message){
                 flash()->addError($message);
             }
             return back()->withInput();
         }
+    
+        $path = $this->UploadFile($request->file('logo'), 'logo', 'Profile/users', 'public');
         
-        // Upload the logo file and get the path
-        $path = $this->UploadFile($request->file('logo'), 'logo', 'Profile', 'public');
-        
-        // Update the logo path for the authenticated user
         $user->logo = $path;
         
-        // Save the user's updated information
         $user->save();
         
-        // Add a success message
         flash()->addSuccess('Logo successfully updated!');
         
-        // Return back to the previous page
         return back();
     }
     
+    
     public function updateLogoAdmin(Request $request){
-        // Get the currently authenticated user
         $user = Auth::user();
         
-        // Validate the incoming request
         $validator = Validator::make($request->all(), [
             'logo' => 'required|mimes:jpg,bmp,png,svg',
         ], [
@@ -243,48 +234,40 @@ class UpdateController extends Controller
             'logo.mimes' => 'File must be a valid image file'
         ]);
         
-        // If validation fails, add error messages and return back with input
         if ($validator->fails()) {
             foreach ($validator->messages()->all() as $message) {
                 flash()->addError($message);
             }
             return back()->withInput();
         }
+    
+        $path = $this->UploadFile($request->file('logo'), 'logo', 'Profile/admin', 'public');
         
-        // Upload the logo file and get the path
-        $path = $this->UploadFile($request->file('logo'), 'logo', 'Profile', 'public');
-        
-        // Update the logo path for the authenticated user only
         $user->logo = $path;
         
-        // Save the user's updated information
         $user->save();
         
-        // Add a success message
         flash()->addSuccess('Logo successfully updated!');
         
-        // Return back to the previous page
         return back();
     }
+    
     
 
     public function updateAdminMunicipalProfile(Request $request)
     {
-        // Get the authenticated user
         $user = Auth::user();
 
-        // Define validation rules
         $validator = Validator::make($request->all(), [
             'email' => 'required|email|unique:users,email,' . $user->id,
             'password' => 'nullable|min:5',
-            'logo' => 'nullable|mimes:jpg,bmp,png,svg|max:2048', // Max file size of 2MB
+            'logo' => 'nullable|mimes:jpg,bmp,png,svg',
         ], [
             'email.required' => 'Email is required',
             'email.email' => 'Please enter a valid email address',
             'email.unique' => 'This email address is already taken',
             'password.min' => 'Password must be at least 5 characters long',
             'logo.mimes' => 'File must be a valid image file (jpg, bmp, png, svg)',
-            'logo.max' => 'Logo file size must be less than 2MB',
         ]);
 
         if ($validator->fails()) {
@@ -294,30 +277,24 @@ class UpdateController extends Controller
             return back()->withInput();
         }
 
-        // Update email if it has changed
         if ($user->email != $request->email) {
             $user->email = $request->email;
         }
 
-        // Update password if it is provided and has changed
         if (!empty($request->password) && !Hash::check($request->password, $user->password)) {
-            $user->password = bcrypt($request->password); // Hash the new password before saving
+            $user->password = bcrypt($request->password); 
         }
 
-        // Handle the logo file upload
         if ($request->hasFile('logo')) {
-            $path = $request->file('logo')->store('Profile/logos', 'public');
+            $path = $this->UploadFile($request->file('logo'), 'logo', 'Profile/admin', 'public');
             $user->logo = $path;
         }
 
-        // Save the updated user data
         $user->save();
 
-        // Flash success message
         flash()->addSuccess('Profile Successfully Updated!');
         return back();
     }
 
-            
-    
+
 }
