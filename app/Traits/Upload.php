@@ -2,23 +2,19 @@
 
 namespace App\Traits;
 
-use Illuminate\Support\Str;
-use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Http\UploadedFile;
 
 trait Upload
 {
-    public function UploadFile(UploadedFile $file, $filename, $folder, $disk = 'public')
+    public function UploadFile(UploadedFile $file, $prefix, $directory, $disk)
     {
-        return $file->storeAs(
-            $folder,
-            $filename . "." . $file->getClientOriginalExtension(),
-            $disk
-        );
+        $fileName = $prefix . '_' . time() . '.' . $file->getClientOriginalExtension();
+        return $file->storeAs($directory, $fileName, $disk);
     }
 
-    public function deleteFile($path, $disk = 'public')
+    public function deleteFile($filePath)
     {
-        Storage::disk($disk)->delete($path);
+        Storage::disk('public')->delete($filePath);
     }
 }
