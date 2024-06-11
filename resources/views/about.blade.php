@@ -3,7 +3,7 @@
 @section('content')
 
     <div id="container" class="w-screen">
-        <a href="/admin/municipal">
+        <a href="/homepage">
             <svg id="home" width="26" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg" class="fixed top-4 left-4 h-10 w-10 fill-white p-2 rounded-full hover:bg-gray-500">
                 <mask id="mask0_772_3295" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="26" height="26">
                     <rect width="26" height="26" fill="#D9D9D9"/>
@@ -26,7 +26,7 @@
                     <br>are distinguished with which administrative term they were uploaded.
                 </p>
                 
-                <a href="/manual.pdf" target="_norefer" class="flex bg-white rounded-full mt-9 px-6 py-3 font-sans font-bold text-lg text-[#425B71] text-center">
+                <a href="/user_manual.pdf" target="_norefer" class="flex bg-white rounded-full mt-9 px-6 py-3 font-sans font-bold text-lg text-[#425B71] text-center">
                     View Documentation
                 </a>
                 <hr id="breakpoint">

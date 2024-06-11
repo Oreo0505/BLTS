@@ -26,7 +26,7 @@
                     <br>are distinguished with which administrative term they were uploaded.
                 </p>
                 
-                <a href="/manual.pdf" target="_norefer" class="flex bg-white rounded-full mt-9 px-6 py-3 font-sans font-bold text-lg text-[#425B71] text-center">
+                <a href="/admin_manual.pdf" target="_norefer" class="flex bg-white rounded-full mt-9 px-6 py-3 font-sans font-bold text-lg text-[#425B71] text-center">
                     View Documentation
                 </a>
                 <hr id="breakpoint">
